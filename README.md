@@ -153,18 +153,18 @@ The JSONObject can look like this:
     "invite": "https://discordapp.com/oauth2/authorize?client_id=123456789012345678&scope=bot",
     "list_data": {
         "botlist.space": [
-            <data>,
+            {data},
             200
         ],
         "lbots.org": [
-            <data>,
+            {data},
             404
         ]
     }
 }
 ```
 
-`<data>` is the JSON that is returned by the provided Botlist meaning it's different for each site.
+`{data}` is the JSON that is returned by the provided Botlist meaning it's different for each site.
 `name`, `owners`, `server_count` and `invite` is based on the most common appearances of the data.
 
 ### Botinfo from all Botlists
@@ -174,16 +174,16 @@ The returned JSONObject can look like this:
 ```json
 {
     "botlist.space": [
-        <data>,
+        {data},
         200
     ],
     "lbots.org": [
-        <data>,
+        {data},
         404
     ]
 }
 ```
-`<data>` is the JSON that is returned by the provided Botlist meaning it's different for each site.
+`{data}` is the JSON that is returned by the provided Botlist meaning it's different for each site.
 
 ### Botinfo of a single site
 With `.getBotInfo(..., String)` can you receive the info of a specific site.
@@ -191,7 +191,7 @@ The returned data depends on the selected site and can be different for each one
 
 ### Owners
 You can call `.getOwners(...)` to get the owners of a Bot from all the Botlists.
-The info is returned as JSONArray and is based on how often the info is provided by the botlists.
+The info is returned as ArrayList and is based on how often the info is provided by the botlists.
 
 ## Exceptions
 When you post the guild counts you could encounter certain Exceptions.  
