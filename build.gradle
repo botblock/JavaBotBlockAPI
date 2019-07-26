@@ -1,0 +1,74 @@
+plugins{
+    id 'com.jfrog.bintray' version '1.8.4'
+    id 'java-library'
+    id 'idea'
+    id 'maven-publish'
+    id 'maven'
+}
+
+group = 'com.andre601'
+version = '1.1.0'
+
+sourceCompatibility = 1.8
+
+jar{
+    baseName = 'JavaBotBlockAPI'
+}
+
+repositories{
+    mavenCentral()
+    jcenter()
+}
+
+dependencies{
+    api group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.11.0'
+    api group: 'org.json', name: 'json', version: '20180813'
+    api group: 'org.jetbrains', name: 'annotations', version: '16.0.2'
+    api(group: 'net.dv8tion', name: 'JDA', version: '4.BETA.0_23'){
+        exclude(module: 'opus-java')
+    }
+}
+
+task sourcesJar(type: Jar, dependsOn: classes){
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc){
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts{
+    archives sourcesJar
+    archives javadocJar
+}
+
+bintray{
+    user = bintrayUser
+    key = bintrayApiKey
+    publications = ['JavaBotBlockAPIRelease']
+    pkg{
+        repo = 'maven'
+        name = 'JavaBotBlockAPI'
+        licenses = ['MIT']
+        vcsUrl = 'https://github.com/Andre601/JavaBotBlockAPI'
+        version{
+            name = project.version
+            released = new Date()
+        }
+    }
+}
+
+publishing{
+    publications{
+        JavaBotBlockAPIRelease(MavenPublication){
+            from components.java
+            groupId group
+            artifactId archivesBaseName
+            version version
+            artifact javadocJar
+            artifact sourcesJar
+        }
+    }
+}
