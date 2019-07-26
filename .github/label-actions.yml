@@ -1,0 +1,50 @@
+# Configuration for Label Actions - https://github.com/dessant/label-actions
+
+# Specify actions for issues and pull requests
+actions:
+  # Actions taken when the `heated` label is added
+  "Type: Question":
+    # Post a comment
+    comment: |-
+      Hello @{issue-author},  
+      You seem to ask for support with this Wrapper.
+      Unfortunately is this issue-tracker only reserved for bug reports and feature requests.
+      
+      You can do two things to get support:
+      - Join the [Discord of Andre601](https://discord.gg/6dazXp6) and head over to the javabotblockapi channel or
+      - Join the [BotBlock.org Discord](https://botblock.org/discord) and ask Andre601 there.
+      
+      **Do not ask the Staff of BotBlock.org for any support with this Wrapper!**
+    close: true
+  "Type: Dublicate":
+    comment: |-
+      A issue with similar content already exists.
+      Please contribute to the other Issue with your bug-report/feature request.
+    close: true
+  "Result: Invalid":
+    comment: |-
+      This issue was seen as *invalid*.
+      
+      Reasons for this could be:
+      - Unrelated topic
+      - Missing information
+      - Spam or abuse of the issue-system
+      
+      If you think your issue is actually not invalid, try to add more info and make it more clear.
+    close: true
+  "Type: BotBlock issue":
+    comment: |-
+      The mentioned problem(s) and/or bug(s) are caused by the API from [BotBlock.org](https://botblock.org) and not by this Wrapper.
+      Please contact the developers of BotBlock.org on their [Discord](https://botblock.org/discord) and inform them about your issue.
+    close: true
+  "Type: JDA issue":
+    comment: |-
+      The mentioned problem(s) and/or bug(s) are caused by JDA and not by this Wrapper.
+      Please contact the developers of JDA on their [Discord](https://discord.gg/0hMr4ce0tIk3pSjp) and inform them about your issue.
+    close: true
+
+# Limit to only `issues` or `pulls`
+only: issues
+
+# Repository to extend settings from
+# _extends: repo
