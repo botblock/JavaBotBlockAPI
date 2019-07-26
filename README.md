@@ -3,7 +3,7 @@
 
 [BotBlock4J]: https://github.com/Nathan-webb/BotBlock4J
 
-[Javadocs]: https://JavaBotBlockAPI.github.io/javadocs
+[Javadocs]: https://docs.botblock.org/JavaBotBlockAPI/
 
 [BadgeDownload]: https://api.bintray.com/packages/andre601/maven/JavaBotBlockAPI/images/download.svg
 [Download]: https://bintray.com/andre601/maven/JavaBotBlockAPI/_latestVersion
