@@ -3,7 +3,6 @@
 
 [BotBlock4J]: https://github.com/Nathan-webb/BotBlock4J
 
-[Wiki]: https://github.com/Andre601/JavaBotBlockAPI/wiki
 [Javadocs]: https://Andre601.github.io/jbba-doc
 
 [BadgeDownload]: https://api.bintray.com/packages/andre601/maven/JavaBotBlockAPI/images/download.svg
@@ -208,6 +207,5 @@ Thrown when BotBlock.org sends an empty response, meaning something got messed u
 Here are some useful links:
 - [BotBlock.org][BotBlock] Site for which this wrapper was made.
   - [API] API documentation.
-- [Wiki] Contains additional information on how you can use JavaBotBlockAPI.
 - [Javadocs] Java documentation of the Wrapper.
 - [BotBlock4J] Original Wrapper from which this one originates.
