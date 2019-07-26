@@ -53,7 +53,7 @@ This will also work with ShardManager.
 You can post you guild counts to the different Botlists using the BotBlock API.
 
 ### Creating an instance of BotBlockAPI
-For posting your guild counts towards the BotBlock API you first need to create an instance of the BotBlockAPI class.
+For posting your guild counts towards the BotBlock API you first need to create an instance of the BotBlockAPI class.  
 To do this it's recommended to use `BotBlockAPI.Builder()`.
 
 Here is an example of how it could look like.
@@ -66,7 +66,7 @@ BotBlockAPI api = new BotBlockAPI.Builder()
 Remember to use `.build();` at the end to create the class.
 
 ### Auto Posting
-JavaBotBlockAPI allows you to post the guild counts automatically every X minutes.
+JavaBotBlockAPI allows you to post the guild counts automatically every X minutes.  
 To do this, you first need to get an instance of the RequestHandler and then call `.startAutoPosting(...)`.
 
 Here is an example:
@@ -82,7 +82,7 @@ The delay in which you post the guild counts is set through the `.setUpdateInter
 To cancel the auto posting just call `.stopAutoPosting();` in the RequestHandler and it should cancel the scheduler.
 
 ### Manually posting
-There are methods that allow you to post the guild counts manually.
+There are methods that allow you to post the guild counts manually.  
 To Post your guild counts, just call the `.postGuilds(..., ...)` method in the RequestHandler.
 
 ```java
@@ -123,7 +123,7 @@ The returned JSONObject could look like this:
 ```
 
 ### Single Botlist
-Calling `.getBotlist(String)` returns a specific Botlist as JSONObject.
+Calling `.getBotlist(String)` returns a specific Botlist as JSONObject.  
 For example does `.getBotlist("lbots.org")` return the following JSONObject:
 ```json
 {
@@ -164,7 +164,7 @@ The JSONObject can look like this:
 }
 ```
 
-`{"data"}` is the JSON that is returned by the provided Botlist meaning it's different for each site.
+`{"data"}` is the JSON that is returned by the provided Botlist meaning it's different for each site.  
 `name`, `owners`, `server_count` and `invite` is based on the most common appearances of the data.
 
 ### Botinfo from all Botlists
@@ -186,11 +186,11 @@ The returned JSONObject can look like this:
 `{"data"}` is the JSON that is returned by the provided Botlist meaning it's different for each site.
 
 ### Botinfo of a single site
-With `.getBotInfo(..., String)` can you receive the info of a specific site.
+With `.getBotInfo(..., String)` can you receive the info of a specific site.  
 The returned data depends on the selected site and can be different for each one.
 
 ### Owners
-You can call `.getOwners(...)` to get the owners of a Bot from all the Botlists.
+You can call `.getOwners(...)` to get the owners of a Bot from all the Botlists.  
 The info is returned as ArrayList and is based on how often the info is provided by the botlists.
 
 ## Exceptions
