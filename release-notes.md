@@ -1,3 +1,6 @@
+## v2.0.1
+- Update JDA dependency to 4.BETA.0_30
+
 ## v2.0.0
 - Added new get methods for bot and botlist infos.
 - Updated JDA version to 4
