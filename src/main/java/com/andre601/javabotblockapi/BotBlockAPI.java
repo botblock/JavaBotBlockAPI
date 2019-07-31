@@ -84,6 +84,31 @@ public class BotBlockAPI{
         public Builder(){}
 
         /**
+         * Adds the provided {@link com.andre601.javabotblockapi.Site Site name} and token to the Map.
+         * <br>Entries with the same key will be overwritten.
+         *
+         * @param  site
+         *         The {@link com.andre601.javabotblockapi.Site Site} to get the name from.
+         * @param  token
+         *         The API token from the corresponding botlist. May not be null or empty.
+         *         <br>You may receive the API token from the botlist.
+         *
+         * @throws NullPointerException
+         *         When the provided token is empty ({@code ""}).
+         *
+         * @return The Builder after the site and token were set. Useful for chaining.
+         *
+         * @since v2.1.0
+         */
+        public Builder addAuthToken(@NotNull Site site, @NotNull String token){
+            Check.notEmpty(token, "Token may not be empty.");
+
+            authTokens.put(site.getSite(), token);
+
+            return this;
+        }
+
+        /**
          * Adds the provided Site name and token to the Map.
          * <br>Entries with the same key will be overwritten.
          *
@@ -91,8 +116,8 @@ public class BotBlockAPI{
          *         The name of the site. May not be null.
          *         <br>A list of supported sites can be found <a href="https://botblock.org/api/docs#count" target="_blank">here</a>.
          * @param  token
-         *         The API token you get from the corresponding botlist. May not be null.
-         *         <br>You may receive the API-token from your botlist.
+         *         The API token from the corresponding botlist. May not be null or empty.
+         *         <br>You may receive the API token from the botlist.
          *
          * @throws NullPointerException
          *         When either the site or token are empty ({@code ""}).
