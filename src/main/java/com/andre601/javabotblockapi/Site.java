@@ -73,7 +73,11 @@ public enum Site {
     /**
      * <a href="https://wonderbotlist.com" target="_blank">wonderbotlist.com</a>
      */
-    WONDERBOTLIST_COM("wonderbotlist.com");
+    WONDERBOTLIST_COM("wonderbotlist.com"),
+    /**
+     * <a href="https://yabl.xyz" target="_blank">yabl.xyz</a>
+     */
+    YABL_XYZ("yabl.xyz");
 
     private String site;
 
