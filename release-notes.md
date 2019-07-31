@@ -10,6 +10,9 @@
 - ### v2.0.2
   - Update dependency: `JDA 4.BETA.0_30 -> 4.BETA.0_32`
 
+- ### v2.1.0
+  - Added new Site enum to have easier methods and reliable sitenames
+
 ____
 ## v1
 
