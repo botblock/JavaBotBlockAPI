@@ -13,6 +13,9 @@
 - ### v2.1.0
   - Added new Site enum to have easier methods and reliable sitenames
 
+- ### v2.1.1
+  - Added [yabl.xyz](https://yabl.xyz) to the Site
+
 ____
 ## v1
 
