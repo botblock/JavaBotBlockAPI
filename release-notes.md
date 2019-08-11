@@ -2,19 +2,27 @@
 
 - ### v2.0.0
   - Added new get methods for bot and botlist infos.
-  - Updated JDA version to 4
+  - Dependencies updated:
+    - JDA: Updated to `4.BETA.0_23`
 
 - ### v2.0.1
-  - Update dependency: `JDA 4.BETA.0_23 -> 4.BETA.0_30`
+  - Dependencies updated:
+    - JDA: `4.BETA.0_23` to `4.BETA.0_30`
 
 - ### v2.0.2
-  - Update dependency: `JDA 4.BETA.0_30 -> 4.BETA.0_32`
+  - Dependencies updated
+    - JDA: `4.BETA.0_30` to `4.BETA.0_32`
 
 - ### v2.1.0
   - Added new Site enum to have easier methods and reliable sitenames
 
 - ### v2.1.1
-  - Added [yabl.xyz](https://yabl.xyz) to the Site
+  - Sites updated:
+    - [yabl.xyz](https://yabl.xyz) added.
+
+- ### v2.2.0
+  - Dependencies updated:
+    - JDA: `4.BETA.0_32` to `4.0.0_39` (Official release of JDA v4)
 
 ____
 ## v1
