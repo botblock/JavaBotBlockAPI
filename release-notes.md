@@ -24,6 +24,10 @@
   - Dependencies updated:
     - JDA: `4.BETA.0_32` to `4.0.0_39` (Official release of JDA v4)
 
+- ### v2.2.1
+  - Dependencies updated:
+    - JDA: `4.0.0_39` to `4.0.0_40`
+
 ____
 ## v1
 
