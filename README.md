@@ -34,7 +34,7 @@ dependencies{
 ```
 
 ## Maven
-For maven use this code snipped:  
+For maven use this code snippet:
 ```xml
 <dependencies>
   <dependency>
