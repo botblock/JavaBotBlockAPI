@@ -76,6 +76,8 @@ public class RequestHandler {
      *
      * @param disableCache
      *        Boolean to set if the internal cache should be disabled. True means it gets disabled.
+     *
+     * @since v2.3.0
      */
     public RequestHandler(boolean disableCache){
         this.disableCache = disableCache;
@@ -124,6 +126,11 @@ public class RequestHandler {
      *         The instance of {@link net.dv8tion.jda.api.JDA JDA} to use.
      *
      * @return possibly-null JSONObject containing the bots information.
+     *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
      *
      * @since  v2.0.0
      */
@@ -176,6 +183,11 @@ public class RequestHandler {
      *
      * @return possibly-null JSONObject containing the bots information.
      *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
+     *
      * @since  v2.0.0
      */
     @Nullable
@@ -226,6 +238,11 @@ public class RequestHandler {
      *         The instance of {@link net.dv8tion.jda.api.sharding.ShardManager ShardManager} to use.
      *
      * @return possibly-null JSONObject containing the bots information.
+     *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
      *
      * @since  v2.0.0
      */
@@ -279,6 +296,11 @@ public class RequestHandler {
      *
      * @return possibly-null JSONObject containing the bots information.
      *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
+     *
      * @since  v2.0.0
      */
     @Nullable
@@ -315,6 +337,11 @@ public class RequestHandler {
      *
      * @return possibly-null JSONArray containing the bot information of a specific site.
      *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
+     *
      * @since  v2.1.0
      */
     @Nullable
@@ -342,6 +369,11 @@ public class RequestHandler {
      *
      * @return possibly-null JSONArray containing the bot information of a specific site.
      *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
+     *
      * @since  v2.0.0
      */
     @Nullable
@@ -367,6 +399,11 @@ public class RequestHandler {
      *         The {@link com.andre601.javabotblockapi.Site site} to get information from.
      *
      * @return possibly-null JSONArray containing the bot information of a specific site.
+     *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
      *
      * @since  v2.1.0
      */
@@ -395,6 +432,11 @@ public class RequestHandler {
      *
      * @return possibly-null JSONArray containing the bot information of a specific site.
      *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
+     *
      * @since  v2.0.0
      */
     @Nullable
@@ -420,6 +462,11 @@ public class RequestHandler {
      *         The {@link com.andre601.javabotblockapi.Site site} to get information from.
      *
      * @return possibly-null JSONArray containing the bot information of a specific site.
+     *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
      *
      * @since  v2.1.0
      */
@@ -450,6 +497,11 @@ public class RequestHandler {
      *
      * @return possibly-null JSONArray containing the bot information of a specific site.
      *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
+     *
      * @since  v2.0.0
      */
     @Nullable
@@ -478,6 +530,11 @@ public class RequestHandler {
      *
      * @return possibly-null JSONArray containing the bot information of a specific site.
      *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
+     *
      * @since  v2.1.0
      */
     @Nullable
@@ -504,6 +561,11 @@ public class RequestHandler {
      *         <br>A list of supported sites can be found <a href="https://botblock.org/api/docs#count" target="_blank">here</a>.
      *
      * @return possibly-null JSONArray containing the bot lists bot information.
+     *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
      *
      * @since  v2.0.0
      */
@@ -535,6 +597,11 @@ public class RequestHandler {
      *
      * @return Possibly-null JSONObject containing the bot lists and their information about the bot.
      *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
+     *
      * @since  v2.0.0
      */
     @Nullable
@@ -565,6 +632,11 @@ public class RequestHandler {
      *
      * @return Possibly-null JSONObject containing the bot lists and their information about the bot.
      *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
+     *
      * @since  v2.0.0
      */
     @Nullable
@@ -594,6 +666,11 @@ public class RequestHandler {
      *         The {@link net.dv8tion.jda.api.sharding.ShardManager ShardManager instance} that should be used.
      *
      * @return Possibly-null JSONObject containing the bot lists and their information about the bot.
+     *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
      *
      * @since  v2.0.0
      */
@@ -626,6 +703,11 @@ public class RequestHandler {
      *
      * @return Possibly-null JSONObject containing the bot lists and their information about the bot.
      *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
+     *
      * @since  v2.0.0
      */
     @Nullable
@@ -656,6 +738,11 @@ public class RequestHandler {
      *
      * @return Possibly-null JSONObject of the specified bot list.
      *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
+     *
      * @since  v2.1.0
      */
     @Nullable
@@ -685,6 +772,11 @@ public class RequestHandler {
      *         The name of the botlist.
      *
      * @return Possibly-null JSONObject of the specified bot list.
+     *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
      *
      * @since  v2.0.0
      */
@@ -720,7 +812,15 @@ public class RequestHandler {
      * }
      * </code></pre>
      *
+     * @param  id
+     *         The bots id. This is used for the cache.
+     *
      * @return Possibly-null JSONObject of the specified bot list.
+     *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
      *
      * @since  v2.0.0
      */
@@ -747,6 +847,11 @@ public class RequestHandler {
      *
      * @return Possibly-null JSONArray with the IDs of the bot owner(s).
      *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
+     *
      * @since  v2.0.0
      */
     @Nullable
@@ -761,6 +866,11 @@ public class RequestHandler {
      *         The id of the bot.
      *
      * @return Possibly-null JSONArray with the IDs of the bot owner(s).
+     *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
      *
      * @since  v2.0.0
      */
@@ -777,6 +887,11 @@ public class RequestHandler {
      *
      * @return Possibly-null JSONArray with the IDs of the bot owner(s).
      *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
+     *
      * @since  v2.0.0
      */
     @Nullable
@@ -792,6 +907,11 @@ public class RequestHandler {
      *         The ID of the bot to get information from.
      *
      * @return Possibly-null JSONArray with the IDs of the bot owner(s).
+     *
+     * @throws IOException
+     *         When the post request couldn't be performed properly.
+     * @throws RatelimitedException
+     *         When the Bot (IP or ID) got ratelimited.
      *
      * @since  v2.0.0
      */
