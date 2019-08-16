@@ -109,7 +109,7 @@ public class RequestHandler {
      * @param  jda
      *         The instance of {@link net.dv8tion.jda.api.JDA JDA} to use.
      *
-     * @return Nullable JSONObject containing the bots information.
+     * @return possibly-null JSONObject containing the bots information.
      *
      * @since  v2.0.0
      */
@@ -160,7 +160,7 @@ public class RequestHandler {
      * @param  id
      *         The id of the bot.
      *
-     * @return Nullable JSONObject containing the bots information.
+     * @return possibly-null JSONObject containing the bots information.
      *
      * @since  v2.0.0
      */
@@ -211,7 +211,7 @@ public class RequestHandler {
      * @param  shardManager
      *         The instance of {@link net.dv8tion.jda.api.sharding.ShardManager ShardManager} to use.
      *
-     * @return Nullable JSONObject containing the bots information.
+     * @return possibly-null JSONObject containing the bots information.
      *
      * @since  v2.0.0
      */
@@ -263,7 +263,7 @@ public class RequestHandler {
      * @param  id
      *         The id of the bot.
      *
-     * @return Nullable JSONObject containing the bots information.
+     * @return possibly-null JSONObject containing the bots information.
      *
      * @since  v2.0.0
      */
@@ -296,7 +296,7 @@ public class RequestHandler {
      * @param  site
      *         The {@link com.andre601.javabotblockapi.Site site} to get information from.
      *
-     * @return Nullable JSONArray containing the bot information of a specific site.
+     * @return possibly-null JSONArray containing the bot information of a specific site.
      *
      * @since  v2.1.0
      */
@@ -323,7 +323,7 @@ public class RequestHandler {
      *         The sites name to get information from.
      *         <br>A list of supported sites can be found <a href="https://botblock.org/api/docs#count" target="_blank">here</a>.
      *
-     * @return Nullable JSONArray containing the bot information of a specific site.
+     * @return possibly-null JSONArray containing the bot information of a specific site.
      *
      * @since  v2.0.0
      */
@@ -349,7 +349,7 @@ public class RequestHandler {
      * @param  site
      *         The {@link com.andre601.javabotblockapi.Site site} to get information from.
      *
-     * @return Nullable JSONArray containing the bot information of a specific site.
+     * @return possibly-null JSONArray containing the bot information of a specific site.
      *
      * @since  v2.1.0
      */
@@ -376,7 +376,7 @@ public class RequestHandler {
      *         The sites name to get information from.
      *         <br>A list of supported sites can be found <a href="https://botblock.org/api/docs#count" target="_blank">here</a>.
      *
-     * @return Nullable JSONArray containing the bot information of a specific site.
+     * @return possibly-null JSONArray containing the bot information of a specific site.
      *
      * @since  v2.0.0
      */
@@ -402,7 +402,7 @@ public class RequestHandler {
      * @param  site
      *         The {@link com.andre601.javabotblockapi.Site site} to get information from.
      *
-     * @return Nullable JSONArray containing the bot information of a specific site.
+     * @return possibly-null JSONArray containing the bot information of a specific site.
      *
      * @since  v2.1.0
      */
@@ -431,7 +431,7 @@ public class RequestHandler {
      *         The sites name to get information from.
      *         <br>A list of supported sites can be found <a href="https://botblock.org/api/docs#count" target="_blank">here</a>.
      *
-     * @return Nullable JSONArray containing the bot information of a specific site.
+     * @return possibly-null JSONArray containing the bot information of a specific site.
      *
      * @since  v2.0.0
      */
@@ -459,7 +459,7 @@ public class RequestHandler {
      * @param  site
      *         The {@link com.andre601.javabotblockapi.Site site} to get information from.
      *
-     * @return Nullable JSONArray containing the bot information of a specific site.
+     * @return possibly-null JSONArray containing the bot information of a specific site.
      *
      * @since  v2.1.0
      */
@@ -486,7 +486,7 @@ public class RequestHandler {
      *         The sites name to get information from.
      *         <br>A list of supported sites can be found <a href="https://botblock.org/api/docs#count" target="_blank">here</a>.
      *
-     * @return Nullable JSONArray containing the bot lists bot information.
+     * @return possibly-null JSONArray containing the bot lists bot information.
      *
      * @since  v2.0.0
      */
