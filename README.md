@@ -214,7 +214,7 @@ This shouldn't be the case with auto-posting since it has a minimum delay of 1 m
 Thrown when BotBlock.org sends an empty response, meaning something got messed up on their side.
 
 # Libraries
-JavaBotBlockAPI utilizes different APIs to provide the functionality it offers right now.
+JavaBotBlockAPI utilizes different APIs to provide the functionality it offers right now.  
 We have a list of those libraries listed here.
 - [JDA] - Java library used for creating bots.
 - [OkHttp] - Library for creating and managing http requests.
