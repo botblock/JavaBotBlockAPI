@@ -54,6 +54,7 @@ public class RequestHandler {
     private final OkHttpClient CLIENT = new OkHttpClient();
 
     private final String BASE_URL = "https://botblock.org/api/";
+    private boolean disableCache;
 
     private Cache<String, JSONObject> botJsonCache = Caffeine.newBuilder()
             .expireAfterWrite(2, TimeUnit.MINUTES)
@@ -65,7 +66,20 @@ public class RequestHandler {
     /**
      * Empty constructor to get the class.
      */
-    public RequestHandler(){}
+    public RequestHandler(){
+        this.disableCache = false;
+    }
+
+    /**
+     * Constructor that also allows you to set if the cache should be disabled.
+     * <br><b>It is NOT recommended to set disableCache to true! This can have unwanted side effects like getting rate limited.</b>
+     *
+     * @param disableCache
+     *        Boolean to set if the internal cache should be disabled. True means it gets disabled.
+     */
+    public RequestHandler(boolean disableCache){
+        this.disableCache = disableCache;
+    }
 
     /**
      * Gets information from BotBlock about the provided Bot.
@@ -114,7 +128,7 @@ public class RequestHandler {
      * @since  v2.0.0
      */
     @Nullable
-    public JSONObject getAll(@NotNull JDA jda){
+    public JSONObject getAll(@NotNull JDA jda) throws IOException, RatelimitedException{
         return getAll(jda.getSelfUser().getId());
     }
 
@@ -165,7 +179,7 @@ public class RequestHandler {
      * @since  v2.0.0
      */
     @Nullable
-    public JSONObject getAll(Long id){
+    public JSONObject getAll(Long id) throws IOException, RatelimitedException{
         return getAll(Long.toString(id));
     }
 
@@ -216,7 +230,7 @@ public class RequestHandler {
      * @since  v2.0.0
      */
     @Nullable
-    public JSONObject getAll(@NotNull ShardManager shardManager){
+    public JSONObject getAll(@NotNull ShardManager shardManager) throws IOException, RatelimitedException{
         return getAll(Objects.requireNonNull(shardManager.getShardById(0), "Received invalid shard.")
                 .getSelfUser().getId());
     }
@@ -268,7 +282,10 @@ public class RequestHandler {
      * @since  v2.0.0
      */
     @Nullable
-    public JSONObject getAll(@NotNull String id){
+    public JSONObject getAll(@NotNull String id) throws IOException, RatelimitedException{
+        if(disableCache)
+            return getRequest(id);
+
         return botJsonCache.get(id, k -> {
             try {
                 return getRequest(id);
@@ -301,7 +318,7 @@ public class RequestHandler {
      * @since  v2.1.0
      */
     @Nullable
-    public JSONArray getBotInfo(@NotNull JDA jda, @NotNull Site site){
+    public JSONArray getBotInfo(@NotNull JDA jda, @NotNull Site site) throws IOException, RatelimitedException{
         return getBotInfo(jda.getSelfUser().getId(), site.getSite());
     }
 
@@ -328,7 +345,7 @@ public class RequestHandler {
      * @since  v2.0.0
      */
     @Nullable
-    public JSONArray getBotInfo(@NotNull JDA jda, String site){
+    public JSONArray getBotInfo(@NotNull JDA jda, String site) throws IOException, RatelimitedException{
         return getBotInfo(jda.getSelfUser().getId(), site);
     }
 
@@ -354,7 +371,7 @@ public class RequestHandler {
      * @since  v2.1.0
      */
     @Nullable
-    public JSONArray getBotInfo(Long id, @NotNull Site site){
+    public JSONArray getBotInfo(Long id, @NotNull Site site) throws IOException, RatelimitedException{
         return getBotInfo(Long.toString(id), site.getSite());
     }
 
@@ -381,7 +398,7 @@ public class RequestHandler {
      * @since  v2.0.0
      */
     @Nullable
-    public JSONArray getBotInfo(Long id, @NotNull String site){
+    public JSONArray getBotInfo(Long id, @NotNull String site) throws IOException, RatelimitedException{
         return getBotInfo(Long.toString(id), site);
     }
 
@@ -407,7 +424,7 @@ public class RequestHandler {
      * @since  v2.1.0
      */
     @Nullable
-    public JSONArray getBotInfo(@NotNull ShardManager shardManager, @NotNull Site site){
+    public JSONArray getBotInfo(@NotNull ShardManager shardManager, @NotNull Site site) throws IOException, RatelimitedException{
         return getBotInfo(Objects.requireNonNull(shardManager.getShardById(0), "Received invalid shard")
                 .getSelfUser().getId(), site.getSite()
         );
@@ -436,7 +453,7 @@ public class RequestHandler {
      * @since  v2.0.0
      */
     @Nullable
-    public JSONArray getBotInfo(@NotNull ShardManager shardManager, @NotNull String site){
+    public JSONArray getBotInfo(@NotNull ShardManager shardManager, @NotNull String site) throws IOException, RatelimitedException{
         return getBotInfo(Objects.requireNonNull(shardManager.getShardById(0), "Received invalid shard.")
                 .getSelfUser().getId(), site
         );
@@ -464,7 +481,7 @@ public class RequestHandler {
      * @since  v2.1.0
      */
     @Nullable
-    public JSONArray getBotInfo(@NotNull String id, @NotNull Site site){
+    public JSONArray getBotInfo(@NotNull String id, @NotNull Site site) throws IOException, RatelimitedException{
         return getBotInfo(id, site.getSite());
     }
 
@@ -491,7 +508,7 @@ public class RequestHandler {
      * @since  v2.0.0
      */
     @Nullable
-    public JSONArray getBotInfo(@NotNull String id, @NotNull String site){
+    public JSONArray getBotInfo(@NotNull String id, @NotNull String site) throws IOException, RatelimitedException{
         return getAll(id).getJSONObject("list_data").getJSONArray(site);
     }
 
@@ -521,7 +538,7 @@ public class RequestHandler {
      * @since  v2.0.0
      */
     @Nullable
-    public JSONObject getBotInfos(@NotNull JDA jda){
+    public JSONObject getBotInfos(@NotNull JDA jda) throws IOException, RatelimitedException{
         return getBotInfos(jda.getSelfUser().getId());
     }
 
@@ -551,7 +568,7 @@ public class RequestHandler {
      * @since  v2.0.0
      */
     @Nullable
-    public JSONObject getBotInfos(Long id){
+    public JSONObject getBotInfos(Long id) throws IOException, RatelimitedException{
         return getBotInfos(Long.toString(id));
     }
 
@@ -581,7 +598,7 @@ public class RequestHandler {
      * @since  v2.0.0
      */
     @Nullable
-    public JSONObject getBotInfos(@NotNull ShardManager shardManager){
+    public JSONObject getBotInfos(@NotNull ShardManager shardManager) throws IOException, RatelimitedException{
         return getBotInfos(Objects.requireNonNull(shardManager.getShardById(0), "Received invalid shard.")
                 .getSelfUser().getId());
     }
@@ -612,7 +629,7 @@ public class RequestHandler {
      * @since  v2.0.0
      */
     @Nullable
-    public JSONObject getBotInfos(@NotNull String id){
+    public JSONObject getBotInfos(@NotNull String id) throws IOException, RatelimitedException{
         return getAll(id).getJSONObject("list_data");
     }
 
@@ -642,7 +659,7 @@ public class RequestHandler {
      * @since  v2.1.0
      */
     @Nullable
-    public JSONObject getBotlist(@NotNull String id, @NotNull Site site){
+    public JSONObject getBotlist(@NotNull String id, @NotNull Site site) throws IOException, RatelimitedException{
         return getBotlists(id).getJSONObject(site.getSite());
     }
 
@@ -672,7 +689,7 @@ public class RequestHandler {
      * @since  v2.0.0
      */
     @Nullable
-    public JSONObject getBotlist(@NotNull String id, @NotNull String site){
+    public JSONObject getBotlist(@NotNull String id, @NotNull String site) throws IOException, RatelimitedException{
         return getBotlists(id).getJSONObject(site);
     }
 
@@ -708,7 +725,10 @@ public class RequestHandler {
      * @since  v2.0.0
      */
     @Nullable
-    public JSONObject getBotlists(@NotNull String id){
+    public JSONObject getBotlists(@NotNull String id) throws IOException, RatelimitedException{
+        if(disableCache)
+            return getLists();
+
         return sitesJsonCache.get(id, k -> {
             try{
                 return getLists();
@@ -730,7 +750,7 @@ public class RequestHandler {
      * @since  v2.0.0
      */
     @Nullable
-    public List<String> getOwners(@NotNull JDA jda){
+    public List<String> getOwners(@NotNull JDA jda) throws IOException, RatelimitedException{
         return getOwners(jda.getSelfUser().getId());
     }
 
@@ -745,7 +765,7 @@ public class RequestHandler {
      * @since  v2.0.0
      */
     @Nullable
-    public List<String> getOwners(Long id){
+    public List<String> getOwners(Long id) throws IOException, RatelimitedException{
         return getOwners(Long.toString(id));
     }
 
@@ -760,7 +780,7 @@ public class RequestHandler {
      * @since  v2.0.0
      */
     @Nullable
-    public List<String> getOwners(@NotNull ShardManager shardManager){
+    public List<String> getOwners(@NotNull ShardManager shardManager) throws IOException, RatelimitedException{
         return getOwners(Objects.requireNonNull(shardManager.getShardById(0), "Received invalid Shard")
                 .getSelfUser().getId());
     }
@@ -776,7 +796,7 @@ public class RequestHandler {
      * @since  v2.0.0
      */
     @Nullable
-    public List<String> getOwners(@NotNull String id){
+    public List<String> getOwners(@NotNull String id) throws IOException, RatelimitedException{
         JSONObject json = getAll(id);
 
         JSONArray array = json.getJSONArray("owners");
