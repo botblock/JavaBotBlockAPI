@@ -377,7 +377,7 @@ public class RequestHandler {
      * @since  v2.0.0
      */
     @Nullable
-    public JSONArray getBotInfo(@NotNull JDA jda, String site) throws IOException, RatelimitedException{
+    public JSONArray getBotInfo(@NotNull JDA jda, @NotNull String site) throws IOException, RatelimitedException{
         return getBotInfo(jda.getSelfUser().getId(), site);
     }
 
