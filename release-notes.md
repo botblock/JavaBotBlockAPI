@@ -28,6 +28,12 @@
   - Dependencies updated:
     - JDA: `4.0.0_39` to `4.0.0_40`
 
+- ### v2.3.0
+  - Implemented caching to get methods.
+    - `getBotlists()` and `getBotlist(String|Site site)` now require an additional String parameter.
+  - Dependencies updated:
+    - JDA: `4.0.0_40` to `4.0.0_45`
+
 ____
 ## v1
 
