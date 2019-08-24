@@ -10,6 +10,12 @@
 
 [image]: https://raw.githubusercontent.com/botblock/JavaBotBlockAPI/master/src/main/resources/JavaBotBlockAPI.png
 
+[JDA]: https://github.com/DV8FromTheWorld/JDA
+[OkHttp]: https://github.com/square/okhttp/
+[JSON]: https://json.org
+[JetBrains annotations]: https://github.com/JetBrains/java-annotations
+[Caffeine]: https://github.com/ben-manes/caffeine
+
 ![image]
 
 JavaBotBlockAPI is a continued and updated Java Wrapper for [BotBlock], a website that makes it possible to update guild counts on multiple lists with one API.  
@@ -34,7 +40,7 @@ dependencies{
 ```
 
 ## Maven
-For maven use this code snipped:  
+For maven use this code snippet:
 ```xml
 <dependencies>
   <dependency>
@@ -206,6 +212,16 @@ When we exceed the ratelimit of BotBlock.org
 This shouldn't be the case with auto-posting since it has a minimum delay of 1 minute.
 - `NullPointerException`  
 Thrown when BotBlock.org sends an empty response, meaning something got messed up on their side.
+
+# Libraries
+JavaBotBlockAPI utilizes different APIs to provide the functionality it offers right now.  
+We have a list of those libraries listed here.
+- [JDA] - Java library used for creating bots.
+- [OkHttp] - Library for creating and managing http requests.
+- [JSON] - Used for JSON management.
+- [JetBrains annotations] - Used for annotations like `@NotNull` or `@Nullable`.
+- [Caffeine] - Library used for caching.
+
 
 # Links
 Here are some useful links:

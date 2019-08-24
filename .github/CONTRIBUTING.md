@@ -1,5 +1,6 @@
 [issues]: https://github.com/botblock/JavaBotBlockAPI/issues
 [Code of Conduct]: ./CODE_OF_CONDUCT.md
+[BotBlock API]: https://botblock.org/api/docs
 
 ## Contributing Guidelines
 We welcome everyone to contribute to the JavaBotBlockAPI project.  
