@@ -34,6 +34,9 @@
   - Dependencies updated:
     - JDA: `4.0.0_40` to `4.0.0_45`
 
+- ### v2.3.1
+  - Adding GitHub Actions to workflow.
+
 ____
 ## v1
 
