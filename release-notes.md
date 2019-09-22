@@ -18,7 +18,7 @@
 
 - ### v2.1.1
   - Sites updated:
-    - + [yabl.xyz](https://yabl.xyz) added.
+    - Added [`yabl.xyz`](https://yabl.xyz) added.
 
 - ### v2.2.0
   - Dependencies updated:
@@ -42,8 +42,8 @@
 
 - ### v2.3.3
   - Sites updated:
-    - + [discordextremelist.xyz](https://discordextremelist.xyz)
-    - - discordbotlist.us.to
+    - Added [`discordextremelist.xyz`](https://discordextremelist.xyz)
+    - Removed `discordbotlist.us.to`
   - Removed GitHub Actions for now.
 
 ____
