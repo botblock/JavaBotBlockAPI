@@ -65,9 +65,9 @@ public enum Site {
      */
     DISCORD_BOTS_GG("discord.bots.gg"),
     /**
-     * <a href="https://discordbotlist.us.to" target="_blank">discordbotlist.us.to</a>
+     * <a href="https://discordextremelist.xyz" target="_blank">discordextremelist.xyz</a>
      */
-    DISCORDBOTLIST_US_TO("discordbotlist.us.to"),
+    DISCORDEXTREMELIST_XYZ("discordextremelist.xyz"),
     /**
      * <a href="https://discordsbestbots.xyz" target="_blank">discordsbestbots.xyz</a>
      */
