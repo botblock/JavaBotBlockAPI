@@ -22,6 +22,8 @@ package com.andre601.javabotblockapi;
  * Enum class with all currently supported sites of BotBlock.org.
  * <br>May be used in {@link com.andre601.javabotblockapi.BotBlockAPI BotBlockAPI} or
  * {@link com.andre601.javabotblockapi.RequestHandler RequestHandler}.
+ * 
+ * @since v2.1.0
  */
 public enum Site {
     /**
@@ -66,12 +68,14 @@ public enum Site {
     DISCORD_BOTS_GG("discord.bots.gg"),
     /**
      * <a href="https://discordextremelist.xyz" target="_blank">discordextremelist.xyz</a>
+     * 
+     * @since v2.3.3
      */
     DISCORDEXTREMELIST_XYZ("discordextremelist.xyz"),
     /**
      * <a href="https://discordsbestbots.xyz" target="_blank">discordsbestbots.xyz</a>
      */
-    DISCORSDBESTBOTS_XYZ("discordsbestbots.xyz"),
+    DISCORDSBESTBOTS_XYZ("discordsbestbots.xyz"),
     /**
      * <a href="https://discordbots.fun" target="_blank">discordbots.fun</a>
      */
@@ -94,6 +98,8 @@ public enum Site {
     WONDERBOTLIST_COM("wonderbotlist.com"),
     /**
      * <a href="https://yabl.xyz" target="_blank">yabl.xyz</a>
+     * 
+     * @since v2.1.1
      */
     YABL_XYZ("yabl.xyz");
 

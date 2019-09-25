@@ -46,6 +46,10 @@
     - Removed `discordbotlist.us.to`
   - Removed GitHub Actions for now.
 
+- ### v2.3.4
+  - Sites updated:
+    - Fixed wrong Site name from DISCORSDBESTBOTS\_XYZ to DISCORDBESTBOTS_XYZ
+
 ____
 ## v1
 
