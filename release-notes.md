@@ -50,6 +50,10 @@
   - Sites updated:
     - Fixed wrong Site name from DISCORSDBESTBOTS\_XYZ to DISCORDBESTBOTS_XYZ
 
+- ### v2.3.5
+  - Dependencies updated:
+    - JDA: `4.0.0_45` to `4.0.0_48`
+
 ____
 ## v1
 
