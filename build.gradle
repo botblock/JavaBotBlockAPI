@@ -22,7 +22,7 @@ repositories{
 
 dependencies{
     api group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.2.1'
-    api group: 'org.json', name: 'json', version: '20180813'
+    api group: 'org.json', name: 'json', version: '20190722'
     api group: 'org.jetbrains', name: 'annotations', version: '17.0.0'
     api(group: 'net.dv8tion', name: 'JDA', version: '4.0.0_48'){
         exclude(module: 'opus-java')
