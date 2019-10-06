@@ -2,6 +2,7 @@ name: Java CI
 
 on:
   release:
+    types: [published]
     branches:
     - master
     
