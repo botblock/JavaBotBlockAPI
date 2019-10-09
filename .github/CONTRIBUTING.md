@@ -59,7 +59,7 @@ Bad example: `{@link BotBlockAPI}`
 Good example: `{@link com.andre601.javabotblockapi.BotBlockAPI BotBlockAPI}`
 
 We want to point out the alternative text used in the Good example, to display "BotBlockAPI" instead of the path.  
-When linking to a method that is in a separate classm, set the alternative text to `Class.method(option(s))`.
+When linking to a method that is in a separate class, set the alternative text to `Class.method(option(s))`.
 
 There is an exception for linking, when you link to a method in the same (inner) class.  
 In those cases just link to it by using `{@link #methodName}`
