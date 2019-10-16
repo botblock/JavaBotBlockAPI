@@ -1,4 +1,5 @@
 [BotBlock]: https://botblock.org
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 [API]: https://botblock.org/api/docs
 
 [BotBlock4J]: https://github.com/Nathan-webb/BotBlock4J
@@ -229,3 +230,19 @@ Here are some useful links:
   - [API] API documentation.
 - [Javadocs] Java documentation of the Wrapper.
 - [BotBlock4J] Original Wrapper from which this one originates.
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table>
+  <tr>
+    <td align="center"><a href="https://tkachuk.tech"><img src="https://avatars1.githubusercontent.com/u/1907079?v=4" width="100px;" alt="Dave"/><br /><sub><b>Dave</b></sub></a><br /><a href="#ideas-DavidRockin" title="Ideas, Planning, & Feedback">🤔</a></td>
+  </tr>
+</table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
