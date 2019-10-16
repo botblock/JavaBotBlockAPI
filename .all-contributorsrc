@@ -1,0 +1,23 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "DavidRockin",
+      "name": "Dave",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1907079?v=4",
+      "profile": "https://tkachuk.tech",
+      "contributions": [
+        "ideas"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "JavaBotBlockAPI",
+  "projectOwner": "botblock",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
