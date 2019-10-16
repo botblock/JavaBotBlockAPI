@@ -1,5 +1,4 @@
 [BotBlock]: https://botblock.org
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 [API]: https://botblock.org/api/docs
 
 [BotBlock4J]: https://github.com/Nathan-webb/BotBlock4J
@@ -18,6 +17,8 @@
 [Caffeine]: https://github.com/ben-manes/caffeine
 
 ![image]
+
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 JavaBotBlockAPI is a continued and updated Java Wrapper for [BotBlock], a website that makes it possible to update guild counts on multiple lists with one API.  
 This wrapper is a fork of [BotBlock4J] and was updated and improved to make it as userfriendly as possible.
