@@ -13,6 +13,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "DV8FromTheWorld",
+      "name": "Austin Keener",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1479909?v=4",
+      "profile": "http://linkedin.dv8tion.net",
+      "contributions": [
+        "plugin"
+      ]
     }
   ],
   "contributorsPerLine": 7,
