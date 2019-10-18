@@ -18,7 +18,7 @@
 
 ![image]
 
-[![Contributors](https://img.shields.io/badge/Contributors_✨-1-green.svg?style=plastic)](#contributors-)
+[![Contributors](https://img.shields.io/badge/Contributors_✨-2-green.svg?style=plastic)](#contributors-)
 
 JavaBotBlockAPI is a continued and updated Java Wrapper for [BotBlock], a website that makes it possible to update guild counts on multiple lists with one API.  
 This wrapper is a fork of [BotBlock4J] and was updated and improved to make it as userfriendly as possible.
@@ -241,6 +241,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://tkachuk.tech"><img src="https://avatars1.githubusercontent.com/u/1907079?v=4" width="100px;" alt="Dave"/><br /><sub><b>Dave</b></sub></a><br /><a href="#ideas-DavidRockin" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="http://linkedin.dv8tion.net"><img src="https://avatars1.githubusercontent.com/u/1479909?v=4" width="100px;" alt="Austin Keener"/><br /><sub><b>Austin Keener</b></sub></a><br /><a href="#plugin-DV8FromTheWorld" title="Plugin/utility libraries">🔌</a></td>
   </tr>
 </table>
 
