@@ -53,6 +53,18 @@
 - ### v2.3.5
   - Dependencies updated:
     - JDA: `4.0.0_45` to `4.0.0_48`
+  - Updated to Java 11. It can still work with Java 8.
+
+- ### v2.3.6
+  - 2nd attempt on integrating GitHub actions (failed)
+  
+- ### v2.3.8
+  - Implemented GitHub actions for automated releasing to Bintray.
+
+- ### v2.3.9
+  - Dependencies updated:
+    - JDA: `4.0.0_48` to `4.0.0_52`
+    - OkHttp: `4.2.1` to `4.2.2`
 
 ____
 ## v1

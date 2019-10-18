@@ -7,7 +7,7 @@ plugins{
 }
 
 group = 'com.andre601'
-version = '2.3.8'
+version = '2.3.9'
 
 sourceCompatibility = targetCompatibility = 1.8
 
