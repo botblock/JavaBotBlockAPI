@@ -211,7 +211,8 @@ You can receive the following exceptions:
 The Request couldn't be performed properly. This can be f.e. the case when BotBlock.org denies access (403).
 - `RatelimitedException`  
 When we exceed the ratelimit of BotBlock.org  
-This shouldn't be the case with auto-posting since it has a minimum delay of 1 minute.
+This is usually not the case when using the auto-post method because of the minimal delay being 2 minutes.  
+The GET method would also not call this as the result is cached for 2 minutes (unless disabled).
 - `NullPointerException`  
 Thrown when BotBlock.org sends an empty response, meaning something got messed up on their side.
 
