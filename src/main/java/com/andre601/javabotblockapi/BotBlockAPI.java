@@ -14,7 +14,6 @@
  * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
  * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
  */
 package com.andre601.javabotblockapi;
 
@@ -63,7 +62,7 @@ public class BotBlockAPI{
         this.updateInterval = updateInterval;
     }
 
-    Map<String, String> getAuthTokens(){
+    public Map<String, String> getAuthTokens(){
         return authTokens;
     }
 
