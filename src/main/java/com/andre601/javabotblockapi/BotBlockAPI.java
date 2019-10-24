@@ -66,7 +66,7 @@ public class BotBlockAPI{
         return authTokens;
     }
 
-    int getUpdateInterval(){
+    public int getUpdateInterval(){
         return updateInterval;
     }
 

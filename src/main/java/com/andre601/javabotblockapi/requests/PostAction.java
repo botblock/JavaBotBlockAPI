@@ -30,18 +30,118 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
+/**
+ * Class to perform post actions with.
+ * 
+ * <p>You can {@link #enableAutoPost(JDA, BotBlockAPI) post automatically} or {@link #postGuilds(JDA, BotBlockAPI) post manually}.
+ */
 public class PostAction{
     
-    private boolean disableCache;
     private final RequestHandler REQUEST_HANDLER = new RequestHandler();
+    private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
     
-    public PostAction(){
-        this.disableCache = false;
+    /**
+     * Empty constructor to create the PostAction instance.
+     */
+    public PostAction(){}
+    
+    /**
+     * Shuts down the scheduler, to stop the automatic posting.
+     */
+    public void disableAutoPost(){
+        scheduler.shutdown();
     }
     
-    public PostAction(boolean disableCache){
-        this.disableCache = disableCache;
+    /**
+     * Starts posting of the guild count each n minutes.
+     * <br>The delay in which this happens is set using <code>{@link com.andre601.javabotblockapi.BotBlockAPI.Builder#setUpdateInteval(int)}  BotBlockAPI.Builder#setUpdateInterval(int)}</code>
+     * 
+     * <p><b>The scheduler will stop (cancel) the task, when an Exception appears!</b>
+     * 
+     * @param jda
+     *        The {@link net.dv8tion.jda.api.JDA JDA instance} to use.
+     * @param botBlockAPI
+     *        The {@link com.andre601.javabotblockapi.BotBlockAPI BotBlockAPI instance} to use.
+     */
+    public void enableAutoPost(@NotNull JDA jda, @NotNull BotBlockAPI botBlockAPI){
+        scheduler.scheduleAtFixedRate(() -> {
+            try{
+                postGuilds(jda, botBlockAPI);
+            }catch(IOException | RatelimitedException ex){
+                ex.printStackTrace();
+            }
+        }, botBlockAPI.getUpdateInterval(), botBlockAPI.getUpdateInterval(), TimeUnit.MINUTES);
+    }
+    
+    /**
+     * Starts posting of the guild count each n minutes.
+     * <br>The delay in which this happens is set using <code>{@link com.andre601.javabotblockapi.BotBlockAPI.Builder#setUpdateInteval(int)}  BotBlockAPI.Builder#setUpdateInterval(int)}</code>
+     *
+     * <p><b>The scheduler will stop (cancel) the task, when an Exception appears!</b>
+     *
+     * @param botId
+     *        The ID of the bot as Long.
+     * @param guilds
+     *        The guild count.
+     * @param botBlockAPI
+     *        The {@link com.andre601.javabotblockapi.BotBlockAPI BotBlockAPI instance} to use.
+     */
+    public void enableAutoPost(Long botId, int guilds, @NotNull BotBlockAPI botBlockAPI){
+        scheduler.scheduleAtFixedRate(() -> {
+            try{
+                postGuilds(botId, guilds, botBlockAPI);
+            }catch(IOException | RatelimitedException ex){
+                ex.printStackTrace();
+            }
+        }, botBlockAPI.getUpdateInterval(), botBlockAPI.getUpdateInterval(), TimeUnit.MINUTES);
+    }
+    
+    /**
+     * Starts posting of the guild count each n minutes.
+     * <br>The delay in which this happens is set using <code>{@link com.andre601.javabotblockapi.BotBlockAPI.Builder#setUpdateInteval(int)}  BotBlockAPI.Builder#setUpdateInterval(int)}</code>
+     *
+     * <p><b>The scheduler will stop (cancel) the task, when an Exception appears!</b>
+     *
+     * @param shardManager
+     *        The {@link net.dv8tion.jda.api.sharding.ShardManager ShardManager instance} to use.
+     * @param botBlockAPI
+     *        The {@link com.andre601.javabotblockapi.BotBlockAPI BotBlockAPI instance} to use.
+     */
+    public void enableAutoPost(@NotNull ShardManager shardManager, @NotNull BotBlockAPI botBlockAPI){
+        scheduler.scheduleAtFixedRate(() -> {
+            try{
+                postGuilds(shardManager, botBlockAPI);
+            }catch(IOException | RatelimitedException ex){
+                ex.printStackTrace();
+            }
+        }, botBlockAPI.getUpdateInterval(), botBlockAPI.getUpdateInterval(), TimeUnit.MINUTES);
+    }
+    
+    /**
+     * Starts posting of the guild count each n minutes.
+     * <br>The delay in which this happens is set using <code>{@link com.andre601.javabotblockapi.BotBlockAPI.Builder#setUpdateInteval(int)}  BotBlockAPI.Builder#setUpdateInterval(int)}</code>
+     *
+     * <p><b>The scheduler will stop (cancel) the task, when an Exception appears!</b>
+     *
+     * @param botId
+     *        The ID of the bot as String.
+     * @param guilds
+     *        The guild count.
+     * @param botBlockAPI
+     *        The {@link com.andre601.javabotblockapi.BotBlockAPI BotBlockAPI instance} to use.
+     */
+    public void enableAutoPost(@NotNull String botId, int guilds, @NotNull BotBlockAPI botBlockAPI){
+        scheduler.scheduleAtFixedRate(() -> {
+                try{
+                    postGuilds(botId, guilds, botBlockAPI); 
+                }catch(IOException | RatelimitedException ex){
+                    ex.printStackTrace(); 
+                }
+        }, botBlockAPI.getUpdateInterval(), botBlockAPI.getUpdateInterval(), TimeUnit.MINUTES);
     }
     
     /**
