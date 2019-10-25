@@ -20,7 +20,3 @@ jobs:
         bintrayUser: ${{ secrets.bintrayUsername }}
         bintrayApiKey: ${{ secrets.bintrayApiKey }}
       run: ./gradlew bintrayUpload
-    - name: Build and publish (GitHub)
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: ./gradlew publish
