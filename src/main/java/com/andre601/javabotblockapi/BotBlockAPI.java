@@ -23,8 +23,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Class for handling the sites to post to and the delay for the auto-post option in the
- * {@link com.andre601.javabotblockapi.RequestHandler RequestHandler}.
+ * Class used to define the auth-tokens used for the different sites.
+ * <br>The instance of this class will be used in the {@link com.andre601.javabotblockapi.requests.PostAction PostAction} class.
  */
 public class BotBlockAPI{
     private static final int DEFAULT_DELAY = 30;
@@ -37,8 +37,8 @@ public class BotBlockAPI{
      * <br>This will also set the update interval to 30 minutes.
      *
      * @param authTokens
-     *        A Map of sites and their tokens. May not be null.
-     *        <br>You may receive the API-token from your botlist.
+     *        A not null Map of sites and their tokens.
+     *        <br>You may receive the API-token from your bot list.
      */
     public BotBlockAPI(@NotNull Map<String, String> authTokens){
         this.authTokens = authTokens;
@@ -46,11 +46,11 @@ public class BotBlockAPI{
     }
 
     /**
-     * Constructor to set the Map with the sites and tokens and also the update delay..
+     * Constructor to set the Map with the sites and tokens and also the update delay.
      *
      * @param authTokens
-     *        A Map of sites and their tokens. May not be null.
-     *        <br>You may receive the API-token from your botlist.
+     *        A not null Map of sites and their tokens.
+     *        <br>You may receive the API-token from your bot list.
      * @param updateInterval
      *        The update interval to set.
      */
@@ -89,8 +89,8 @@ public class BotBlockAPI{
          * @param  site
          *         The {@link com.andre601.javabotblockapi.Site Site} to get the name from.
          * @param  token
-         *         The API token from the corresponding botlist. May not be null or empty.
-         *         <br>You may receive the API token from the botlist.
+         *         The API token from the corresponding bot list. May not be null or empty.
+         *         <br>You may receive the API token from the bot list.
          *
          * @throws NullPointerException
          *         When the provided token is empty ({@code ""}).
@@ -115,8 +115,8 @@ public class BotBlockAPI{
          *         The name of the site. May not be null.
          *         <br>A list of supported sites can be found <a href="https://botblock.org/api/docs#count" target="_blank">here</a>.
          * @param  token
-         *         The API token from the corresponding botlist. May not be null or empty.
-         *         <br>You may receive the API token from the botlist.
+         *         The API token from the corresponding bot list. May not be null or empty.
+         *         <br>You may receive the API token from the bot list.
          *
          * @throws NullPointerException
          *         When either the site or token are empty ({@code ""}).
