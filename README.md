@@ -107,7 +107,7 @@ postAction.postGuilds(jda, api);
 Since version 2.0.0 of JavaBotBlockAPI can you get certain information of a bot or the available Bot lists on the BotBlock API.
 
 ### All available Bot lists
-You can call `.getBotlists()` to receive a JSONObject with all available Botlists in the BotBlockAPI.
+You can call `.getBotLists()` to receive a JSONObject with all available Botlists in the BotBlockAPI.
 
 The returned JSONObject could look like this:
 ```json
@@ -134,8 +134,8 @@ The returned JSONObject could look like this:
 ```
 
 ### Single Botlist
-Calling `.getBotlist(..., Site|String)` returns a specific Botlist as JSONObject.  
-For example does `.getBotlist("123456789012345678", "lbots.org")` return the following JSONObject:
+Calling `.getBotList(..., Site|String)` returns a specific Botlist as JSONObject.  
+For example does `.getBotList("123456789012345678", "lbots.org")` return the following JSONObject:
 ```json
 {
     "api_docs": "https://lbots.org/api/docs",
