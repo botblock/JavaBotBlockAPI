@@ -5,7 +5,7 @@
 
 [Javadocs]: https://docs.botblock.org/JavaBotBlockAPI/
 
-[BadgeDownload]: https://img.shields.io/badge/dynamic/json.svg?label=Bintray&query=name&style=plastic&url=https%3A%2F%2Fapi.bintray.com%2Fpackages%2Fandre601%2Fmaven%2FJavaBotBlockAPI%2Fversions%2F_latest
+[BadgeDownload]: https://img.shields.io/bintray/v/andre601/maven/JavaBotBlockAPI?label=Bintray&style=plastic
 [Download]: https://bintray.com/andre601/maven/JavaBotBlockAPI/_latestVersion
 
 [image]: https://raw.githubusercontent.com/botblock/JavaBotBlockAPI/master/src/main/resources/JavaBotBlockAPI.png
