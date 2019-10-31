@@ -5,7 +5,7 @@
 
 [Javadocs]: https://docs.botblock.org/JavaBotBlockAPI/
 
-[BadgeDownload]: https://img.shields.io/badge/dynamic/json.svg?label=Bintray&query=name&style=plastic&url=https%3A%2F%2Fapi.bintray.com%2Fpackages%2Fandre601%2Fmaven%2FJavaBotBlockAPI%2Fversions%2F_latest
+[BadgeDownload]: https://img.shields.io/bintray/v/andre601/maven/JavaBotBlockAPI?label=Bintray&style=plastic
 [Download]: https://bintray.com/andre601/maven/JavaBotBlockAPI/_latestVersion
 
 [image]: https://raw.githubusercontent.com/botblock/JavaBotBlockAPI/master/src/main/resources/JavaBotBlockAPI.png
@@ -78,35 +78,35 @@ Remember to use `.build();` at the end to create the class.
 
 ### Auto Posting
 JavaBotBlockAPI allows you to post the guild counts automatically every X minutes.  
-To do this, you first need to get an instance of the RequestHandler and then call `.startAutoPosting(...)`.
+To do this, you first need to get an instance of the PostAction and then call `.enableAutoPost(...)`.
 
 Here is an example:
 ```java
-RequestHandler handler = new RequestHandler();
+PostAction postAction = new PostAction();
 
 // api is the instance of the BotBlockAPI
-handler.startAutoPosting(jda, api);
+postAction.enableAutoPost(jda, api);
 ```
 The delay in which you post the guild counts is set through the `.setUpdateInterval(int)` method in the BotBlockAPI.Builder().
 
 ### Cancel auto posting
-To cancel the auto posting just call `.stopAutoPosting();` in the RequestHandler and it should cancel the scheduler.
+To cancel the auto posting just call `.disableAutoPost();` in the RequestHandler and it should cancel the scheduler.
 
 ### Manually posting
 There are methods that allow you to post the guild counts manually.  
-To Post your guild counts, just call the `.postGuilds(..., ...)` method in the RequestHandler.
+To Post your guild counts, just call the `.postGuilds(...)` method in the PostAction.
 
 ```java
-RequestHandler handler = new RequestHandler();
+PostAction postAction = new PostAction();
 
 // api is the instance of the BotBlockAPI
-handler.postGuilds(jda, api);
+postAction.postGuilds(jda, api);
 ```
 
 ## GET methods
-Since version 2.0.0 of JavaBotBlockAPI can you get certain informations of a bot or the available Botlists on the BotBlock API.
+Since version 2.0.0 of JavaBotBlockAPI can you get certain information of a bot or the available Bot lists on the BotBlock API.
 
-### All available Botlists
+### All available Bot lists
 You can call `.getBotlists()` to receive a JSONObject with all available Botlists in the BotBlockAPI.
 
 The returned JSONObject could look like this:
@@ -134,8 +134,8 @@ The returned JSONObject could look like this:
 ```
 
 ### Single Botlist
-Calling `.getBotlist(String)` returns a specific Botlist as JSONObject.  
-For example does `.getBotlist("lbots.org")` return the following JSONObject:
+Calling `.getBotlist(..., Site|String)` returns a specific Botlist as JSONObject.  
+For example does `.getBotlist("123456789012345678", "lbots.org")` return the following JSONObject:
 ```json
 {
     "api_docs": "https://lbots.org/api/docs",
@@ -179,7 +179,7 @@ The JSONObject can look like this:
 `name`, `owners`, `server_count` and `invite` is based on the most common appearances of the data.
 
 ### Botinfo from all Botlists
-You can call `.getBotInfos(...)` to only receive the bot info from all the Botlists.
+You can call `.getBotListInfo(...)` to only receive the bot info from all the Botlists.
 
 The returned JSONObject can look like this:
 ```json
@@ -197,7 +197,7 @@ The returned JSONObject can look like this:
 `{"data"}` is the JSON that is returned by the provided Botlist meaning it's different for each site.
 
 ### Botinfo of a single site
-With `.getBotInfo(..., String)` can you receive the info of a specific site.  
+With `.getBotListInfo(..., Site|String)` can you receive the info of a specific site.  
 The returned data depends on the selected site and can be different for each one.
 
 ### Owners

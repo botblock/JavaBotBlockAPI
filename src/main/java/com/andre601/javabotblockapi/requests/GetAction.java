@@ -19,6 +19,10 @@
 package com.andre601.javabotblockapi.requests;
 
 
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.sharding.ShardManager;
+import org.json.JSONObject;
+
 /**
  * Class to perform GET actions with.
  */
@@ -43,5 +47,161 @@ public class GetAction{
      */
     public GetAction(boolean disableCache){
         this.disableCache = disableCache;
+    }
+    
+    /**
+     * Gets the full information of a bot.
+     * <br>This may return null.
+     *
+     * <p>The JSONObject may look like this:
+     * <br><pre><code>
+     * {
+     *     "id": "123456789012345678",
+     *     "username": "MyBot",
+     *     "discriminator": "1234",
+     *     "owners": [
+     *         "234567890123456789"
+     *     ],
+     *     "server_count": 100,
+     *     "invite":{@literal "https://discordapp.com/oauth2/authorize?client_id=123456789012345678&scope=bot"},
+     *     "list_data": {
+     *         "somebotlist.com": [
+     *             {"data"},
+     *             200
+     *         ],
+     *         "otherlist.org": [
+     *             {"data"},
+     *             404
+     *         ]
+     *     }
+     * }
+     * </code></pre>
+     * <br><b>{@code {"data"}}</b> depends on what the bot list returns.
+     * 
+     * @param  jda
+     *         The {@link net.dv8tion.jda.api.JDA JDA instance} to use.
+     *         
+     * @return A possibly-null JSONObject containing the bots information.
+     */
+    public JSONObject getAll(JDA jda){
+        return REQUEST_HANDLER.performGetBot(jda.getSelfUser().getId(), disableCache);
+    }
+    
+    /**
+     * Gets the full information of a bot.
+     * <br>This may return null.
+     *
+     * <p>The JSONObject may look like this:
+     * <br><pre><code>
+     * {
+     *     "id": "123456789012345678",
+     *     "username": "MyBot",
+     *     "discriminator": "1234",
+     *     "owners": [
+     *         "234567890123456789"
+     *     ],
+     *     "server_count": 100,
+     *     "invite":{@literal "https://discordapp.com/oauth2/authorize?client_id=123456789012345678&scope=bot"},
+     *     "list_data": {
+     *         "somebotlist.com": [
+     *             {"data"},
+     *             200
+     *         ],
+     *         "otherlist.org": [
+     *             {"data"},
+     *             404
+     *         ]
+     *     }
+     * }
+     * </code></pre>
+     * <br><b>{@code {"data"}}</b> depends on what the bot list returns.
+     *
+     * @param  id
+     *         The bots id to use.
+     *
+     * @return A possibly-null JSONObject containing the bots information.
+     */
+    public JSONObject getAll(Long id){
+        return REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
+    }
+    
+    /**
+     * Gets the full information of a bot.
+     * <br>This may return null.
+     *
+     * <p>The JSONObject may look like this:
+     * <br><pre><code>
+     * {
+     *     "id": "123456789012345678",
+     *     "username": "MyBot",
+     *     "discriminator": "1234",
+     *     "owners": [
+     *         "234567890123456789"
+     *     ],
+     *     "server_count": 100,
+     *     "invite":{@literal "https://discordapp.com/oauth2/authorize?client_id=123456789012345678&scope=bot"},
+     *     "list_data": {
+     *         "somebotlist.com": [
+     *             {"data"},
+     *             200
+     *         ],
+     *         "otherlist.org": [
+     *             {"data"},
+     *             404
+     *         ]
+     *     }
+     * }
+     * </code></pre>
+     * <br><b>{@code {"data"}}</b> depends on what the bot list returns.
+     *
+     * @param  shardManager
+     *         The {@link net.dv8tion.jda.api.sharding.ShardManager ShardManager instance} to use.
+     *
+     * @return A possibly-null JSONObject containing the bots information.
+     */
+    public JSONObject getAll(ShardManager shardManager){
+        JDA jda = shardManager.getShardById(0);
+        if(jda == null)
+            return null;
+        
+        return REQUEST_HANDLER.performGetBot(jda.getSelfUser().getId(), disableCache);
+    }
+    
+    /**
+     * Gets the full information of a bot.
+     * <br>This may return null.
+     *
+     * <p>The JSONObject may look like this:
+     * <br><pre><code>
+     * {
+     *     "id": "123456789012345678",
+     *     "username": "MyBot",
+     *     "discriminator": "1234",
+     *     "owners": [
+     *         "234567890123456789"
+     *     ],
+     *     "server_count": 100,
+     *     "invite":{@literal "https://discordapp.com/oauth2/authorize?client_id=123456789012345678&scope=bot"},
+     *     "list_data": {
+     *         "somebotlist.com": [
+     *             {"data"},
+     *             200
+     *         ],
+     *         "otherlist.org": [
+     *             {"data"},
+     *             404
+     *         ]
+     *     }
+     * }
+     * </code></pre>
+     * <br><b>{@code {"data"}}</b> depends on what the bot list returns.
+     *
+     * @param  id
+     *         The bots id to use.
+     *
+     * @return A possibly-null JSONObject containing the bots information.
+     */
+    public JSONObject getAll(String id){
+        return REQUEST_HANDLER.performGetBot(id, disableCache);
     }
 }
