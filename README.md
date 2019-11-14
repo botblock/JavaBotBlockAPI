@@ -133,8 +133,8 @@ The returned JSONObject could look like this:
 }
 ```
 
-### Single Botlist
-Calling `.getBotList(..., Site|String)` returns a specific Botlist as JSONObject.  
+### Single Bot list
+Calling `.getBotList(String, Site|String)` returns a specific Botlist as JSONObject.  
 For example does `.getBotList("123456789012345678", "lbots.org")` return the following JSONObject:
 ```json
 {
@@ -148,7 +148,9 @@ For example does `.getBotList("123456789012345678", "lbots.org")` return the fol
 }
 ```
 
-### Complete Botinfo
+The first String parameter is used for the internal caching.
+
+### Complete Bot info
 Calling `.getAll(...)` returns a JSONObject from all the botlists and with some general information.
 
 The JSONObject can look like this:
@@ -176,9 +178,9 @@ The JSONObject can look like this:
 ```
 
 `{"data"}` is the JSON that is returned by the provided Botlist meaning it's different for each site.  
-`name`, `owners`, `server_count` and `invite` is based on the most common appearances of the data.
+`name`, `discriminator`, `owners`, `server_count` and `invite` are based on the most common appearances of the data.
 
-### Botinfo from all Botlists
+### Bot info from all Bot lists
 You can call `.getBotListInfo(...)` to only receive the bot info from all the Botlists.
 
 The returned JSONObject can look like this:
@@ -196,9 +198,17 @@ The returned JSONObject can look like this:
 ```
 `{"data"}` is the JSON that is returned by the provided Botlist meaning it's different for each site.
 
-### Botinfo of a single site
+### Bot info of a single site
 With `.getBotListInfo(..., Site|String)` can you receive the info of a specific site.  
 The returned data depends on the selected site and can be different for each one.
+
+### Invite
+The method `getInvite(Long|String)` allows you to get the OAuth invite of the bot.  
+The invite is based on the most common appearance on the different bot lists.
+
+### Server count
+`.getServerCount(Long|String)` gives you the server count of the bot.  
+The server count is based on the most common appearance on the different bot lists.
 
 ### Owners
 You can call `.getOwners(...)` to get the owners of a Bot from all the Botlists.  
