@@ -1,4 +1,4 @@
-name: Bintray Upload-task
+name: Publication task
 
 on:
   release:
@@ -15,9 +15,8 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Build and publish
+    - name: Build and publish (Bintray)
       env:
         bintrayUser: ${{ secrets.bintrayUsername }}
         bintrayApiKey: ${{ secrets.bintrayApiKey }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: ./gradlew bintrayUpload
