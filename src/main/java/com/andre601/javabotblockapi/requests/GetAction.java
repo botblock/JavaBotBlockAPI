@@ -44,6 +44,8 @@ import java.util.List;
  * </ul>
  * 
  * <p>All requests are cached for 2 minutes. This can be disabled with {@code new GetAction(true)} although it's not recommended.
+ * 
+ * @since v3.0.0
  */
 public class GetAction{
     
@@ -345,7 +347,6 @@ public class GetAction{
      *
      * @return A possibly-null JSONObject containing information from all supported bot lists.
      */
-    @Nullable
     public JSONObject getBotLists(@NotNull String id){
         return REQUEST_HANDLER.performGetList(id, disableCache);
     }

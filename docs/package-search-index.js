@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.andre601.javabotblockapi"},{"l":"com.andre601.javabotblockapi.exceptions"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.andre601.javabotblockapi"},{"l":"com.andre601.javabotblockapi.exceptions"},{"l":"com.andre601.javabotblockapi.requests"}]

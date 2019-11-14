@@ -38,6 +38,8 @@ import java.util.concurrent.TimeUnit;
  * Class to perform post actions with.
  * 
  * <p>You can {@link #enableAutoPost(JDA, BotBlockAPI) post automatically} or {@link #postGuilds(JDA, BotBlockAPI) post manually}.
+ * 
+ * @since v3.0.0
  */
 public class PostAction{
     

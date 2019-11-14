@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class RequestHandler{
+class RequestHandler{
     
     private final String BASE_URL = "https://botblock.org/api/";
     private final OkHttpClient CLIENT = new OkHttpClient();
