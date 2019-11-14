@@ -174,7 +174,7 @@ public class PostAction{
         
         botBlockAPI.getAuthTokens().forEach(json::put);
         
-        REQUEST_HANDLER.performPOST(json);
+        REQUEST_HANDLER.performPOST(json, botBlockAPI.getAuthTokens().size());
     }
     
     /**
@@ -227,7 +227,7 @@ public class PostAction{
         json.put("shards", new JSONArray(Arrays.deepToString(shards.toArray())));
         botBlockAPI.getAuthTokens().forEach(json::put);
         
-        REQUEST_HANDLER.performPOST(json);
+        REQUEST_HANDLER.performPOST(json, botBlockAPI.getAuthTokens().size());
     }
     
     /**
@@ -252,7 +252,7 @@ public class PostAction{
         
         botBlockAPI.getAuthTokens().forEach(json::put);
         
-        REQUEST_HANDLER.performPOST(json);
+        REQUEST_HANDLER.performPOST(json, botBlockAPI.getAuthTokens().size());
     }
     
 }

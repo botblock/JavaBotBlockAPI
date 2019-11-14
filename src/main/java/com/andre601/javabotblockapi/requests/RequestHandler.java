@@ -115,8 +115,14 @@ class RequestHandler{
         }
     }
     
-    void performPOST(@NotNull JSONObject json) throws IOException, RatelimitedException{
+    void performPOST(@NotNull JSONObject json, int sites) throws IOException, RatelimitedException{
         String url = BASE_URL + "count";
+        
+        OkHttpClient postClient = CLIENT.newBuilder()
+                .callTimeout(sites*10, TimeUnit.SECONDS)
+                .readTimeout(sites*10, TimeUnit.SECONDS)
+                .writeTimeout(sites*10, TimeUnit.SECONDS)
+                .build();
         
         RequestBody body = RequestBody.create(json.toString(), null);
         Request request = new Request.Builder()
@@ -125,7 +131,7 @@ class RequestHandler{
                 .post(body)
                 .build();
         
-        try(Response response = CLIENT.newCall(request).execute()){
+        try(Response response = postClient.newCall(request).execute()){
             ResponseBody responseBody = response.body();
             if(responseBody == null)
                 throw new NullPointerException("Received empty response body.");
@@ -148,11 +154,11 @@ class RequestHandler{
             if(responseJson.has("failure")){
                 JSONObject failure = responseJson.getJSONObject("failure");
     
-                List<String> sites = new ArrayList<>();
+                List<String> failedSites = new ArrayList<>();
                 for(String key : failure.keySet()){
                     try{
                         JSONArray array = failure.getJSONArray(key);
-                        sites.add(String.format(
+                        failedSites.add(String.format(
                                 "Site: %s, Code: %d, Message: %s",
                                 key,
                                 array.getInt(0),
@@ -160,13 +166,13 @@ class RequestHandler{
                         ));
                     }catch(JSONException ex){
                         Map<String, Object> notFound = failure.toMap();
-                        sites.add("Errors: " + notFound.toString());
+                        failedSites.add("Errors: " + notFound.toString());
                     }
                 }
                 
                 throw new IOException(String.format(
                         "One or multiple post requests failed! Response(s): %s",
-                        String.join(", ", sites)
+                        String.join(", ", failedSites)
                 ));
             }
         }
