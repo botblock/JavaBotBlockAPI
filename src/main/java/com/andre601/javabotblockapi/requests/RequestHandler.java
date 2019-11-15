@@ -119,9 +119,9 @@ class RequestHandler{
         String url = BASE_URL + "count";
         
         OkHttpClient postClient = CLIENT.newBuilder()
-                .callTimeout(sites*10, TimeUnit.SECONDS)
-                .readTimeout(sites*10, TimeUnit.SECONDS)
-                .writeTimeout(sites*10, TimeUnit.SECONDS)
+                .callTimeout(sites == 0 ? 10 : sites*10, TimeUnit.SECONDS)
+                .readTimeout(sites == 0 ? 10 : sites*10, TimeUnit.SECONDS)
+                .writeTimeout(sites == 0 ? 10 : sites*10, TimeUnit.SECONDS)
                 .build();
         
         RequestBody body = RequestBody.create(json.toString(), null);
