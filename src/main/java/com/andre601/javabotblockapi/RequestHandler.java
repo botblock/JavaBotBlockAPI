@@ -14,7 +14,6 @@
  * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
  * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
  */
 package com.andre601.javabotblockapi;
 
@@ -48,7 +47,10 @@ import java.util.concurrent.TimeUnit;
  *     <li>{@link #getBotInfo(ShardManager, String) Getting a single list a bot is on}.</li>
  *     <li>{@link #getOwners(ShardManager) Getting the owners of a bot.}</li>
  * </ul>
+ * 
+ * @deprecated Use {@link com.andre601.javabotblockapi.requests.PostAction PostAction} or {@link com.andre601.javabotblockapi.requests.GetAction GetAction} respectively.
  */
+@Deprecated
 public class RequestHandler {
     private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
     private final OkHttpClient CLIENT = new OkHttpClient();

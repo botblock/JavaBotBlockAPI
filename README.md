@@ -78,36 +78,36 @@ Remember to use `.build();` at the end to create the class.
 
 ### Auto Posting
 JavaBotBlockAPI allows you to post the guild counts automatically every X minutes.  
-To do this, you first need to get an instance of the RequestHandler and then call `.startAutoPosting(...)`.
+To do this, you first need to get an instance of the PostAction and then call `.enableAutoPost(...)`.
 
 Here is an example:
 ```java
-RequestHandler handler = new RequestHandler();
+PostAction postAction = new PostAction();
 
 // api is the instance of the BotBlockAPI
-handler.startAutoPosting(jda, api);
+postAction.enableAutoPost(jda, api);
 ```
 The delay in which you post the guild counts is set through the `.setUpdateInterval(int)` method in the BotBlockAPI.Builder().
 
 ### Cancel auto posting
-To cancel the auto posting just call `.stopAutoPosting();` in the RequestHandler and it should cancel the scheduler.
+To cancel the auto posting just call `.disableAutoPost();` in the RequestHandler and it should cancel the scheduler.
 
 ### Manually posting
 There are methods that allow you to post the guild counts manually.  
-To Post your guild counts, just call the `.postGuilds(..., ...)` method in the RequestHandler.
+To Post your guild counts, just call the `.postGuilds(...)` method in the PostAction.
 
 ```java
-RequestHandler handler = new RequestHandler();
+PostAction postAction = new PostAction();
 
 // api is the instance of the BotBlockAPI
-handler.postGuilds(jda, api);
+postAction.postGuilds(jda, api);
 ```
 
 ## GET methods
-Since version 2.0.0 of JavaBotBlockAPI can you get certain informations of a bot or the available Botlists on the BotBlock API.
+Since version 2.0.0 of JavaBotBlockAPI can you get certain information of a bot or the available Bot lists on the BotBlock API.
 
-### All available Botlists
-You can call `.getBotlists()` to receive a JSONObject with all available Botlists in the BotBlockAPI.
+### All available Bot lists
+You can call `.getBotLists()` to receive a JSONObject with all available Botlists in the BotBlockAPI.
 
 The returned JSONObject could look like this:
 ```json
@@ -133,9 +133,9 @@ The returned JSONObject could look like this:
 }
 ```
 
-### Single Botlist
-Calling `.getBotlist(String)` returns a specific Botlist as JSONObject.  
-For example does `.getBotlist("lbots.org")` return the following JSONObject:
+### Single Bot list
+Calling `.getBotList(String, Site|String)` returns a specific Botlist as JSONObject.  
+For example does `.getBotList("123456789012345678", "lbots.org")` return the following JSONObject:
 ```json
 {
     "api_docs": "https://lbots.org/api/docs",
@@ -148,7 +148,9 @@ For example does `.getBotlist("lbots.org")` return the following JSONObject:
 }
 ```
 
-### Complete Botinfo
+The first String parameter is used for the internal caching.
+
+### Complete Bot info
 Calling `.getAll(...)` returns a JSONObject from all the botlists and with some general information.
 
 The JSONObject can look like this:
@@ -176,10 +178,10 @@ The JSONObject can look like this:
 ```
 
 `{"data"}` is the JSON that is returned by the provided Botlist meaning it's different for each site.  
-`name`, `owners`, `server_count` and `invite` is based on the most common appearances of the data.
+`name`, `discriminator`, `owners`, `server_count` and `invite` are based on the most common appearances of the data.
 
-### Botinfo from all Botlists
-You can call `.getBotInfos(...)` to only receive the bot info from all the Botlists.
+### Bot info from all Bot lists
+You can call `.getBotListInfo(...)` to only receive the bot info from all the Botlists.
 
 The returned JSONObject can look like this:
 ```json
@@ -196,9 +198,17 @@ The returned JSONObject can look like this:
 ```
 `{"data"}` is the JSON that is returned by the provided Botlist meaning it's different for each site.
 
-### Botinfo of a single site
-With `.getBotInfo(..., String)` can you receive the info of a specific site.  
+### Bot info of a single site
+With `.getBotListInfo(..., Site|String)` can you receive the info of a specific site.  
 The returned data depends on the selected site and can be different for each one.
+
+### Invite
+The method `getInvite(Long|String)` allows you to get the OAuth invite of the bot.  
+The invite is based on the most common appearance on the different bot lists.
+
+### Server count
+`.getServerCount(Long|String)` gives you the server count of the bot.  
+The server count is based on the most common appearance on the different bot lists.
 
 ### Owners
 You can call `.getOwners(...)` to get the owners of a Bot from all the Botlists.  

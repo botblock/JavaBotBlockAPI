@@ -14,14 +14,15 @@
  * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
  * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
  */
 package com.andre601.javabotblockapi;
 
 /**
- * Enum class with all currently supported sites of BotBlock.org.
- * <br>May be used in {@link com.andre601.javabotblockapi.BotBlockAPI BotBlockAPI} or
- * {@link com.andre601.javabotblockapi.RequestHandler RequestHandler}.
+ * Enum class containing all sites currently supported by BotBlock.org.
+ * 
+ * <p>Those names can be used in methods of either the {@link com.andre601.javabotblockapi.BotBlockAPI BotBlockAPI},
+ * the {@link com.andre601.javabotblockapi.requests.GetAction GetAction} or the 
+ * {@link com.andre601.javabotblockapi.requests.PostAction PostAction} class.
  * 
  * @since v2.1.0
  */
@@ -92,6 +93,13 @@ public enum Site {
      * <a href="https://mythicalbots.xyz" target="_blank">mythicalbots.xyz</a>
      */
     MYTHICALBOTS_XYZ("mythicalbots.xyz"),
+    /**
+     * <a href="https://top.gg" target="_blank">top.gg</a>
+     * <br>Note that top.gg is discordbots.org (new domain). {@link #DISCORDBOTS_ORG DISCORDBOTS_ORG} will still work.
+     * 
+     * @since v3.0.0
+     */
+    TOP_GG("discordbots.org"),
     /**
      * <a href="https://wonderbotlist.com" target="_blank">wonderbotlist.com</a>
      */

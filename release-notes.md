@@ -1,3 +1,23 @@
+## v3
+
+- ### v3.0.0
+  - Moved post and get methods to their own class
+    - GetAction was created for all GET methods.
+    - PostAction was created for all POST methods.
+  - RequestHandler (`com.andre601.javabotblockapi.RequestHandler`) is now deprecated.
+  - Added [`top.gg`](https://top.gg) as alias for discordbots.org
+  - New methods `getInvite(Long|String)` and `getServerCount(Long|String)` added.
+  - Timeouts for POST requests where made dynamic.
+  - GET methods which used either an JDA or ShardManager instance got removed.
+  - Renamed multiple methods:
+    - `getBotInfo` and `getBotInfos` where renamed to `getBotListInfo`
+    - `getAll` was renamed to `getBotInfo`
+    - `startAutoPosting` was renamed to `enableAutoPost`
+    - `stopAutoPosting` was renamed to `disableAutoPost`
+  - Dependencies updated:
+    - JDA: `4.0.0_52` to `4.0.0_61`
+    - annotations: `17.0.0` to `18.0.0`
+
 ## v2
 
 - ### v2.0.0
