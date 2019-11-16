@@ -117,11 +117,12 @@ class RequestHandler{
     
     void performPOST(@NotNull JSONObject json, int sites) throws IOException, RatelimitedException{
         String url = BASE_URL + "count";
+        final long timeout = sites == 0 ? 10 : sites*10;
         
         OkHttpClient postClient = CLIENT.newBuilder()
-                .callTimeout(sites == 0 ? 10 : sites*10, TimeUnit.SECONDS)
-                .readTimeout(sites == 0 ? 10 : sites*10, TimeUnit.SECONDS)
-                .writeTimeout(sites == 0 ? 10 : sites*10, TimeUnit.SECONDS)
+                .callTimeout(timeout, TimeUnit.SECONDS)
+                .readTimeout(timeout, TimeUnit.SECONDS)
+                .writeTimeout(timeout, TimeUnit.SECONDS)
                 .build();
         
         RequestBody body = RequestBody.create(json.toString(), null);

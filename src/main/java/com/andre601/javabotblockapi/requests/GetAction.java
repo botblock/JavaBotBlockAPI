@@ -43,7 +43,7 @@ import java.util.List;
  *     <li>{@link #getOwners(Long) get the owners of a bot}</li>
  * </ul>
  * 
- * <p>All requests are cached for 2 minutes. This can be disabled with {@code new GetAction(true)} although it's not recommended.
+ * <p>All requests are cached for 2 minutes. This can be disabled with {@link #GetAction(boolean) GetAction(true)} although it's not recommended.
  * 
  * @since v3.0.0
  */
@@ -53,7 +53,7 @@ public class GetAction{
     private boolean disableCache;
     
     /**
-     * Empty constructor to get the instance of GetAction.
+     * Constructor to get the instance of GetAction.
      */
     public GetAction(){
         this.disableCache = false;
@@ -64,7 +64,7 @@ public class GetAction{
      * 
      * @param disableCache
      *        If the caching should be disabled. {@code true} means the cache will be <b>disabled</b>.
-     *        <br>It's recommended to NOT disable caching.
+     *        <br>It's recommended to NOT disable caching if you don't use a own caching/rate limit system.
      */
     public GetAction(boolean disableCache){
         this.disableCache = disableCache;
@@ -388,7 +388,7 @@ public class GetAction{
      * @param  id
      *         The bots id to use.
      *
-     * @return A Integer containing the OAuth invite for the bot.
+     * @return A Integer containing the server count for the bot.
      */
     public int getServerCount(Long id){
         JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
@@ -398,12 +398,12 @@ public class GetAction{
     
     /**
      * Gets the server count of the bot.
-     * <br>The invite is based on the most common appearance of it.
+     * <br>The server count is based on the most common appearance of it.
      *
      * @param  id
      *         The bots id to use.
      *
-     * @return A Integer containing the OAuth invite for the bot.
+     * @return A Integer containing the server count for the bot.
      */
     public int getServerCount(@NotNull String id){
         JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
