@@ -49,7 +49,11 @@ public enum Site {
     DISCORD_BOATS("discord.boats"),
     /**
      * <a href="https://discordbots.org" target="_blank">discordbots.org</a>
+     * 
+     * @deprecated Use {@link #TOP_GG TOP_GG} insetad.
+     *             <br>This option still works, but is no longer supported, nor recommended!
      */
+    @Deprecated
     DISCORDBOTS_ORG("discordbots.org"),
     /**
      * <a href="https://discordbotlist.com" target="_blank">discordbotlist.com</a>
@@ -95,11 +99,11 @@ public enum Site {
     MYTHICALBOTS_XYZ("mythicalbots.xyz"),
     /**
      * <a href="https://top.gg" target="_blank">top.gg</a>
-     * <br>Note that top.gg is discordbots.org (new domain). {@link #DISCORDBOTS_ORG DISCORDBOTS_ORG} will still work.
+     * <br>Note that top.gg is discordbots.org (new domain).
      * 
      * @since v3.0.0
      */
-    TOP_GG("discordbots.org"),
+    TOP_GG("top.gg"),
     /**
      * <a href="https://wonderbotlist.com" target="_blank">wonderbotlist.com</a>
      */
