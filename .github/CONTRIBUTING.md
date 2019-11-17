@@ -1,5 +1,5 @@
 [issues]: https://github.com/botblock/JavaBotBlockAPI/issues
-[Code of Conduct]: ./CODE_OF_CONDUCT.md
+[Code of Conduct]: https://github.com/botblock/JavaBotBlockAPI/blob/master/CODE_OF_CONDUCT.md
 [BotBlock API]: https://botblock.org/api/docs
 
 ## Contributing Guidelines
@@ -108,12 +108,26 @@ Here is an example of the different parts being used:
  *         When the provided String is empty/null.
  *
  * @since v1.0.0
+ *
+ * @deprecated Use {@link #getFooBar() getFooBar()} instead.
  */
+@Deprecated
 public String getFooBar(String foo) throws IllegalArgumentException{
     if(foo.isEmpty())
         throw new IllegalArgumentException("foo may not be empty");
         
     return foo + "Bar";
+}
+
+/**
+ * Returns "foobar".
+ *
+ * @return {@code "foobar"}
+ *
+ * @since v1.0.1
+ */
+public String getFooBar(){
+    return "foobar";
 }
 ```
 
