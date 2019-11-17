@@ -18,6 +18,9 @@
     - JDA: `4.0.0_52` to `4.0.0_61`
     - annotations: `17.0.0` to `18.0.0`
 
+- ### v3.0.1
+  - Deprecated `Site.DISCORDBOTS_ORG`. Use `Site.TOP_GG` instead.
+
 ## v2
 
 - ### v2.0.0
