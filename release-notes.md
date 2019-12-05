@@ -21,6 +21,11 @@
 - ### v3.0.1
   - Deprecated `Site.DISCORDBOTS_ORG`. Use `Site.TOP_GG` instead.
 
+- ### v3.0.2
+  - Dependencies updated:
+    - JDA: `4.0.0_61` to `4.0.0_70`
+
+____
 ## v2
 
 - ### v2.0.0
