@@ -8,7 +8,7 @@ plugins{
 
 group = 'com.andre601'
 
-version = '3.0.1_tb1'
+version = '3.0.3'
 
 sourceCompatibility = targetCompatibility = 1.8
 
