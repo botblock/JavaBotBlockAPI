@@ -1,24 +1,34 @@
+<!-- BotBlock links -->
 [BotBlock]: https://botblock.org
 [API]: https://botblock.org/api/docs
 
+<!-- BotBlock4J -->
 [BotBlock4J]: https://github.com/Nathan-webb/BotBlock4J
 
-[Javadocs]: https://docs.botblock.org/JavaBotBlockAPI/
+<!-- Javadoc link -->
+[Javadocs]: https://jbba.dev/docs
 
+<!-- Bintray links -->
 [BadgeDownload]: https://img.shields.io/bintray/v/andre601/maven/JavaBotBlockAPI?label=Bintray&style=plastic
 [Download]: https://bintray.com/andre601/maven/JavaBotBlockAPI/_latestVersion
 
+<!-- JavaBotBlockAPI image -->
 [image]: https://raw.githubusercontent.com/botblock/JavaBotBlockAPI/master/src/main/resources/JavaBotBlockAPI.png
 
+<!-- Dependency links -->
 [JDA]: https://github.com/DV8FromTheWorld/JDA
 [OkHttp]: https://github.com/square/okhttp/
 [JSON]: https://json.org
 [JetBrains annotations]: https://github.com/JetBrains/java-annotations
 [Caffeine]: https://github.com/ben-manes/caffeine
 
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[contributorsBadge]: https://img.shields.io/badge/Contributors_✨-2-green.svg?style=plastic
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+
 ![image]
 
-[![Contributors](https://img.shields.io/badge/Contributors_✨-2-green.svg?style=plastic)](#contributors-)
+[![contributorsBadge]](#contributors-)
 
 JavaBotBlockAPI is a continued and updated Java Wrapper for [BotBlock], a website that makes it possible to update guild counts on multiple lists with one API.  
 This wrapper is a fork of [BotBlock4J] and was updated and improved to make it as userfriendly as possible.
