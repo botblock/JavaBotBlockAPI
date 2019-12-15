@@ -60,7 +60,7 @@ public class PostAction{
     
     /**
      * Starts posting of the guild count each n minutes.
-     * <br>The delay in which this happens is set using <code>{@link com.andre601.javabotblockapi.BotBlockAPI.Builder#setUpdateInteval(int)}  BotBlockAPI.Builder#setUpdateInterval(int)}</code>
+     * <br>The delay in which this happens is set using <code>{@link com.andre601.javabotblockapi.BotBlockAPI.Builder#setUpdateInteval(int)  BotBlockAPI.Builder#setUpdateInterval(int)}</code>
      * 
      * <p><b>The scheduler will stop (cancel) the task, when an Exception appears!</b>
      * 

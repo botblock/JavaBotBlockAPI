@@ -6,11 +6,11 @@ plugins{
     id 'maven'
 }
 
-group = 'com.andre601'
+project.group = "com.andre601"
+project.version = "3.0.4"
 
-version = '3.0.3'
-
-sourceCompatibility = targetCompatibility = 1.8
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompitability = JavaVersion.VERSION_1_8
 
 jar{
     baseName = 'JavaBotBlockAPI'
@@ -73,6 +73,7 @@ publishing{
             artifact sourcesJar
         }
     }
+    /*
     repositories{
         maven{
             name = "GitHubPackages"
@@ -88,4 +89,5 @@ publishing{
             }
         }
     }
+    */
 }

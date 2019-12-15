@@ -114,7 +114,8 @@ postAction.postGuilds(jda, api);
 ```
 
 ## GET methods
-Since version 2.0.0 of JavaBotBlockAPI can you get certain information of a bot or the available Bot lists on the BotBlock API.
+Since version 2.0.0 of JavaBotBlockAPI can you get certain information of a bot or the available Bot lists on the BotBlock API.  
+All methods listed below can be used through the `GetAction` class.
 
 ### All available Bot lists
 You can call `.getBotLists()` to receive a JSONObject with all available Botlists in the BotBlockAPI.
@@ -213,7 +214,7 @@ With `.getBotListInfo(Long|String, Site|String)` can you receive the info of a s
 The returned data depends on the selected site and can be different for each one.
 
 ### Invite
-The method `getInvite(Long|String)` allows you to get the OAuth invite of the bot.  
+The method `.getInvite(Long|String)` allows you to get the OAuth invite of the bot.  
 The invite is based on the most common appearance on the different bot lists.
 
 ### Server count
@@ -225,7 +226,7 @@ You can call `.getOwners(Long|String)` to get the owners of a Bot from all the B
 The info is returned as ArrayList and is based on how often the info is provided by the botlists.
 
 ## Exceptions
-When you post the guild counts you could encounter certain Exceptions.  
+When you post the guild counts could you encounter certain Exceptions.  
 You can receive the following exceptions:
 - `IOException`  
 The Request couldn't be performed properly. This can be f.e. the case when BotBlock.org denies access (403).
