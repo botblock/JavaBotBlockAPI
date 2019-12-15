@@ -7,10 +7,9 @@ plugins{
 }
 
 project.group = "com.andre601"
-project.version = "3.0.4"
+project.version = "3.0.5"
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompitability = JavaVersion.VERSION_1_8
+sourceCompatibility = targetCompitability = 1.8
 
 jar{
     baseName = 'JavaBotBlockAPI'

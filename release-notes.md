@@ -22,9 +22,21 @@
   - Deprecated `Site.DISCORDBOTS_ORG`. Use `Site.TOP_GG` instead.
 
 - ### v3.0.2
+  - **This update is not available on bintray!**
   - Dependencies updated:
     - JDA: `4.0.0_61` to `4.0.0_70`
 
+- ### v3.0.3
+  - Same changes as [v3.0.2](#v302)
+
+- ### v3.0.4
+  - **This update is not available on bintray!**
+  - RequestHandler was removed
+  - Dependencies updated:
+    - JDA: `4.0.0_70` to `4.0.0_73`
+
+- ### v3.0.5
+  - Fixed broken build.gradle
 ____
 ## v2
 
