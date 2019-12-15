@@ -1,3 +1,5 @@
+Versions marked with a `*` are not available on bintray!
+
 ## v3
 
 - ### v3.0.0
@@ -21,22 +23,23 @@
 - ### v3.0.1
   - Deprecated `Site.DISCORDBOTS_ORG`. Use `Site.TOP_GG` instead.
 
-- ### v3.0.2
-  - **This update is not available on bintray!**
+- ### v3.0.2*
   - Dependencies updated:
     - JDA: `4.0.0_61` to `4.0.0_70`
 
 - ### v3.0.3
   - Same changes as [v3.0.2](#v302)
 
-- ### v3.0.4
-  - **This update is not available on bintray!**
+- ### v3.0.4*
   - RequestHandler was removed
   - Dependencies updated:
     - JDA: `4.0.0_70` to `4.0.0_73`
 
-- ### v3.0.5
+- ### v3.0.5*
   - Fixed broken build.gradle
+
+- ### v3.0.6
+  - It's `targetCompatibility` not `targetCompitability`
 ____
 ## v2
 
