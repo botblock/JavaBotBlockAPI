@@ -159,7 +159,7 @@ public class BotBlockAPI{
          * @param  updateInterval
          *         The update interval in minutes that should be used. This can't be less than 2.
          *
-         * @throws IllegalArgumentException
+         * @throws java.lang.IllegalArgumentException
          *         When the updateInterval is less than 2.
          *
          * @return The Builder after the updateInterval was set. Useful for chaining.

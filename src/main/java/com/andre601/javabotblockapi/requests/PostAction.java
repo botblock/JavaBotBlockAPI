@@ -148,7 +148,7 @@ public class PostAction{
     
     /**
      * Posts the guild count provided through the {@link net.dv8tion.jda.api.JDA JDA instance}.
-     * <br><b>It's recommended to use {@link #postGuilds(ShardManager, BotBlockAPI) postGuilds(ShardManager, BotBlockAPI} 
+     * <br><b>It's recommended to use {@link #postGuilds(ShardManager, BotBlockAPI) postGuilds(ShardManager, BotBlockAPI)} 
      * if you're using a sharded bot.</b>
      * 
      * <p>When the amount of shards a bot has is bigger than one will shard_id and shard_count be added.
