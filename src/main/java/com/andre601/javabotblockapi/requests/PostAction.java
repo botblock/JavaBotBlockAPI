@@ -157,10 +157,10 @@ public class PostAction{
      *         The {@link net.dv8tion.jda.api.JDA JDA instance}.
      * @param  botBlockAPI
      *         The {@link com.andre601.javabotblockapi.BotBlockAPI BotBlockAPI instance}.
-     *         
-     * @throws IOException
+     *
+     * @throws java.io.IOException
      *         When the post request couldn't be performed.
-     * @throws RatelimitedException
+     * @throws com.andre601.javabotblockapi.exceptions.RatelimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
     public void postGuilds(@NotNull JDA jda, @NotNull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
@@ -187,9 +187,9 @@ public class PostAction{
      * @param  botBlockAPI
      *         The {@link com.andre601.javabotblockapi.BotBlockAPI BotBlockAPI instance}.
      *
-     * @throws IOException
+     * @throws java.io.IOException
      *         When the post request couldn't be performed.
-     * @throws RatelimitedException
+     * @throws com.andre601.javabotblockapi.exceptions.RatelimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
     public void postGuilds(Long botId, int guilds, @NotNull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
@@ -205,9 +205,9 @@ public class PostAction{
      * @param  botBlockAPI
      *         The {@link com.andre601.javabotblockapi.BotBlockAPI BotBlockAPI instance}.
      *
-     * @throws IOException
+     * @throws java.io.IOException
      *         When the post request couldn't be performed.
-     * @throws RatelimitedException
+     * @throws com.andre601.javabotblockapi.exceptions.RatelimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
     public void postGuilds(@NotNull ShardManager shardManager, @NotNull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
@@ -240,9 +240,9 @@ public class PostAction{
      * @param  botBlockAPI
      *         The {@link com.andre601.javabotblockapi.BotBlockAPI BotBlockAPI instance}.
      *
-     * @throws IOException
+     * @throws java.io.IOException
      *         When the post request couldn't be performed.
-     * @throws RatelimitedException
+     * @throws com.andre601.javabotblockapi.exceptions.RatelimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
     public void postGuilds(@NotNull String botId, int guilds, @NotNull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{

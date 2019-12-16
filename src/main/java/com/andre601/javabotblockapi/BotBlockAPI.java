@@ -92,7 +92,7 @@ public class BotBlockAPI{
          *         The API token from the corresponding bot list. May not be null or empty.
          *         <br>You may receive the API token from the bot list.
          *
-         * @throws NullPointerException
+         * @throws java.lang.NullPointerException
          *         When the provided token is empty ({@code ""}).
          *
          * @return The Builder after the site and token were set. Useful for chaining.
@@ -118,7 +118,7 @@ public class BotBlockAPI{
          *         The API token from the corresponding bot list. May not be null or empty.
          *         <br>You may receive the API token from the bot list.
          *
-         * @throws NullPointerException
+         * @throws java.lang.NullPointerException
          *         When either the site or token are empty ({@code ""}).
          *
          * @return The Builder after the site and token were set. Useful for chaining.
@@ -139,7 +139,7 @@ public class BotBlockAPI{
          * @param  authTokens
          *         The Map that should be used. May not be null.
          *
-         * @throws NullPointerException
+         * @throws java.lang.NullPointerException
          *         When the provided Map is empty.
          *
          * @return The Builder after the Map was set. Useful for chaining.

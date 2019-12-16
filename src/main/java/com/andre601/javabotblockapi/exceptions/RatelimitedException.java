@@ -20,7 +20,7 @@ package com.andre601.javabotblockapi.exceptions;
 import org.json.JSONObject;
 
 /**
- * Used when the Wrapper gets ratelimited by the BotBlockAPI.
+ * Used when the Wrapper gets rate-limited by the BotBlockAPI.
  */
 public class RatelimitedException extends Throwable{
     private int delay;
