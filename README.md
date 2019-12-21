@@ -8,6 +8,9 @@
 <!-- Javadoc link -->
 [Javadocs]: https://jbba.dev/docs
 
+<!-- CI link (Thanks to CodeMC.io) -->
+[CodeMC]: https://ci.codemc.io/view/Author/job/botblock/job/JavaBotBlockAPI/
+
 <!-- Bintray links -->
 [BadgeDownload]: https://img.shields.io/bintray/v/andre601/maven/JavaBotBlockAPI?label=Bintray&style=plastic
 [Download]: https://bintray.com/andre601/maven/JavaBotBlockAPI/_latestVersion
@@ -252,6 +255,7 @@ Here are some useful links:
 - [BotBlock.org][BotBlock] Site for which this wrapper was made.
   - [API] API documentation.
 - [Javadocs] Java documentation of the Wrapper.
+- [CodeMC] CI server for dev builds. Those jar files may differ from the ones on bintray.
 - [BotBlock4J] Original Wrapper from which this one originates.
 
 ## Contributors ✨
