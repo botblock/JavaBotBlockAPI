@@ -4,6 +4,7 @@ plugins{
     id 'idea'
     id 'maven-publish'
     id 'maven'
+    id 'com.github.johnrengelman.shadow' version '4.0.4'
 }
 
 project.group = "com.andre601"
