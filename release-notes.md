@@ -40,6 +40,13 @@ Versions marked with a `*` are not available on bintray!
 
 - ### v3.0.6
   - It's `targetCompatibility` not `targetCompitability`
+
+- ### v3.1.0
+  - Updated Gradle to v5.5
+  - Added links to Jenkins for dev builds (Thanks CodeMC)
+  - Dependencies updated:
+    - Shadow: `4.0.4` to `5.2.0`
+    - JDA: `4.0.0_73` to `4.1.0_81`
 ____
 ## v2
 
