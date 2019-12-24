@@ -47,6 +47,9 @@ Versions marked with a `*` are not available on bintray!
   - Dependencies updated:
     - Shadow: `4.0.4` to `5.2.0`
     - JDA: `4.0.0_73` to `4.1.0_81`
+
+- ### v3.2.0
+  - Added `@DeprecatedSince` and `@ReplacedWith` annotations
 ____
 ## v2
 

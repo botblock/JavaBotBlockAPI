@@ -17,6 +17,9 @@
  */
 package com.andre601.javabotblockapi;
 
+import com.andre601.javabotblockapi.annotations.DeprecatedSince;
+import com.andre601.javabotblockapi.annotations.ReplacedWith;
+
 /**
  * Enum class containing all sites currently supported by BotBlock.org.
  * 
@@ -59,6 +62,8 @@ public enum Site {
      *             <br>This option still works, but is no longer supported, nor recommended!
      */
     @Deprecated
+    @ReplacedWith("TOP_GG")
+    @DeprecatedSince("v3.0.1")
     DISCORDBOTS_ORG("discordbots.org"),
     
     /**
