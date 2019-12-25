@@ -23,11 +23,21 @@
       "contributions": [
         "plugin"
       ]
+    },
+    {
+      "login": "CodeMC",
+      "name": "CodeMC",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/37156340?v=4",
+      "profile": "https://ci.codemc.io/",
+      "contributions": [
+        "infra"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "JavaBotBlockAPI",
   "projectOwner": "botblock",
   "repoType": "github",
-  "repoHost": "https://github.com"
+  "repoHost": "https://github.com",
+  "skipCi": true
 }
