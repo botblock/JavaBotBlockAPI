@@ -22,7 +22,7 @@ import java.lang.annotation.*;
 
 /**
  * Gives information since when a method or field is deprecated.
- * <br>This is paired with the @Deprecated annotation.
+ * <br>This is paired with the {@link java.lang.Deprecated @Deprecated} annotation.
  * 
  * @since v3.2.0
  */

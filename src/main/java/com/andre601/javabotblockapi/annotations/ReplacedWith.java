@@ -22,7 +22,7 @@ import java.lang.annotation.*;
 
 /**
  * Indicates a replacement for the annotated field or method, that should be used instead.
- * <br>This is paired with the @Deprecated annotation.
+ * <br>This is paired with the {@link java.lang.Deprecated @Deprecated} annotation.
  * 
  * @since v3.2.0
  */
