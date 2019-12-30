@@ -46,6 +46,11 @@ public enum Site {
     BOTS_ONDISCORD_XYZ("bots.ondiscord.xyz"),
     
     /**
+     * <a href="https://cloud-botlist.xyz" target="_blank">cloud-botlist.xyz</a>
+     */
+    CLOUD_BOTLIST_XYZ("cloud-botlist.xyz"),
+    
+    /**
      * <a href="https://discordapps.dev" target="_blank">discordapps.dev</a>
      */
     DISCORDAPPS_DEV("discordapps.dev"),
@@ -107,6 +112,11 @@ public enum Site {
      * <a href="https://divinediscordbots.com" target="_blank">divinediscordbots.com</a>
      */
     DIVINEDISCORDBOTS_COM("divinediscordbots.com"),
+    
+    /**
+     * <a href="https://glennbotlist.xyz" target="_blank">glennbotlist.xyz</a>
+     */
+    GLENNBOTLIST_XYZ("glennbotlist.xyz"),
     
     /**
      * <a href="https://lbots.org" target="_blank">lbots.org</a>

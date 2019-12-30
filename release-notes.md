@@ -50,6 +50,11 @@ Versions marked with a `*` are not available on bintray!
 
 - ### v3.2.0
   - Added `@DeprecatedSince` and `@ReplacedWith` annotations
+
+- ### v3.2.1
+  - Sites updated:
+    - Added [`glennbotlist.xyz`](https://glennbotlist.xyz)
+    - Added [`cloud-botlist.xyz`](https://cloud-botlist.xyz)
 ____
 ## v2
 
@@ -71,7 +76,7 @@ ____
 
 - ### v2.1.1
   - Sites updated:
-    - Added [`yabl.xyz`](https://yabl.xyz) added.
+    - Added [`yabl.xyz`](https://yabl.xyz)
 
 - ### v2.2.0
   - Dependencies updated:
