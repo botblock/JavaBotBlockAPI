@@ -75,3 +75,7 @@ publishing{
         }
     }
 }
+
+task shadowJar{
+    version = version + "_" + System.getenv("BUILD_NUMBER")
+}
