@@ -55,6 +55,9 @@ Versions marked with a `*` are not available on bintray!
   - Sites updated:
     - Added [`glennbotlist.xyz`](https://glennbotlist.xyz)
     - Added [`cloud-botlist.xyz`](https://cloud-botlist.xyz)
+
+- ### v3.3.0_0
+  - Version now has a build-number attached (used for Jenkin builds)
 ____
 ## v2
 
