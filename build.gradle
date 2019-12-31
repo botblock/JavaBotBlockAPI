@@ -7,8 +7,10 @@ plugins{
     id 'com.github.johnrengelman.shadow' version '5.2.0'
 }
 
-project.group = "com.andre601"
-project.version = "3.2.1"
+def ver = new Version(major: 3, minor: 2, revision: 1)
+
+group = "com.andre601"
+version = "$ver"
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -76,6 +78,15 @@ publishing{
     }
 }
 
-task shadowJar{
-    version = version + "_" + System.getenv("BUILD_NUMBER")
+class Version{
+    String major, minor, revision
+    
+    static String getBuild(){
+        System.getenv("BUILD_NUMBER") ?: System.getProperty("BUILD_NUMBER") ?: 
+        System.getenv("GIT_COMMIT")?.substring(0, 7) ?: System.getProperty("GIT_COMMIT")?.substring(0, 7) ?: "dev"
+    }
+    
+    String toString(){
+        "$major.$minor.${revision}_$build"
+    }
 }
