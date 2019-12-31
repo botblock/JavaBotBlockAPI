@@ -19,8 +19,5 @@ jobs:
       env:
         bintrayUser: ${{ secrets.bintrayUsername }}
         bintrayApiKey: ${{ secrets.bintrayApiKey }}
+        BUILD_NUMBER: 0 # Releases are always major.minor.revision_0
       run: ./gradlew bintrayUpload
-#    - name: Publish (GitHub Packages)
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#      run: ./gradlew publish
