@@ -22,6 +22,7 @@ jobs:
         BUILD_NUMBER: 0 # Releases are always major.minor.revision_0
       run: ./gradlew bintrayUpload
   sendMessage:
+    needs: [publish]
     if: success()
     runs-on: ubuntu-latest
     steps:
