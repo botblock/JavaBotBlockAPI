@@ -21,3 +21,15 @@ jobs:
         bintrayApiKey: ${{ secrets.bintrayApiKey }}
         BUILD_NUMBER: 0 # Releases are always major.minor.revision_0
       run: ./gradlew bintrayUpload
+  sendMessage:
+    if: success()
+    runs-on: ubuntu-latest
+    steps:
+    - name: Discord notification
+      uses: rjstone/discord-webhook-notify@v1.0.2
+      with:
+        webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+        severity: info
+        username: New release
+        description: '**Release Information**'
+        details: ''
