@@ -73,6 +73,12 @@ javadoc{
     }
 }
 
+build{
+    dependsOn(javadocJar)
+    dependsOn(sourcesJar)
+    dependsOn(shadowJar)
+}
+
 bintray{
     user = System.getenv("bintrayUser")
     key = System.getenv("bintrayApiKey")
