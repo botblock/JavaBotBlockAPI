@@ -16,7 +16,7 @@
 [Download]: https://bintray.com/andre601/maven/JavaBotBlockAPI/_latestVersion
 
 <!-- JavaBotBlockAPI image -->
-[image]: https://raw.githubusercontent.com/botblock/JavaBotBlockAPI/master/src/main/resources/JavaBotBlockAPI.png
+[image]: src/main/resources/JavaBotBlockAPI.png
 
 <!-- Dependency links -->
 [JDA]: https://github.com/DV8FromTheWorld/JDA
