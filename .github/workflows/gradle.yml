@@ -21,6 +21,11 @@ jobs:
         bintrayApiKey: ${{ secrets.bintrayApiKey }}
         BUILD_NUMBER: 0 # Releases are always major.minor.revision_0
       run: ./gradlew bintrayUpload
+    - name: Publish (GitHub Packages)
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BUILD_NUMBER: 0 # Releases are always major.minor.revision_0
+      run: ./gradlew publish
   sendMessage:
     needs: [publish]
     if: success()
@@ -32,7 +37,7 @@ jobs:
         webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
         severity: info
         avatarUrl: 'https://raw.githubusercontent.com/botblock/JavaBotBlockAPI/master/src/main/resources/jbba.png'
-        username: New release (${{ github.event.release.tag_name }})
-        text: ${{ github.event.release.name }}
+        username: 'New release (${{ github.event.release.tag_name }})'
+        text: '${{ github.event.release.name }}'
         description: '**Release Information**'
         details: '${{ github.event.release.body }}'

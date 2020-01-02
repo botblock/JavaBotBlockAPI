@@ -7,9 +7,9 @@ plugins{
     id 'com.github.johnrengelman.shadow' version '5.2.0'
 }
 
-def ver = new Version(major: 3, minor: 3, revision: 2)
+def ver = new Version(major: 4, minor: 0, revision: 0)
 
-group = "com.andre601"
+group = "org.botblock"
 version = "$ver"
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -49,6 +49,30 @@ artifacts{
     archives javadocJar
 }
 
+javadoc{
+    source = sourceSets.main.allJava
+    destinationDir = file("$projectDir/docs/")
+    options.encoding = 'UTF-8'
+    options.memberLevel = JavadocMemberLevel.PROTECTED
+    
+    if(options instanceof StandardJavadocDocletOptions){
+        def opt = options as StandardJavadocDocletOptions
+        
+        opt.links(
+                "https://stleary.github.io/JSON-java/",
+                "https://ci.dv8tion.net/job/JDA/javadoc/",
+                "https://docs.oracle.com/javase/8/docs/api/"
+        )
+        if(JavaVersion.current().isJava9Compatible()){
+            opt.addBooleanOption("html5", true)
+            opt.addStringOption("-release", "8")
+        }
+        if(JavaVersion.current().isJava11Compatible()){
+            opt.addBooleanOption("-no-module-directories", true)
+        }
+    }
+}
+
 bintray{
     user = System.getenv("bintrayUser")
     key = System.getenv("bintrayApiKey")
@@ -74,6 +98,21 @@ publishing{
             version version
             artifact(javadocJar)
             artifact(sourcesJar)
+        }
+    }
+    repositories{
+        maven{
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/botblock/JavaBotBlockAPI")
+            credentials{
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+        publications{
+            gpr(MavenPublication){
+                from(components.java)
+            }
         }
     }
 }

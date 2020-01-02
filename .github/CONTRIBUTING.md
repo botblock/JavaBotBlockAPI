@@ -56,7 +56,7 @@ Do the same for new paragraphs, but keep an empty line in between the text (And 
 Please always use the full path to a class/method when using `{@link}`
 
 Bad example: `{@link BotBlockAPI}`  
-Good example: `{@link com.andre601.javabotblockapi.BotBlockAPI BotBlockAPI}`
+Good example: `{@link BotBlockAPI BotBlockAPI}`
 
 We want to point out the alternative text used in the Good example, to display "BotBlockAPI" instead of the path.  
 When linking to a method that is in a separate class, set the alternative text to `Class.method(option(s))`.

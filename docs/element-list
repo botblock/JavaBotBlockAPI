@@ -1,4 +1,4 @@
-com.andre601.javabotblockapi
-com.andre601.javabotblockapi.annotations
-com.andre601.javabotblockapi.exceptions
-com.andre601.javabotblockapi.requests
+org.botblock.javabotblockapi
+org.botblock.javabotblockapi.annotations
+org.botblock.javabotblockapi.exceptions
+org.botblock.javabotblockapi.requests
