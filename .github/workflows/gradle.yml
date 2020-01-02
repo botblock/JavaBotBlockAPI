@@ -30,6 +30,8 @@ jobs:
       with:
         webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
         severity: info
-        username: New release
+        avatarUrl: 'https://raw.githubusercontent.com/botblock/JavaBotBlockAPI/master/src/main/resources/jbba.png'
+        username: New release (${{ github.event.release.tag_name }})
+        text: ${{ github.event.release.name }}
         description: '**Release Information**'
-        details: ''
+        details: '${{ github.event.release.body }}'
