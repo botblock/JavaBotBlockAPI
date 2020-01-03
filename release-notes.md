@@ -5,6 +5,9 @@ Versions marked with a `*` are not available on bintray!
   - Updated packages from `com.andre601.javabotblockapi` to `org.botblock.javabotblockapi`.  
   **This is a breaking change.**
 
+- ### v4.0.1
+  - Updated message of RatelimitedException
+
 ## v3
 - ### v3.0.0
   - Moved post and get methods to their own class
