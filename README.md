@@ -50,7 +50,7 @@ repositories{
 }
 
 dependencies{
-    compile group: 'com.andre601', name: 'JavaBotBlockAPI', version: '{version}'
+    compile group: 'org.botblock', name: 'JavaBotBlockAPI', version: '{version}'
 }
 ```
 
@@ -59,7 +59,7 @@ For maven use this code snippet:
 ```xml
 <dependencies>
   <dependency>
-    <groupId>com.andre601</groupId>
+    <groupId>org.botblock</groupId>
     <artifactId>JavaBotBlockAPI</artifactId>
     <version>{version}</version>
   </dependency>
