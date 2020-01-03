@@ -8,9 +8,13 @@ Versions marked with a `*` are not available on bintray!
 - ### v4.0.1_0
   - Updated message of RatelimitedException
 
-- ### v4.0.2
+- ### v4.0.2*
   - Updated version system.  
   Releases are back to `#.#.#` format while dev builds are `#.#.#_#`
+
+- ### v4.0.3
+  - Fixed broken version system.  
+  Forgot to remove `BUILD_NUMBER: 0` from gradle.yml... Ooops
 
 ## v3
 - ### v3.0.0
