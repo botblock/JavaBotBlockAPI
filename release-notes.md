@@ -1,12 +1,16 @@
 Versions marked with a `*` are not available on bintray!
 
 ## v4
-- ### v4.0.0
+- ### v4.0.0_0
   - Updated packages from `com.andre601.javabotblockapi` to `org.botblock.javabotblockapi`.  
   **This is a breaking change.**
 
-- ### v4.0.1
+- ### v4.0.1_0
   - Updated message of RatelimitedException
+
+- ### v4.0.2
+  - Updated version system.  
+  Releases are back to `#.#.#` format while dev builds are `#.#.#_#`
 
 ## v3
 - ### v3.0.0

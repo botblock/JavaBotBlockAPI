@@ -38,7 +38,7 @@ jobs:
         severity: info
         avatarUrl: 'https://raw.githubusercontent.com/botblock/JavaBotBlockAPI/master/src/main/resources/jbba.png'
         username: 'New release (${{ github.event.release.tag_name }})'
-        text: '${{ github.event.release.name }}\n${{ github.event.release.html_url }}'
-        description: '**Release Information**'
+        text: '${{ github.event.release.name }}'
+        description: '[**Release Information**](${{ github.event.release.html_url }})'
         details: '${{ github.event.release.body }}'
         footer: 'Version ${{github.event.release.tag_name}}'
