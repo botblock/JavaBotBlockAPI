@@ -21,18 +21,18 @@ jobs:
         bintrayApiKey: ${{ secrets.bintrayApiKey }}
         BUILD_NUMBER: 0 # Releases are always major.minor.revision_0
       run: ./gradlew bintrayUpload
-    - name: Publish (GitHub Packages)
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BUILD_NUMBER: 0 # Releases are always major.minor.revision_0
-      run: ./gradlew publish
+    #- name: Publish (GitHub Packages)
+    #  env:
+    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #    BUILD_NUMBER: 0 # Releases are always major.minor.revision_0
+    #  run: ./gradlew publish
   sendMessage:
     needs: [publish]
     if: success()
     runs-on: ubuntu-latest
     steps:
     - name: Discord notification
-      uses: rjstone/discord-webhook-notify@v1.0.2
+      uses: rjstone/discord-webhook-notify@v1
       with:
         webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
         severity: info

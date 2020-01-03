@@ -20,7 +20,8 @@ package org.botblock.javabotblockapi.exceptions;
 import org.json.JSONObject;
 
 /**
- * Used when the Wrapper gets rate-limited by the BotBlockAPI.
+ * Indicates that the Java-Wrapper (Bot) was rate-limited by BotBlock.org (Received error code 429)
+ * <br>The returned error message contains the route, Bot ID, IP and delay for when rate limit is removed.
  */
 public class RatelimitedException extends Throwable{
     private int delay;
@@ -45,7 +46,7 @@ public class RatelimitedException extends Throwable{
     @Override
     public String getMessage(){
         return String.format(
-                "Got ratelimited on route %s (IP: %s, Bot ID: %s). Can send again in %d seconds.",
+                "Received Ratelimit. [Route: %s, IP: %s, Bot_id: %s, Delay: %d]",
                 route,
                 ip,
                 bot_id,
