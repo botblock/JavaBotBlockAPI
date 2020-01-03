@@ -16,6 +16,9 @@ Versions marked with a `*` are not available on bintray!
   - Fixed broken version system.  
   Forgot to remove `BUILD_NUMBER: 0` from gradle.yml... Ooops
 
+- ### v4.0.4
+  - For unknown reason is the wrapper not available through normal downloads...
+
 ## v3
 - ### v3.0.0
   - Moved post and get methods to their own class
