@@ -75,7 +75,7 @@ public class BotBlockAPI{
     }
 
     /**
-     * Builder class to create an instance of {@link BotBlockAPI BotBlockAPI}
+     * Builder class to create an instance of {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI}
      */
     public static class Builder{
         private Map<String, String> tokens = new HashMap<>();
@@ -87,11 +87,11 @@ public class BotBlockAPI{
         public Builder(){}
 
         /**
-         * Adds the provided {@link Site Site name} and token to the Map.
+         * Adds the provided {@link org.botblock.javabotblockapi.Site Site name} and token to the Map.
          * <br>Entries with the same key will be overwritten.
          *
          * @param  site
-         *         The {@link Site Site} to get the name from.
+         *         The {@link org.botblock.javabotblockapi.Site Site} to get the name from.
          * @param  token
          *         The API token from the corresponding bot list. May not be null or empty.
          *         <br>You may receive the API token from the bot list.
@@ -180,9 +180,9 @@ public class BotBlockAPI{
         }
 
         /**
-         * Builds the instance of {@link BotBlockAPI BotBlockAPI}.
+         * Builds the instance of {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI}.
          *
-         * @return The built, usable {@link BotBlockAPI BotBlockAPI}.
+         * @return The built, usable {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI}.
          */
         public BotBlockAPI build(){
             return new BotBlockAPI(tokens, updateDelay);

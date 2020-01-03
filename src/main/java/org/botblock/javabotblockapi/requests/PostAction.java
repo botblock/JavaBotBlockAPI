@@ -60,14 +60,14 @@ public class PostAction{
     
     /**
      * Starts posting of the guild count each n minutes.
-     * <br>The delay in which this happens is set using <code>{@link BotBlockAPI.Builder#setUpdateDelay(int)  BotBlockAPI.Builder#setUpdateInterval(int)}</code>
+     * <br>The delay in which this happens is set using <code>{@link org.botblock.javabotblockapi.BotBlockAPI.Builder#setUpdateDelay(int)  BotBlockAPI.Builder#setUpdateInterval(int)}</code>
      * 
      * <p><b>The scheduler will stop (cancel) the task, when an Exception appears!</b>
      * 
      * @param jda
      *        The {@link net.dv8tion.jda.api.JDA JDA instance} to use.
      * @param botBlockAPI
-     *        The {@link BotBlockAPI BotBlockAPI instance} to use.
+     *        The {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI instance} to use.
      */
     public void enableAutoPost(@NotNull JDA jda, @NotNull BotBlockAPI botBlockAPI){
         scheduler.scheduleAtFixedRate(() -> {
@@ -81,7 +81,7 @@ public class PostAction{
     
     /**
      * Starts posting of the guild count each n minutes.
-     * <br>The delay in which this happens is set using <code>{@link BotBlockAPI.Builder#setUpdateDelay(int)}  BotBlockAPI.Builder#setUpdateInterval(int)}</code>
+     * <br>The delay in which this happens is set using <code>{@link org.botblock.javabotblockapi.BotBlockAPI.Builder#setUpdateDelay(int)}  BotBlockAPI.Builder#setUpdateInterval(int)}</code>
      *
      * <p><b>The scheduler will stop (cancel) the task, when an Exception appears!</b>
      *
@@ -90,7 +90,7 @@ public class PostAction{
      * @param guilds
      *        The guild count.
      * @param botBlockAPI
-     *        The {@link BotBlockAPI BotBlockAPI instance} to use.
+     *        The {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI instance} to use.
      */
     public void enableAutoPost(Long botId, int guilds, @NotNull BotBlockAPI botBlockAPI){
         scheduler.scheduleAtFixedRate(() -> {
@@ -104,14 +104,14 @@ public class PostAction{
     
     /**
      * Starts posting of the guild count each n minutes.
-     * <br>The delay in which this happens is set using <code>{@link BotBlockAPI.Builder#setUpdateDelay(int)}  BotBlockAPI.Builder#setUpdateInterval(int)}</code>
+     * <br>The delay in which this happens is set using <code>{@link org.botblock.javabotblockapi.BotBlockAPI.Builder#setUpdateDelay(int)}  BotBlockAPI.Builder#setUpdateInterval(int)}</code>
      *
      * <p><b>The scheduler will stop (cancel) the task, when an Exception appears!</b>
      *
      * @param shardManager
      *        The {@link net.dv8tion.jda.api.sharding.ShardManager ShardManager instance} to use.
      * @param botBlockAPI
-     *        The {@link BotBlockAPI BotBlockAPI instance} to use.
+     *        The {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI instance} to use.
      */
     public void enableAutoPost(@NotNull ShardManager shardManager, @NotNull BotBlockAPI botBlockAPI){
         scheduler.scheduleAtFixedRate(() -> {
@@ -125,7 +125,7 @@ public class PostAction{
     
     /**
      * Starts posting of the guild count each n minutes.
-     * <br>The delay in which this happens is set using <code>{@link BotBlockAPI.Builder#setUpdateDelay(int)}  BotBlockAPI.Builder#setUpdateInterval(int)}</code>
+     * <br>The delay in which this happens is set using <code>{@link org.botblock.javabotblockapi.BotBlockAPI.Builder#setUpdateDelay(int)}  BotBlockAPI.Builder#setUpdateInterval(int)}</code>
      *
      * <p><b>The scheduler will stop (cancel) the task, when an Exception appears!</b>
      *
@@ -134,7 +134,7 @@ public class PostAction{
      * @param guilds
      *        The guild count.
      * @param botBlockAPI
-     *        The {@link BotBlockAPI BotBlockAPI instance} to use.
+     *        The {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI instance} to use.
      */
     public void enableAutoPost(@NotNull String botId, int guilds, @NotNull BotBlockAPI botBlockAPI){
         scheduler.scheduleAtFixedRate(() -> {
@@ -156,11 +156,11 @@ public class PostAction{
      * @param  jda
      *         The {@link net.dv8tion.jda.api.JDA JDA instance}.
      * @param  botBlockAPI
-     *         The {@link BotBlockAPI BotBlockAPI instance}.
+     *         The {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI instance}.
      *
      * @throws java.io.IOException
      *         When the post request couldn't be performed.
-     * @throws RatelimitedException
+     * @throws org.botblock.javabotblockapi.exceptions.RatelimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
     public void postGuilds(@NotNull JDA jda, @NotNull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
@@ -185,11 +185,11 @@ public class PostAction{
      * @param  guilds
      *         The guild count.
      * @param  botBlockAPI
-     *         The {@link BotBlockAPI BotBlockAPI instance}.
+     *         The {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI instance}.
      *
      * @throws java.io.IOException
      *         When the post request couldn't be performed.
-     * @throws RatelimitedException
+     * @throws org.botblock.javabotblockapi.exceptions.RatelimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
     public void postGuilds(Long botId, int guilds, @NotNull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
@@ -203,11 +203,11 @@ public class PostAction{
      * @param  shardManager
      *         The {@link net.dv8tion.jda.api.sharding.ShardManager ShardManager instance}.
      * @param  botBlockAPI
-     *         The {@link BotBlockAPI BotBlockAPI instance}.
+     *         The {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI instance}.
      *
      * @throws java.io.IOException
      *         When the post request couldn't be performed.
-     * @throws RatelimitedException
+     * @throws org.botblock.javabotblockapi.exceptions.RatelimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
     public void postGuilds(@NotNull ShardManager shardManager, @NotNull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
@@ -238,11 +238,11 @@ public class PostAction{
      * @param  guilds
      *         The guild count.
      * @param  botBlockAPI
-     *         The {@link BotBlockAPI BotBlockAPI instance}.
+     *         The {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI instance}.
      *
      * @throws java.io.IOException
      *         When the post request couldn't be performed.
-     * @throws RatelimitedException
+     * @throws org.botblock.javabotblockapi.exceptions.RatelimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
     public void postGuilds(@NotNull String botId, int guilds, @NotNull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{

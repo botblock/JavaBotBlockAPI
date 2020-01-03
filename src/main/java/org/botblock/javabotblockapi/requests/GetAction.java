@@ -187,7 +187,7 @@ public class GetAction{
      * @param  id
      *         The bots id to use.
      * @param  site
-     *         The {@link Site site} to get info from.
+     *         The {@link org.botblock.javabotblockapi.Site site} to get info from.
      *         
      * @return A possibly-null JSONArray containing the bots info on the provided site.
      */
@@ -224,7 +224,7 @@ public class GetAction{
      * @param  id
      *         The bots id to use.
      * @param  site
-     *         The {@link Site site} to get info from.
+     *         The {@link org.botblock.javabotblockapi.Site site} to get info from.
      *         
      * @return A possibly-null JSONArray containing the bots info on the provided site.
      */
@@ -243,7 +243,7 @@ public class GetAction{
      *         The bots id to use.
      * @param  site
      *         The site to get the info from.
-     *         <br>A list of supported sites can be found {@link Site here}.
+     *         <br>A list of supported sites can be found {@link org.botblock.javabotblockapi.Site here}.
      *         
      * @return A possibly-null JSONArray containing the bots info on the provided site.
      */
@@ -273,7 +273,7 @@ public class GetAction{
      * @param  id
      *         The id used for the internal caching.
      * @param  site
-     *         The {@link Site site} to get information from.
+     *         The {@link org.botblock.javabotblockapi.Site site} to get information from.
      *
      * @return A possibly-null JSONObject containing information from the provided bot list.
      */
@@ -304,7 +304,7 @@ public class GetAction{
      *         The id used for the internal caching.
      * @param  site
      *         The site to get information from.
-     *         <br>A list of supported sites can be found {@link Site here}.
+     *         <br>A list of supported sites can be found {@link org.botblock.javabotblockapi.Site here}.
      *
      * @return A possibly-null JSONObject containing information from the provided bot list.
      */

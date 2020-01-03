@@ -19,15 +19,13 @@ package org.botblock.javabotblockapi;
 
 import org.botblock.javabotblockapi.annotations.DeprecatedSince;
 import org.botblock.javabotblockapi.annotations.ReplacedWith;
-import org.botblock.javabotblockapi.requests.GetAction;
-import org.botblock.javabotblockapi.requests.PostAction;
 
 /**
  * Enum class containing all sites currently supported by BotBlock.org.
  * 
- * <p>Those names can be used in methods of either the {@link BotBlockAPI BotBlockAPI},
- * the {@link GetAction GetAction} or the 
- * {@link PostAction PostAction} class.
+ * <p>Those names can be used in methods of either the {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI},
+ * the {@link org.botblock.javabotblockapi.requests.GetAction GetAction} or the 
+ * {@link org.botblock.javabotblockapi.requests.PostAction PostAction} class.
  * 
  * @since v2.1.0
  */
