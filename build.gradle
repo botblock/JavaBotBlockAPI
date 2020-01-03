@@ -127,11 +127,11 @@ class Version{
     String major, minor, revision
     
     static String getBuild(){
-        System.getenv("BUILD_NUMBER") ?: System.getProperty("BUILD_NUMBER") ?: 
-        System.getenv("GIT_COMMIT")?.substring(0, 7) ?: System.getProperty("GIT_COMMIT")?.substring(0, 7) ?: "dev"
+        System.getenv("BUILD_NUMBER") ? "_" + System.getenv("BUILD_NUMBER") : 
+        System.getProperty("BUILD_NUMBER") ? "_" + System.getProperty("BUILD_NUMBER") : ""
     }
     
     String toString(){
-        "$major.$minor.${revision}_$build"
+        "$major.$minor.${revision}$build"
     }
 }
