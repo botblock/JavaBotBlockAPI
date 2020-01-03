@@ -1,7 +1,11 @@
 Versions marked with a `*` are not available on bintray!
 
-## v3
+## v4
+- ### v4.0.0
+  - Updated packages from `com.andre601.javabotblockapi` to `org.botblock.javabotblockapi`.  
+  **This is a breaking change.**
 
+## v3
 - ### v3.0.0
   - Moved post and get methods to their own class
     - GetAction was created for all GET methods.
@@ -60,7 +64,6 @@ Versions marked with a `*` are not available on bintray!
   - Version now has a build-number attached (used for Jenkin builds)
 ____
 ## v2
-
 - ### v2.0.0
   - Added new get methods for bot and botlist infos.
   - Dependencies updated:
