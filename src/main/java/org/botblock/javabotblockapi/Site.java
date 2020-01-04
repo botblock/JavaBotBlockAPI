@@ -46,6 +46,8 @@ public enum Site {
     
     /**
      * <a href="https://cloud-botlist.xyz" target="_blank">cloud-botlist.xyz</a>
+     * 
+     * @since v3.2.1
      */
     CLOUD_BOTLIST_XYZ("cloud-botlist.xyz"),
     
@@ -66,7 +68,7 @@ public enum Site {
      *             <br>This option still works, but is no longer supported, nor recommended!
      */
     @Deprecated
-    @DeprecatedSince({"v3.0.1", "#TOP_GG"})
+    @DeprecatedSince(version = "v3.0.1", replacement = "#TOP_GG")
     DISCORDBOTS_ORG("discordbots.org"),
     
     /**
@@ -113,6 +115,8 @@ public enum Site {
     
     /**
      * <a href="https://glennbotlist.xyz" target="_blank">glennbotlist.xyz</a>
+     * 
+     * @since v3.2.1
      */
     GLENNBOTLIST_XYZ("glennbotlist.xyz"),
     
