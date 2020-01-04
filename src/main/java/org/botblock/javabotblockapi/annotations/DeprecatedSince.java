@@ -34,5 +34,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.FIELD})
 public @interface DeprecatedSince{
-    String[] value();
+    String version();
+    
+    String replacement() default "";
 }
