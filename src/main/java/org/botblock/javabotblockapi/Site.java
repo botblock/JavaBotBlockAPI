@@ -18,7 +18,6 @@
 package org.botblock.javabotblockapi;
 
 import org.botblock.javabotblockapi.annotations.DeprecatedSince;
-import org.botblock.javabotblockapi.annotations.ReplacedWith;
 
 /**
  * Enum class containing all sites currently supported by BotBlock.org.
@@ -67,8 +66,7 @@ public enum Site {
      *             <br>This option still works, but is no longer supported, nor recommended!
      */
     @Deprecated
-    @ReplacedWith("TOP_GG")
-    @DeprecatedSince("v3.0.1")
+    @DeprecatedSince({"v3.0.1", "#TOP_GG"})
     DISCORDBOTS_ORG("discordbots.org"),
     
     /**

@@ -33,7 +33,7 @@ Please follow those templates or else your issue might get ignored and closed.
 We accept pull requests for fixing issues or adding new features, but you have to follow those rules.
 
 ### Javadocs
-Please add javadocs comments to **all public methods the developer has access to.**  
+Please add javadocs comments to **all public methods the developer has access to and should use.**  
 Javadocs help developers to see what methods they can/should use and what those do.
 
 When adding Javadoc comments, follow this Styling choises.
@@ -56,13 +56,15 @@ Do the same for new paragraphs, but keep an empty line in between the text (And 
 Please always use the full path to a class/method when using `{@link}`
 
 Bad example: `{@link BotBlockAPI}`  
-Good example: `{@link BotBlockAPI BotBlockAPI}`
+Good example: `{@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI}`
 
 We want to point out the alternative text used in the Good example, to display "BotBlockAPI" instead of the path.  
 When linking to a method that is in a separate class, set the alternative text to `Class.method(option(s))`.
 
-There is an exception for linking, when you link to a method in the same (inner) class.  
-In those cases just link to it by using `{@link #methodName}`
+If the method you link to is within the same class, use `{@link #methodName() methodName()}`.
+
+Linking to external Javadoc may be set with the same linking-rules.  
+New external javadocs may need to be added to the `javadoc` task in the `build.gradle`.
 
 **Note**:  
 Use the `<a href="">` option to link external pages. When doing so also remember to include `target="_blank"`.  
@@ -112,6 +114,7 @@ Here is an example of the different parts being used:
  * @deprecated Use {@link #getFooBar() getFooBar()} instead.
  */
 @Deprecated
+@DeprecatedSince({"v1.0.1", "#getFooBar"}) // If you deprecate a method, add this one too.
 public String getFooBar(String foo) throws IllegalArgumentException{
     if(foo.isEmpty())
         throw new IllegalArgumentException("foo may not be empty");
@@ -134,4 +137,4 @@ public String getFooBar(){
 ## [Code of Conduct]
 We want to give everyone a chance to contribute to the project.  
 So please keep your comments and messages nice. Every message that is considered rasist, insulting or similar will be removed.  
-If you continue to send those messages you'll be permanently removed from this repository.
+If you continue to send those messages will we permanently remove you from this repository.

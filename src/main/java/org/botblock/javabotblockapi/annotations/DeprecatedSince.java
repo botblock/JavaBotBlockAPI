@@ -22,8 +22,11 @@ import java.lang.annotation.*;
 
 /**
  * Annotation used to indicate since when a method or field is deprecated.
- * <br>This is paired with the {@link java.lang.Deprecated @Deprecated} and the 
- * {@link org.botblock.javabotblockapi.annotations.ReplacedWith @ReplacedWith} annotation when possible.
+ * <br>This is paired with the {@link java.lang.Deprecated @Deprecated} annotation.
+ * 
+ * <p>This annotation may have multiple arguments, where first one is the version of deprecation and second one being
+ * a optional replacement method.
+ * <br><b>Example</b>: {@code @DeprecatedSince({"v1.0.5", "#replacementMethod"})}
  * 
  * @since v3.2.0
  */
@@ -31,5 +34,5 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.FIELD})
 public @interface DeprecatedSince{
-    String value();
+    String[] value();
 }
