@@ -74,6 +74,7 @@ javadoc{
 }
 
 build{
+    dependsOn(jar)
     dependsOn(javadocJar)
     dependsOn(sourcesJar)
     dependsOn(shadowJar)
