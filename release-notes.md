@@ -22,6 +22,9 @@ Versions marked with a `*` are not available on bintray!
 - ### v4.1.0
   - Merged the `@ReplacedWith` into the `@DeprecatedSince` annotation.
 
+- ### v4.1.1
+  - `@DeprecatedSince` was slightly changed.
+
 ## v3
 - ### v3.0.0
   - Moved post and get methods to their own class
