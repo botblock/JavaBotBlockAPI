@@ -19,6 +19,9 @@ Versions marked with a `*` are not available on bintray!
 - ### v4.0.4
   - For unknown reason is the wrapper not available through normal downloads...
 
+- ### v4.1.0
+  - Merged the `@ReplacedWith` into the `@DeprecatedSince` annotation.
+
 ## v3
 - ### v3.0.0
   - Moved post and get methods to their own class
