@@ -25,6 +25,17 @@ Versions marked with a `*` are not available on bintray!
 - ### v4.1.1
   - `@DeprecatedSince` was slightly changed.
 
+- ### v4.2.0
+  - Added new get methods to GetAction
+    - `getDiscriminator(Long|String)`: Returns the discriminator of the bot or an empty String.
+    - `getGitHub(Long|String)`: Returns GitHub url or an empty String.
+    - `getLibrary(Long|String)`: Returns the library used by the bot or an empty String.
+    - `getName(Long|String)`: Returns the name of the bot or an empty String.
+    - `getPrefix(Long|String)`: Returns the command prefix of the bot or an empty String.
+    - `getSupportLink(Long|String)`: Returns the support link (i.e. Discord invite) or an empty String.
+    - `getWebsite(Long|String)`: Returns the website link of the bot or an empty String.
+  - `getServerCount(Long|String id)` is now declared as `@Nullable` meaning result may be null.
+
 ## v3
 - ### v3.0.0
   - Moved post and get methods to their own class
