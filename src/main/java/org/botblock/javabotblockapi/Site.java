@@ -100,7 +100,12 @@ public enum Site {
     
     /**
      * <a href="https://discordsbestbots.xyz" target="_blank">discordsbestbots.xyz</a>
+     * 
+     * @deprecated This site was merged into <a href="https://discordextremelist.xyz" target="_blank">discordextremelist.xyz</a>
+     *             <br>Use {@link #DISCORDEXTREMELIST_XYZ DISCORDEXTREMELIST_XYZ} instead.
      */
+    @Deprecated
+    @DeprecatedSince(version = "v4.2.3", replacement = "#DISCORDEXTREMELIST_XYZ")
     DISCORDSBESTBOTS_XYZ("discordsbestbots.xyz"),
     
     /**
