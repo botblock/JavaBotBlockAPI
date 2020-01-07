@@ -114,13 +114,6 @@ public enum Site {
     DIVINEDISCORDBOTS_COM("divinediscordbots.com"),
     
     /**
-     * <a href="https://glennbotlist.xyz" target="_blank">glennbotlist.xyz</a>
-     * 
-     * @since v3.2.1
-     */
-    GLENNBOTLIST_XYZ("glennbotlist.xyz"),
-    
-    /**
      * <a href="https://lbots.org" target="_blank">lbots.org</a>
      */
     LBOTS_ORG("lbots.org"),
