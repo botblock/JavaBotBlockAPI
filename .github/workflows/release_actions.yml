@@ -16,6 +16,7 @@ jobs:
       with:
         java-version: 1.8
     - name: Publish (Bintray)
+      id: publish_bintray
       env:
         bintrayUser: ${{ secrets.bintrayUsername }}
         bintrayApiKey: ${{ secrets.bintrayApiKey }}
@@ -25,6 +26,19 @@ jobs:
     #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     #    BUILD_NUMBER: 0 # Releases are always major.minor.revision_0
     #  run: ./gradlew publish
+    - name: Zip files
+      run: |
+        cd build
+        zip release-${{ github.event.release.tag_name }} *.jar
+    - name: Upload to release
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.release.upload_url }}
+        asset_path: ./build/release-${{ github.event.release.tag_name }}.zip
+        asset_name: release-${{ github.event.release.tag_name }}.zip
+        asset_content_type: application/zip
   sendMessage:
     needs: [publish]
     if: success()
