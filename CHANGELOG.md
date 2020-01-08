@@ -1,3 +1,6 @@
+Changelog
+=========
+
 Versions marked with a `*` are not available on bintray!
 
 ## v4
