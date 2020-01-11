@@ -3,12 +3,13 @@ Changelog
 
 ## Legend
 ### `*`
-Version is not available on Bintray and can only be downloaded using jitpack.  
-Use one of the below options. Remember to replace `{Release tag}` with the tag of the release.
+Version is not available on Bintray and can only be downloaded using jitpack.
 
 <details>
-  <summary>Installation</summary>  
-  
+  <summary><b>Installation [Click to open/close]</b></summary>
+
+Use one of the below options. Remember to replace `{Release tag}` with the tag of the release.
+
 **Gradle**:  
 ```gradle
 repositories{
@@ -40,12 +41,13 @@ dependencies{
 </details>
 
 ### `**`
-Versions marked with this are available on bintray, but will require you, to add a download-url.  
-Use one of the below options. Replace `{version}` with the version of your choice.
+Versions marked with this are available on bintray, but will require you, to add a download-url.
 
 <details>
-  <summary>Installation</summary>  
-  
+  <summary><b>Installation [Click to open/close]</b></summary>
+
+Use one of the below options. Replace `{version}` with the version of your choice.
+
 **Gradle**:  
 ```gradle
 repositories{
