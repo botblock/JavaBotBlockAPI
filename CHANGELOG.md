@@ -8,6 +8,7 @@ Use one of the below options. Remember to replace `{Release tag}` with the tag o
 
 <details>
   <summary>Installation</summary>  
+  
 **Gradle**:  
 ```gradle
 repositories{
@@ -44,6 +45,7 @@ Use one of the below options. Replace `{version}` with the version of your choic
 
 <details>
   <summary>Installation</summary>  
+  
 **Gradle**:  
 ```gradle
 repositories{
