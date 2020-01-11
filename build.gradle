@@ -12,8 +12,7 @@ def ver = new Version(major: 4, minor: 2, revision: 3)
 group = "org.botblock"
 version = "$ver"
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
 
 jar{
     setArchivesBaseName('JavaBotBlockAPI')
@@ -47,6 +46,7 @@ task javadocJar(type: Jar, dependsOn: javadoc){
 artifacts{
     archives sourcesJar
     archives javadocJar
+    archives shadowJar
 }
 
 javadoc{
@@ -99,7 +99,7 @@ bintray{
 publishing{
     publications{
         JavaBotBlockAPIRelease(MavenPublication){
-            from components.java
+            from(components.java)
             groupId group
             artifactId archivesBaseName
             version version

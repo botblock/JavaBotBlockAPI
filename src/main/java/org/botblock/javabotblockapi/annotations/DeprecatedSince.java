@@ -24,9 +24,10 @@ import java.lang.annotation.*;
  * Annotation used to indicate since when a method or field is deprecated.
  * <br>This is paired with the {@link java.lang.Deprecated @Deprecated} annotation.
  * 
- * <p>This annotation may have multiple arguments, where first one is the version of deprecation and second one being
- * a optional replacement method.
- * <br><b>Example</b>: {@code @DeprecatedSince({"v1.0.5", "#replacementMethod"})}
+ * <p>Methods or fields annotated with this should be avoided as it may or may not be removed in a future release.
+ * <br>A possible replacement method or field will be indicated when possible.
+ * 
+ * <p>This annotation has two elements in it from which one is optional.
  * 
  * @since v3.2.0
  */
@@ -34,7 +35,19 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.FIELD})
 public @interface DeprecatedSince{
+    
+    /**
+     * Since what version this method or field is deprecated.
+     * <br>This is field is required!
+     * 
+     * @return The version since when this method/field is deprecated.
+     */
     String version();
     
+    /**
+     * Optional String indicating a possible replacement method or field to use.
+     * 
+     * @return The method/field to use instead of the deprecated one.
+     */
     String replacement() default "";
 }

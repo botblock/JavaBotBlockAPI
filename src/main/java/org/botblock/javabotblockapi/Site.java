@@ -29,6 +29,12 @@ import org.botblock.javabotblockapi.annotations.DeprecatedSince;
  * @since v2.1.0
  */
 public enum Site {
+    
+    /**
+     * <a href="https://arcane-botcenter.xyz" target="_blank">arcane-botcenter.xyz</a>
+     */
+    ARCANE_BOTCENTER_XYZ("arcane-botcenter.xyz"),
+    
     /**
      * <a href="https://botlist.space" target="_blank">botlist.space</a>
      */
@@ -50,6 +56,11 @@ public enum Site {
      * @since v3.2.1
      */
     CLOUD_BOTLIST_XYZ("cloud-botlist.xyz"),
+    
+    /**
+     * <a href="https://dblista.pl" target="_blank">dblista.pl</a>
+     */
+    DBLISTA_PL("dblista.pl"),
     
     /**
      * <a href="https://discordapps.dev" target="_blank">discordapps.dev</a>
