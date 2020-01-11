@@ -1,8 +1,80 @@
 Changelog
 =========
 
-Versions marked with a `*` are not available on bintray!
+## Legend
+### `*`
+Version is not available on Bintray and can only be downloaded using jitpack.  
+Use one of the below options. Remember to replace `{Release tag}` with the tag of the release.
 
+<details>
+  <summary>Installation</summary>  
+**Gradle**:  
+```gradle
+repositories{
+    maven { url = "https://jitpack.io" }
+}
+
+dependencies{
+    compile group: 'com.github.botblock', name: 'JavaBotBlockAPI', version: '{Release tag}'
+}
+```
+
+**Maven**:  
+```xml
+<repositories>
+    <repository>
+        <id>jitpack</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>com.github.botblock</groupId>
+        <artifactId>JavaBotBlockAPI</artifactId>
+        <version>{Release tag}</version>
+    </dependency>
+</dependencies>
+```
+</details>
+
+### `**`
+Versions marked with this are available on bintray, but will require you, to add a download-url.  
+Use one of the below options. Replace `{version}` with the version of your choice.
+
+<details>
+  <summary>Installation</summary>  
+**Gradle**:  
+```gradle
+repositories{
+    maven { url = "https://dl.bintray.com/andre601/maven" }
+}
+
+dependencies{
+    compile group: 'org.botblock', name: 'JavaBotBlockAPI', version: '{version}'
+}
+```
+
+**Maven**:  
+```xml
+<repositories>
+    <repository>
+        <id>jitpack</id>
+        <url>https://dl.bintray.com/andre601/maven</url>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>com.github.botblock</groupId>
+        <artifactId>JavaBotBlockAPI</artifactId>
+        <version>{version}</version>
+    </dependency>
+</dependencies>
+```
+</details>
+
+____
 ## v4
 - ### v4.0.0_0
   - Updated packages from `com.andre601.javabotblockapi` to `org.botblock.javabotblockapi`.  
@@ -28,8 +100,8 @@ Versions marked with a `*` are not available on bintray!
 - ### v4.1.1
   - `@DeprecatedSince` was slightly changed.
 
-- ### v4.2.0
-  - Added new get methods to GetAction
+- ### v4.2.0**
+  - Added new get methods to GetAction:
     - `getDiscriminator(Long|String)`: Returns the discriminator of the bot or an empty String.
     - `getGitHub(Long|String)`: Returns GitHub url or an empty String.
     - `getLibrary(Long|String)`: Returns the library used by the bot or an empty String.
@@ -39,6 +111,23 @@ Versions marked with a `*` are not available on bintray!
     - `getWebsite(Long|String)`: Returns the website link of the bot or an empty String.
   - `getServerCount(Long|String id)` is now declared as `@Nullable` meaning result may be null.
 
+- ### v4.2.1**
+  - Removed unused imports.
+
+- ### v4.2.2
+  - Removed `GLENNBOTLIST_XYZ`
+
+- ### v4.2.3
+  - Deprecated `DISCORDBESTBOTS_XYZ`
+    - Use `DISCORDEXTREMELIST_XYZ` instead as they merged their lists.
+
+- ### v4.2.4
+  - Added [`ARCANE_BOTCENTER_XYZ`](https://arcane-botcenter.xyz) and [`DBLISTA_PL`](https://dblista.pl)
+
+- ### v4.2.5**
+  - This was a test release for the attachment of zip files to the release. It failed.
+
+____
 ## v3
 - ### v3.0.0
   - Moved post and get methods to their own class
