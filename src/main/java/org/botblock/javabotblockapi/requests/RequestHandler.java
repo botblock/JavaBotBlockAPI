@@ -23,6 +23,7 @@ import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import okhttp3.*;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -66,8 +67,8 @@ class RequestHandler{
         }
     }
     
-    JSONObject performGetList(@NotNull String id, boolean disableCache){
-        String url = BASE_URL + "lists";
+    JSONObject performGetList(@NotNull String id, @Nullable String site, boolean disableCache){
+        String url = BASE_URL + (site == null ? "lists" : "lists/" + site);
     
         if(!disableCache)
             return listCache.get(id, k -> {
@@ -116,8 +117,11 @@ class RequestHandler{
     }
     
     void performPOST(@NotNull JSONObject json, int sites) throws IOException, RatelimitedException{
+        if(sites < 1)
+            throw new IllegalStateException("POST action requires at least one site!");
+        
         String url = BASE_URL + "count";
-        final long timeout = sites == 0 ? 10 : sites*10;
+        final long timeout = sites * 10;
         
         OkHttpClient postClient = CLIENT.newBuilder()
                 .callTimeout(timeout, TimeUnit.SECONDS)

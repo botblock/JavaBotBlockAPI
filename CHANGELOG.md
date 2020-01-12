@@ -131,6 +131,10 @@ ____
 - ### v4.2.5**
   - This was a test release for the attachment of zip files to the release. It failed.
 
+- ### v4.3.0
+  - Adds new GetAction
+    - `getBotListFeatures(String, Site|String)`: Returns a JSONArray with all features the bot list has.
+
 ____
 ## v3
 - ### v3.0.0

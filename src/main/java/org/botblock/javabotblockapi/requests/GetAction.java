@@ -30,24 +30,7 @@ import java.util.List;
 /**
  * Class to perform GET actions with.
  * 
- * <p>With this class can you do the following actions:
- * <ul>
- *     <li>{@link #getBotInfo(Long) get full bot information}</li>
- *     <li>{@link #getBotListInfo(Long) get bot info from all bot lists}</li>
- *     <li>{@link #getBotListInfo(Long, Site) get bot info from a specific list}</li>
- *     <li>{@link #getBotList(String, Site) get a specific bot list}</li>
- *     <li>{@link #getBotLists(String) get all supported bot lists}</li>
- *     <li>{@link #getInvite(Long) get a bots invite link}</li>
- *     <li>{@link #getServerCount(Long) get a bots server count}</li>
- *     <li>{@link #getOwners(Long) get the owners of a bot}</li>
- *     <li>{@link #getName(Long) get the name of a bot}</li>
- *     <li>{@link #getDiscriminator(Long) get the discriminator of a bot}</li>
- *     <li>{@link #getGitHub(Long) get the GitHub link of a bot}</li>
- *     <li>{@link #getLibrary(Long) get the library used by a bot}</li>
- *     <li>{@link #getWebsite(Long) get the Website of a bot}</li>
- *     <li>{@link #getPrefix(Long) get the command prefix of a bot}</li>
- *     <li>{@link #getSupportLink(Long) get the support link (invite) of a bot}</li>
- * </ul>
+ * <p>With this class can you retrieve information about either a bot, its information on the bot lists, or the bot lists themself.
  * 
  * <p>All requests are cached for 2 minutes. This can be disabled with {@link #GetAction(boolean) GetAction(true)} although it's not recommended.
  * 
@@ -92,18 +75,18 @@ public class GetAction{
      *     "invite":{@literal "https://discordapp.com/oauth2/authorize?client_id=123456789012345678&scope=bot"},
      *     "list_data": {
      *         "somebotlist.com": [
-     *             {"data"},
+     *             {"data": "Unique bot list data"},
      *             200
      *         ],
      *         "otherlist.org": [
-     *             {"data"},
+     *             {"data": "Unique bot list data"},
      *             404
      *         ]
      *     }
      * }
      * </code></pre>
      * <br>The values of id, username, discriminator, owners, server_count and invite are based on the most common appearance.
-     * <br><b>{@code {"data"}}</b> depends on what the bot list returns.
+     * <br>The returned information from the different bot list may vary for each one.
      *
      * @param  id
      *         The bots id to use.
@@ -131,18 +114,18 @@ public class GetAction{
      *     "invite":{@literal "https://discordapp.com/oauth2/authorize?client_id=123456789012345678&scope=bot"},
      *     "list_data": {
      *         "somebotlist.com": [
-     *             {"data"},
+     *             {"data": "Unique bot list data"},
      *             200
      *         ],
      *         "otherlist.org": [
-     *             {"data"},
+     *             {"data": "Unique bot list data"},
      *             404
      *         ]
      *     }
      * }
      * </code></pre>
      * <br>The values of id, username, discriminator, owners, server_count and invite are based on the most common appearance.
-     * <br><b>{@code {"data"}}</b> depends on what the bot list returns.
+     * <br>The returned information from the different bot list may vary for each one.
      *
      * @param  id
      *         The bots id to use.
@@ -199,6 +182,9 @@ public class GetAction{
      */
     @Nullable
     public JSONArray getBotListInfo(Long id, @NotNull Site site){
+        if(site.equals(Site.DISCORDBOTS_ORG) || site.equals(Site.TOP_GG))
+            throw new IllegalStateException("discordbots.org and top.gg are not supported for GetAction!");
+        
         JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache).getJSONObject("list_data");
         
         return json.getJSONArray(site.getSite());
@@ -236,6 +222,9 @@ public class GetAction{
      */
     @Nullable
     public JSONArray getBotListInfo(@NotNull String id, @NotNull Site site){
+        if(site.equals(Site.DISCORDBOTS_ORG) || site.equals(Site.TOP_GG))
+            throw new IllegalStateException("discordbots.org and top.gg are not supported for GetAction!");
+        
         JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache).getJSONObject("list_data");
         
         return json.getJSONArray(site.getSite());
@@ -266,13 +255,13 @@ public class GetAction{
      * <p>The returned JSON could look like this:
      * <br><pre><code>
      * {
-     *     "api_docs": "https://thelist.org/api/docs",
-     *     "api_post": "https://thelist.org/api/bot/stats/:id",
-     *     "api_field": "server_count",
-     *     "api_shard_id": "shard_id",
-     *     "api_shard_count": "shard_count",
-     *     "api_shards": null,
-     *     "api_get": "https://thelist.org/api/bot/info/:id"
+     *   "api_docs": "https://thelist.org/api/docs",
+     *   "api_post": "https://thelist.org/api/bot/stats/:id",
+     *   "api_field": "server_count",
+     *   "api_shard_id": "shard_id",
+     *   "api_shard_count": "shard_count",
+     *   "api_shards": null,
+     *   "api_get": "https://thelist.org/api/bot/info/:id"
      * }
      * </code></pre>
      *
@@ -285,9 +274,10 @@ public class GetAction{
      */
     @Nullable
     public JSONObject getBotList(@NotNull String id, @NotNull Site site){
-        JSONObject json = REQUEST_HANDLER.performGetList(id, disableCache);
+        if(site.equals(Site.DISCORDBOTS_ORG) || site.equals(Site.TOP_GG))
+            throw new IllegalStateException("discordbots.org and top.gg are not supported for GetAction!");
         
-        return json.getJSONObject(site.getSite());
+        return REQUEST_HANDLER.performGetList(id, site.getSite(), disableCache);
     }
     
     /**
@@ -296,13 +286,13 @@ public class GetAction{
      * <p>The returned JSON could look like this:
      * <br><pre><code>
      * {
-     *     "api_docs": "https://thelist.org/api/docs",
-     *     "api_post": "https://thelist.org/api/bot/stats/:id",
-     *     "api_field": "server_count",
-     *     "api_shard_id": "shard_id",
-     *     "api_shard_count": "shard_count",
-     *     "api_shards": null,
-     *     "api_get": "https://thelist.org/api/bot/info/:id"
+     *   "api_docs": "https://thelist.org/api/docs",
+     *   "api_post": "https://thelist.org/api/bot/stats/:id",
+     *   "api_field": "server_count",
+     *   "api_shard_id": "shard_id",
+     *   "api_shard_count": "shard_count",
+     *   "api_shards": null,
+     *   "api_get": "https://thelist.org/api/bot/info/:id"
      * }
      * </code></pre>
      *
@@ -316,9 +306,7 @@ public class GetAction{
      */
     @Nullable
     public JSONObject getBotList(@NotNull String id, @NotNull String site){
-        JSONObject json = REQUEST_HANDLER.performGetList(id, disableCache);
-        
-        return json.getJSONObject(site);
+        return REQUEST_HANDLER.performGetList(id, site, disableCache);
     }
     
     /**
@@ -327,24 +315,24 @@ public class GetAction{
      * <p>The returned JSON could look like this:
      * <br><pre><code>
      * {
-     *     "thelist.org": {
-     *         "api_docs": "https://thelist.org/api/docs",
-     *         "api_post": "https://thelist.org/api/bot/stats/:id",
-     *         "api_field": "server_count",
-     *         "api_shard_id": "shard_id",
-     *         "api_shard_count": "shard_count",
-     *         "api_shards": null,
-     *         "api_get": "https://thelist.org/api/bot/info/:id"
-     *     },
-     *     "listofbots.com": {
-     *         "api_docs": "https://listofbots.com/docs",
-     *         "api_post": "https://listofbots.com/api/stats/:id",
-     *         "api_field": "guild_count",
-     *         "api_shard_id": null,
-     *         "api_shard_count": null,
-     *         "api_shards": "shards",
-     *         "api_get": null
-     *     }
+     *   "thelist.org": {
+     *     "api_docs": "https://thelist.org/api/docs",
+     *     "api_post": "https://thelist.org/api/bot/stats/:id",
+     *     "api_field": "server_count",
+     *     "api_shard_id": "shard_id",
+     *     "api_shard_count": "shard_count",
+     *     "api_shards": null,
+     *     "api_get": "https://thelist.org/api/bot/info/:id"
+     *   },
+     *   "listofbots.com": {
+     *     "api_docs": "https://listofbots.com/docs",
+     *     "api_post": "https://listofbots.com/api/stats/:id",
+     *     "api_field": "guild_count",
+     *     "api_shard_id": null,
+     *     "api_shard_count": null,
+     *     "api_shards": "shards",
+     *     "api_get": null
+     *   }
      * }
      * </code></pre>
      *
@@ -355,7 +343,89 @@ public class GetAction{
      */
     @Nullable
     public JSONObject getBotLists(@NotNull String id){
-        return REQUEST_HANDLER.performGetList(id, disableCache);
+        return REQUEST_HANDLER.performGetList(id, null, disableCache);
+    }
+    
+    /**
+     * Gets the features of a bot list.
+     * <br>The displayed features of a bot list can be both positive and negative.
+     * 
+     * <p>The returned JSONArray may look like this:
+     * <br><pre><code>
+     * [
+     *     {
+     *         "name": "Markdown Long Description",
+     *         "id": 4,
+     *         "display": 4,
+     *         "type": 0,
+     *         "description": null,
+     *         "value": 1
+     *     },
+     *     {
+     *         "name": "Certified Bot Invite Link",
+     *         "id": 18,
+     *         "display": 3,
+     *         "type": 0,
+     *         "description": null,
+     *         "value": 1
+     *     }
+     * ]
+     * </code></pre>
+     * 
+     * @param  id
+     *         The id used for the internal caching.
+     * @param  site
+     *         The {@link org.botblock.javabotblockapi.Site site} to get information from.
+     *         
+     * @return JSONArray containing various information about the specified bot list.
+     * 
+     * @since  v4.3.0
+     */
+    public JSONArray getBotListFeatures(@NotNull String id, @NotNull Site site){
+        JSONObject json = REQUEST_HANDLER.performGetList(id, site.getSite(), disableCache);
+        
+        return json.getJSONArray("features");
+    }
+    
+    /**
+     * Gets the features of a bot list.
+     * <br>The displayed features of a bot list can be both positive and negative.
+     *
+     * <p>The returned JSONArray may look like this:
+     * <br><pre><code>
+     * [
+     *     {
+     *         "name": "Markdown Long Description",
+     *         "id": 4,
+     *         "display": 4,
+     *         "type": 0,
+     *         "description": null,
+     *         "value": 1
+     *     },
+     *     {
+     *         "name": "Certified Bot Invite Link",
+     *         "id": 18,
+     *         "display": 3,
+     *         "type": 0,
+     *         "description": null,
+     *         "value": 1
+     *     }
+     * ]
+     * </code></pre>
+     *
+     * @param  id
+     *         The id used for the internal caching.
+     * @param  site
+     *         The {@link org.botblock.javabotblockapi.Site site} to get information from.
+     *
+     * @return JSONArray containing various information about the specified bot list.
+     * 
+     * @since  v4.3.0
+     */
+    public JSONArray getBotListFeatures(@NotNull String id, @NotNull String site){
+        JSONObject json = REQUEST_HANDLER.performGetList(id, site, disableCache);
+        
+        return json.getJSONArray("features");
     }
     
     /**
@@ -435,7 +505,7 @@ public class GetAction{
      *         
      * @return A String containing the OAuth invite for the bot.
      */
-    public String getInvite(Long id){
+    public String getInvite(@NotNull Long id){
         JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
         
         return json.getString("invite");
