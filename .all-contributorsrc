@@ -68,6 +68,15 @@
       "contributions": [
         "plugin"
       ]
+    },
+    {
+      "login": "stleary",
+      "name": "Sean Leary",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/5107558?v=4",
+      "profile": "http://www.johnjleary.com",
+      "contributions": [
+        "plugin"
+      ]
     }
   ],
   "contributorsPerLine": 7,
