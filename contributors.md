@@ -1,5 +1,5 @@
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[contributorsBadge]: https://img.shields.io/badge/Contributors_✨-6-green.svg?style=plastic
+[contributorsBadge]: https://img.shields.io/badge/Contributors_✨-7-green.svg?style=plastic
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 # Contributors
@@ -39,6 +39,7 @@ Below can you find a list of all currently aknowledged Contributors to our proje
     <td align="center"><a href="https://dependabot.com"><img src="https://avatars1.githubusercontent.com/u/27347476?v=4" width="100px;" alt=""/><br /><sub><b>Dependabot</b></sub></a><br /><a href="#maintenance-dependabot" title="Maintenance">🚧</a></td>
     <td align="center"><a href="https://www.linkedin.com/in/benmanes"><img src="https://avatars3.githubusercontent.com/u/378614?v=4" width="100px;" alt=""/><br /><sub><b>Ben Manes</b></sub></a><br /><a href="#plugin-ben-manes" title="Plugin/utility libraries">🔌</a></td>
     <td align="center"><a href="https://square.github.io"><img src="https://avatars0.githubusercontent.com/u/82592?v=4" width="100px;" alt=""/><br /><sub><b>Square</b></sub></a><br /><a href="#plugin-square" title="Plugin/utility libraries">🔌</a></td>
+    <td align="center"><a href="https://www.jetbrains.com"><img src="https://avatars2.githubusercontent.com/u/878437?v=4" width="100px;" alt=""/><br /><sub><b>JetBrains</b></sub></a><br /><a href="#plugin-JetBrains" title="Plugin/utility libraries">🔌</a></td>
   </tr>
 </table>
 
