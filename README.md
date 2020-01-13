@@ -25,6 +25,10 @@
 [JetBrains annotations]: https://github.com/JetBrains/java-annotations
 [Caffeine]: https://github.com/ben-manes/caffeine
 
+<!-- GitHub links -->
+[Wiki]: https://github.com/botblock/JavaBotBlockAPI/wiki
+[contributors.md]: https://github.com/botblock/JavaBotBlockAPI/blob/master/contributors.md
+
 ![image]
 
 JavaBotBlockAPI is a continued and updated Java Wrapper for [BotBlock], a website that makes it possible to update guild counts on multiple lists with one API.  
