@@ -59,6 +59,15 @@
       "contributions": [
         "plugin"
       ]
+    },
+    {
+      "login": "JetBrains",
+      "name": "JetBrains",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/878437?v=4",
+      "profile": "https://www.jetbrains.com",
+      "contributions": [
+        "plugin"
+      ]
     }
   ],
   "contributorsPerLine": 7,
