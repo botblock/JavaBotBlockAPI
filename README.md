@@ -21,7 +21,7 @@
 <!-- Dependency links -->
 [JDA]: https://github.com/DV8FromTheWorld/JDA
 [OkHttp]: https://github.com/square/okhttp/
-[JSON]: https://json.org
+[JSON]: https://github.com/stleary/JSON-java
 [JetBrains annotations]: https://github.com/JetBrains/java-annotations
 [Caffeine]: https://github.com/ben-manes/caffeine
 
