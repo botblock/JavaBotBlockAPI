@@ -1,4 +1,10 @@
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[contributorsBadge]: https://img.shields.io/badge/Contributors_✨-3-green.svg?style=plastic
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+
 # Contributors
+![contributorsBadge]
+
 We appreciate any kind of contribution to the JavaBotBlockAPI, as it is our goal to improve over time.
 
 Contributions aren't just limited to PRs or code examples.  
@@ -16,6 +22,8 @@ Suggesting new featires, improvements or giving general feedback.
 Developes a library used by this project.
 - 🚇 (Infra)  
 Provides a site, service or similar that is used by the project (e.g. CI-Server).
+- 🚧 (Maintenance)  
+Helps maintaining this project, being it updating dependencies, or adding new features.
 
 # List of current contributors
 Below can you find a list of all currently aknowledged Contributors to our project.

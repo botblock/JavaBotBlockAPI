@@ -79,6 +79,30 @@ dependencies{
 </details>
 
 ____
+## v5
+- ### 5.0.0
+  - Deprecated `GetAction`
+    - It is now split up into `GetBotAction` and `GetListAction`
+  - Many new methods for `/api/lists` endpoint.
+    - `getApiField(String, Site|String, ApiField)`
+    - `getBotWidgetUrl(String, Site|String)`
+    - `getDescription(String, Site|String)`
+    - `getDiscordInvite(String, Site|String)`
+    - `getFeatures(String, Site|String)`
+    - `getFilteredList(String)`
+    - `getIcon(String, Site|String)`
+    - `getId(String, Site|String)`
+    - `getLanguage(String, Site|String)`
+    - `getList(String, Site|String)`
+    - `getLists(String)`
+    - `getName(String, Site|String)`
+    - `getOwners(String, Site|String)`
+    - `getTimeAdded(String, Site|String)`
+    - `getUrl(String, Site|String)`
+    - `isDefunct(String, Site|String)`
+    - `isDiscordOnly(String, Site|String)`
+
+____
 ## v4
 - ### v4.0.0_0
   - Updated packages from `com.andre601.javabotblockapi` to `org.botblock.javabotblockapi`.  

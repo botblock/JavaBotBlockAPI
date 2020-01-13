@@ -22,9 +22,12 @@ import org.botblock.javabotblockapi.annotations.DeprecatedSince;
 /**
  * Enum class containing all sites currently supported by BotBlock.org.
  * 
- * <p>Those names can be used in methods of either the {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI},
- * the {@link org.botblock.javabotblockapi.requests.GetAction GetAction} or the 
- * {@link org.botblock.javabotblockapi.requests.PostAction PostAction} class.
+ * <p>The fields can be used in:
+ * <ul>
+ *     <li>{@link org.botblock.javabotblockapi.requests.GetBotAction GetBotAction}</li>
+ *     <li>{@link org.botblock.javabotblockapi.requests.GetListAction GetListAction} or</li>
+ *     <li>{@link org.botblock.javabotblockapi.BotBlockAPI.Builder BotBlockAPI.Builder}</li>
+ * </ul>
  * 
  * @since v2.1.0
  */
@@ -74,7 +77,8 @@ public enum Site {
     
     /**
      * <a href="https://discordbots.org" target="_blank">discordbots.org</a>
-     * <br><b>This field may not be used in {@link org.botblock.javabotblockapi.requests.GetAction GetAction}!</b>
+     * <br><b>This field may not be used in {@link org.botblock.javabotblockapi.requests.GetBotAction GetBotAction} and
+     * {@link org.botblock.javabotblockapi.requests.GetListAction GetListAction}!</b>
      * 
      * @deprecated Use {@link #TOP_GG TOP_GG} insetad.
      *             <br>This option still works, but is no longer supported, nor recommended!
@@ -143,7 +147,8 @@ public enum Site {
     /**
      * <a href="https://top.gg" target="_blank">top.gg</a>
      * <br>Note that top.gg is discordbots.org (new domain).
-     * <br><b>This field may not be used in {@link org.botblock.javabotblockapi.requests.GetAction GetAction}!</b>
+     * <br><b>This field may not be used in {@link org.botblock.javabotblockapi.requests.GetBotAction GetBotAction} and
+     * {@link org.botblock.javabotblockapi.requests.GetListAction GetListAction}!</b>
      * 
      * @since v3.0.0
      */

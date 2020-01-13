@@ -39,7 +39,7 @@ import java.util.concurrent.TimeUnit;
  * 
  * <p>You can {@link #enableAutoPost(JDA, BotBlockAPI) post automatically} or {@link #postGuilds(JDA, BotBlockAPI) post manually}.
  * 
- * @since v3.0.0
+ * @since 3.0.0
  */
 public class PostAction{
     

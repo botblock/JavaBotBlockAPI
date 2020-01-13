@@ -68,24 +68,33 @@ class RequestHandler{
     }
     
     JSONObject performGetList(@NotNull String id, @Nullable String site, boolean disableCache){
-        String url = BASE_URL + (site == null ? "lists" : "lists/" + site);
+        return performGetList(id, site, disableCache, false);
+    }
     
-        if(!disableCache)
+    JSONObject performGetList(@NotNull String id, @Nullable String site, boolean disableCache, boolean filtered){
+        String url = BASE_URL + (site == null ? "lists" : "lists/" + site);
+        if(filtered)
+            url += "?filter=true";
+        
+        if(!disableCache){
+            String finalUrl = url;
             return listCache.get(id, k -> {
                 try{
-                    return performGET(url);
+                    return performGET(finalUrl);
                 }catch(IOException | RatelimitedException ex){
                     ex.printStackTrace();
                     return null;
                 }
             });
-    
+        }
+        
         try{
             return performGET(url);
         }catch(IOException | RatelimitedException ex){
             ex.printStackTrace();
             return null;
         }
+        
     }
     
     private JSONObject performGET(@NotNull String url) throws IOException, RatelimitedException{
