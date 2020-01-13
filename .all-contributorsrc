@@ -41,6 +41,15 @@
       "contributions": [
         "maintenance"
       ]
+    },
+    {
+      "login": "ben-manes",
+      "name": "Ben Manes",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/378614?v=4",
+      "profile": "https://www.linkedin.com/in/benmanes",
+      "contributions": [
+        "plugin"
+      ]
     }
   ],
   "contributorsPerLine": 7,
