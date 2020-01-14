@@ -25,7 +25,7 @@ Provides a site, service or similar that is used by the project (e.g. CI-Server)
 - 🚧 (Maintenance)  
 Helps maintaining this project, being it updating dependencies, or adding new features.
 
-# List of current contributors
+# List of contributors
 Below can you find a list of all currently aknowledged Contributors to our project.
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
