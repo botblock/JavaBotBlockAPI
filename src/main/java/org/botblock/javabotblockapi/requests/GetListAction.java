@@ -252,7 +252,7 @@ public class GetListAction{
      *
      * @return {@link org.json.JSONObject JSONObject} containing the filtered information of the bot lists.
      */
-    public JSONObject getFilteredList(@NotNull String id){
+    public JSONObject getFilteredLists(@NotNull String id){
         CheckUtil.notEmpty(id, "id");
         
         return REQUEST_HANDLER.performGetList(id, null, disableCache, true);

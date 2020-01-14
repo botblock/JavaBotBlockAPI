@@ -7,7 +7,7 @@ plugins{
     id 'com.github.johnrengelman.shadow' version '5.2.0'
 }
 
-def ver = new Version(major: 5, minor: 0, revision: 0)
+def ver = new Version(major: 5, minor: 0, revision: 1)
 
 group = "org.botblock"
 version = "$ver"
