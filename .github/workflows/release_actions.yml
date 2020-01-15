@@ -31,7 +31,9 @@ jobs:
         cd build/libs
         zip release-${{ github.event.release.tag_name }} *.jar
     - name: Debug
-      run: echo ${{ github.event.release.release.upload_url }}
+      run: echo $LINK
+      env:
+        LINK: ${{ toJson(github.event) }}
     #- name: Upload to release
     #  uses: actions/upload-release-asset@v1.0.1
     #  env:
