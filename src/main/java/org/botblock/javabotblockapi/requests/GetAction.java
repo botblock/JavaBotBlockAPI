@@ -41,7 +41,7 @@ import java.util.List;
  *             {@link org.botblock.javabotblockapi.requests.GetListAction GetListAction} for List related actions.
  */
 @Deprecated
-@DeprecatedSince(version = "5.0.0", replacement = "GetListAction")
+@DeprecatedSince(version = "5.0.0", replacements = {"GetBotAction", "GetListAction"})
 public class GetAction{
     
     private final RequestHandler REQUEST_HANDLER = new RequestHandler();

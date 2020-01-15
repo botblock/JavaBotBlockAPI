@@ -102,6 +102,14 @@ ____
     - `isDefunct(String, Site|String)`
     - `isDiscordOnly(String, Site|String)`
 
+- ### 5.0.1
+  - Renamed `getFilteredList(String)` to `getFilteredLists(String)`
+
+- ### 5.0.2
+  - Changed `DeprecatedSince` annotation
+  - Dependencies updated:
+    - JDA: `4.1.0_96` to `4.1.0_97`
+
 ____
 ## v4
 - ### v4.0.0_0

@@ -84,7 +84,7 @@ public enum Site {
      *             <br>This option still works, but is no longer supported, nor recommended!
      */
     @Deprecated
-    @DeprecatedSince(version = "v3.0.1", replacement = "#TOP_GG")
+    @DeprecatedSince(version = "v3.0.1", replacements = "#TOP_GG")
     DISCORDBOTS_ORG("discordbots.org"),
     
     /**
@@ -121,7 +121,7 @@ public enum Site {
      *             <br>Use {@link #DISCORDEXTREMELIST_XYZ DISCORDEXTREMELIST_XYZ} instead.
      */
     @Deprecated
-    @DeprecatedSince(version = "v4.2.3", replacement = "#DISCORDEXTREMELIST_XYZ")
+    @DeprecatedSince(version = "v4.2.3", replacements = "#DISCORDEXTREMELIST_XYZ")
     DISCORDSBESTBOTS_XYZ("discordsbestbots.xyz"),
     
     /**

@@ -49,5 +49,5 @@ public @interface DeprecatedSince{
      * 
      * @return The method/field to use instead of the deprecated one.
      */
-    String replacement() default "";
+    String[] replacements() default "";
 }
