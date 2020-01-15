@@ -30,19 +30,15 @@ jobs:
       run: |
         cd build/libs
         zip release-${{ github.event.release.tag_name }} *.jar
-    - name: Debug
-      run: echo $LINK
+    - name: Upload to release
+      uses: actions/upload-release-asset@v1.0.1
       env:
-        LINK: ${{ toJson(github.event) }}
-    #- name: Upload to release
-    #  uses: actions/upload-release-asset@v1.0.1
-    #  env:
-    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #  with:
-    #    upload_url: ${{ github.event.release.release.upload_url }}
-    #    asset_path: ./build/libs/release-${{ github.event.release.tag_name }}.zip
-    #    asset_name: release-${{ github.event.release.tag_name }}.zip
-    #    asset_content_type: application/zip
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ./build/libs/release-${{ github.event.release.tag_name }}.zip
+        asset_name: release-${{ github.event.release.tag_name }}.zip
+        asset_content_type: application/zip
   sendMessage:
     needs: [publish]
     if: success()
