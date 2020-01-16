@@ -18,16 +18,9 @@
 
 package org.botblock.javabotblockapi.requests;
 
-import java.util.List;
-
 class CheckUtil{
     
     public static void notEmpty(String value, String name){
-        if(value.isEmpty())
-            throw new NullPointerException(name + " may not be empty.");
-    }
-    
-    public static void notEmpty(List<String> value, String name){
         if(value.isEmpty())
             throw new NullPointerException(name + " may not be empty.");
     }

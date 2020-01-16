@@ -255,7 +255,7 @@ public class GetListAction{
     public JSONObject getFilteredLists(@NotNull String id){
         CheckUtil.notEmpty(id, "id");
         
-        return REQUEST_HANDLER.performGetList(id, null, disableCache, true);
+        return REQUEST_HANDLER.performGetList(id, disableCache, true);
     }
     
     /**
@@ -411,7 +411,7 @@ public class GetListAction{
     public JSONObject getLists(@NotNull String id){
         CheckUtil.notEmpty(id, "id");
         
-        return REQUEST_HANDLER.performGetList(id, null, disableCache);
+        return REQUEST_HANDLER.performGetList(id, disableCache, false);
     }
     
     /**

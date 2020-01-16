@@ -36,7 +36,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ github.event.release.upload_url }}
-        asset_path: build/libs/release-${{ github.event.release.tag_name }}.zip
+        asset_path: ./release-${{ github.event.release.tag_name }}.zip
         asset_name: release-${{ github.event.release.tag_name }}.zip
         asset_content_type: application/zip
   sendMessage:
@@ -49,7 +49,7 @@ jobs:
       with:
         webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
         severity: info
-        avatarUrl: 'https://raw.githubusercontent.com/botblock/JavaBotBlockAPI/master/src/main/resources/jbba.png'
+        avatarUrl: 'https://raw.githubusercontent.com/botblock/JavaBotBlockAPI/master/src/main/resources/Jbba.png'
         username: 'New release (${{ github.event.release.tag_name }})'
         text: '${{ github.event.release.name }}'
         description: '[**Release Information**](${{ github.event.release.html_url }})'

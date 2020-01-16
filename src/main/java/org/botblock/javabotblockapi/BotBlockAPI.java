@@ -117,7 +117,7 @@ public class BotBlockAPI{
          * <br>Entries with the same key will be overwritten.
          *
          * @param  site
-         *         The name of the site. May not be null.
+         *         The name of the site. May not be null or empty.
          *         <br>A list of supported sites can be found <a href="https://botblock.org/api/docs#count" target="_blank">here</a>.
          * @param  token
          *         The API token from the corresponding bot list. May not be null or empty.
@@ -170,7 +170,7 @@ public class BotBlockAPI{
          *
          * @return The Builder after the updateInterval was set. Useful for chaining.
          */
-        public Builder setUpdateDelay(int updateDelay){
+        public Builder setUpdateDelay(@NotNull Integer updateDelay){
             if(updateDelay < 2)
                 throw new IllegalArgumentException("Update interval may not be less than 2.");
 

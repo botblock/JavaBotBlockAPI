@@ -67,6 +67,10 @@ class RequestHandler{
         }
     }
     
+    JSONObject performGetList(@NotNull String id, boolean disableCache, boolean filtered){
+        return performGetList(id, null, disableCache, filtered);
+    }
+    
     JSONObject performGetList(@NotNull String id, @Nullable String site, boolean disableCache){
         return performGetList(id, site, disableCache, false);
     }
@@ -173,7 +177,7 @@ class RequestHandler{
                     try{
                         JSONArray array = failure.getJSONArray(key);
                         failedSites.add(String.format(
-                                "Site: %s, Code: %d, Message: %s",
+                                "%s[Code: %d, Message: %s]",
                                 key,
                                 array.getInt(0),
                                 array.getString(1)

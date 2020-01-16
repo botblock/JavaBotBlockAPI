@@ -71,6 +71,11 @@ public class GetBotAction{
      *     ],
      *     "server_count": 100,
      *     "invite":{@literal "https://discordapp.com/oauth2/authorize?client_id=123456789012345678&scope=bot"},
+     *     "prefix": "?",
+     *     "website": "",
+     *     "github": "",
+     *     "support": "",
+     *     "library": "JDA",
      *     "list_data": {
      *         "somebotlist.com": [
      *             {"data": "Unique bot list data"},
@@ -110,6 +115,11 @@ public class GetBotAction{
      *     ],
      *     "server_count": 100,
      *     "invite":{@literal "https://discordapp.com/oauth2/authorize?client_id=123456789012345678&scope=bot"},
+     *     "prefix": "?",
+     *     "website": "",
+     *     "github": "",
+     *     "support": "",
+     *     "library": "JDA",
      *     "list_data": {
      *         "somebotlist.com": [
      *             {"data": "Unique bot list data"},

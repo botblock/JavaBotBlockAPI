@@ -60,7 +60,7 @@ public class PostAction{
     
     /**
      * Starts posting of the guild count each n minutes.
-     * <br>The delay in which this happens is set using <code>{@link org.botblock.javabotblockapi.BotBlockAPI.Builder#setUpdateDelay(int)  BotBlockAPI.Builder#setUpdateInterval(int)}</code>
+     * <br>The delay in which this happens is set using <code>{@link org.botblock.javabotblockapi.BotBlockAPI.Builder#setUpdateDelay(Integer)  BotBlockAPI.Builder#setUpdateInterval(Integer)}</code>
      * 
      * <p><b>The scheduler will stop (cancel) the task, when an Exception appears!</b>
      * 
@@ -81,7 +81,7 @@ public class PostAction{
     
     /**
      * Starts posting of the guild count each n minutes.
-     * <br>The delay in which this happens is set using <code>{@link org.botblock.javabotblockapi.BotBlockAPI.Builder#setUpdateDelay(int)}  BotBlockAPI.Builder#setUpdateInterval(int)}</code>
+     * <br>The delay in which this happens is set using <code>{@link org.botblock.javabotblockapi.BotBlockAPI.Builder#setUpdateDelay(Integer)}  BotBlockAPI.Builder#setUpdateInterval(Integer)}</code>
      *
      * <p><b>The scheduler will stop (cancel) the task, when an Exception appears!</b>
      *
@@ -92,7 +92,7 @@ public class PostAction{
      * @param botBlockAPI
      *        The {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI instance} to use.
      */
-    public void enableAutoPost(Long botId, int guilds, @NotNull BotBlockAPI botBlockAPI){
+    public void enableAutoPost(@NotNull Long botId, int guilds, @NotNull BotBlockAPI botBlockAPI){
         scheduler.scheduleAtFixedRate(() -> {
             try{
                 postGuilds(botId, guilds, botBlockAPI);
@@ -104,7 +104,7 @@ public class PostAction{
     
     /**
      * Starts posting of the guild count each n minutes.
-     * <br>The delay in which this happens is set using <code>{@link org.botblock.javabotblockapi.BotBlockAPI.Builder#setUpdateDelay(int)}  BotBlockAPI.Builder#setUpdateInterval(int)}</code>
+     * <br>The delay in which this happens is set using <code>{@link org.botblock.javabotblockapi.BotBlockAPI.Builder#setUpdateDelay(Integer)}  BotBlockAPI.Builder#setUpdateInterval(Integer)}</code>
      *
      * <p><b>The scheduler will stop (cancel) the task, when an Exception appears!</b>
      *
@@ -125,7 +125,7 @@ public class PostAction{
     
     /**
      * Starts posting of the guild count each n minutes.
-     * <br>The delay in which this happens is set using <code>{@link org.botblock.javabotblockapi.BotBlockAPI.Builder#setUpdateDelay(int)}  BotBlockAPI.Builder#setUpdateInterval(int)}</code>
+     * <br>The delay in which this happens is set using <code>{@link org.botblock.javabotblockapi.BotBlockAPI.Builder#setUpdateDelay(Integer)}  BotBlockAPI.Builder#setUpdateInterval(Integer)}</code>
      *
      * <p><b>The scheduler will stop (cancel) the task, when an Exception appears!</b>
      *
@@ -151,7 +151,7 @@ public class PostAction{
      * <br><b>It's recommended to use {@link #postGuilds(ShardManager, BotBlockAPI) postGuilds(ShardManager, BotBlockAPI)} 
      * if you're using a sharded bot.</b>
      * 
-     * <p>When the amount of shards a bot has is bigger than one will shard_id and shard_count be added.
+     * <p>When the amount of shards a bot has is bigger than one will {@code shard_id} and {@code shard_count} be added.
      * 
      * @param  jda
      *         The {@link net.dv8tion.jda.api.JDA JDA instance}.
@@ -192,7 +192,7 @@ public class PostAction{
      * @throws org.botblock.javabotblockapi.exceptions.RatelimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
-    public void postGuilds(Long botId, int guilds, @NotNull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
+    public void postGuilds(@NotNull Long botId, @NotNull Integer guilds, @NotNull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
         postGuilds(Long.toString(botId), guilds, botBlockAPI);
     }
     
@@ -245,7 +245,7 @@ public class PostAction{
      * @throws org.botblock.javabotblockapi.exceptions.RatelimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
-    public void postGuilds(@NotNull String botId, int guilds, @NotNull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
+    public void postGuilds(@NotNull String botId, @NotNull Integer guilds, @NotNull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
         JSONObject json = new JSONObject()
                 .put("server_count", guilds)
                 .put("bot_id", botId);
