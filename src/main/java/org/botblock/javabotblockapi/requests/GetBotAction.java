@@ -48,7 +48,7 @@ public class GetBotAction{
     
     /**
      * Constructor to get the instance of GetBotAction.
-     * Use this if you want to disable the caching of the GET requests. <b>We do not recommend this without own caching/ratelimiting.</b>
+     * <br>Use this if you want to disable the caching of the GET requests. <b>We do not recommend this without own caching/ratelimiting.</b>
      *
      * @param disableCache
      *        Whether or not caching should be disabled. {@code true} means caching is <b>disabled</b>!

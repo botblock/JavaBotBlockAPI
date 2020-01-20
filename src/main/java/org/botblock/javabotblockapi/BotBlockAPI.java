@@ -37,11 +37,17 @@ public class BotBlockAPI{
      * Constructor to set the Map with the sites and tokens.
      * <br>This will also set the update interval to 30 minutes.
      *
-     * @param tokens
-     *        A not null Map of sites and their tokens.
-     *        <br>You may receive the API-token from your bot list.
+     * @param  tokens
+     *         A not null Map of sites and their tokens.
+     *         <br>You may receive the API-token from your bot list.
+     * 
+     * @throws java.lang.IllegalArgumentException
+     *         When the provided Map is empty.
      */
     public BotBlockAPI(@NotNull Map<String, String> tokens){
+        if(tokens.isEmpty())
+            throw new IllegalArgumentException("Map may not be empty.");
+        
         this.tokens = tokens;
         this.updateDelay = DEFAULT_DELAY;
     }
@@ -56,9 +62,12 @@ public class BotBlockAPI{
      *         The update interval to set.
      * 
      * @throws java.lang.IllegalArgumentException
-     *         When the update delay is less than 2.
+     *         When the provided Map is empty, or updateDelay is below 2.
      */
-    public BotBlockAPI(@NotNull Map<String, String> tokens, int updateDelay){
+    public BotBlockAPI(@NotNull Map<String, String> tokens, @NotNull Integer updateDelay){
+        if(tokens.isEmpty())
+            throw new IllegalArgumentException("Map may not be empty.");
+        
         if(updateDelay < 2)
             throw new IllegalArgumentException("Update interval may not be less than 2.");
 
