@@ -9,6 +9,9 @@ This page lists all versions of JavaBotBlockAPI and the changes being made.
 
 ## v5
 
+### 5.1.5*
+- The GitHub Action to upload assets to the release now adds the jar files and the zip file to the release.
+
 ### 5.1.4
 - Test release for upload to release-action.
 
