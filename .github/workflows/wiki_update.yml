@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'wiki/**'
-    tags_ignore:
+    tags-ignore:
       - '**'
 
 jobs:
