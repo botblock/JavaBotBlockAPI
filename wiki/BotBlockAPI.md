@@ -1,4 +1,4 @@
-[Site]: https://docs.botblock.org/JavaBotBlockAPI/com/andre601/javabotblockapi/Site.html  
+[Site]: https://docs.botblock.org/JavaBotBlockAPI/org/botblock/javabotblockapi/Site.html  
 [API]: https://botblock.org/api/docs#count
 
 The BotBlockAPI is the essential class for loading botlist sites and their API tokens to then post the Guild counts.  
