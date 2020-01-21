@@ -27,7 +27,7 @@ jobs:
     #  run: ./gradlew publish
     - name: Zip files
       working-directory: ./build/libs
-      run: zip release-${{ github.event.release.tag_name }} *.jar
+      run: zip release-${{ github.event.release.tag_name }}.zip *.jar
     - name: Upload to release
       uses: AButler/upload-release-assets@v2.0
       with:
