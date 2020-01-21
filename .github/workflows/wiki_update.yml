@@ -3,20 +3,20 @@ name: Update Wiki
 on:
   push:
     paths:
-    - 'wiki/**'
+      - 'wiki/**'
 
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-    - uses: action/checkout@v1
-    - name: Update wiki
-      uses: docker://decathlon/wiki-page-creator-action:latest
-      env:
-        ACTION_MAIL: ${{ secrets.EMAIL }}
-        ACTION_NAME: Andre601
-        GH_PAT: ${{ secrets.GH_PAT }}
-        MD_FOLDER: wiki
-        OWNER: botblock
-        REPO_NAME: JavaBotBlockAPI
-        SKIP_MD: README.md
+      - uses: actions/checkout@v1
+      - name: Update wiki
+        uses: docker://decathlon/wiki-page-creator-action:latest
+        env:
+          ACTION_MAIL: ${{ secrets.EMAIL }}
+          ACTION_NAME: Andre601
+          GH_PAT: ${{ secrets.GH_PAT }}
+          MD_FOLDER: wiki
+          OWNER: botblock
+          REPO_NAME: JavaBotBlockAPI
+          SKIP_MD: README.md
