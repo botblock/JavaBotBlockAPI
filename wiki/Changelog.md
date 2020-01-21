@@ -129,8 +129,7 @@ This page lists all versions of JavaBotBlockAPI and the changes being made.
 - Updated packages from `com.andre601` to `org.botblock`.  
 **This is a breaking change.**
 
-
-____
+----
 ## v3
 
 ### v3.3.0_0
