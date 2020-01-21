@@ -9,6 +9,10 @@ This page lists all versions of JavaBotBlockAPI and the changes being made.
 
 ## v5
 
+### 5.1.3
+- Dependencies updated:
+  - JDA: `4.1.0_99` to `4.1.0_100`
+
 ### 5.1.2
 - BotBlockAPI will now throw an `IllegalArgumentException` when the provided Map is empty.  
 - The Integer updateDelay in BotBlockAPI is now marked as `@NotNull`
