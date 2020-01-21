@@ -21,18 +21,17 @@ jobs:
         bintrayUser: ${{ secrets.bintrayUsername }}
         bintrayApiKey: ${{ secrets.bintrayApiKey }}
       run: ./gradlew bintrayUpload
-    - name: Publish (GitHub Packages)
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BUILD_NUMBER: 0 # Releases are always major.minor.revision_0
-      run: ./gradlew publish
+    #- name: Publish (GitHub Packages)
+    #  env:
+    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #  run: ./gradlew publish
     - name: Zip files
       working-directory: ./build/libs
       run: zip release-${{ github.event.release.tag_name }} *.jar
     - name: Upload to release
       uses: AButler/upload-release-assets@v2.0
       with:
-        files: './build/libs/release-${{ github.event.release.tag_name }}.zip'
+        files: 'build/libs/release-${{ github.event.release.tag_name }}.zip;build/libs/*.jar'
         repo-token: ${{ secrets.GITHUB_TOKEN }}
   sendMessage:
     needs: [publish]
