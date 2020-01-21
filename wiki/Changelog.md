@@ -10,7 +10,7 @@ This page lists all versions of JavaBotBlockAPI and the changes being made.
 ## v5
 
 ### 5.1.2
-- BotBlockAPI will now throw an IllegalArgumentException when the provided Map is empty.  
+- BotBlockAPI will now throw an `IllegalArgumentException` when the provided Map is empty.  
 - The Integer updateDelay in BotBlockAPI is now marked as `@NotNull`
 
 ### 5.1.1
