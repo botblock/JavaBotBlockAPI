@@ -21,24 +21,19 @@ jobs:
         bintrayUser: ${{ secrets.bintrayUsername }}
         bintrayApiKey: ${{ secrets.bintrayApiKey }}
       run: ./gradlew bintrayUpload
-    #- name: Publish (GitHub Packages)
-    #  env:
-    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #    BUILD_NUMBER: 0 # Releases are always major.minor.revision_0
-    #  run: ./gradlew publish
-    #- name: Zip files
-    #  run: |
-    #    cd build/libs
-    #    zip release-${{ github.event.release.tag_name }} *.jar
-    #- name: Upload to release
-    #  uses: actions/upload-release-asset@v1.0.1
-    #  env:
-    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #  with:
-    #    upload_url: ${{ github.event.release.upload_url }}
-    #    asset_path: ./release-${{ github.event.release.tag_name }}.zip
-    #    asset_name: release-${{ github.event.release.tag_name }}.zip
-    #    asset_content_type: application/zip
+    - name: Publish (GitHub Packages)
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BUILD_NUMBER: 0 # Releases are always major.minor.revision_0
+      run: ./gradlew publish
+    - name: Zip files
+      working-directory: ./build/libs
+      run: zip release-${{ github.event.release.tag_name }} *.jar
+    - name: Upload to release
+      uses: AButler/upload-release-assets@v2.0
+      with:
+        files: './build/libs/release-${{ github.event.release.tag_name }}.zip'
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
   sendMessage:
     needs: [publish]
     if: success()
