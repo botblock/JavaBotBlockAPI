@@ -1,5 +1,6 @@
 ## Pages
 - [[Home]]
+- [[Changelog]]
 
 #### Methods
 - POST

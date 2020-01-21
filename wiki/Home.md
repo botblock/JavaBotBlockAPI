@@ -4,6 +4,7 @@ It tries to cover common questions with the API and provide information about it
 
 ## Pages
 - [[Home]]
+- [[Changelog]]
 
 #### Methods
 - POST
