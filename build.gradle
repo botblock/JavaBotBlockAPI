@@ -7,20 +7,20 @@ plugins{
     id 'com.github.johnrengelman.shadow' version '5.2.0'
 }
 
-def ver = new Version(major: 5, minor: 1, revision: 5)
+def ver = new Version(major: 5, minor: 1, revision: 6)
 
 group = "org.botblock"
 version = "$ver"
 
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
 
-jar{
-    setArchivesBaseName('JavaBotBlockAPI')
-}
-
 repositories{
     mavenCentral()
     jcenter()
+}
+
+jar{
+    setArchivesBaseName('JavaBotBlockAPI')
 }
 
 dependencies{
@@ -81,9 +81,9 @@ build{
 }
 
 bintray{
-    user = System.getenv("bintrayUser")
-    key = System.getenv("bintrayApiKey")
-    publications = ['JavaBotBlockAPIRelease']
+    user = System.getenv("BintrayUser")
+    key = System.getenv("BintrayApiKey")
+    publications = ['BintrayRelease']
     pkg{
         repo = 'maven'
         name = 'JavaBotBlockAPI'
@@ -92,13 +92,14 @@ bintray{
         version{
             name = project.version
             released = new Date()
+            vcsTag = System.getenv("VcsTag")
         }
     }
 }
 
 publishing{
     publications{
-        JavaBotBlockAPIRelease(MavenPublication){
+        BintrayRelease(MavenPublication){
             from(components.java)
             groupId group
             artifactId archivesBaseName

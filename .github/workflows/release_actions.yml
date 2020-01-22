@@ -18,8 +18,9 @@ jobs:
     - name: Publish (Bintray)
       id: publish_bintray
       env:
-        bintrayUser: ${{ secrets.bintrayUsername }}
-        bintrayApiKey: ${{ secrets.bintrayApiKey }}
+        BintrayUser: ${{ secrets.bintrayUsername }}
+        BintrayApiKey: ${{ secrets.bintrayApiKey }}
+        VcsTag: ${{ github.event.release.tag_name }}
       run: ./gradlew bintrayUpload
     #- name: Publish (GitHub Packages)
     #  env:
@@ -27,7 +28,7 @@ jobs:
     #  run: ./gradlew publish
     - name: Zip files
       working-directory: ./build/libs
-      run: zip release-${{ github.event.release.tag_name }}.zip *.jar
+      run: zip JavaBotBlockAPI-${{ github.event.release.tag_name }}.zip *.jar
     - name: Upload to release
       uses: AButler/upload-release-assets@v2.0
       with:
@@ -44,7 +45,7 @@ jobs:
         webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
         severity: info
         avatarUrl: 'https://raw.githubusercontent.com/botblock/JavaBotBlockAPI/master/src/main/resources/Jbba.png'
-        username: 'New release (${{ github.event.release.tag_name }})'
+        username: 'New release'
         text: '${{ github.event.release.name }}'
         description: '[**Release Information**](${{ github.event.release.html_url }})'
         details: '${{ github.event.release.body }}'

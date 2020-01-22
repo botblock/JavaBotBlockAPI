@@ -152,11 +152,15 @@ public enum Site {
     /**
      * <a href="https://top.gg" target="_blank">top.gg</a>
      * <br>Note that top.gg is discordbots.org (new domain).
-     * <br><b>This field may not be used in {@link org.botblock.javabotblockapi.requests.GetBotAction GetBotAction} and
-     * {@link org.botblock.javabotblockapi.requests.GetListAction GetListAction}!</b>
+     * <br><b>This field may no longer be used! See deprecated note about why.</b>
      * 
      * @since v3.0.0
+     * 
+     * @deprecated Top.gg no longer allows requests to their site being made through BotBlock.
+     *             <br><a href="https://imgur.com/sd50Ze4" target="_blank">Proof</a>
      */
+    @Deprecated
+    @DeprecatedSince(version = "5.1.6")
     TOP_GG("top.gg"),
     
     /**
