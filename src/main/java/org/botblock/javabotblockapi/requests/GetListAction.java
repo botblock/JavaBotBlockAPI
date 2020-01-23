@@ -25,7 +25,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
- * Class used to perform GET actions on the <a href="https://botblock.org/api/docs#lists" target="_blank">{@code /lists} endpoint</a>.
+ * Class used to perform GET actions on the <a href="https://botblock.org/api/docs#lists" target="_blank">{@code /api/lists}</a>
+ * and <a href="https://botblock.org/api/docs#list" target="_blank">{@code /api/lists/:id}</a> endpoints.
  * 
  * <p>GET requests are cached for 2 minutes unless disabled through {@link #GetListAction(boolean) GetListAction(true)}.
  * 

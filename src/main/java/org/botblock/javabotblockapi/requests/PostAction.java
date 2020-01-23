@@ -35,7 +35,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Class to perform post actions with.
+ * Class used to perform POST requests towards the <a href="https://botblock.org/api/docs#count" target="_blank">/api/count</a> endpoint.
  * 
  * <p>You can {@link #enableAutoPost(JDA, BotBlockAPI) post automatically} or {@link #postGuilds(JDA, BotBlockAPI) post manually}.
  * 

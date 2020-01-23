@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class used to perform GET actions on the <a href="https://botblock.org/api/docs#bots" target="_blank">{@code /bots/:id} endpoint</a>.
+ * Class used to perform GET actions on the <a href="https://botblock.org/api/docs#bots" target="_blank">{@code /api/bots/:id} endpoint</a>.
  *
  * <p>GET requests are cached for 2 minutes unless disabled through {@link #GetBotAction(boolean) GetBotAction(true)}
  *

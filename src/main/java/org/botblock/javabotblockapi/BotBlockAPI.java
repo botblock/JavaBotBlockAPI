@@ -26,6 +26,8 @@ import java.util.Map;
 /**
  * Class used to define the auth-tokens used for the different sites.
  * <br>The instance of this class will be used in the {@link PostAction PostAction} class.
+ * 
+ * <p>Use the {@link org.botblock.javabotblockapi.BotBlockAPI.Builder BotBlockAPI.Builder} class for easy creation.
  */
 public class BotBlockAPI{
     private static final int DEFAULT_DELAY = 30;
