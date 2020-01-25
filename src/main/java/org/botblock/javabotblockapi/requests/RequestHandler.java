@@ -61,7 +61,7 @@ class RequestHandler{
         
         try{
             return performGET(url);
-        }catch(IOException | RatelimitedException ex){
+        }catch(IOException ex){
             ex.printStackTrace();
             return null;
         }
@@ -85,7 +85,7 @@ class RequestHandler{
             return listCache.get(id, k -> {
                 try{
                     return performGET(finalUrl);
-                }catch(IOException | RatelimitedException ex){
+                }catch(IOException ex){
                     ex.printStackTrace();
                     return null;
                 }
@@ -94,14 +94,14 @@ class RequestHandler{
         
         try{
             return performGET(url);
-        }catch(IOException | RatelimitedException ex){
+        }catch(IOException ex){
             ex.printStackTrace();
             return null;
         }
         
     }
     
-    private JSONObject performGET(@NotNull String url) throws IOException, RatelimitedException{
+    private JSONObject performGET(@NotNull String url) throws IOException{
         Request request = new Request.Builder()
                 .url(url)
                 .build();
@@ -111,12 +111,13 @@ class RequestHandler{
             if(body == null)
                 throw new NullPointerException("Received empty response body.");
         
-            if(body.string().isEmpty())
+            String bodyString = body.string();
+            if(bodyString.isEmpty())
                 throw new NullPointerException("Received empty response body.");
         
             if(!response.isSuccessful()){
                 if(response.code() == 429)
-                    throw new RatelimitedException(body.string());
+                    throw new RatelimitedException(bodyString);
             
                 throw new IOException(String.format(
                         "Could not retrieve information. The server responded with error code %d (%s).",
@@ -125,11 +126,11 @@ class RequestHandler{
                 ));
             }
         
-            return new JSONObject(body.string());
+            return new JSONObject(bodyString);
         }
     }
     
-    void performPOST(@NotNull JSONObject json, int sites) throws IOException, RatelimitedException{
+    void performPOST(@NotNull JSONObject json, int sites) throws IOException{
         if(sites < 1)
             throw new IllegalStateException("POST action requires at least one site!");
         
@@ -154,12 +155,13 @@ class RequestHandler{
             if(responseBody == null)
                 throw new NullPointerException("Received empty response body.");
             
-            if(responseBody.string().isEmpty())
+            String bodyString = responseBody.string();
+            if(bodyString.isEmpty())
                 throw new NullPointerException("Received empty response body.");
             
             if(!response.isSuccessful()){
                 if(response.code() == 429)
-                    throw new RatelimitedException(responseBody.string());
+                    throw new RatelimitedException(bodyString);
                 
                 throw new IOException(String.format(
                         "Could not post Guild count. The server responded with error code %d (%s)",
