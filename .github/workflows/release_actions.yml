@@ -31,9 +31,8 @@ jobs:
       run: zip JavaBotBlockAPI-${{ github.event.release.tag_name }}.zip *.jar
     - name: Upload to release
       uses: AButler/upload-release-assets@v2.0
-      working-directory: ./build/libs
       with:
-        files: 'JavaBotBlockAPI-${{ github.event.release.tag_name }}.zip;*.jar'
+        files: 'build/libs/JavaBotBlockAPI-${{ github.event.release.tag_name }}.zip;build/libs/*.jar'
         repo-token: ${{ secrets.GITHUB_TOKEN }}
   sendMessage:
     needs: [publish]
