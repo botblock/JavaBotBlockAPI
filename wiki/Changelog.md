@@ -1,13 +1,17 @@
 ## Changelog
 This page lists all versions of JavaBotBlockAPI and the changes being made.
 
-> ### Important
+> ### ℹ️ Important
 > - Numbers marked with a `*` are not available on bintray.  
 > You may use [jitpack.io](https://jitpack.io) for downloading those.
 > - Numbers marked with a `**` will require you to add `https://dl.bintray.com/andre601/maven` to your build.gradle or pom.xml as a repository.
 > - Numbers below version `4.0.0` use `com.andre601` as package and not `org.botblock`
 
 ## v5
+
+### 5.1.7
+- Changed `RatelimitedException` from extending Throwable to extending RuntimeException.  
+You no longer need to try-cacth the RatelimitedException.
 
 ### 5.1.6
 - Site updated:
