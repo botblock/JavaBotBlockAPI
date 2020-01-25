@@ -12,6 +12,8 @@ This page lists all versions of JavaBotBlockAPI and the changes being made.
 ### 5.1.7
 - Changed `RatelimitedException` from extending Throwable to extending RuntimeException.  
 You no longer need to try-cacth the RatelimitedException.
+- Dependencies updated:
+  - JDA: `4.1.0_100` to `4.1.1_101`
 
 ### 5.1.6
 - Site updated:
