@@ -27,8 +27,6 @@ import java.lang.annotation.*;
  * <p>Methods or fields annotated with this should be avoided as it may or may not be removed in a future release.
  * <br>A possible replacement method or field will be indicated when possible.
  * 
- * <p>This annotation has two elements in it from which one is optional.
- * 
  * @since v3.2.0
  */
 @Documented
@@ -49,5 +47,5 @@ public @interface DeprecatedSince{
      * 
      * @return The method/field to use instead of the deprecated one.
      */
-    String[] replacements() default "";
+    String[] replacements() default {""};
 }
