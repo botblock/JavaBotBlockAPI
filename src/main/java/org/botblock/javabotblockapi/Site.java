@@ -29,7 +29,7 @@ import org.botblock.javabotblockapi.annotations.DeprecatedSince;
  *     <li>{@link org.botblock.javabotblockapi.BotBlockAPI.Builder BotBlockAPI.Builder}</li>
  * </ul>
  * 
- * @since v2.1.0
+ * @since 2.1.0
  */
 public enum Site {
     
@@ -56,9 +56,16 @@ public enum Site {
     /**
      * <a href="https://cloud-botlist.xyz" target="_blank">cloud-botlist.xyz</a>
      * 
-     * @since v3.2.1
+     * @since 3.2.1
      */
     CLOUD_BOTLIST_XYZ("cloud-botlist.xyz"),
+    
+    /**
+     * <a href="https://cloudlist.xyz" target="_blank">cloudlist.xyz</a>
+     * 
+     * @since 5.1.9
+     */
+    CLOUDLIST_XYZ("cloudlist.xyz"),
     
     /**
      * <a href="https://dblista.pl" target="_blank">dblista.pl</a>
@@ -84,7 +91,7 @@ public enum Site {
      *             <br>This option still works, but is no longer supported, nor recommended!
      */
     @Deprecated
-    @DeprecatedSince(version = "v3.0.1", replacements = "#TOP_GG")
+    @DeprecatedSince(version = "3.0.1", replacements = "#TOP_GG")
     DISCORDBOTS_ORG("discordbots.org"),
     
     /**
@@ -110,7 +117,7 @@ public enum Site {
     /**
      * <a href="https://discordextremelist.xyz" target="_blank">discordextremelist.xyz</a>
      * 
-     * @since v2.3.3
+     * @since 2.3.3
      */
     DISCORDEXTREMELIST_XYZ("discordextremelist.xyz"),
     
@@ -121,7 +128,7 @@ public enum Site {
      *             <br>Use {@link #DISCORDEXTREMELIST_XYZ DISCORDEXTREMELIST_XYZ} instead.
      */
     @Deprecated
-    @DeprecatedSince(version = "v4.2.3", replacements = "#DISCORDEXTREMELIST_XYZ")
+    @DeprecatedSince(version = "4.2.3", replacements = "#DISCORDEXTREMELIST_XYZ")
     DISCORDSBESTBOTS_XYZ("discordsbestbots.xyz"),
     
     /**
@@ -154,7 +161,7 @@ public enum Site {
      * <br>Note that top.gg is discordbots.org (new domain).
      * <br><b>This field may no longer be used! See deprecated note about why.</b>
      * 
-     * @since v3.0.0
+     * @since 3.0.0
      * 
      * @deprecated Top.gg no longer allows requests to their site being made through BotBlock.
      *             <br><a href="https://imgur.com/sd50Ze4" target="_blank">Proof</a>
@@ -171,7 +178,7 @@ public enum Site {
     /**
      * <a href="https://yabl.xyz" target="_blank">yabl.xyz</a>
      * 
-     * @since v2.1.1
+     * @since 2.1.1
      */
     YABL_XYZ("yabl.xyz");
 

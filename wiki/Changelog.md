@@ -9,7 +9,16 @@ This page lists all versions of JavaBotBlockAPI and the changes being made.
 
 ## v5
 
-### 5.1.7
+### 5.1.9
+- Site updated:
+  - Added [cloudlist.xyz](https://cloudlist.xyz)
+- Dependencies updated:
+  - JDA: `4.1.1_101` to `4.1.1_105`
+
+### 5.1.8
+- Same changes as [5.1.7](#517)
+
+### 5.1.7*
 - Changed `RatelimitedException` from extending Throwable to extending RuntimeException.  
 You no longer need to try-cacth the RatelimitedException.
 - Dependencies updated:

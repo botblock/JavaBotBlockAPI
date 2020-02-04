@@ -27,7 +27,7 @@ import java.lang.annotation.*;
  * <p>Methods or fields annotated with this should be avoided as it may or may not be removed in a future release.
  * <br>A possible replacement method or field will be indicated when possible.
  * 
- * @since v3.2.0
+ * @since 3.2.0
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)

@@ -112,7 +112,7 @@ public class BotBlockAPI{
          *
          * @return The Builder after the site and token were set. Useful for chaining.
          *
-         * @since v2.1.0
+         * @since 2.1.0
          */
         public Builder addAuthToken(@NotNull Site site, @NotNull String token){
             if(token.isEmpty())
