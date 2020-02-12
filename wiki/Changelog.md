@@ -8,6 +8,8 @@ This page lists all versions of JavaBotBlockAPI and the changes being made.
 > - Numbers below version `4.0.0` use `com.andre601` as package and not `org.botblock`
 
 ## v5
+Split up the different `GET` actions into bot and list related actions.  
+Many new `GET` actions added for list related stuff.
 
 ### 5.1.9
 - Site updated:
@@ -89,6 +91,8 @@ You no longer need to try-cacth the RatelimitedException.
 
 ----
 ## v4
+Package renaming from `com.andre601` to `org.botblock`.  
+Many new `GET` methods.
 
 ### v4.3.0
 - Adds new GetAction
@@ -150,6 +154,8 @@ You no longer need to try-cacth the RatelimitedException.
 
 ----
 ## v3
+Separated `POST` and `GET` requests into their own respective classes.  
+Dev builds where also available from v3.1.0 onwards.
 
 ### v3.3.0_0
 - Version now has a build-number attached (used for Jenkin builds)
@@ -213,6 +219,8 @@ You no longer need to try-cacth the RatelimitedException.
 
 ----
 ## v2
+Added support for `GET` methods and added the Site enum.  
+Additionally added support for first v4 versions of JDA.
 
 ### v2.3.9
 - Dependencies updated:
@@ -265,7 +273,7 @@ You no longer need to try-cacth the RatelimitedException.
   - Added [`YABL_XYZ`](https://yabl.xyz)
 
 ### v2.1.0
-- Added new Site enum to have easier methods and reliable sitenames
+- Added new Site enum to have easier methods and reliable site names
 
 ### v2.0.2
 - Dependencies updated
@@ -282,6 +290,7 @@ You no longer need to try-cacth the RatelimitedException.
 
 ----
 ## v1
+First releases of the Java Wrapper.
 
 ### v1.0.5
 - Updated minimal delay to 2 since rate limit is 1/120s.
