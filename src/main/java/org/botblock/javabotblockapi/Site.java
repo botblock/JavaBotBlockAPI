@@ -157,6 +157,11 @@ public enum Site {
     MYTHICALBOTS_XYZ("mythicalbots.xyz"),
     
     /**
+     * <a href="https://space-bot-list.org" target="_blank">space-bot-list.org</a>
+     */
+    SPACE_BOT_LIST_ORG("space-bot-list.org"),
+    
+    /**
      * <a href="https://top.gg" target="_blank">top.gg</a>
      * <br>Note that top.gg is discordbots.org (new domain).
      * <br><b>This field may no longer be used! See deprecated note about why.</b>
