@@ -11,7 +11,10 @@ This page lists all versions of JavaBotBlockAPI and the changes being made.
 Split up the different `GET` actions into bot and list related actions.  
 Many new `GET` actions added for list related stuff.
 
-### 5.1.10
+### 5.1.11
+- Fix version
+
+### 5.1.10*
 - Site updated:
   - Added [space-bot-list.org](https://space-bot-list.org)
 
