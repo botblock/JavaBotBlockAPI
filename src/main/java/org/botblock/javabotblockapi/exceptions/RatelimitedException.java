@@ -20,12 +20,13 @@ package org.botblock.javabotblockapi.exceptions;
 import org.json.JSONObject;
 
 /**
- * Indicates that the Java-Wrapper (Bot) was rate-limited by BotBlock.org (Received error code 429)
- * <br>The returned error message contains the route, Bot ID, IP and delay in seconds for when rate limit is removed.
+ * Class used to indicate when the bot gets Ratelimited by the BotBlock API.
+ * <br>You can use {@link #getDelay() getDelay()} to find out how long you have to wait before you can access
+ * {@link #getRoute() the route} again.
  */
 public class RatelimitedException extends RuntimeException{
     private int delay;
-    private String bot_id;
+    private String botId;
     private String ip;
     private String route;
 
@@ -33,24 +34,71 @@ public class RatelimitedException extends RuntimeException{
         JSONObject json = new JSONObject(response);
 
         this.delay = json.getInt("retry_after");
-        this.bot_id = json.getString("ratelimit_bot_id");
+        this.botId = json.getString("ratelimit_bot_id");
         this.ip = json.getString("ratelimit_ip");
         this.route = json.getString("ratelimit_route");
     }
-
+    
     /**
-     * Gives the exception message.
+     * Returns the delay - in milliseconds - you have to wait to perform a request again.
+     * 
+     * @return The delay you have to wait in milliseconds
+     */
+    public int getDelay(){
+        return delay;
+    }
+    
+    /**
+     * Returns the bot id that was ratelimited.
+     * 
+     * @return The id of the bot that was ratelimited
+     */
+    public String getBotId(){
+        return botId;
+    }
+    
+    /**
+     * Returns the ip that was ratelimited.
+     * 
+     * @return The ip that was ratelimited
+     */
+    public String getIp(){
+        return ip;
+    }
+    
+    /**
+     * Returns the route on which the bot was ratelimited.
+     * 
+     * @return The route on which the bot was ratelimited
+     */
+    public String getRoute(){
+        return route;
+    }
+    
+    /**
+     * Returns this class formatted to a String.
      *
-     * @return The Exception message with route, IP, ID and when you can send again.
+     * @return {@code RatelimitedException{@literal {delay=<delay>, bot_id=<bot_id>, ip=<ip>, route=<route>}}}
+     */
+    @Override
+    public String toString(){
+        return String.format(
+                "RatelimitedException{delay=%d, botId=%s, ip=%s, route=%s}",
+                delay,
+                botId,
+                ip,
+                route
+        );
+    }
+    
+    /**
+     * Returns a formatted message displaying the various information returned in this exception.
+     * <br>This essentially calles {@link #toString() toString()} in this class.
+     *
+     * @return Same output as {@link #toString() toString()}
      */
     @Override
     public String getMessage(){
-        return String.format(
-                "RatelimitedException[Route: %s, IP: %s, Bot_id: %s, Delay: %d]",
-                route,
-                ip,
-                bot_id,
-                delay
-        );
+        return toString();
     }
 }

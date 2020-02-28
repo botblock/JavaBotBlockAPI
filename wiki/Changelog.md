@@ -11,6 +11,10 @@ This page lists all versions of JavaBotBlockAPI and the changes being made.
 Split up the different `GET` actions into bot and list related actions.  
 Many new `GET` actions added for list related stuff.
 
+### 5.1.12
+- Improve format of `RatelimitedException#getMessage()`
+- Added `toString()` for RatelimitedException
+
 ### 5.1.11
 - Fix version
 

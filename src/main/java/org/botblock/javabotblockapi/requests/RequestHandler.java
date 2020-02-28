@@ -173,25 +173,24 @@ class RequestHandler{
             JSONObject responseJson = new JSONObject(responseBody);
             if(responseJson.has("failure")){
                 JSONObject failure = responseJson.getJSONObject("failure");
-    
                 List<String> failedSites = new ArrayList<>();
+                
                 for(String key : failure.keySet()){
                     try{
                         JSONArray array = failure.getJSONArray(key);
                         failedSites.add(String.format(
-                                "%s[Code: %d, Message: %s]",
+                                "%s{code=%d, message=%s}",
                                 key,
                                 array.getInt(0),
                                 array.getString(1)
                         ));
                     }catch(JSONException ex){
-                        Map<String, Object> notFound = failure.toMap();
-                        failedSites.add("Errors: " + notFound.toString());
+                        failedSites.add("unknown{}");
                     }
                 }
                 
                 throw new IOException(String.format(
-                        "One or multiple post requests failed! Response(s): %s",
+                        "One or multiple post requests failed! Response(s): failed{[%s]}",
                         String.join(", ", failedSites)
                 ));
             }
