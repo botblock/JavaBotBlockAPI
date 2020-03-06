@@ -78,22 +78,20 @@ public class RatelimitedException extends RuntimeException{
     /**
      * Returns this class formatted to a String.
      *
-     * @return {@code RatelimitedException{@literal {delay=<delay>, bot_id=<bot_id>, ip=<ip>, route=<route>}}}
+     * @return {@code RatelimitedException{delay=<delay>, botId=<botId>, ip=<ip>, route=<route>}}
      */
     @Override
     public String toString(){
-        return String.format(
-                "RatelimitedException{delay=%d, botId=%s, ip=%s, route=%s}",
-                delay,
-                botId,
-                ip,
-                route
-        );
+        return "RatelimitedException{delay=" + delay
+                + ", botId=" + botId
+                + ", ip=" + ip
+                + ", route=" + route
+                + "}";
     }
     
     /**
      * Returns a formatted message displaying the various information returned in this exception.
-     * <br>This essentially calles {@link #toString() toString()} in this class.
+     * <br>This essentially calls {@link #toString() toString()} in this class.
      *
      * @return Same output as {@link #toString() toString()}
      */

@@ -46,7 +46,8 @@ public class GetListAction{
     
     /**
      * Constructor to get the instance of GetListAction.
-     * <br>Use this if you want to disable the caching of the GET requests. <b>We do not recommend this without own caching/ratelimiting.</b>
+     * <br>Use this if you want to disable the caching of the GET requests.
+     * <br><b>We do not recommend this without own caching/ratelimiting.</b>
      * 
      * @param disableCache
      *        Whether or not to disable caching. {@code true} means caching gets <b>disabled</b>!
