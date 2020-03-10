@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"org.botblock.javabotblockapi"},{"l":"org.botblock.javabotblockapi.annotations"},{"l":"org.botblock.javabotblockapi.exceptions"},{"l":"org.botblock.javabotblockapi.requests"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"org.botblock.javabotblockapi"},{"l":"org.botblock.javabotblockapi.annotations"},{"l":"org.botblock.javabotblockapi.exceptions"},{"l":"org.botblock.javabotblockapi.internal"},{"l":"org.botblock.javabotblockapi.requests"}]

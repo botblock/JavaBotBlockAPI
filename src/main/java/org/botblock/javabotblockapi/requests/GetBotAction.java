@@ -20,48 +20,22 @@ package org.botblock.javabotblockapi.requests;
 
 import org.botblock.javabotblockapi.Site;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class used to perform GET actions on the <a href="https://botblock.org/api/docs#bots" target="_blank">{@code /api/bots/:id} endpoint</a>.
- *
- * <p>GET requests are cached for 2 minutes unless disabled through {@link #GetBotAction(boolean) GetBotAction(true)}
- *
- * @since 5.0.0
+ * Interface used to perform various GET actions towards the <a href="https://botblock.org/api/docs#bots" target="_blank">{@code /api/bots/:id}</a> endpoint.
+ * 
+ * <p>All GET requests are cached for 2 minutes, to prevent rate limits.
  */
-public class GetBotAction{
-    
-    private final RequestHandler REQUEST_HANDLER = new RequestHandler();
-    private boolean disableCache;
+public interface GetBotAction{
     
     /**
-     * Constructor to get the instance of GetBotAction.
-     */
-    public GetBotAction(){
-        this.disableCache = false;
-    }
-    
-    /**
-     * Constructor to get the instance of GetBotAction.
-     * <br>Use this if you want to disable the caching of the GET requests.
-     * <br><b>We do not recommend this without own caching/ratelimiting.</b>
-     *
-     * @param disableCache
-     *        Whether or not caching should be disabled. {@code true} means caching is <b>disabled</b>!
-     */
-    public GetBotAction(boolean disableCache){
-        this.disableCache = disableCache;
-    }
-    
-    /**
-     * Gets the full information of a bot.
-     *
-     * <p>The JSONObject may look like this:
+     * Gives the complete bot info returned by BotBlock.
+     * 
+     * <p>The returned {@link org.json.JSONObject JSONObject} may look like this:
      * <br><pre><code>
      * {
      *     "id": "123456789012345678",
@@ -71,7 +45,7 @@ public class GetBotAction{
      *         "234567890123456789"
      *     ],
      *     "server_count": 100,
-     *     "invite":{@literal "https://discordapp.com/oauth2/authorize?client_id=123456789012345678&scope=bot"},
+     *     "invite": {@literal "https://discordapp.com/oauth2/authorize?client_id=123456789012345678&scope=bot"},
      *     "prefix": "?",
      *     "website": "",
      *     "github": "",
@@ -89,23 +63,21 @@ public class GetBotAction{
      *     }
      * }
      * </code></pre>
-     * <br>The values of id, username, discriminator, owners, server_count and invite are based on the most common appearance.
-     * <br>The returned information from the different bot list may vary for each one.
-     *
+     * <br>With exception of id and list_data are all shown values based on the most common appearance of it.
+     * <br>The information returned in list_data is unique per bot list.
+     * 
      * @param  id
-     *         The bots id to use.
-     *
-     * @return Possibly-null JSONObject containing the bots information.
+     *         The bot id to get information from.
+     *         
+     * @return {@link org.json.JSONObject JSONObject} containing the bot information.
      */
-    @Nullable
-    public JSONObject getBotInfo(@NotNull Long id){
-        return REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
-    }
+    JSONObject getBotInfo(@NotNull Long id);
     
     /**
-     * Gets the full information of a bot.
      *
-     * <p>The JSONObject may look like this:
+     * Gives the complete bot info returned by BotBlock.
+     *
+     * <p>The returned {@link org.json.JSONObject JSONObject} may look like this:
      * <br><pre><code>
      * {
      *     "id": "123456789012345678",
@@ -115,7 +87,7 @@ public class GetBotAction{
      *         "234567890123456789"
      *     ],
      *     "server_count": 100,
-     *     "invite":{@literal "https://discordapp.com/oauth2/authorize?client_id=123456789012345678&scope=bot"},
+     *     "invite": {@literal "https://discordapp.com/oauth2/authorize?client_id=123456789012345678&scope=bot"},
      *     "prefix": "?",
      *     "website": "",
      *     "github": "",
@@ -133,456 +105,321 @@ public class GetBotAction{
      *     }
      * }
      * </code></pre>
-     * <br>The values of id, username, discriminator, owners, server_count and invite are based on the most common appearance.
-     * <br>The returned information from the different bot list may vary for each one.
-     *
+     * <br>With exception of id and list_data are all shown values based on the most common appearance of it.
+     * <br>The information returned in list_data is unique per bot list.
+     * 
      * @param  id
-     *         The bots id to use.
-     *
-     * @return Possibly-null JSONObject containing the bots information.
+     *         The bot id to get information from.
+     *         
+     * @return {@link org.json.JSONObject JSONObject} containing the bot information.
      */
-    @Nullable
-    public JSONObject getBotInfo(@NotNull String id){
-        return REQUEST_HANDLER.performGetBot(id, disableCache);
-    }
+    JSONObject getBotInfo(@NotNull String id);
     
     /**
-     * Gets the information of the bot stored on the different bot lists.
-     * <br>The returned JSON depends on what each bot list returns and is therefore different for each one.
-     *
+     * Gives the information from each bot list.
+     * <br>Note that the JSON of each list in the returned {@link org.json.JSONObject JSONObject} depends on what the list
+     * returns and is therefore unique.
+     * 
      * @param  id
-     *         The bots id to use.
-     *
-     * @return Possibly-null JSONObject containing the bots information from the different bot lists.
+     *         The bot id to get bot list information from.
+     *         
+     * @return {@link org.json.JSONObject JSONObject} containing the bot information from the different bot lists.
      */
-    @Nullable
-    public JSONObject getBotListInfo(@NotNull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
-        
-        return json.getJSONObject("list_data");
-    }
+    JSONObject getBotListInfo(@NotNull Long id);
     
     /**
-     * Gets the information of the bot stored on the different bot lists.
-     * <br>The returned JSON depends on what each bot list returns and is therefore different for each one.
+     * Gives the information from each bot list.
+     * <br>Note that the JSON of each list in the returned {@link org.json.JSONObject JSONObject} depends on what the list
+     * returns and is therefore unique.
      *
      * @param  id
-     *         The bots id to use.
+     *         The bot id to get bot list information from.
      *
-     * @return Possibly-null JSONObject containing the bots information from the different bot lists.
+     * @return {@link org.json.JSONObject JSONObject} containing the bot information from the different bot lists.
      */
-    @Nullable
-    public JSONObject getBotListInfo(@NotNull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
-        
-        return json.getJSONObject("list_data");
-    }
+    JSONObject getBotListInfo(@NotNull String id);
     
     /**
-     * Gets the information of the bot on a specific bot list.
-     * <br>The returned JSONArray depends on the bot list defined and can be different for each one.
+     * Gives the information from a specific bot list.
+     * <br>Note that the JSON of the list in the returned {@link org.json.JSONArray JSONArray} depends on what the list
+     * returns and is therefore unique.
      *
      * @param  id
-     *         The bots id to use.
+     *         The bot id to get bot list information from.
      * @param  site
-     *         The {@link org.botblock.javabotblockapi.Site site} to get info from.
+     *         The {@link org.botblock.javabotblockapi.Site Site} to get information from.
      *
-     * @return Possibly-null JSONArray containing the bots info on the provided site.
+     * @return {@link org.json.JSONArray JSONArray} containing the bot information from the bot list.
      */
-    @Nullable
-    public JSONArray getBotListInfo(@NotNull Long id, @NotNull Site site){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache).getJSONObject("list_data");
-        
-        return json.getJSONArray(site.getSite());
-    }
+    JSONArray getBotListInfo(@NotNull Long id, @NotNull Site site);
     
     /**
-     * Gets the information of the bot on a specific bot list.
-     * <br>The returned JSONArray depends on the bot list defined and can be different for each one.
+     * Gives the information from a specific bot list.
+     * <br>Note that the JSON of the list in the returned {@link org.json.JSONArray JSONArray} depends on what the list
+     * returns and is therefore unique.
      *
      * @param  id
-     *         The bots id to use.
+     *         The bot id to get bot list information from.
      * @param  site
-     *         The site to get the info from.
-     *         <br>A list of supported sites can be found {@link Site here}.
+     *         The {@link org.botblock.javabotblockapi.Site Site} to get information from.
      *
-     * @return Possibly-null JSONArray containing the bots info on the provided site.
+     * @return {@link org.json.JSONArray JSONArray} containing the bot information from the bot list.
      */
-    @Nullable
-    public JSONArray getBotListInfo(@NotNull Long id, @NotNull String site){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache).getJSONObject("list_data");
-        
-        return json.getJSONArray(site);
-    }
+    JSONArray getBotListInfo(@NotNull Long id, @NotNull String site);
     
     /**
-     * Gets the information of the bot on a specific bot list.
-     * <br>The returned JSONArray depends on the bot list defined and can be different for each one.
+     * Gives the information from a specific bot list.
+     * <br>Note that the JSON of the list in the returned {@link org.json.JSONArray JSONArray} depends on what the list
+     * returns and is therefore unique.
      *
      * @param  id
-     *         The bots id to use.
+     *         The bot id to get bot list information from.
      * @param  site
-     *         The {@link org.botblock.javabotblockapi.Site site} to get info from.
+     *         The {@link org.botblock.javabotblockapi.Site Site} to get information from.
      *
-     * @return Possibly-null JSONArray containing the bots info on the provided site.
+     * @return {@link org.json.JSONArray JSONArray} containing the bot information from the bot list.
      */
-    @Nullable
-    public JSONArray getBotListInfo(@NotNull String id, @NotNull Site site){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache).getJSONObject("list_data");
-        
-        return json.getJSONArray(site.getSite());
-    }
+    JSONArray getBotListInfo(@NotNull String id, @NotNull Site site);
     
     /**
-     * Gets the information of the bot on a specific bot list.
-     * <br>The returned JSONArray depends on the bot list defined and can be different for each one.
+     * Gives the information from a specific bot list.
+     * <br>Note that the JSON of the list in the returned {@link org.json.JSONArray JSONArray} depends on what the list
+     * returns and is therefore unique.
      *
      * @param  id
-     *         The bots id to use.
+     *         The bot id to get bot list information from.
      * @param  site
-     *         The site to get the info from.
-     *         <br>A list of supported sites can be found {@link org.botblock.javabotblockapi.Site here}.
+     *         The {@link org.botblock.javabotblockapi.Site Site} to get information from.
      *
-     * @return Possibly-null JSONArray containing the bots info on the provided site.
+     * @return {@link org.json.JSONArray JSONArray} containing the bot information from the bot list.
      */
-    @Nullable
-    public JSONArray getBotListInfo(@NotNull String id, @NotNull String site){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache).getJSONObject("list_data");
-        
-        return json.getJSONArray(site);
-    }
+    JSONArray getBotListInfo(@NotNull String id, @NotNull String site);
     
     /**
-     * Gets the discriminator (The 4 numbers after the # in the username) of the bot.
-     * <br>The discriminator is based on the most common appearance of it across the bot lists.
-     *
+     * Gives the discriminator of the bot.
+     * <br>The discriminator is the for digit number in a Tag (example: MyBot#<b>1234</b>).
+     * 
      * @param  id
-     *         The bots id to use.
-     *
-     * @return The discriminator of the bot or {@code 0000} if unknown/invalid bot.
+     *         The id of the bot to get the discriminator from.
+     *         
+     * @return String containing the discriminator, or {@code 0000} when the provided id is invalid.
      *
      * @since  4.2.0
      */
-    public String getDiscriminator(@NotNull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
-        
-        return json.getString("discriminator");
-    }
+    String getDiscriminator(@NotNull Long id);
     
     /**
-     * Gets the discriminator (The 4 numbers after the # in the username) of the bot.
-     * <br>The discriminator is based on the most common appearance of it.
+     * Gives the discriminator of the bot.
+     * <br>The discriminator is the for digit number in a Tag (example: MyBot#<b>1234</b>).
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the discriminator from.
      *
-     * @return The discriminator of the bot or {@code 0000} if unknown/invalid bot.
+     * @return String containing the discriminator, or {@code 0000} when the provided id is invalid.
      *
      * @since  4.2.0
      */
-    public String getDiscriminator(@NotNull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
-        
-        return json.getString("discriminator");
-    }
+    String getDiscriminator(@NotNull String id);
     
     /**
-     * Gets the GitHub link of the bot.
-     * <br>The GitHub link is based on the most common appearance of it.
-     *
+     * Gives the URL to the GitHub-repository of the bot, when available.
+     * 
      * @param  id
-     *         The bots id to use.
-     *
-     * @return Possibly-empty String containing the GitHub link of the bot.
+     *         The id of the bot to get the GitHub URL from.
+     *         
+     * @return Possibly-empty String containing the URL to the GitHub repository of the bot.
      *
      * @since  4.2.0
      */
-    public String getGitHub(@NotNull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
-        
-        return json.getString("github");
-    }
+    String getGitHub(@NotNull Long id);
     
     /**
-     * Gets the GitHub link of the bot.
-     * <br>The GitHub link is based on the most common appearance of it.
+     * Gives the URL to the GitHub-repository of the bot, when available.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the GitHub URL from.
      *
-     * @return Possibly-empty String containing the GitHub link of the bot.
+     * @return Possibly-empty String containing the URL to the GitHub repository of the bot.
      *
      * @since  4.2.0
      */
-    public String getGitHub(@NotNull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
-        
-        return json.getString("github");
-    }
+    String getGitHub(@NotNull String id);
     
     /**
-     * Gets the OAuth invite of the bot.
-     * <br>The invite is based on the most common appearance of it.
+     * Gives the OAuth invite for the bot.
+     * <br>The OAuth invite is used to invite the bot to a Discord server.
+     * 
+     * @param  id
+     *         The id of the bot to get the OAuth link from.
+     *         
+     * @return Possibly-empty String containing the OAuth invite for the bot.
+     */
+    String getInvite(@NotNull Long id);
+    
+    /**
+     * Gives the OAuth invite for the bot.
+     * <br>The OAuth invite is used to invite the bot to a Discord server.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the OAuth link from.
      *
      * @return Possibly-empty String containing the OAuth invite for the bot.
      */
-    public String getInvite(@NotNull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
-        
-        return json.getString("invite");
-    }
+    String getInvite(@NotNull String id);
     
     /**
-     * Gets the OAuth invite of the bot.
-     * <br>The invite is based on the most common appearance of it.
-     *
+     * Gives the Library, which is used by the bot, if available.
+     * 
      * @param  id
-     *         The bots id to use.
-     *
-     * @return Possibly-empty String containing the OAuth invite for the bot.
-     */
-    public String getInvite(@NotNull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
-        
-        return json.getString("invite");
-    }
-    
-    /**
-     * Gets the currently used library of the bot.
-     * <br>The library is based on the most common appearance of it.
-     *
-     * @param  id
-     *         The bots id to use.
-     *
-     * @return Possibly-empty String containing the library of the bot.
+     *         The id of the bot to get the Library from.
+     *         
+     * @return Possibly-empty String containing the used library of the bot.
      *
      * @since  4.2.0
      */
-    public String getLibrary(@NotNull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
-        
-        return json.getString("library");
-    }
+    String getLibrary(@NotNull Long id);
     
     /**
-     * Gets the currently used library of the bot.
-     * <br>The library is based on the most common appearance of it.
+     * Gives the Library, which is used by the bot, if available.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the Library from.
      *
-     * @return Possibly-empty String containing the library of the bot.
+     * @return Possibly-empty String containing the used library of the bot.
      *
      * @since  4.2.0
      */
-    public String getLibrary(@NotNull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
-        
-        return json.getString("library");
-    }
+    String getLibrary(@NotNull String id);
     
     /**
-     * Gets the name of the bot.
-     * <br>The name is based on the most common appearance of it.
-     *
+     * Gives the name of the bot.
+     * 
      * @param  id
-     *         The bots id to use.
-     *
-     * @return The name of the bot or {@code Unknown} if unknown/invalid bot.
+     *         The id of the bot to get the name from.
+     *         
+     * @return The name of the bot, or {@code Unknown} when the provided id is invalid.
      *
      * @since  4.2.0
      */
-    public String getName(@NotNull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
-        
-        return json.getString("username");
-    }
+    String getName(@NotNull Long id);
     
     /**
-     * Gets the name of the bot.
-     * <br>The name is based on the most common appearance of it.
+     * Gives the name of the bot.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the name from.
      *
-     * @return The name of the bot or {@code Unknown} if unknown/invalid bot.
+     * @return The name of the bot, or {@code Unknown} when the provided id is invalid.
      *
      * @since  4.2.0
      */
-    public String getName(@NotNull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
-        
-        return json.getString("username");
-    }
+    String getName(@NotNull String id);
     
     /**
-     * Gets an ArrayList with the owner ids of the bot.
-     * <br>The IDs listed are based on how often they appear on the different bot lists.
+     * Gives a {@literal List<String>} containing the ids of the bot owners.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the owners from.
      *
-     * @return Possibly-empty ArrayList containing the owners of the bot.
+     * @return Possibly-empty {@literal List<String>} containing the ids of the bot owners.
      */
-    public List<String> getOwners(Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
-        
-        List<String> owners = new ArrayList<>();
-        for(int i = 0; i < json.getJSONArray("owners").length(); i++)
-            owners.add(json.getJSONArray("owners").getString(i));
-        
-        return owners;
-    }
+    List<String> getOwners(@NotNull Long id);
     
     /**
-     * Gets an ArrayList with the owner ids of the bot.
-     * <br>The IDs listed are based on how often they appear on the different bot lists.
+     * Gives a {@literal List<String>} containing the ids of the bot owners.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the owners from.
      *
-     * @return Possibly-empty ArrayList containing the owners of the bot.
+     * @return Possibly-empty {@literal List<String>} containing the ids of the bot owners.
      */
-    public List<String> getOwners(@NotNull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
-        
-        List<String> owners = new ArrayList<>();
-        for(int i = 0; i < json.getJSONArray("owners").length(); i++)
-            owners.add(json.getJSONArray("owners").getString(i));
-        
-        return owners;
-    }
+    List<String> getOwners(@NotNull String id);
     
     /**
-     * Gets the prefix of the bot.
-     * <br>The prefix is based on the most common appearance of it.
+     * Gives the prefix used by the bot for commands.
+     * 
+     * @param  id
+     *         The id of the bot to get the prefix from.
+     *         
+     * @return Possibly-empty String containing the prefix of the bot.
+     *
+     * @since  4.2.0
+     */
+    String getPrefix(@NotNull Long id);
+    
+    /**
+     * Gives the prefix used by the bot for commands.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the prefix from.
      *
      * @return Possibly-empty String containing the prefix of the bot.
      *
      * @since  4.2.0
      */
-    public String getPrefix(@NotNull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
-        
-        return json.getString("prefix");
-    }
+    String getPrefix(@NotNull String id);
     
     /**
-     * Gets the prefix of the bot.
-     * <br>The prefix is based on the most common appearance of it.
-     *
+     * Gives the current server count a bot has.
+     * 
      * @param  id
-     *         The bots id to use.
-     *
-     * @return Possibly-empty String containing the prefix of the bot.
-     *
-     * @since  v4.2.0
+     *         The id of the bot to get the server count from.
+     *         
+     * @return Possibly-null Integer containing the server count of the bot.
      */
-    public String getPrefix(@NotNull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
-        
-        return json.getString("prefix");
-    }
+    Integer getServerCount(@NotNull Long id);
     
     /**
-     * Gets the server count of the bot.
-     * <br>The server count is based on the most common appearance of it.
+     * Gives the current server count a bot has.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the server count from.
      *
-     * @return Possibly-null Integer containing the server count for the bot.
+     * @return Possibly-null Integer containing the server count of the bot.
      */
-    @Nullable
-    public Integer getServerCount(@NotNull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
-        
-        return json.getInt("server_count");
-    }
+    Integer getServerCount(@NotNull String id);
     
     /**
-     * Gets the server count of the bot.
-     * <br>The server count is based on the most common appearance of it.
-     *
+     * Gives the support link (i.e. Discord invite. Not the {@link #getInvite(Long) OAuth link}) of a bot.
+     * 
      * @param  id
-     *         The bots id to use.
-     *
-     * @return Possibly-null Integer containing the server count for the bot.
+     *         The id of the bot to get the support link from.
+     *         
+     * @return Possibly-empty String containing the support URL.
      */
-    @Nullable
-    public Integer getServerCount(@NotNull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
-        
-        return json.getInt("server_count");
-    }
+    String getSupportLink(@NotNull Long id);
     
     /**
-     * Gets the support link (i.e. Discord invite) from the bot.
-     * <br>The link is based on the most common appearance of it.
+     * Gives the support link (i.e. Discord invite. Not the {@link #getInvite(Long) OAuth link}) of a bot.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the support link from.
      *
-     * @return Possibly-empty String containing the support link.
+     * @return Possibly-empty String containing the support URL.
      */
-    public String getSupportLink(@NotNull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
-        
-        return json.getString("support");
-    }
+    String getSupportLink(@NotNull String id);
     
     /**
-     * Gets the support link (i.e. Discord invite) from the bot.
-     * <br>The link is based on the most common appearance of it.
-     *
+     * Gives the website URL of the bot.
+     * 
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the website URL from.
+     *         
+     * @return Possibly-empty String containing the website URL of the bot.
      *
-     * @return Possibly-empty String containing the support link.
+     * @since  4.2.0
      */
-    public String getSupportLink(@NotNull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
-        
-        return json.getString("support");
-    }
+    String getWebsite(@NotNull Long id);
     
     /**
-     * Gets the website of the bot.
-     * <br>The website is based on the most common appearance of it.
+     * Gives the website URL of the bot.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the website URL from.
      *
-     * @return Possibly-Empty String containing the bot's website.
-     *
-     * @since  v4.2.0
+     * @return Possibly-empty String containing the website URL of the bot.
+     * 
+     * @since  4.2.0
      */
-    public String getWebsite(@NotNull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
-        
-        return json.getString("website");
-    }
-    
-    /**
-     * Gets the website of the bot.
-     * <br>The website is based on the most common appearance of it.
-     *
-     * @param  id
-     *         The bots id to use.
-     *
-     * @return Possibly-Empty String containing the bot's website.
-     *
-     * @since  v4.2.0
-     */
-    public String getWebsite(@NotNull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
-        
-        return json.getString("website");
-    }
+    String getWebsite(@NotNull String id);
 }

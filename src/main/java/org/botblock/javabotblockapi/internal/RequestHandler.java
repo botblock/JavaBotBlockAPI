@@ -16,7 +16,7 @@
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package org.botblock.javabotblockapi.requests;
+package org.botblock.javabotblockapi.internal;
 
 import org.botblock.javabotblockapi.exceptions.RatelimitedException;
 import com.github.benmanes.caffeine.cache.Cache;
@@ -31,7 +31,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 class RequestHandler{

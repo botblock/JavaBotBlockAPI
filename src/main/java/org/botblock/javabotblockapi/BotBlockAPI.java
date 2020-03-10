@@ -17,7 +17,7 @@
  */
 package org.botblock.javabotblockapi;
 
-import org.botblock.javabotblockapi.requests.PostAction;
+import org.botblock.javabotblockapi.internal.PostAction;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;

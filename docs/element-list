@@ -1,4 +1,5 @@
 org.botblock.javabotblockapi
 org.botblock.javabotblockapi.annotations
 org.botblock.javabotblockapi.exceptions
+org.botblock.javabotblockapi.internal
 org.botblock.javabotblockapi.requests

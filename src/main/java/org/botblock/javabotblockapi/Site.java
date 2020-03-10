@@ -18,14 +18,15 @@
 package org.botblock.javabotblockapi;
 
 import org.botblock.javabotblockapi.annotations.DeprecatedSince;
+import org.botblock.javabotblockapi.internal.GetBotActionImpl;
 
 /**
  * Enum class containing all sites currently supported by BotBlock.org.
  * 
  * <p>The fields can be used in:
  * <ul>
- *     <li>{@link org.botblock.javabotblockapi.requests.GetBotAction GetBotAction}</li>
- *     <li>{@link org.botblock.javabotblockapi.requests.GetListAction GetListAction} or</li>
+ *     <li>{@link GetBotActionImpl GetBotAction}</li>
+ *     <li>{@link org.botblock.javabotblockapi.internal.GetListAction GetListAction} or</li>
  *     <li>{@link org.botblock.javabotblockapi.BotBlockAPI.Builder BotBlockAPI.Builder}</li>
  * </ul>
  * 
@@ -84,8 +85,8 @@ public enum Site {
     
     /**
      * <a href="https://discordbots.org" target="_blank">discordbots.org</a>
-     * <br><b>This field may not be used in {@link org.botblock.javabotblockapi.requests.GetBotAction GetBotAction} and
-     * {@link org.botblock.javabotblockapi.requests.GetListAction GetListAction}!</b>
+     * <br><b>This field may not be used in {@link GetBotActionImpl GetBotAction} and
+     * {@link org.botblock.javabotblockapi.internal.GetListAction GetListAction}!</b>
      * 
      * @deprecated Use {@link #TOP_GG TOP_GG} insetad.
      *             <br>This option still works, but is no longer supported, nor recommended!

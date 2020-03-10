@@ -16,7 +16,7 @@
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package org.botblock.javabotblockapi.requests;
+package org.botblock.javabotblockapi.internal;
 
 import org.botblock.javabotblockapi.BotBlockAPI;
 import org.botblock.javabotblockapi.exceptions.RatelimitedException;

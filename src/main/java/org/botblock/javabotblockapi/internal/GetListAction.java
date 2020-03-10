@@ -16,7 +16,7 @@
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package org.botblock.javabotblockapi.requests;
+package org.botblock.javabotblockapi.internal;
 
 import org.botblock.javabotblockapi.Site;
 import org.jetbrains.annotations.NotNull;
@@ -64,7 +64,7 @@ public class GetListAction{
      * @param  site
      *         The {@link org.botblock.javabotblockapi.Site site} to get information from.
      * @param  field
-     *         The {@link org.botblock.javabotblockapi.requests.GetListAction.ApiField API field} to get the value from.
+     *         The {@link org.botblock.javabotblockapi.internal.GetListAction.ApiField API field} to get the value from.
      *         
      * @return Possibly-null String containing either a URL or API field name.
      */
@@ -84,7 +84,7 @@ public class GetListAction{
      * @param  site
      *         The {@link org.botblock.javabotblockapi.Site site} to get information from.
      * @param  field
-     *         The {@link org.botblock.javabotblockapi.requests.GetListAction.ApiField API field} to get the value from.
+     *         The {@link org.botblock.javabotblockapi.internal.GetListAction.ApiField API field} to get the value from.
      *         
      * @return Possibly-null String containing either a URL or API field name.
      */
@@ -636,7 +636,7 @@ public class GetListAction{
     
     /**
      * Enum containing the different API fields a bot list may have.
-     * <br>This is used for {@link org.botblock.javabotblockapi.requests.GetListAction#getApiField(String, Site, ApiField) GetListAction#getApiField(String, Site|String, ApiField)}
+     * <br>This is used for {@link org.botblock.javabotblockapi.internal.GetListAction#getApiField(String, Site, ApiField) GetListAction#getApiField(String, Site|String, ApiField)}
      * 
      * @since 5.0.0
      */
