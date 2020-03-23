@@ -11,6 +11,11 @@ This page lists all versions of JavaBotBlockAPI and the changes being made.
 Split up the different `GET` actions into bot and list related actions.  
 Many new `GET` actions added for list related stuff.
 
+### 5.1.13
+- Site updated:
+  - Added [`ARCANE_CENTER_XYZ`](https://arcane-center.xyz)
+  - Deprecated `ARCANE_BOT_CENTER_XYZ`
+
 ### 5.1.12
 - Improve format of `RatelimitedException#getMessage()`
 - Added `toString()` for RatelimitedException
@@ -20,11 +25,11 @@ Many new `GET` actions added for list related stuff.
 
 ### 5.1.10*
 - Site updated:
-  - Added [space-bot-list.org](https://space-bot-list.org)
+  - Added [`SPACE_BOT_LIST_ORG`](https://space-bot-list.org)
 
 ### 5.1.9
 - Site updated:
-  - Added [cloudlist.xyz](https://cloudlist.xyz)
+  - Added [`CLOUDLIST_XYZ`](https://cloudlist.xyz)
 - Dependencies updated:
   - JDA: `4.1.1_101` to `4.1.1_105`
 
