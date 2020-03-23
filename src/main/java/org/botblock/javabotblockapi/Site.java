@@ -40,9 +40,11 @@ public enum Site {
     
     /**
      * <a href="https://arcane-botcenter.xyz" target="_blank">arcane-botcenter.xyz</a>
+     * 
+     * @deprecated Use {@link #ARCANE_CENTER_XYZ ARCANE_CENTER_XYZ} instead.
      */
     @Deprecated
-    @DeprecatedSince(version = "", replacements = "#ARCANE_CENTER_XYZ")
+    @DeprecatedSince(version = "5.1.13", replacements = "#ARCANE_CENTER_XYZ")
     ARCANE_BOTCENTER_XYZ("arcane-botcenter.xyz"),
     
     /**

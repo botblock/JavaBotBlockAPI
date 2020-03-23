@@ -15,6 +15,7 @@ Many new `GET` actions added for list related stuff.
 - Site updated:
   - Added [`ARCANE_CENTER_XYZ`](https://arcane-center.xyz)
   - Deprecated `ARCANE_BOT_CENTER_XYZ`
+  - Removed `TOP_GG` and `DISCORDBOTS_GG`
 
 ### 5.1.12
 - Improve format of `RatelimitedException#getMessage()`
