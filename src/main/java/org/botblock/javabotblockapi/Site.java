@@ -34,8 +34,15 @@ import org.botblock.javabotblockapi.annotations.DeprecatedSince;
 public enum Site {
     
     /**
+     * <a href="https://arcane-center.xyz" target="_blank">arcane-center.xyz</a>
+     */
+    ARCANE_CENTER_XYZ("arcane-center.xyz"),
+    
+    /**
      * <a href="https://arcane-botcenter.xyz" target="_blank">arcane-botcenter.xyz</a>
      */
+    @Deprecated
+    @DeprecatedSince(version = "", replacements = "#ARCANE_CENTER_XYZ")
     ARCANE_BOTCENTER_XYZ("arcane-botcenter.xyz"),
     
     /**
@@ -83,18 +90,6 @@ public enum Site {
     DISCORD_BOATS("discord.boats"),
     
     /**
-     * <a href="https://discordbots.org" target="_blank">discordbots.org</a>
-     * <br><b>This field may not be used in {@link org.botblock.javabotblockapi.requests.GetBotAction GetBotAction} and
-     * {@link org.botblock.javabotblockapi.requests.GetListAction GetListAction}!</b>
-     * 
-     * @deprecated Use {@link #TOP_GG TOP_GG} insetad.
-     *             <br>This option still works, but is no longer supported, nor recommended!
-     */
-    @Deprecated
-    @DeprecatedSince(version = "3.0.1", replacements = "#TOP_GG")
-    DISCORDBOTS_ORG("discordbots.org"),
-    
-    /**
      * <a href="https://discordbotlist.com" target="_blank">discordbotlist.com</a>
      */
     DISCORDBOTLIST_COM("discordbotlist.com"),
@@ -120,16 +115,6 @@ public enum Site {
      * @since 2.3.3
      */
     DISCORDEXTREMELIST_XYZ("discordextremelist.xyz"),
-    
-    /**
-     * <a href="https://discordsbestbots.xyz" target="_blank">discordsbestbots.xyz</a>
-     * 
-     * @deprecated This site was merged into <a href="https://discordextremelist.xyz" target="_blank">discordextremelist.xyz</a>
-     *             <br>Use {@link #DISCORDEXTREMELIST_XYZ DISCORDEXTREMELIST_XYZ} instead.
-     */
-    @Deprecated
-    @DeprecatedSince(version = "4.2.3", replacements = "#DISCORDEXTREMELIST_XYZ")
-    DISCORDSBESTBOTS_XYZ("discordsbestbots.xyz"),
     
     /**
      * <a href="https://discordbots.fun" target="_blank">discordbots.fun</a>

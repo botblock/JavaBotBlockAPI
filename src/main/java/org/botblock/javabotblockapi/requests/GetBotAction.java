@@ -19,6 +19,7 @@
 package org.botblock.javabotblockapi.requests;
 
 import org.botblock.javabotblockapi.Site;
+import org.botblock.javabotblockapi.annotations.DeprecatedSince;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.json.JSONArray;
@@ -28,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class used to perform GET actions on the <a href="https://botblock.org/api/docs#bots" target="_blank">{@code /api/bots/:id} endpoint</a>.
+ * Class used to perform GET actions on the <a href="https://botblock.org/api/docs#bots" target="_blank">{@code /api/bots/:id}</a> endpoint.
  *
  * <p>GET requests are cached for 2 minutes unless disabled through {@link #GetBotAction(boolean) GetBotAction(true)}
  *
@@ -52,7 +53,8 @@ public class GetBotAction{
      * <br><b>We do not recommend this without own caching/ratelimiting.</b>
      *
      * @param disableCache
-     *        Whether or not caching should be disabled. {@code true} means caching is <b>disabled</b>!
+     *        Whether or not caching should be disabled.
+     *        <br>{@code true} means caching is <b>disabled</b>!
      */
     public GetBotAction(boolean disableCache){
         this.disableCache = disableCache;
@@ -89,13 +91,13 @@ public class GetBotAction{
      *     }
      * }
      * </code></pre>
-     * <br>The values of id, username, discriminator, owners, server_count and invite are based on the most common appearance.
-     * <br>The returned information from the different bot list may vary for each one.
+     * <br>With exception of id and list_data are all returned values based on how often one appears.
+     * <br>Each entry in list data is unique to what the respective bot list returns.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the information from.
      *
-     * @return Possibly-null JSONObject containing the bots information.
+     * @return {@link org.json.JSONObject JSONObject} containing the full information of the bot.
      */
     @Nullable
     public JSONObject getBotInfo(@NotNull Long id){
@@ -133,13 +135,13 @@ public class GetBotAction{
      *     }
      * }
      * </code></pre>
-     * <br>The values of id, username, discriminator, owners, server_count and invite are based on the most common appearance.
-     * <br>The returned information from the different bot list may vary for each one.
+     * <br>With exception of id and list_data are all returned values based on how often one appears.
+     * <br>Each entry in list data is unique to what the respective bot list returns.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the information from.
      *
-     * @return Possibly-null JSONObject containing the bots information.
+     * @return {@link org.json.JSONObject JSONObject} containing the full information of the bot.
      */
     @Nullable
     public JSONObject getBotInfo(@NotNull String id){
@@ -147,13 +149,13 @@ public class GetBotAction{
     }
     
     /**
-     * Gets the information of the bot stored on the different bot lists.
-     * <br>The returned JSON depends on what each bot list returns and is therefore different for each one.
+     * Gets the information from the various bot lists.
+     * <br>The returned data is entirely dependant on the bot list itself and is therefore unique.
      *
      * @param  id
      *         The bots id to use.
      *
-     * @return Possibly-null JSONObject containing the bots information from the different bot lists.
+     * @return {@link org.json.JSONObject JSONObject} containing information from the different bot list.
      */
     @Nullable
     public JSONObject getBotListInfo(@NotNull Long id){
@@ -163,13 +165,13 @@ public class GetBotAction{
     }
     
     /**
-     * Gets the information of the bot stored on the different bot lists.
-     * <br>The returned JSON depends on what each bot list returns and is therefore different for each one.
+     * Gets the information from the various bot lists.
+     * <br>The returned data is entirely dependant on the bot list itself and is therefore unique.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the bot list info from.
      *
-     * @return Possibly-null JSONObject containing the bots information from the different bot lists.
+     * @return {@link org.json.JSONObject JSONObject} containing information from the different bot list.
      */
     @Nullable
     public JSONObject getBotListInfo(@NotNull String id){
@@ -179,15 +181,15 @@ public class GetBotAction{
     }
     
     /**
-     * Gets the information of the bot on a specific bot list.
-     * <br>The returned JSONArray depends on the bot list defined and can be different for each one.
+     * Gets the information from the specified bot list.
+     * <br>The returned data is entirely dependant on the bot list itself and is therefore unique
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the bot list info from.
      * @param  site
      *         The {@link org.botblock.javabotblockapi.Site site} to get info from.
      *
-     * @return Possibly-null JSONArray containing the bots info on the provided site.
+     * @return {@link org.json.JSONArray JSONArray} containing the information of the provided bot list.
      */
     @Nullable
     public JSONArray getBotListInfo(@NotNull Long id, @NotNull Site site){
@@ -197,16 +199,15 @@ public class GetBotAction{
     }
     
     /**
-     * Gets the information of the bot on a specific bot list.
-     * <br>The returned JSONArray depends on the bot list defined and can be different for each one.
+     * Gets the information from the specified bot list.
+     * <br>The returned data is entirely dependant on the bot list itself and is therefore unique
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the bot list info from.
      * @param  site
-     *         The site to get the info from.
-     *         <br>A list of supported sites can be found {@link Site here}.
+     *         The {@link org.botblock.javabotblockapi.Site site} to get info from.
      *
-     * @return Possibly-null JSONArray containing the bots info on the provided site.
+     * @return {@link org.json.JSONArray JSONArray} containing the information of the provided bot list.
      */
     @Nullable
     public JSONArray getBotListInfo(@NotNull Long id, @NotNull String site){
@@ -216,15 +217,15 @@ public class GetBotAction{
     }
     
     /**
-     * Gets the information of the bot on a specific bot list.
-     * <br>The returned JSONArray depends on the bot list defined and can be different for each one.
+     * Gets the information from the specified bot list.
+     * <br>The returned data is entirely dependant on the bot list itself and is therefore unique
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the bot list info from.
      * @param  site
      *         The {@link org.botblock.javabotblockapi.Site site} to get info from.
      *
-     * @return Possibly-null JSONArray containing the bots info on the provided site.
+     * @return {@link org.json.JSONArray JSONArray} containing the information of the provided bot list.
      */
     @Nullable
     public JSONArray getBotListInfo(@NotNull String id, @NotNull Site site){
@@ -234,16 +235,15 @@ public class GetBotAction{
     }
     
     /**
-     * Gets the information of the bot on a specific bot list.
-     * <br>The returned JSONArray depends on the bot list defined and can be different for each one.
+     * Gets the information from the specified bot list.
+     * <br>The returned data is entirely dependant on the bot list itself and is therefore unique
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the bot list info from.
      * @param  site
-     *         The site to get the info from.
-     *         <br>A list of supported sites can be found {@link org.botblock.javabotblockapi.Site here}.
+     *         The {@link org.botblock.javabotblockapi.Site site} to get info from.
      *
-     * @return Possibly-null JSONArray containing the bots info on the provided site.
+     * @return {@link org.json.JSONArray JSONArray} containing the information of the provided bot list.
      */
     @Nullable
     public JSONArray getBotListInfo(@NotNull String id, @NotNull String site){
@@ -257,9 +257,9 @@ public class GetBotAction{
      * <br>The discriminator is based on the most common appearance of it across the bot lists.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the discriminator from.
      *
-     * @return The discriminator of the bot or {@code 0000} if unknown/invalid bot.
+     * @return The discriminator of the bot or {@code 0000} if the provided id is invalid.
      *
      * @since  4.2.0
      */
@@ -274,9 +274,9 @@ public class GetBotAction{
      * <br>The discriminator is based on the most common appearance of it.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the discriminator from.
      *
-     * @return The discriminator of the bot or {@code 0000} if unknown/invalid bot.
+     * @return The discriminator of the bot or {@code 0000} if the provided id is invalid.
      *
      * @since  4.2.0
      */
@@ -291,7 +291,7 @@ public class GetBotAction{
      * <br>The GitHub link is based on the most common appearance of it.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the GitHub link from.
      *
      * @return Possibly-empty String containing the GitHub link of the bot.
      *
@@ -308,7 +308,7 @@ public class GetBotAction{
      * <br>The GitHub link is based on the most common appearance of it.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the GitHub link from.
      *
      * @return Possibly-empty String containing the GitHub link of the bot.
      *
@@ -325,10 +325,14 @@ public class GetBotAction{
      * <br>The invite is based on the most common appearance of it.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the OAuth link from.
      *
      * @return Possibly-empty String containing the OAuth invite for the bot.
+     * 
+     * @deprecated Replaced with {@link #getOAuthInvite(Long) getOAuthInvite(Long)} to be more clear.
      */
+    @Deprecated
+    @DeprecatedSince(version = "5.2.0", replacements = {"#getOAuthInvite(Long)"})
     public String getInvite(@NotNull Long id){
         JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
         
@@ -340,10 +344,14 @@ public class GetBotAction{
      * <br>The invite is based on the most common appearance of it.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the OAuth link from.
      *
      * @return Possibly-empty String containing the OAuth invite for the bot.
+     * 
+     * @deprecated Replaced with {@link #getOAuthInvite(String) getOAuthInvite(String)} to be more clear.
      */
+    @Deprecated
+    @DeprecatedSince(version = "5.2.0", replacements = {"#getOAuthInvite(String)"})
     public String getInvite(@NotNull String id){
         JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
         
@@ -355,7 +363,7 @@ public class GetBotAction{
      * <br>The library is based on the most common appearance of it.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the library from.
      *
      * @return Possibly-empty String containing the library of the bot.
      *
@@ -372,7 +380,7 @@ public class GetBotAction{
      * <br>The library is based on the most common appearance of it.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the library from.
      *
      * @return Possibly-empty String containing the library of the bot.
      *
@@ -389,9 +397,9 @@ public class GetBotAction{
      * <br>The name is based on the most common appearance of it.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the name from.
      *
-     * @return The name of the bot or {@code Unknown} if unknown/invalid bot.
+     * @return The name of the bot or {@code Unknown} if the provided id is invalid.
      *
      * @since  4.2.0
      */
@@ -406,9 +414,9 @@ public class GetBotAction{
      * <br>The name is based on the most common appearance of it.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the name from.
      *
-     * @return The name of the bot or {@code Unknown} if unknown/invalid bot.
+     * @return The name of the bot or {@code Unknown} if the provided id is invalid.
      *
      * @since  4.2.0
      */
@@ -419,15 +427,49 @@ public class GetBotAction{
     }
     
     /**
+     * Gets the OAuth invite link of a bot.
+     * <br>The OAuth invite is used to add a bot to a Discord server.
+     * 
+     * @param  id
+     *         The id of the bot to get the OAuth link from.
+     *         
+     * @return Possibly-empty String containing the OAuth link for the bot.
+     * 
+     * @since  5.2.0
+     */
+    public String getOAuthInvite(@NotNull Long id){
+        JSONObject json = REQUEST_HANDLER.performGetBot(String.valueOf(id), disableCache);
+        
+        return json.getString("invite");
+    }
+    
+    /**
+     * Gets the OAuth invite link of a bot.
+     * <br>The OAuth invite is used to add a bot to a Discord server.
+     *
+     * @param  id
+     *         The id of the bot to get the OAuth link from.
+     *
+     * @return Possibly-empty String containing the OAuth link for the bot.
+     * 
+     * @since  5.2.0
+     */
+    public String getOAuthInvite(@NotNull String id){
+        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
+        
+        return json.getString("invite");
+    }
+    
+    /**
      * Gets an ArrayList with the owner ids of the bot.
      * <br>The IDs listed are based on how often they appear on the different bot lists.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the Owners from.
      *
      * @return Possibly-empty ArrayList containing the owners of the bot.
      */
-    public List<String> getOwners(Long id){
+    public List<String> getOwners(@NotNull Long id){
         JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
         
         List<String> owners = new ArrayList<>();
@@ -442,7 +484,7 @@ public class GetBotAction{
      * <br>The IDs listed are based on how often they appear on the different bot lists.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the Owners from.
      *
      * @return Possibly-empty ArrayList containing the owners of the bot.
      */
@@ -461,7 +503,7 @@ public class GetBotAction{
      * <br>The prefix is based on the most common appearance of it.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the prefix from.
      *
      * @return Possibly-empty String containing the prefix of the bot.
      *
@@ -478,7 +520,7 @@ public class GetBotAction{
      * <br>The prefix is based on the most common appearance of it.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the prefix from.
      *
      * @return Possibly-empty String containing the prefix of the bot.
      *
@@ -495,7 +537,7 @@ public class GetBotAction{
      * <br>The server count is based on the most common appearance of it.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the server count from.
      *
      * @return Possibly-null Integer containing the server count for the bot.
      */
@@ -511,7 +553,7 @@ public class GetBotAction{
      * <br>The server count is based on the most common appearance of it.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the server count from.
      *
      * @return Possibly-null Integer containing the server count for the bot.
      */
@@ -527,7 +569,7 @@ public class GetBotAction{
      * <br>The link is based on the most common appearance of it.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the support link from.
      *
      * @return Possibly-empty String containing the support link.
      */
@@ -542,7 +584,7 @@ public class GetBotAction{
      * <br>The link is based on the most common appearance of it.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the support link from.
      *
      * @return Possibly-empty String containing the support link.
      */
@@ -557,7 +599,7 @@ public class GetBotAction{
      * <br>The website is based on the most common appearance of it.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the website from.
      *
      * @return Possibly-Empty String containing the bot's website.
      *
@@ -574,7 +616,7 @@ public class GetBotAction{
      * <br>The website is based on the most common appearance of it.
      *
      * @param  id
-     *         The bots id to use.
+     *         The id of the bot to get the website from.
      *
      * @return Possibly-Empty String containing the bot's website.
      *

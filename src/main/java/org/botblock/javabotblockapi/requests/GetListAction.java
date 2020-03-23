@@ -19,6 +19,7 @@
 package org.botblock.javabotblockapi.requests;
 
 import org.botblock.javabotblockapi.Site;
+import org.botblock.javabotblockapi.annotations.DeprecatedSince;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.json.JSONArray;
@@ -261,14 +262,14 @@ public class GetListAction{
     }
     
     /**
-     * Gets the currently used icon of the bot list.
+     * Gets the URL displaying the current Icon of the bot list.
      *
      * @param  id
      *         The id used for the cache.
      * @param  site
      *         The {@link org.botblock.javabotblockapi.Site site} to get information from.
      *
-     * @return Possibly-null String containing the icon of the bot list.
+     * @return Possibly-null String containing the Icon-URL of the bot list.
      */
     @Nullable
     public String getIcon(@NotNull String id, @NotNull Site site){
@@ -279,14 +280,14 @@ public class GetListAction{
     }
     
     /**
-     * Gets the currently used icon of the bot list.
+     * Gets the URL displaying the current Icon of the bot list.
      *
      * @param  id
      *         The id used for the cache.
      * @param  site
      *         The {@link org.botblock.javabotblockapi.Site site} to get information from.
      *
-     * @return Possibly-null String containing the icon of the bot list.
+     * @return Possibly-null String containing the Icon-URL of the bot list.
      */
     @Nullable
     public String getIcon(@NotNull String id, @NotNull String site){
@@ -491,8 +492,7 @@ public class GetListAction{
     }
     
     /**
-     * Gets the time on which the bot list was added to BotBlock.org
-     * <br>The time is in seconds (UNIX timestamp)
+     * Gets the UNIX timestamp of when the bot list was added to BotBlock as Integer.
      *
      * @param  id
      *         The id used for the cache.
@@ -509,8 +509,7 @@ public class GetListAction{
     }
     
     /**
-     * Gets the time on which the bot list was added to BotBlock.org
-     * <br>The time is in seconds (UNIX timestamp)
+     * Gets the UNIX timestamp of when the bot list was added to BotBlock as Integer.
      *
      * @param  id
      *         The id used for the cache.
@@ -645,44 +644,136 @@ public class GetListAction{
     
         /**
          * API field to return the URL to list all bots of a bot list.
+         * 
+         * @deprecated Replaced with {@link #URL_ALL URL_ALL}
          */
+        @Deprecated
+        @DeprecatedSince(version = "5.2.0", replacements = {"#URL_ALL"})
         API_ALL,
         
         /**
          * API field to return the URL to the API documentation of the bot list.
+         *
+         * @deprecated Replaced with {@link #URL_DOCS URL_DOCS}
          */
+        @Deprecated
+        @DeprecatedSince(version = "5.2.0", replacements = {"#URL_DOCS"})
         API_DOCS,
         
         /**
          * API field to return the URL used to GET information about a bot.
+         *
+         * @deprecated Replaced with {@link #URL_GET URL_GET}
          */
+        @Deprecated
+        @DeprecatedSince(version = "5.2.0", replacements = {"#URL_GET"})
         API_GET,
         
         /**
          * API field to return the URL used to POST information from a bot.
+         *
+         * @deprecated Replaced with {@link #URL_POST URL_POST}
          */
+        @Deprecated
+        @DeprecatedSince(version = "5.2.0", replacements = {"#URL_POST"})
         API_POST,
         
         // Fields returning a String
     
         /**
          * Name of the field for posting the server count (i.e. {@code server_count})
+         *
+         * @deprecated Replaced with {@link #STRING_SERVER_COUNT STRING_SERVER_COUNT}
          */
+        @Deprecated
+        @DeprecatedSince(version = "5.2.0", replacements = {"#STRING_SERVER_COUNT"})
         API_FIELD,
         
         /**
          * Name of the field for posting the shard id (i.e. {@code shard_id})
+         *
+         * @deprecated Replaced with {@link #STRING_SHARD_ID STRING_SHARD_ID}
          */
+        @Deprecated
+        @DeprecatedSince(version = "5.2.0", replacements = {"#STRING_SHARD_ID"})
         API_SHARD_ID,
     
         /**
          * Name of the field for posting the shard count (i.e. {@code shard_count})
+         *
+         * @deprecated Replaced with {@link #STRING_SHARD_COUNT STRING_SHARD_COUNT}
          */
+        @Deprecated
+        @DeprecatedSince(version = "5.2.0", replacements = {"#STRING_SHARD_COUNT"})
         API_SHARD_COUNT,
     
         /**
          * Name of the field for posting the different shard info (i.e. {@code shards})
+         *
+         * @deprecated Replaced with {@link #STRING_SHARDS STRING_SHARDS}
          */
-        API_SHARDS
+        @Deprecated
+        @DeprecatedSince(version = "5.2.0", replacements = {"#STRING_SHARDS"})
+        API_SHARDS,
+        
+        // String API field
+        
+        /**
+         * Name of the field for the server count. Example: {@code server_count}
+         * 
+         * @since 5.2.0
+         */
+        STRING_SERVER_COUNT,
+    
+        /**
+         * Name of the field for the shard id. Example: {@code shard_id}
+         *
+         * @since 5.2.0
+         */
+        STRING_SHARD_ID,
+    
+        /**
+         * Name of the field for the shard count. Example: {@code shard_count}
+         *
+         * @since 5.2.0
+         */
+        STRING_SHARD_COUNT,
+    
+        /**
+         * Name of the field for the shards. Example: {@code shards}
+         *
+         * @since 5.2.0
+         */
+        STRING_SHARDS,
+        
+        // URL API field
+        
+        /**
+         * URL to GET all listed bots on a bot list.
+         *
+         * @since 5.2.0
+         */
+        URL_ALL,
+    
+        /**
+         * URL to view the API documentation of the bot list
+         *
+         * @since 5.2.0
+         */
+        URL_DOCS,
+    
+        /**
+         * URL to GET information about a single bot listed on the bot list.
+         *
+         * @since 5.2.0
+         */
+        URL_GET,
+    
+        /**
+         * URL to POST the server count to a bot list.
+         *
+         * @since 5.2.0
+         */
+        URL_POST
     }
 }

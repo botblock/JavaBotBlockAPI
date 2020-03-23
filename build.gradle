@@ -7,7 +7,7 @@ plugins{
     id 'com.github.johnrengelman.shadow' version '5.2.0'
 }
 
-def ver = new Version(major: 5, minor: 1, revision: 12)
+def ver = new Version(major: 5, minor: 1, revision: 13)
 
 group = "org.botblock"
 version = "$ver"
@@ -20,7 +20,7 @@ repositories{
 }
 
 jar{
-    setArchivesBaseName('JavaBotBlockAPI')
+    getArchiveFileName().set("JavaBotBlockAPI")
 }
 
 dependencies{
