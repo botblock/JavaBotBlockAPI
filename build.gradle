@@ -1,5 +1,6 @@
 plugins{
     id 'com.jfrog.bintray' version '1.8.4'
+    id 'java'
     id 'java-library'
     id 'idea'
     id 'maven-publish'
@@ -20,7 +21,7 @@ repositories{
 }
 
 jar{
-    getArchiveFileName().set("JavaBotBlockAPI")
+    getArchiveFileName().set("JavaBotBlockAPI.jar")
 }
 
 dependencies{
@@ -44,6 +45,7 @@ task javadocJar(type: Jar, dependsOn: javadoc){
 }
 
 artifacts{
+    archives jar
     archives sourcesJar
     archives javadocJar
     archives shadowJar
