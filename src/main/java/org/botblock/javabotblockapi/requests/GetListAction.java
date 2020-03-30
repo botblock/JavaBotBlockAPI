@@ -645,7 +645,8 @@ public class GetListAction{
         /**
          * API field to return the URL to list all bots of a bot list.
          * 
-         * @deprecated Replaced with {@link #URL_ALL URL_ALL}
+         * @deprecated Since: 5.2.0
+         *             <br>Replacement: {@link #URL_ALL URL_ALL}
          */
         @Deprecated
         @DeprecatedSince(version = "5.2.0", replacements = {"#URL_ALL"})
@@ -654,7 +655,8 @@ public class GetListAction{
         /**
          * API field to return the URL to the API documentation of the bot list.
          *
-         * @deprecated Replaced with {@link #URL_DOCS URL_DOCS}
+         * @deprecated Since: 5.2.0
+         *             <br>Replacement: {@link #URL_DOCS URL_DOCS}
          */
         @Deprecated
         @DeprecatedSince(version = "5.2.0", replacements = {"#URL_DOCS"})
@@ -663,7 +665,8 @@ public class GetListAction{
         /**
          * API field to return the URL used to GET information about a bot.
          *
-         * @deprecated Replaced with {@link #URL_GET URL_GET}
+         * @deprecated Since: 5.2.0
+         *             <br>Replacement: {@link #URL_GET URL_GET}
          */
         @Deprecated
         @DeprecatedSince(version = "5.2.0", replacements = {"#URL_GET"})
@@ -672,7 +675,8 @@ public class GetListAction{
         /**
          * API field to return the URL used to POST information from a bot.
          *
-         * @deprecated Replaced with {@link #URL_POST URL_POST}
+         * @deprecated Since: 5.2.0
+         *             <br>Replacement: {@link #URL_POST URL_POST}
          */
         @Deprecated
         @DeprecatedSince(version = "5.2.0", replacements = {"#URL_POST"})
@@ -683,7 +687,8 @@ public class GetListAction{
         /**
          * Name of the field for posting the server count (i.e. {@code server_count})
          *
-         * @deprecated Replaced with {@link #STRING_SERVER_COUNT STRING_SERVER_COUNT}
+         * @deprecated Since: 5.2.0
+         *             <br>Replacement: {@link #STRING_SERVER_COUNT STRING_SERVER_COUNT}
          */
         @Deprecated
         @DeprecatedSince(version = "5.2.0", replacements = {"#STRING_SERVER_COUNT"})
@@ -692,7 +697,8 @@ public class GetListAction{
         /**
          * Name of the field for posting the shard id (i.e. {@code shard_id})
          *
-         * @deprecated Replaced with {@link #STRING_SHARD_ID STRING_SHARD_ID}
+         * @deprecated Since: 5.2.0
+         *             <br>Replacement: {@link #STRING_SHARD_ID STRING_SHARD_ID}
          */
         @Deprecated
         @DeprecatedSince(version = "5.2.0", replacements = {"#STRING_SHARD_ID"})
@@ -701,7 +707,8 @@ public class GetListAction{
         /**
          * Name of the field for posting the shard count (i.e. {@code shard_count})
          *
-         * @deprecated Replaced with {@link #STRING_SHARD_COUNT STRING_SHARD_COUNT}
+         * @deprecated Since: 5.2.0
+         *             <br>Replacement: {@link #STRING_SHARD_COUNT STRING_SHARD_COUNT}
          */
         @Deprecated
         @DeprecatedSince(version = "5.2.0", replacements = {"#STRING_SHARD_COUNT"})
@@ -710,7 +717,8 @@ public class GetListAction{
         /**
          * Name of the field for posting the different shard info (i.e. {@code shards})
          *
-         * @deprecated Replaced with {@link #STRING_SHARDS STRING_SHARDS}
+         * @deprecated Since: 5.2.0
+         *             <br>Replacement: {@link #STRING_SHARDS STRING_SHARDS}
          */
         @Deprecated
         @DeprecatedSince(version = "5.2.0", replacements = {"#STRING_SHARDS"})

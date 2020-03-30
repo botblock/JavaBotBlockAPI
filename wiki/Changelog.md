@@ -11,11 +11,18 @@ This page lists all versions of JavaBotBlockAPI and the changes being made.
 Split up the different `GET` actions into bot and list related actions.  
 Many new `GET` actions added for list related stuff.
 
+### 5.1.14
+- Site updated:
+  - Added [`DISCORDLIST_CO`](https://discordlist.co)
+  - Deprecated `DISCORDBOTREVIEW_XYZ`
+  - Removed `TOP_GG`
+
 ### 5.1.13
 - Site updated:
   - Added [`ARCANE_CENTER_XYZ`](https://arcane-center.xyz)
   - Deprecated `ARCANE_BOT_CENTER_XYZ`
-  - Removed `TOP_GG` and `DISCORDBOTS_GG`
+  - Removed `DISCORDBESTBOTS_XYZ` and `DISCORDBOTS_GG`
+- Changed ApiField enum names and deprecated old ones.
 
 ### 5.1.12
 - Improve format of `RatelimitedException#getMessage()`

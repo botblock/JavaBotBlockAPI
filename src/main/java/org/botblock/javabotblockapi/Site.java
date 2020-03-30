@@ -41,10 +41,11 @@ public enum Site {
     /**
      * <a href="https://arcane-botcenter.xyz" target="_blank">arcane-botcenter.xyz</a>
      * 
-     * @deprecated Use {@link #ARCANE_CENTER_XYZ ARCANE_CENTER_XYZ} instead.
+     * @deprecated Since: 5.1.13
+     *             <br>Replacement: {@link #ARCANE_CENTER_XYZ ARCANE_CENTER_XYZ}
      */
     @Deprecated
-    @DeprecatedSince(version = "5.1.13", replacements = "#ARCANE_CENTER_XYZ")
+    @DeprecatedSince(version = "5.1.13", replacements = {"#ARCANE_CENTER_XYZ"})
     ARCANE_BOTCENTER_XYZ("arcane-botcenter.xyz"),
     
     /**
@@ -98,7 +99,12 @@ public enum Site {
     
     /**
      * <a href="https://discordbotreviews.xyz" target="_blank">discordbotreviews.xyz</a>
+     * 
+     * @deprecated Since: 5.1.14
+     *             <br>Replacement: {@link #DISCORDLIST_CO DISCORDLIST_CO}
      */
+    @Deprecated
+    @DeprecatedSince(version = "5.1.14", replacements = {"#DISCORDLIST_CO"})
     DISCORDBOTREVIEWS_XYZ("discordbotreviews.xyz"),
     
     /**
@@ -112,6 +118,11 @@ public enum Site {
     DISCORD_BOTS_GG("discord.bots.gg"),
     
     /**
+     * <a href="https://discordbots.fun" target="_blank">discordbots.fun</a>
+     */
+    DISCORDBOTS_FUN("discordbots.fun"),
+    
+    /**
      * <a href="https://discordextremelist.xyz" target="_blank">discordextremelist.xyz</a>
      * 
      * @since 2.3.3
@@ -119,14 +130,14 @@ public enum Site {
     DISCORDEXTREMELIST_XYZ("discordextremelist.xyz"),
     
     /**
-     * <a href="https://discordbots.fun" target="_blank">discordbots.fun</a>
-     */
-    DISCORDBOTS_FUN("discordbots.fun"),
-    
-    /**
      * <a href="https://divinediscordbots.com" target="_blank">divinediscordbots.com</a>
      */
     DIVINEDISCORDBOTS_COM("divinediscordbots.com"),
+    
+    /**
+     * <a href="https://discordlist.co" target="_blank">discordlist.co</a>
+     */
+    DISCORDLIST_CO("discordlist.co"),
     
     /**
      * <a href="https://glennbotlist.xyz" target="_blank">glennbotlist.xyz</a>
@@ -147,20 +158,6 @@ public enum Site {
      * <a href="https://space-bot-list.org" target="_blank">space-bot-list.org</a>
      */
     SPACE_BOT_LIST_ORG("space-bot-list.org"),
-    
-    /**
-     * <a href="https://top.gg" target="_blank">top.gg</a>
-     * <br>Note that top.gg is discordbots.org (new domain).
-     * <br><b>This field may no longer be used! See deprecated note about why.</b>
-     * 
-     * @since 3.0.0
-     * 
-     * @deprecated Top.gg no longer allows requests to their site being made through BotBlock.
-     *             <br><a href="https://imgur.com/sd50Ze4" target="_blank">Proof</a>
-     */
-    @Deprecated
-    @DeprecatedSince(version = "5.1.6")
-    TOP_GG("top.gg"),
     
     /**
      * <a href="https://wonderbotlist.com" target="_blank">wonderbotlist.com</a>
