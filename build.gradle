@@ -53,7 +53,7 @@ artifacts{
 
 javadoc{
     source = sourceSets.main.allJava
-    destinationDir = file("$projectDir/docs/")
+    destinationDir = file("$projectDir/docs/javadoc/")
     options.encoding = 'UTF-8'
     options.memberLevel = JavadocMemberLevel.PROTECTED
     

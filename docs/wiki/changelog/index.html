@@ -1,0 +1,2187 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Official Wiki of JavaBotBlockAPI">
+      
+      
+        <link rel="canonical" href="https://docs.botblock.org/JavaBotBlockAPI/wiki/changelog/">
+      
+      
+        <meta name="author" content="Andre_601">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.0.0">
+    
+    
+      
+        <title>Changelog - JavaBotBlockAPI Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c3000690.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.4444686e.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2196f3">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/css/dark.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#changelog" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://docs.botblock.org/JavaBotBlockAPI" title="JavaBotBlockAPI Wiki" class="md-header-nav__button md-logo" aria-label="JavaBotBlockAPI Wiki">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            JavaBotBlockAPI Wiki
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Changelog
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/botblock/JavaBotBlockAPI/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    botblock/JavaBotBlockAPI
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." class="md-tabs__link md-tabs__link--active">
+        Welcome
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../methods/" class="md-tabs__link">
+          Methods
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../deprecated/" class="md-tabs__link">
+          Deprecated
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://docs.botblock.org/JavaBotBlockAPI" title="JavaBotBlockAPI Wiki" class="md-nav__button md-logo" aria-label="JavaBotBlockAPI Wiki">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    JavaBotBlockAPI Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/botblock/JavaBotBlockAPI/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    botblock/JavaBotBlockAPI
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Welcome" class="md-nav__link">
+      Welcome
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Changelog
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Changelog" class="md-nav__link md-nav__link--active">
+      Changelog
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    Changelog
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v5" class="md-nav__link">
+    v5
+  </a>
+  
+    <nav class="md-nav" aria-label="v5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5114" class="md-nav__link">
+    5.1.14
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5113" class="md-nav__link">
+    5.1.13
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5112" class="md-nav__link">
+    5.1.12
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5111" class="md-nav__link">
+    5.1.11
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5110" class="md-nav__link">
+    5.1.10*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#519" class="md-nav__link">
+    5.1.9
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#518" class="md-nav__link">
+    5.1.8
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#517" class="md-nav__link">
+    5.1.7*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#516" class="md-nav__link">
+    5.1.6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#515" class="md-nav__link">
+    5.1.5*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#514" class="md-nav__link">
+    5.1.4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#513" class="md-nav__link">
+    5.1.3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512" class="md-nav__link">
+    5.1.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#511" class="md-nav__link">
+    5.1.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#510" class="md-nav__link">
+    5.1.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#505" class="md-nav__link">
+    5.0.5*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#504" class="md-nav__link">
+    5.0.4*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#503" class="md-nav__link">
+    5.0.3*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#502" class="md-nav__link">
+    5.0.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#501" class="md-nav__link">
+    5.0.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#500" class="md-nav__link">
+    5.0.0
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v4" class="md-nav__link">
+    v4
+  </a>
+  
+    <nav class="md-nav" aria-label="v4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v430" class="md-nav__link">
+    v4.3.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v425" class="md-nav__link">
+    v4.2.5**
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v424" class="md-nav__link">
+    v4.2.4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v423" class="md-nav__link">
+    v4.2.3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v422" class="md-nav__link">
+    v4.2.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v421" class="md-nav__link">
+    v4.2.1**
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v420" class="md-nav__link">
+    v4.2.0**
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v411" class="md-nav__link">
+    v4.1.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v410" class="md-nav__link">
+    v4.1.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v404" class="md-nav__link">
+    v4.0.4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v403" class="md-nav__link">
+    v4.0.3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v402" class="md-nav__link">
+    v4.0.2*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v401_0" class="md-nav__link">
+    v4.0.1_0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v400_0" class="md-nav__link">
+    v4.0.0_0
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v3" class="md-nav__link">
+    v3
+  </a>
+  
+    <nav class="md-nav" aria-label="v3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v330_0" class="md-nav__link">
+    v3.3.0_0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v321" class="md-nav__link">
+    v3.2.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v320" class="md-nav__link">
+    v3.2.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v310" class="md-nav__link">
+    v3.1.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v306" class="md-nav__link">
+    v3.0.6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v305" class="md-nav__link">
+    v3.0.5*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v304" class="md-nav__link">
+    v3.0.4*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v303" class="md-nav__link">
+    v3.0.3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v302" class="md-nav__link">
+    v3.0.2*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v301" class="md-nav__link">
+    v3.0.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v300" class="md-nav__link">
+    v3.0.0
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v2" class="md-nav__link">
+    v2
+  </a>
+  
+    <nav class="md-nav" aria-label="v2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v239" class="md-nav__link">
+    v2.3.9
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v238" class="md-nav__link">
+    v2.3.8
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v236" class="md-nav__link">
+    v2.3.6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v235" class="md-nav__link">
+    v2.3.5
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v234" class="md-nav__link">
+    v2.3.4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v233" class="md-nav__link">
+    v2.3.3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v232" class="md-nav__link">
+    v2.3.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v231" class="md-nav__link">
+    v2.3.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v230" class="md-nav__link">
+    v2.3.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v221" class="md-nav__link">
+    v2.2.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v220" class="md-nav__link">
+    v2.2.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v211" class="md-nav__link">
+    v2.1.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v210" class="md-nav__link">
+    v2.1.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v202" class="md-nav__link">
+    v2.0.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v201" class="md-nav__link">
+    v2.0.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v200" class="md-nav__link">
+    v2.0.0
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v1" class="md-nav__link">
+    v1
+  </a>
+  
+    <nav class="md-nav" aria-label="v1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v105" class="md-nav__link">
+    v1.0.5
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v104" class="md-nav__link">
+    v1.0.4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v103" class="md-nav__link">
+    v1.0.3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v102" class="md-nav__link">
+    v1.0.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v101" class="md-nav__link">
+    v1.0.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v100" class="md-nav__link">
+    v1.0.0
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Methods
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Methods" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Methods
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../methods/" title="Methods" class="md-nav__link">
+      Methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../methods/botblockapi/" title="BotBlockAPI" class="md-nav__link">
+      BotBlockAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../methods/get/getbotaction/" title="GetBotAction" class="md-nav__link">
+      GetBotAction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../methods/get/getlistaction/" title="GetListAction" class="md-nav__link">
+      GetListAction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../methods/post/postaction/" title="PostAction" class="md-nav__link">
+      PostAction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Deprecated
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Deprecated" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Deprecated
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deprecated/" title="Deprecated" class="md-nav__link">
+      Deprecated
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deprecated/getaction/" title="GetAction" class="md-nav__link">
+      GetAction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deprecated/requesthandler/" title="RequestHandler" class="md-nav__link">
+      RequestHandler
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../javadoc/" title="Javadoc" class="md-nav__link">
+      Javadoc
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    Changelog
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v5" class="md-nav__link">
+    v5
+  </a>
+  
+    <nav class="md-nav" aria-label="v5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5114" class="md-nav__link">
+    5.1.14
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5113" class="md-nav__link">
+    5.1.13
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5112" class="md-nav__link">
+    5.1.12
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5111" class="md-nav__link">
+    5.1.11
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5110" class="md-nav__link">
+    5.1.10*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#519" class="md-nav__link">
+    5.1.9
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#518" class="md-nav__link">
+    5.1.8
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#517" class="md-nav__link">
+    5.1.7*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#516" class="md-nav__link">
+    5.1.6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#515" class="md-nav__link">
+    5.1.5*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#514" class="md-nav__link">
+    5.1.4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#513" class="md-nav__link">
+    5.1.3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512" class="md-nav__link">
+    5.1.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#511" class="md-nav__link">
+    5.1.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#510" class="md-nav__link">
+    5.1.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#505" class="md-nav__link">
+    5.0.5*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#504" class="md-nav__link">
+    5.0.4*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#503" class="md-nav__link">
+    5.0.3*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#502" class="md-nav__link">
+    5.0.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#501" class="md-nav__link">
+    5.0.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#500" class="md-nav__link">
+    5.0.0
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v4" class="md-nav__link">
+    v4
+  </a>
+  
+    <nav class="md-nav" aria-label="v4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v430" class="md-nav__link">
+    v4.3.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v425" class="md-nav__link">
+    v4.2.5**
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v424" class="md-nav__link">
+    v4.2.4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v423" class="md-nav__link">
+    v4.2.3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v422" class="md-nav__link">
+    v4.2.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v421" class="md-nav__link">
+    v4.2.1**
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v420" class="md-nav__link">
+    v4.2.0**
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v411" class="md-nav__link">
+    v4.1.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v410" class="md-nav__link">
+    v4.1.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v404" class="md-nav__link">
+    v4.0.4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v403" class="md-nav__link">
+    v4.0.3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v402" class="md-nav__link">
+    v4.0.2*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v401_0" class="md-nav__link">
+    v4.0.1_0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v400_0" class="md-nav__link">
+    v4.0.0_0
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v3" class="md-nav__link">
+    v3
+  </a>
+  
+    <nav class="md-nav" aria-label="v3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v330_0" class="md-nav__link">
+    v3.3.0_0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v321" class="md-nav__link">
+    v3.2.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v320" class="md-nav__link">
+    v3.2.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v310" class="md-nav__link">
+    v3.1.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v306" class="md-nav__link">
+    v3.0.6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v305" class="md-nav__link">
+    v3.0.5*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v304" class="md-nav__link">
+    v3.0.4*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v303" class="md-nav__link">
+    v3.0.3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v302" class="md-nav__link">
+    v3.0.2*
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v301" class="md-nav__link">
+    v3.0.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v300" class="md-nav__link">
+    v3.0.0
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v2" class="md-nav__link">
+    v2
+  </a>
+  
+    <nav class="md-nav" aria-label="v2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v239" class="md-nav__link">
+    v2.3.9
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v238" class="md-nav__link">
+    v2.3.8
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v236" class="md-nav__link">
+    v2.3.6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v235" class="md-nav__link">
+    v2.3.5
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v234" class="md-nav__link">
+    v2.3.4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v233" class="md-nav__link">
+    v2.3.3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v232" class="md-nav__link">
+    v2.3.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v231" class="md-nav__link">
+    v2.3.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v230" class="md-nav__link">
+    v2.3.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v221" class="md-nav__link">
+    v2.2.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v220" class="md-nav__link">
+    v2.2.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v211" class="md-nav__link">
+    v2.1.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v210" class="md-nav__link">
+    v2.1.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v202" class="md-nav__link">
+    v2.0.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v201" class="md-nav__link">
+    v2.0.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v200" class="md-nav__link">
+    v2.0.0
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v1" class="md-nav__link">
+    v1
+  </a>
+  
+    <nav class="md-nav" aria-label="v1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v105" class="md-nav__link">
+    v1.0.5
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v104" class="md-nav__link">
+    v1.0.4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v103" class="md-nav__link">
+    v1.0.3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v102" class="md-nav__link">
+    v1.0.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v101" class="md-nav__link">
+    v1.0.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v100" class="md-nav__link">
+    v1.0.0
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/edit/master/wiki/wiki/changelog.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                  <h1>Changelog</h1>
+                
+                <h2 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h2>
+<p>This page lists all versions of JavaBotBlockAPI and the changes being made.</p>
+<div class="admonition info">
+<p class="admonition-title">Important</p>
+<ul>
+<li>Numbers marked with a <code>*</code> are not available on bintray.<br />
+You may use <a href="https://jitpack.io">jitpack.io</a> for downloading those.</li>
+<li>Numbers marked with a <code>**</code> will require you to add <code>https://dl.bintray.com/andre601/maven</code> to your build.gradle or pom.xml as a repository.</li>
+<li>Numbers below version <code>4.0.0</code> use <code>com.andre601</code> as package and not <code>org.botblock</code></li>
+</ul>
+</div>
+<h2 id="v5">v5<a class="headerlink" href="#v5" title="Permanent link">&para;</a></h2>
+<p>Split up the different <code>GET</code> actions into bot and list related actions.<br />
+Many new <code>GET</code> actions added for list related stuff.</p>
+<h3 id="5114">5.1.14<a class="headerlink" href="#5114" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Site updated:<ul>
+<li>Added <a href="https://discordlist.co"><code>DISCORDLIST_CO</code></a></li>
+<li>Deprecated <code>DISCORDBOTREVIEW_XYZ</code></li>
+<li>Removed <code>TOP_GG</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="5113">5.1.13<a class="headerlink" href="#5113" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Site updated:<ul>
+<li>Added <a href="https://arcane-center.xyz"><code>ARCANE_CENTER_XYZ</code></a></li>
+<li>Deprecated <code>ARCANE_BOT_CENTER_XYZ</code></li>
+<li>Removed <code>DISCORDBESTBOTS_XYZ</code> and <code>DISCORDBOTS_GG</code></li>
+</ul>
+</li>
+<li>Changed ApiField enum names and deprecated old ones.</li>
+</ul>
+<h3 id="5112">5.1.12<a class="headerlink" href="#5112" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Improve format of <code>RatelimitedException#getMessage()</code></li>
+<li>Added <code>toString()</code> for RatelimitedException</li>
+</ul>
+<h3 id="5111">5.1.11<a class="headerlink" href="#5111" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix version</li>
+</ul>
+<h3 id="5110">5.1.10*<a class="headerlink" href="#5110" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Site updated:<ul>
+<li>Added <a href="https://space-bot-list.org"><code>SPACE_BOT_LIST_ORG</code></a></li>
+</ul>
+</li>
+</ul>
+<h3 id="519">5.1.9<a class="headerlink" href="#519" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Site updated:<ul>
+<li>Added <a href="https://cloudlist.xyz"><code>CLOUDLIST_XYZ</code></a></li>
+</ul>
+</li>
+<li>Dependencies updated:<ul>
+<li>JDA: <code>4.1.1_101</code> to <code>4.1.1_105</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="518">5.1.8<a class="headerlink" href="#518" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Same changes as <a href="#517">5.1.7</a></li>
+</ul>
+<h3 id="517">5.1.7*<a class="headerlink" href="#517" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Changed <code>RatelimitedException</code> from extending Throwable to extending RuntimeException.<br />
+You no longer need to try-cacth the RatelimitedException.</li>
+<li>Dependencies updated:<ul>
+<li>JDA: <code>4.1.0_100</code> to <code>4.1.1_101</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="516">5.1.6<a class="headerlink" href="#516" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Site updated:<ul>
+<li>Deprecated <code>TOP_GG</code> for <a href="https://imgur.com/sd50Ze4">this reason</a>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="515">5.1.5*<a class="headerlink" href="#515" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The GitHub Action to upload assets to the release now adds the jar files and the zip file to the release.</li>
+</ul>
+<h3 id="514">5.1.4<a class="headerlink" href="#514" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test release for upload to release-action.</li>
+</ul>
+<h3 id="513">5.1.3<a class="headerlink" href="#513" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dependencies updated:<ul>
+<li>JDA: <code>4.1.0_99</code> to <code>4.1.0_100</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="512">5.1.2<a class="headerlink" href="#512" title="Permanent link">&para;</a></h3>
+<ul>
+<li>BotBlockAPI will now throw an <code>IllegalArgumentException</code> when the provided Map is empty.  </li>
+<li>The Integer updateDelay in BotBlockAPI is now marked as <code>@NotNull</code></li>
+</ul>
+<h3 id="511">5.1.1<a class="headerlink" href="#511" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Site updated:<ul>
+<li>Added <a href="https://glennbotlist.xyz"><code>GLENNBOTLIST_XYZ</code></a></li>
+</ul>
+</li>
+</ul>
+<h3 id="510">5.1.0<a class="headerlink" href="#510" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Removed deprecated <code>GetAction</code> class. Use <code>GetBotAction</code> or <code>GetListAction</code> respectively.</li>
+</ul>
+<h3 id="505">5.0.5*<a class="headerlink" href="#505" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Second test for adding zip file to Release.</li>
+</ul>
+<h3 id="504">5.0.4*<a class="headerlink" href="#504" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test for adding zip file to Release.</li>
+</ul>
+<h3 id="503">5.0.3*<a class="headerlink" href="#503" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Debugging.</li>
+</ul>
+<h3 id="502">5.0.2<a class="headerlink" href="#502" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Changed <code>@DeprecatedSince</code> annotation.  </li>
+<li>Dependencies updated:<ul>
+<li>JDA: <code>4.1.0_96</code> to <code>4.1.0_97</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="501">5.0.1<a class="headerlink" href="#501" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Renamed <code>getFilteredList(String)</code> to <code>getFilteredLists(String)</code></li>
+</ul>
+<h3 id="500">5.0.0<a class="headerlink" href="#500" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Deprecated <code>GetAction</code>. <code>GetBotAction</code> and <code>GetListAction</code> were added as replacement.</li>
+<li>New methods added to <code>GetListAction</code>:<ul>
+<li><code>getApiField(String, Site|String, ApiField)</code></li>
+<li><code>getBotWidgetUrl(String, Site|String)</code></li>
+<li><code>getDescription(String, Site|String)</code></li>
+<li><code>getDiscordInvite(String, Site|String)</code></li>
+<li><code>getFeatures(String, Site|String)</code></li>
+<li><code>getFilteredList(String)</code></li>
+<li><code>getIcon(String, Site|String)</code></li>
+<li><code>getId(String, Site|String)</code></li>
+<li><code>getLanguage(String, Site|String)</code></li>
+<li><code>getList(String, Site|String)</code></li>
+<li><code>getLists(String)</code></li>
+<li><code>getName(String, Site|String)</code></li>
+<li><code>getOwners(String, Site|String)</code></li>
+<li><code>getTimeAdded(String, Site|String)</code></li>
+<li><code>getUrl(String, Site|String)</code></li>
+<li><code>isDefunct(String, Site|String)</code></li>
+<li><code>isDiscordOnly(String, Site|String)</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="v4">v4<a class="headerlink" href="#v4" title="Permanent link">&para;</a></h2>
+<p>Package renaming from <code>com.andre601</code> to <code>org.botblock</code>.<br />
+Many new <code>GET</code> methods.</p>
+<h3 id="v430">v4.3.0<a class="headerlink" href="#v430" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Adds new GetAction<ul>
+<li><code>getBotListFeatures(String, Site|String)</code>: Returns a JSONArray with all features the bot list has.</li>
+</ul>
+</li>
+</ul>
+<h3 id="v425">v4.2.5**<a class="headerlink" href="#v425" title="Permanent link">&para;</a></h3>
+<ul>
+<li>This was a test release for the attachment of zip files to the release. It failed.</li>
+</ul>
+<h3 id="v424">v4.2.4<a class="headerlink" href="#v424" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Site updated:<ul>
+<li>Added <a href="https://arcane-botcenter.xyz"><code>ARCANE_BOTCENTER_XYZ</code></a></li>
+<li>Added <a href="https://dblista.pl"><code>DBLISTA_PL</code></a></li>
+</ul>
+</li>
+</ul>
+<h3 id="v423">v4.2.3<a class="headerlink" href="#v423" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Site updated:<ul>
+<li>Deprecated <code>DISCORDBESTBOTS_XYZ</code><br />
+Use <code>DISCORDEXTREMELIST_XYZ</code> instead.</li>
+</ul>
+</li>
+</ul>
+<h3 id="v422">v4.2.2<a class="headerlink" href="#v422" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Site updated:<ul>
+<li>Removed <code>GLENNBOTLIST_XYZ</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="v421">v4.2.1**<a class="headerlink" href="#v421" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Removed unused imports.</li>
+</ul>
+<h3 id="v420">v4.2.0**<a class="headerlink" href="#v420" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Added new get methods to GetAction:<ul>
+<li><code>getDiscriminator(Long|String)</code>: Returns the discriminator of the bot or an empty String.</li>
+<li><code>getGitHub(Long|String)</code>: Returns GitHub url or an empty String.</li>
+<li><code>getLibrary(Long|String)</code>: Returns the library used by the bot or an empty String.</li>
+<li><code>getName(Long|String)</code>: Returns the name of the bot or an empty String.</li>
+<li><code>getPrefix(Long|String)</code>: Returns the command prefix of the bot or an empty String.</li>
+<li><code>getSupportLink(Long|String)</code>: Returns the support link (i.e. Discord invite) or an empty String.</li>
+<li><code>getWebsite(Long|String)</code>: Returns the website link of the bot or an empty String.</li>
+</ul>
+</li>
+<li><code>getServerCount(Long|String id)</code> is now declared as <code>@Nullable</code> meaning result may be null.</li>
+</ul>
+<h3 id="v411">v4.1.1<a class="headerlink" href="#v411" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>@DeprecatedSince</code> was slightly changed.</li>
+</ul>
+<h3 id="v410">v4.1.0<a class="headerlink" href="#v410" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Merged the <code>@ReplacedWith</code> into the <code>@DeprecatedSince</code> annotation.</li>
+</ul>
+<h3 id="v404">v4.0.4<a class="headerlink" href="#v404" title="Permanent link">&para;</a></h3>
+<ul>
+<li>For unknown reason is the wrapper not available through normal downloads...</li>
+</ul>
+<h3 id="v403">v4.0.3<a class="headerlink" href="#v403" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fixed broken version system.</li>
+</ul>
+<h3 id="v402">v4.0.2*<a class="headerlink" href="#v402" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Updated version system.  </li>
+<li>Releases are back to <code>#.#.#</code> format while dev builds are <code>#.#.#_#</code></li>
+</ul>
+<h3 id="v401_0">v4.0.1_0<a class="headerlink" href="#v401_0" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Updated message of RatelimitedException</li>
+</ul>
+<h3 id="v400_0">v4.0.0_0<a class="headerlink" href="#v400_0" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Updated packages from <code>com.andre601</code> to <code>org.botblock</code>.<br />
+<strong>This is a breaking change.</strong></li>
+</ul>
+<hr />
+<h2 id="v3">v3<a class="headerlink" href="#v3" title="Permanent link">&para;</a></h2>
+<p>Separated <code>POST</code> and <code>GET</code> requests into their own respective classes.<br />
+Dev builds where also available from v3.1.0 onwards.</p>
+<h3 id="v330_0">v3.3.0_0<a class="headerlink" href="#v330_0" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Version now has a build-number attached (used for Jenkin builds)</li>
+</ul>
+<h3 id="v321">v3.2.1<a class="headerlink" href="#v321" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Site updated:<ul>
+<li>Added <a href="https://glennbotlist.xyz"><code>GLENNBOTLIST_XYZ</code></a></li>
+<li>Added <a href="https://cloud-botlist.xyz"><code>CLOUD_BOTLIST_XYZ</code></a></li>
+</ul>
+</li>
+</ul>
+<h3 id="v320">v3.2.0<a class="headerlink" href="#v320" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Added <code>@DeprecatedSince</code> and <code>@ReplacedWith</code> annotations</li>
+</ul>
+<h3 id="v310">v3.1.0<a class="headerlink" href="#v310" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Updated Gradle to v5.5</li>
+<li>Added links to Jenkins for dev builds (Thanks CodeMC)</li>
+<li>Dependencies updated:<ul>
+<li>Shadow: <code>4.0.4</code> to <code>5.2.0</code></li>
+<li>JDA: <code>4.0.0_73</code> to <code>4.1.0_81</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="v306">v3.0.6<a class="headerlink" href="#v306" title="Permanent link">&para;</a></h3>
+<ul>
+<li>It's <code>targetCompatibility</code> not <code>targetCompitability</code></li>
+</ul>
+<h3 id="v305">v3.0.5*<a class="headerlink" href="#v305" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fixed broken build.gradle</li>
+</ul>
+<h3 id="v304">v3.0.4*<a class="headerlink" href="#v304" title="Permanent link">&para;</a></h3>
+<ul>
+<li>RequestHandler was removed</li>
+<li>Dependencies updated:<ul>
+<li>JDA: <code>4.0.0_70</code> to <code>4.0.0_73</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="v303">v3.0.3<a class="headerlink" href="#v303" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Same changes as <a href="#v302">v3.0.2</a></li>
+</ul>
+<h3 id="v302">v3.0.2*<a class="headerlink" href="#v302" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dependencies updated:<ul>
+<li>JDA: <code>4.0.0_61</code> to <code>4.0.0_70</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="v301">v3.0.1<a class="headerlink" href="#v301" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Site updated:<ul>
+<li>Deprecated <code>Site.DISCORDBOTS_ORG</code>.<br />
+Use <code>Site.TOP_GG</code> instead.</li>
+</ul>
+</li>
+</ul>
+<h3 id="v300">v3.0.0<a class="headerlink" href="#v300" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Moved post and get methods to their own class<ul>
+<li>GetAction was created for all GET methods.</li>
+<li>PostAction was created for all POST methods.</li>
+</ul>
+</li>
+<li>RequestHandler (<code>com.andre601.javabotblockapi.RequestHandler</code>) is now deprecated.</li>
+<li>Site updated:<ul>
+<li>Added <a href="https://top.gg"><code>TOP_GG</code></a></li>
+</ul>
+</li>
+<li>New methods <code>getInvite(Long|String)</code> and <code>getServerCount(Long|String)</code> added.</li>
+<li>Timeouts for POST requests where made dynamic.</li>
+<li>GET methods which used either an JDA or ShardManager instance got removed.</li>
+<li>Renamed multiple methods:<ul>
+<li><code>getBotInfo</code> and <code>getBotInfos</code> where renamed to <code>getBotListInfo</code></li>
+<li><code>getAll</code> was renamed to <code>getBotInfo</code></li>
+<li><code>startAutoPosting</code> was renamed to <code>enableAutoPost</code></li>
+<li><code>stopAutoPosting</code> was renamed to <code>disableAutoPost</code></li>
+</ul>
+</li>
+<li>Dependencies updated:<ul>
+<li>JDA: <code>4.0.0_52</code> to <code>4.0.0_61</code></li>
+<li>annotations: <code>17.0.0</code> to <code>18.0.0</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="v2">v2<a class="headerlink" href="#v2" title="Permanent link">&para;</a></h2>
+<p>Added support for <code>GET</code> methods and added the Site enum.<br />
+Additionally added support for first v4 versions of JDA.</p>
+<h3 id="v239">v2.3.9<a class="headerlink" href="#v239" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dependencies updated:<ul>
+<li>JDA: <code>4.0.0_48</code> to <code>4.0.0_52</code></li>
+<li>OkHttp: <code>4.2.1</code> to <code>4.2.2</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="v238">v2.3.8<a class="headerlink" href="#v238" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implemented GitHub actions for automated releasing to Bintray.</li>
+</ul>
+<h3 id="v236">v2.3.6<a class="headerlink" href="#v236" title="Permanent link">&para;</a></h3>
+<ul>
+<li>2nd attempt on integrating GitHub actions (failed)</li>
+</ul>
+<h3 id="v235">v2.3.5<a class="headerlink" href="#v235" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dependencies updated:<ul>
+<li>JDA: <code>4.0.0_45</code> to <code>4.0.0_48</code></li>
+</ul>
+</li>
+<li>Updated to Java 11. It can still work with Java 8.</li>
+</ul>
+<h3 id="v234">v2.3.4<a class="headerlink" href="#v234" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Sites updated:<ul>
+<li>Fixed wrong Site name from DISCORSDBESTBOTS_XYZ to DISCORDBESTBOTS_XYZ</li>
+</ul>
+</li>
+</ul>
+<h3 id="v233">v2.3.3<a class="headerlink" href="#v233" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Site updated:<ul>
+<li>Added <a href="https://discordextremelist.xyz"><code>DISCORDEXTREMELIST_XYZ</code></a></li>
+<li>Removed <code>DISCORDBOTLIST_US_TO</code></li>
+</ul>
+</li>
+<li>Removed GitHub Actions for now.</li>
+</ul>
+<h3 id="v232">v2.3.2<a class="headerlink" href="#v232" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Attempt to fix GitHub's Actions.</li>
+</ul>
+<h3 id="v231">v2.3.1<a class="headerlink" href="#v231" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Adding GitHub Actions to workflow.</li>
+</ul>
+<h3 id="v230">v2.3.0<a class="headerlink" href="#v230" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implemented caching to get methods.<ul>
+<li><code>getBotlists()</code> and <code>getBotlist(String|Site site)</code> now require an additional String parameter.</li>
+</ul>
+</li>
+<li>Dependencies updated:<ul>
+<li>JDA: <code>4.0.0_40</code> to <code>4.0.0_45</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="v221">v2.2.1<a class="headerlink" href="#v221" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dependencies updated:<ul>
+<li>JDA: <code>4.0.0_39</code> to <code>4.0.0_40</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="v220">v2.2.0<a class="headerlink" href="#v220" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dependencies updated:<ul>
+<li>JDA: <code>4.BETA.0_32</code> to <code>4.0.0_39</code> (Official release of JDA v4)</li>
+</ul>
+</li>
+</ul>
+<h3 id="v211">v2.1.1<a class="headerlink" href="#v211" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Site updated:<ul>
+<li>Added <a href="https://yabl.xyz"><code>YABL_XYZ</code></a></li>
+</ul>
+</li>
+</ul>
+<h3 id="v210">v2.1.0<a class="headerlink" href="#v210" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Added new Site enum to have easier methods and reliable site names</li>
+</ul>
+<h3 id="v202">v2.0.2<a class="headerlink" href="#v202" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dependencies updated<ul>
+<li>JDA: <code>4.BETA.0_30</code> to <code>4.BETA.0_32</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="v201">v2.0.1<a class="headerlink" href="#v201" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dependencies updated:<ul>
+<li>JDA: <code>4.BETA.0_23</code> to <code>4.BETA.0_30</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="v200">v2.0.0<a class="headerlink" href="#v200" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Added new get methods for bot and botlist infos.</li>
+<li>Dependencies updated:<ul>
+<li>JDA: Updated to <code>4.BETA.0_23</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="v1">v1<a class="headerlink" href="#v1" title="Permanent link">&para;</a></h2>
+<p>First releases of the Java Wrapper.</p>
+<h3 id="v105">v1.0.5<a class="headerlink" href="#v105" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Updated minimal delay to 2 since rate limit is 1/120s.</li>
+</ul>
+<h3 id="v104">v1.0.4<a class="headerlink" href="#v104" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Made RequestHandler an empty constructor.</li>
+</ul>
+<h3 id="v103">v1.0.3<a class="headerlink" href="#v103" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fixing JSONException when BotBlock.org has no 'failure' object present.</li>
+</ul>
+<h3 id="v102">v1.0.2<a class="headerlink" href="#v102" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Moved JDA and ShardManager from BotBlockAPI to RequestHandler methods.</li>
+</ul>
+<h3 id="v101">v1.0.1<a class="headerlink" href="#v101" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Make BotBlockAPI.Builder static. Fixes <code>Non enclosing class</code> error</li>
+</ul>
+<h3 id="v100">v1.0.0<a class="headerlink" href="#v100" title="Permanent link">&para;</a></h3>
+<ul>
+<li>First release</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+  <!-- Link to previous and/or next page -->
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+
+        <!-- Link to previous page -->
+        
+          <a href="../.."
+              title="Welcome"
+              class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+              rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back
+                    md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Welcome
+              </span>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          <a href="../methods/"
+              title="Methods"
+              class="md-flex md-footer-nav__link md-footer-nav__link--next"
+              rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Methods
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward
+                    md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+        &copy; 2019-2020 Andreas Schmidt (Andre_601)
+
+		<br>Built using <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>, 
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a> 
+        and <a href="https://facelessuser.github.io/pymdown-extensions/" target="_blank" rel="noopener">PyMdown Extensions</a>.
+      </div>
+
+      <!-- Social links -->
+      
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="https://github.com/botblock/JavaBotBlockAPI" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.f45d2d8d.min.js"></script>
+      <script src="../../assets/javascripts/bundle.74d0b805.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ["tabs"],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.7f7c8775.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
