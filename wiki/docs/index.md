@@ -3,7 +3,7 @@ This is the wiki of JavaBotBlockAPI.
 It tries to cover common questions with the API and provide information about it.
 
 ## Pages
-- [Changelog](changelog)
+- [Changelog](wiki/changelog)
 
 #### [Methods](wiki/methods)
 - [BotBlockAPI](wiki/methods/botblockapi)

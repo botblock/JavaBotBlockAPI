@@ -26,7 +26,7 @@ nav:
     - Deprecated: wiki/deprecated/index.md
     - GetAction: wiki/deprecated/getaction.md
     - RequestHandler: wiki/deprecated/requesthandler.md
-  - Javadoc: '../javadoc/'
+  - Javadoc: 'https://docs.botblock.org/JavaBotBlockAPI/javadoc/'
 
 theme:
   name: 'material'
