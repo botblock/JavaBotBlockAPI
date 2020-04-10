@@ -6,8 +6,8 @@ Below can you find a complete list of all available classes.
 - [BotBlockAPI](botblockapi)
 
 ### GET
-- [GetBotAction](getbotaction)
-- [GetListAction](getlistaction)
+- [GetBotAction](get/getbotaction)
+- [GetListAction](get/getlistaction)
 
 ### POST
-- [PostAction](postaction)
+- [PostAction](post/postaction)
