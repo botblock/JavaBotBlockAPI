@@ -38,7 +38,7 @@ import java.util.List;
 public class GetBotAction{
     
     private final RequestHandler REQUEST_HANDLER = new RequestHandler();
-    private boolean disableCache;
+    private final boolean disableCache;
     
     /**
      * Constructor to get the instance of GetBotAction.

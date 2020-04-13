@@ -109,7 +109,12 @@ public enum Site {
     
     /**
      * <a href="https://discordbot.world" target="_blank">discordbot.world</a>
+     * 
+     * @deprecated Since: 5.1.15
+     *             <br>Replacement: None
      */
+    @Deprecated
+    @DeprecatedSince(version = "5.1.15")
     DISCORDBOT_WORLD("discordbot.world"),
     
     /**
@@ -146,7 +151,12 @@ public enum Site {
     
     /**
      * <a href="https://lbots.org" target="_blank">lbots.org</a>
+     * 
+     * @deprecated Since: 5.1.15
+     *             <br>Replacement: None
      */
+    @Deprecated
+    @DeprecatedSince(version = "5.1.15")
     LBOTS_ORG("lbots.org"),
     
     /**
@@ -171,7 +181,7 @@ public enum Site {
      */
     YABL_XYZ("yabl.xyz");
 
-    private String site;
+    private final String site;
 
     Site(String site){
         this.site = site;

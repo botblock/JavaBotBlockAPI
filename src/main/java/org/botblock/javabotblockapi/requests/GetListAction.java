@@ -36,7 +36,7 @@ import org.json.JSONObject;
 public class GetListAction{
     
     private final RequestHandler REQUEST_HANDLER = new RequestHandler();
-    private boolean disableCache;
+    private final boolean disableCache;
     
     /**
      * Constructor to get the instance of GetListAction.

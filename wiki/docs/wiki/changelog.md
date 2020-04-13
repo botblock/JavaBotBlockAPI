@@ -11,6 +11,13 @@ This page lists all versions of JavaBotBlockAPI and the changes being made.
 Split up the different `GET` actions into bot and list related actions.  
 Many new `GET` actions added for list related stuff.
 
+### 5.1.15
+- Site updated:
+    - Deprecated `LBOTS_ORG`
+    - Deprecated `DISCORDBOT_WORLD`
+- Dependencies updated:
+    - JDA: `4.1.1_105` to `4.1.1_136`
+
 ### 5.1.14
 - Site updated:
     - Added [`DISCORDLIST_CO`](https://discordlist.co)
