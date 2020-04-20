@@ -23,6 +23,7 @@ BotBlockAPI api = new BotBlockAPI(botSites);
 
 You can also use `BotBlockAPI(Map, Integer)` to set an update delay for the auto-post option of the [PostAction](../post/postaction).
 
+----
 ## Builder
 The Builder is a internal class inside the BotBlockAPI to create an instance of BotBlockAPI easy and fast.  
 The class offers the following methods to use:
