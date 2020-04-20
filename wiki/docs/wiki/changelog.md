@@ -5,7 +5,7 @@ This page lists all versions of JavaBotBlockAPI and the changes being made.
     - Numbers marked with a `*` are not available on bintray.  
     You may use [jitpack.io](https://jitpack.io) for downloading those.
     - Numbers marked with a `**` will require you to add `https://dl.bintray.com/andre601/maven` to your build.gradle or pom.xml as a repository.
-    - Numbers below version `4.0.0` use `com.andre601` as package and not `org.botblock`
+    - Numbers below version `4.0.0` use `com.andre601` as package and not `org.botblock` and also require the above repo-url.
 
 ## v5
 Split up the different `GET` actions into bot and list related actions.  
