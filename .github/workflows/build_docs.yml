@@ -26,6 +26,8 @@ jobs:
       run: |
         mkdocs build
   build_javadoc:
+    needs: [build_wiki]
+    if: success()
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
