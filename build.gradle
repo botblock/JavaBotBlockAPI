@@ -8,13 +8,15 @@ plugins{
     id 'com.github.johnrengelman.shadow' version '5.2.0'
 }
 
-def ver = new Version(major: 5, minor: 1, revision: 15)
+def ver = new Version(major: 5, minor: 1, revision: 16)
 
 group = "org.botblock"
 version = "$ver"
 
-sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
-
+java {
+    sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
+}
+    
 repositories{
     mavenCentral()
     jcenter()

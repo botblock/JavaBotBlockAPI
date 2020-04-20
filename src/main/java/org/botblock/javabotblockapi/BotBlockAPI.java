@@ -32,8 +32,8 @@ import java.util.Map;
 public class BotBlockAPI{
     private static final int DEFAULT_DELAY = 30;
 
-    private Map<String, String> tokens;
-    private int updateDelay;
+    private final Map<String, String> tokens;
+    private final int updateDelay;
 
     /**
      * Constructor to set the Map with the sites and tokens.

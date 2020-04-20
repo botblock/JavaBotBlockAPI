@@ -39,10 +39,10 @@ class RequestHandler{
     private final String BASE_URL = "https://botblock.org/api/";
     private final OkHttpClient CLIENT = new OkHttpClient();
     
-    private Cache<String, JSONObject> botCache = Caffeine.newBuilder()
+    private final Cache<String, JSONObject> botCache = Caffeine.newBuilder()
             .expireAfterWrite(2, TimeUnit.MINUTES)
             .build();
-    private Cache<String, JSONObject> listCache = Caffeine.newBuilder()
+    private final Cache<String, JSONObject> listCache = Caffeine.newBuilder()
             .expireAfterWrite(2, TimeUnit.MINUTES)
             .build();
     

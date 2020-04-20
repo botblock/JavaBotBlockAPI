@@ -11,6 +11,16 @@ This page lists all versions of JavaBotBlockAPI and the changes being made.
 Split up the different `GET` actions into bot and list related actions.  
 Many new `GET` actions added for list related stuff.
 
+### 5.1.16
+- Site updated:
+    - Deprecated `CLOUD_BOTLIST_XYZ`
+    - Deprecated `CLOUDLIST_XYZ`
+    - Deprecated `DIVINEDISCORDBOTS_COM`
+    - Removed `ARCANE_BOTCENTER_XYZ`
+    - Removed `DISCORDBOTREVIEWS_XYZ`
+- Dependencies updated:
+    - JDA: `4.1.1_136` to `4.1.1_137`
+
 ### 5.1.15
 - Site updated:
     - Deprecated `LBOTS_ORG`

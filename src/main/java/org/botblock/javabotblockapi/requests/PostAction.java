@@ -44,7 +44,7 @@ import java.util.concurrent.TimeUnit;
 public class PostAction{
     
     private final RequestHandler REQUEST_HANDLER = new RequestHandler();
-    private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+    private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
     
     /**
      * Empty constructor to create the PostAction instance.

@@ -39,16 +39,6 @@ public enum Site {
     ARCANE_CENTER_XYZ("arcane-center.xyz"),
     
     /**
-     * <a href="https://arcane-botcenter.xyz" target="_blank">arcane-botcenter.xyz</a>
-     * 
-     * @deprecated Since: 5.1.13
-     *             <br>Replacement: {@link #ARCANE_CENTER_XYZ ARCANE_CENTER_XYZ}
-     */
-    @Deprecated
-    @DeprecatedSince(version = "5.1.13", replacements = {"#ARCANE_CENTER_XYZ"})
-    ARCANE_BOTCENTER_XYZ("arcane-botcenter.xyz"),
-    
-    /**
      * <a href="https://botlist.space" target="_blank">botlist.space</a>
      */
     BOTLIST_SPACE("botlist.space"),
@@ -66,15 +56,25 @@ public enum Site {
     /**
      * <a href="https://cloud-botlist.xyz" target="_blank">cloud-botlist.xyz</a>
      * 
+     * @deprecated Since: 5.1.16
+     *             <br>Replacement: None
+     * 
      * @since 3.2.1
      */
+    @Deprecated
+    @DeprecatedSince(version = "5.1.16")
     CLOUD_BOTLIST_XYZ("cloud-botlist.xyz"),
     
     /**
      * <a href="https://cloudlist.xyz" target="_blank">cloudlist.xyz</a>
      * 
+     * @deprecated Since: 5.1.16
+     *             <br>Replacement: None
+     * 
      * @since 5.1.9
      */
+    @Deprecated
+    @DeprecatedSince(version = "5.1.16")
     CLOUDLIST_XYZ("cloudlist.xyz"),
     
     /**
@@ -96,16 +96,6 @@ public enum Site {
      * <a href="https://discordbotlist.com" target="_blank">discordbotlist.com</a>
      */
     DISCORDBOTLIST_COM("discordbotlist.com"),
-    
-    /**
-     * <a href="https://discordbotreviews.xyz" target="_blank">discordbotreviews.xyz</a>
-     * 
-     * @deprecated Since: 5.1.14
-     *             <br>Replacement: {@link #DISCORDLIST_CO DISCORDLIST_CO}
-     */
-    @Deprecated
-    @DeprecatedSince(version = "5.1.14", replacements = {"#DISCORDLIST_CO"})
-    DISCORDBOTREVIEWS_XYZ("discordbotreviews.xyz"),
     
     /**
      * <a href="https://discordbot.world" target="_blank">discordbot.world</a>
@@ -136,7 +126,12 @@ public enum Site {
     
     /**
      * <a href="https://divinediscordbots.com" target="_blank">divinediscordbots.com</a>
+     * 
+     * @deprecated Since: 5.1.16
+     *             <br>Replacement: None
      */
+    @Deprecated
+    @DeprecatedSince(version = "5.1.16")
     DIVINEDISCORDBOTS_COM("divinediscordbots.com"),
     
     /**
