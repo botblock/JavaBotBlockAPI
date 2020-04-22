@@ -38,10 +38,12 @@ theme:
     accent: 'cyan'
   features:
   - tabs
+  icon:
+    repo: 'octicons/repo'
 
 extra:
   social:
-    - icon: 'octicons/repo'
+    - icon: 'fontawesome/brands/github'
       link: 'https://github.com/botblock/JavaBotBlockAPI'
 
 extra_css:
