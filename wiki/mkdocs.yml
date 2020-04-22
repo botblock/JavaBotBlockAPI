@@ -41,7 +41,7 @@ theme:
 
 extra:
   social:
-    - icon: 'fontawesome/brands/github'
+    - icon: 'octicon/repo'
       link: 'https://github.com/botblock/JavaBotBlockAPI'
 
 extra_css:
