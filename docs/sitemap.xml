@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://docs.botblock.org/JavaBotBlockAPI/</loc>
-     <lastmod>2020-04-20</lastmod>
+     <lastmod>2020-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.botblock.org/JavaBotBlockAPI/wiki/changelog/</loc>
-     <lastmod>2020-04-20</lastmod>
+     <lastmod>2020-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.botblock.org/JavaBotBlockAPI/wiki/methods/</loc>
-     <lastmod>2020-04-20</lastmod>
+     <lastmod>2020-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.botblock.org/JavaBotBlockAPI/wiki/methods/botblockapi/</loc>
-     <lastmod>2020-04-20</lastmod>
+     <lastmod>2020-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.botblock.org/JavaBotBlockAPI/wiki/methods/get/getbotaction/</loc>
-     <lastmod>2020-04-20</lastmod>
+     <lastmod>2020-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.botblock.org/JavaBotBlockAPI/wiki/methods/get/getlistaction/</loc>
-     <lastmod>2020-04-20</lastmod>
+     <lastmod>2020-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.botblock.org/JavaBotBlockAPI/wiki/methods/post/postaction/</loc>
-     <lastmod>2020-04-20</lastmod>
+     <lastmod>2020-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.botblock.org/JavaBotBlockAPI/wiki/deprecated/</loc>
-     <lastmod>2020-04-20</lastmod>
+     <lastmod>2020-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.botblock.org/JavaBotBlockAPI/wiki/deprecated/getaction/</loc>
-     <lastmod>2020-04-20</lastmod>
+     <lastmod>2020-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.botblock.org/JavaBotBlockAPI/wiki/deprecated/requesthandler/</loc>
-     <lastmod>2020-04-20</lastmod>
+     <lastmod>2020-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
