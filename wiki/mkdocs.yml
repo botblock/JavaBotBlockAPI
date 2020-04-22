@@ -41,7 +41,7 @@ theme:
 
 extra:
   social:
-    - icon: 'octicon/repo'
+    - icon: 'octicons/repo'
       link: 'https://github.com/botblock/JavaBotBlockAPI'
 
 extra_css:
