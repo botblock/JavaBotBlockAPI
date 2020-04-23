@@ -39,5 +39,5 @@ jobs:
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
         
         git add docs
-        git commit -m "Updating Documentation (${ GH_SHA::8 })"
+        git commit -m "Updating Documentation (${GITHUB_SHA:0:7})"
         git push
