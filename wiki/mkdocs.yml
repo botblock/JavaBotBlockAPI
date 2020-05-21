@@ -34,6 +34,7 @@ theme:
   logo: 'assets/img/logo.png'
   favicon: 'assets/img/logo.png'
   palette:
+    scheme: 'slate'
     primary: 'blue'
     accent: 'cyan'
   features:
