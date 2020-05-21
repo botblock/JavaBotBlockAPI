@@ -47,9 +47,6 @@ extra:
     - icon: 'fontawesome/brands/github'
       link: 'https://github.com/botblock/JavaBotBlockAPI'
 
-extra_css:
-- 'assets/css/dark.css'
-
 markdown_extensions:
   - admonition
   - codehilite:
