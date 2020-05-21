@@ -27,7 +27,7 @@ jar{
 }
 
 dependencies{
-    api group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.7.1'
+    api group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.7.2'
     api group: 'org.json', name: 'json', version: '20190722'
     api group: 'org.jetbrains', name: 'annotations', version: '19.0.0'
     api(group: 'net.dv8tion', name: 'JDA', version: '4.1.1_154'){
