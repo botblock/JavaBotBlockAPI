@@ -11,6 +11,13 @@ This page lists all versions of JavaBotBlockAPI and the changes being made.
 Split up the different `GET` actions into bot and list related actions.  
 Many new `GET` actions added for list related stuff.
 
+### 5.1.17
+- Site updated:
+    - Added [`BOTSDATABASE_COM`](https://botsdatabase.com)
+- Dependencies updated:
+    - OkHttp: `4.2.2` to `4.7.2`
+    - JDA: `4.1.1_137` to `4.1.1_154`
+
 ### 5.1.16
 - Site updated:
     - Deprecated `CLOUD_BOTLIST_XYZ`

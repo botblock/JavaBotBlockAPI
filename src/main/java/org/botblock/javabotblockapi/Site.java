@@ -44,6 +44,11 @@ public enum Site {
     BOTLIST_SPACE("botlist.space"),
     
     /**
+     * <a href="https://botsdatabase.com" target="_blank">botsdatabase.com</a>
+     */
+    BOTSDATABASE_COM("botsdatabase.com"),
+    
+    /**
      * <a href="https://botsfordiscord.com" target="_blank">botsfordiscord.com</a>
      */
     BOTSFORDISCORD_COM("botsfordiscord.com"),
