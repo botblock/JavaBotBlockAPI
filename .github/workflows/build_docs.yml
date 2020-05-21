@@ -2,6 +2,8 @@ name: Building Documentation
 
 on:
   push:
+    tags-ignore: 
+      - '**' # Ignore releases
     branches:
       - master
     paths:
