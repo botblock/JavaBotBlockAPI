@@ -17,7 +17,7 @@
         <meta name="author" content="Andre_601">
       
       <link rel="shortcut icon" href="../../../../assets/img/logo.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
       
@@ -25,9 +25,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.18ac144a.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.a2408e81.min.css">
       
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.616af814.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a46bcfb3.min.css">
       
       
         
@@ -570,7 +570,7 @@ You set the delay in the BotBlockAPI through the <code>setUpdateInterval</code> 
         <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 
 <span class="c1">// 2. Create an instance of the PostAction</span>
-<span class="n">PostAction</span> <span class="n">post</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PostAction</span><span class="p">();</span>
+<span class="n">PostAction</span> <span class="n">post</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PostAction</span><span class="p">(</span><span class="n">jda</span><span class="p">.</span><span class="na">getSelfUser</span><span class="p">().</span><span class="na">getId</span><span class="p">());</span>
 
 <span class="c1">// 3. Call the enableAutoPost method</span>
 <span class="n">post</span><span class="p">.</span><span class="na">enableAutoPost</span><span class="p">(</span><span class="n">jda</span><span class="p">,</span> <span class="n">api</span><span class="p">);</span>
@@ -590,7 +590,7 @@ You set the delay in the BotBlockAPI through the <code>setUpdateInterval</code> 
         <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 
 <span class="c1">// 2. Create an instance of the PostAction</span>
-<span class="n">PostAction</span> <span class="n">post</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PostAction</span><span class="p">();</span>
+<span class="n">PostAction</span> <span class="n">post</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PostAction</span><span class="p">(</span><span class="n">jda</span><span class="p">.</span><span class="na">getSelfUser</span><span class="p">().</span><span class="na">getId</span><span class="p">());</span>
 
 <span class="c1">// 3. Call the postGuilds method you want to use</span>
 <span class="n">post</span><span class="p">.</span><span class="na">postGuilds</span><span class="p">(</span><span class="n">jda</span><span class="p">,</span> <span class="n">api</span><span class="p">);</span>

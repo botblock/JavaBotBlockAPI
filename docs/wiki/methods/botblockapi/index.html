@@ -17,7 +17,7 @@
         <meta name="author" content="Andre_601">
       
       <link rel="shortcut icon" href="../../../assets/img/logo.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
       
@@ -25,9 +25,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.18ac144a.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a2408e81.min.css">
       
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.616af814.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a46bcfb3.min.css">
       
       
         
@@ -339,19 +339,6 @@
     Getting started
   </a>
   
-    <nav class="md-nav" aria-label="Getting started">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -556,19 +543,6 @@
     Getting started
   </a>
   
-    <nav class="md-nav" aria-label="Getting started">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -646,19 +620,7 @@ Posting the guild counts is handled through the <a href="../post/postaction">Pos
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <p>To start, you need to add the sites and their corresponding API-tokens to the BotBlockAPI class.<br />
 You may receive an API-token from the bot lists your bot is listed on.</p>
-<p>We recommend using the <a href="#builder">Builder</a> class for an easy way of adding the tokens and changing other settings.<br />
-If you still want to load the sites manually then you have to provide a <code>HashMap&lt;String, String&gt;</code> with the site name and their token.</p>
-<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kd">private</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">botSites</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-
-<span class="n">botSites</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;lbots.org&quot;</span><span class="p">,</span> <span class="s">&quot;MyT0k3N.1&quot;</span><span class="p">)</span>
-<span class="n">botSites</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;botlist.space&quot;</span><span class="p">,</span> <span class="s">&quot;MyT0k3N.2&quot;</span><span class="p">)</span>
-
-<span class="n">BotBlockAPI</span> <span class="n">api</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BotBlockAPI</span><span class="p">(</span><span class="n">botSites</span><span class="p">);</span>
-</code></pre></div>
-
-<p>You can also use <code>BotBlockAPI(Map, Integer)</code> to set an update delay for the auto-post option of the <a href="../post/postaction">PostAction</a>.</p>
-<hr />
+<p>In order to do this, use the <code>BotBlockAPI.Builder</code> to easily create an instance of BotBlockAPI.</p>
 <h2 id="builder">Builder<a class="headerlink" href="#builder" title="Permanent link">&para;</a></h2>
 <p>The Builder is a internal class inside the BotBlockAPI to create an instance of BotBlockAPI easy and fast.<br />
 The class offers the following methods to use:</p>
