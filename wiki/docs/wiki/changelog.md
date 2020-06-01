@@ -38,6 +38,9 @@ Many new `GET` actions added for list related stuff.
     - Removed `DISCORDBOT_WORLD`
     - Removed `DIVINEDISCORDBOTS_COM`
     - Removed `LBOTS_ORG`
+- Dependencies updated:
+    - JDA: `4.1.1_154` to `4.1.1_156`
+    - JSON: `20190722` to `20200518`
 
 ### 5.1.17
 - Site updated:
