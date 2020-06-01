@@ -11,6 +11,34 @@ This page lists all versions of JavaBotBlockAPI and the changes being made.
 Split up the different `GET` actions into bot and list related actions.  
 Many new `GET` actions added for list related stuff.
 
+### 5.2.0
+
+!!! warning "Important"
+    This version is a breaking change!
+
+- Deprecated Constructors:
+    - `#!java BotBlockAPI(Map<String, String>`
+    - `#!java GetBotAction()`
+    - `#!java GetBotAction(boolean)`
+    - `#!java GetListAction()`
+    - `#!java GetListAction(boolean)`
+    - `#!java PostAction()`
+- New Constructors:
+    - `#!java GetBotAction(String)`
+    - `#!java GetBotAction(boolean, String)`
+    - `#!java GetBotAction(boolean, String, String)`
+    - `#!java GetListAction(String)`
+    - `#!java GetListAction(boolean, String)`
+    - `#!java GetListAction(boolean, String, String)`
+    - `#!java PostAction(String)`
+    - `#!java PostAction(String, String)`
+- Site updated:
+    - Removed `CLOUD_BOTLIST_XYZ`
+    - Removed `CLOUDLIST_XYZ`
+    - Removed `DISCORDBOT_WORLD`
+    - Removed `DIVINEDISCORDBOTS_COM`
+    - Removed `LBOTS_ORG`
+
 ### 5.1.17
 - Site updated:
     - Added [`BOTSDATABASE_COM`](https://botsdatabase.com)
