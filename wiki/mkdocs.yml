@@ -59,3 +59,4 @@ markdown_extensions:
       repo_url_shortener: true
       repo_url_shorthand: true
       social_url_shorthand: true
+  - pymdownx.inlinehilite
