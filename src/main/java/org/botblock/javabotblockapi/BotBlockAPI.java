@@ -17,6 +17,7 @@
  */
 package org.botblock.javabotblockapi;
 
+import org.botblock.javabotblockapi.annotations.DeprecatedSince;
 import org.botblock.javabotblockapi.requests.PostAction;
 import org.jetbrains.annotations.NotNull;
 
@@ -30,49 +31,37 @@ import java.util.Map;
  * <p>Use the {@link org.botblock.javabotblockapi.BotBlockAPI.Builder BotBlockAPI.Builder} class for easy creation.
  */
 public class BotBlockAPI{
-    private static final int DEFAULT_DELAY = 30;
+    public static final int DEFAULT_DELAY = 30;
 
     private final Map<String, String> tokens;
     private final int updateDelay;
 
     /**
      * Constructor to set the Map with the sites and tokens.
-     * <br>This will also set the update interval to 30 minutes.
      *
      * @param  tokens
      *         A not null Map of sites and their tokens.
      *         <br>You may receive the API-token from your bot list.
      * 
-     * @throws java.lang.IllegalArgumentException
+     * @throws java.lang.NullPointerException
      *         When the provided Map is empty.
-     */
-    public BotBlockAPI(@NotNull Map<String, String> tokens){
-        if(tokens.isEmpty())
-            throw new IllegalArgumentException("Map may not be empty.");
-        
-        this.tokens = tokens;
-        this.updateDelay = DEFAULT_DELAY;
-    }
-
-    /**
-     * Constructor to set the Map with the sites and tokens and also the update delay.
-     *
-     * @param  tokens
-     *         A not null Map of sites and their tokens.
-     *         <br>You may receive the API-token from your bot list.
-     * @param  updateDelay
-     *         The update interval to set.
      * 
-     * @throws java.lang.IllegalArgumentException
-     *         When the provided Map is empty, or updateDelay is below 2.
+     * @deprecated This constructor will no longer be accessible in future versions.
+     *             <br>Use the {@link org.botblock.javabotblockapi.BotBlockAPI.Builder Builder} instead!
      */
-    public BotBlockAPI(@NotNull Map<String, String> tokens, @NotNull Integer updateDelay){
+    @Deprecated
+    @DeprecatedSince(version = "5.2.0")
+    public BotBlockAPI(@NotNull Map<String, String> tokens){
+        this(tokens, DEFAULT_DELAY);
+    }
+    
+    private BotBlockAPI(@NotNull Map<String, String> tokens, int updateDelay){
         if(tokens.isEmpty())
-            throw new IllegalArgumentException("Map may not be empty.");
+            throw new NullPointerException("Tokens may not be empty.");
         
         if(updateDelay < 2)
-            throw new IllegalArgumentException("Update interval may not be less than 2.");
-
+            throw new IllegalArgumentException("UpdateDelay may not be less than 2.");
+        
         this.tokens = tokens;
         this.updateDelay = updateDelay;
     }
@@ -162,13 +151,13 @@ public class BotBlockAPI{
          */
         public Builder setAuthTokens(@NotNull Map<String, String> tokens){
             if(tokens.isEmpty())
-                throw new NullPointerException("Tokens may not be null.");
+                throw new NullPointerException("Tokens may not be empty.");
 
             this.tokens = tokens;
 
             return this;
         }
-
+        
         /**
          * Sets the update delay (in minutes) for the auto-posting.
          * <br>You don't need to set this when not using the auto-post option. Default is 30.

@@ -17,8 +17,6 @@
  */
 package org.botblock.javabotblockapi;
 
-import org.botblock.javabotblockapi.annotations.DeprecatedSince;
-
 /**
  * Enum class containing all sites currently supported by BotBlock.org.
  * 
@@ -59,30 +57,6 @@ public enum Site {
     BOTS_ONDISCORD_XYZ("bots.ondiscord.xyz"),
     
     /**
-     * <a href="https://cloud-botlist.xyz" target="_blank">cloud-botlist.xyz</a>
-     * 
-     * @deprecated Since: 5.1.16
-     *             <br>Replacement: None
-     * 
-     * @since 3.2.1
-     */
-    @Deprecated
-    @DeprecatedSince(version = "5.1.16")
-    CLOUD_BOTLIST_XYZ("cloud-botlist.xyz"),
-    
-    /**
-     * <a href="https://cloudlist.xyz" target="_blank">cloudlist.xyz</a>
-     * 
-     * @deprecated Since: 5.1.16
-     *             <br>Replacement: None
-     * 
-     * @since 5.1.9
-     */
-    @Deprecated
-    @DeprecatedSince(version = "5.1.16")
-    CLOUDLIST_XYZ("cloudlist.xyz"),
-    
-    /**
      * <a href="https://dblista.pl" target="_blank">dblista.pl</a>
      */
     DBLISTA_PL("dblista.pl"),
@@ -103,16 +77,6 @@ public enum Site {
     DISCORDBOTLIST_COM("discordbotlist.com"),
     
     /**
-     * <a href="https://discordbot.world" target="_blank">discordbot.world</a>
-     * 
-     * @deprecated Since: 5.1.15
-     *             <br>Replacement: None
-     */
-    @Deprecated
-    @DeprecatedSince(version = "5.1.15")
-    DISCORDBOT_WORLD("discordbot.world"),
-    
-    /**
      * <a href="https://discord.bots.gg" target="_blank">discord.bots.gg</a>
      */
     DISCORD_BOTS_GG("discord.bots.gg"),
@@ -130,16 +94,6 @@ public enum Site {
     DISCORDEXTREMELIST_XYZ("discordextremelist.xyz"),
     
     /**
-     * <a href="https://divinediscordbots.com" target="_blank">divinediscordbots.com</a>
-     * 
-     * @deprecated Since: 5.1.16
-     *             <br>Replacement: None
-     */
-    @Deprecated
-    @DeprecatedSince(version = "5.1.16")
-    DIVINEDISCORDBOTS_COM("divinediscordbots.com"),
-    
-    /**
      * <a href="https://discordlist.co" target="_blank">discordlist.co</a>
      */
     DISCORDLIST_CO("discordlist.co"),
@@ -148,16 +102,6 @@ public enum Site {
      * <a href="https://glennbotlist.xyz" target="_blank">glennbotlist.xyz</a>
      */
     GLENNBOTLIST_XYZ("glennbotlist.xyz"),
-    
-    /**
-     * <a href="https://lbots.org" target="_blank">lbots.org</a>
-     * 
-     * @deprecated Since: 5.1.15
-     *             <br>Replacement: None
-     */
-    @Deprecated
-    @DeprecatedSince(version = "5.1.15")
-    LBOTS_ORG("lbots.org"),
     
     /**
      * <a href="https://mythicalbots.xyz" target="_blank">mythicalbots.xyz</a>

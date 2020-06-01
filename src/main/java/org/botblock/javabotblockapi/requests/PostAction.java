@@ -19,6 +19,7 @@
 package org.botblock.javabotblockapi.requests;
 
 import org.botblock.javabotblockapi.BotBlockAPI;
+import org.botblock.javabotblockapi.annotations.DeprecatedSince;
 import org.botblock.javabotblockapi.exceptions.RatelimitedException;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.sharding.ShardManager;
@@ -43,13 +44,56 @@ import java.util.concurrent.TimeUnit;
  */
 public class PostAction{
     
-    private final RequestHandler REQUEST_HANDLER = new RequestHandler();
+    private final RequestHandler REQUEST_HANDLER;
     private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
     
     /**
      * Empty constructor to create the PostAction instance.
      */
-    public PostAction(){}
+    @Deprecated
+    @DeprecatedSince(version = "5.2.0", replacements = {"PostAction(String)", "PostAction(String, String)"})
+    public PostAction(){
+        throw new IllegalStateException("This constructor may no longer be used.");
+    }
+    
+    /**
+     * Constructor to get an instance of PostAction.
+     * 
+     * <p>Using this constructor will set the following default values:
+     * <br><ul>
+     *     <li>User-Agent: {@code "JavaBotBlockAPI-0000/API_VERSION (Unknown; +https://jbba.dev) DBots/{id}"}</li>
+     * </ul>
+     * 
+     * @param id
+     *        The id of the bot. This is required for the internal User-Agent.
+     *
+     * @throws java.lang.NullPointerException
+     *         When the provided id is empty.
+     */
+    public PostAction(@NotNull String id){
+        this("JavaBotBlockAPI-0000/API_VERSION (Unknown; +https://jbba.dev) DBots/{id}", id);
+    }
+    
+    /**
+     * Constructor to get an instance of PostAction.
+     * <br>This constructor allows you to set a own User-Agent by providing any String as the first argument.
+     *
+     * <p>Note that you can provide {@code {id}} inside the userAgent to get it replaced with the provided id.
+     * 
+     * @param userAgent
+     *        The Name to use as User-Agent.
+     * @param id
+     *        The id of the bot. This is required for the internal User-Agent.
+     *
+     * @throws java.lang.NullPointerException
+     *         When the provided userAgent or id is empty.
+     */
+    public PostAction(@NotNull String userAgent, @NotNull String id){
+        CheckUtil.notEmpty(userAgent, "UserAgent");
+        CheckUtil.notEmpty(id, "ID");
+        
+        this.REQUEST_HANDLER = new RequestHandler(userAgent.replace("{id}", id));
+    }
     
     /**
      * Shuts down the scheduler, to stop the automatic posting.

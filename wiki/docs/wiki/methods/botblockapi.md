@@ -8,22 +8,8 @@ Posting the guild counts is handled through the [PostAction](../post/postaction)
 To start, you need to add the sites and their corresponding API-tokens to the BotBlockAPI class.  
 You may receive an API-token from the bot lists your bot is listed on.
 
-We recommend using the [Builder](#builder) class for an easy way of adding the tokens and changing other settings.  
-If you still want to load the sites manually then you have to provide a `HashMap<String, String>` with the site name and their token.
+In order to do this, use the `BotBlockAPI.Builder` to easily create an instance of BotBlockAPI.
 
-#### Example
-```java
-private Map<String, String> botSites = new HashMap<>();
-
-botSites.put("lbots.org", "MyT0k3N.1")
-botSites.put("botlist.space", "MyT0k3N.2")
-
-BotBlockAPI api = new BotBlockAPI(botSites);
-```
-
-You can also use `BotBlockAPI(Map, Integer)` to set an update delay for the auto-post option of the [PostAction](../post/postaction).
-
-----
 ## Builder
 The Builder is a internal class inside the BotBlockAPI to create an instance of BotBlockAPI easy and fast.  
 The class offers the following methods to use:

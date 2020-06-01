@@ -24,7 +24,7 @@ BotBlockAPI api = new BotBlockAPI.Builder()
         .build();
 
 // 2. Create an instance of the PostAction
-PostAction post = new PostAction();
+PostAction post = new PostAction(jda.getSelfUser().getId());
 
 // 3. Call the enableAutoPost method
 post.enableAutoPost(jda, api);
@@ -47,7 +47,7 @@ BotBlockAPI api = new BotBlockAPI.Builder()
         .build();
 
 // 2. Create an instance of the PostAction
-PostAction post = new PostAction();
+PostAction post = new PostAction(jda.getSelfUser().getId());
 
 // 3. Call the postGuilds method you want to use
 post.postGuilds(jda, api);

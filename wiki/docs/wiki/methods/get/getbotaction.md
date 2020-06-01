@@ -28,7 +28,7 @@ The methods require a valid Bot ID (Either as Long or String) to be provided.
 If you want to disable caching, will you need to add a boolean to the `GetBotAction` constructor like this:  
 ```java
 // "true" disables the internal caching.
-GetBotAction getBotAction = new GetBotAction(true);
+GetBotAction getBotAction = new GetBotAction(true, "BotId");
 ```
 
 ## Methods

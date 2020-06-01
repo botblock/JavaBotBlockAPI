@@ -31,13 +31,13 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 class RequestHandler{
     
     private final String BASE_URL = "https://botblock.org/api/";
     private final OkHttpClient CLIENT = new OkHttpClient();
+    private final String userAgent;
     
     private final Cache<String, JSONObject> botCache = Caffeine.newBuilder()
             .expireAfterWrite(2, TimeUnit.MINUTES)
@@ -46,13 +46,17 @@ class RequestHandler{
             .expireAfterWrite(2, TimeUnit.MINUTES)
             .build();
     
+    RequestHandler(String userAgent){
+        this.userAgent = userAgent;
+    }
+    
     JSONObject performGetBot(@NotNull String id, boolean disableCache){
         String url = BASE_URL + "bots/" + id;
         
         if(!disableCache)
                 return botCache.get(id, k -> {
                     try{
-                        return performGET(url);
+                        return performGET(url, userAgent);
                     }catch(IOException | RatelimitedException ex){
                         ex.printStackTrace();
                         return null;
@@ -60,7 +64,7 @@ class RequestHandler{
                 });
         
         try{
-            return performGET(url);
+            return performGET(url, userAgent);
         }catch(IOException ex){
             ex.printStackTrace();
             return null;
@@ -84,7 +88,7 @@ class RequestHandler{
             String finalUrl = url;
             return listCache.get(id, k -> {
                 try{
-                    return performGET(finalUrl);
+                    return performGET(finalUrl, userAgent);
                 }catch(IOException ex){
                     ex.printStackTrace();
                     return null;
@@ -93,7 +97,7 @@ class RequestHandler{
         }
         
         try{
-            return performGET(url);
+            return performGET(url, userAgent);
         }catch(IOException ex){
             ex.printStackTrace();
             return null;
@@ -101,9 +105,10 @@ class RequestHandler{
         
     }
     
-    private JSONObject performGET(@NotNull String url) throws IOException{
+    private JSONObject performGET(@NotNull String url, String header) throws IOException{
         Request request = new Request.Builder()
                 .url(url)
+                .addHeader("User-Agent", header)
                 .build();
     
         try(Response response = CLIENT.newCall(request).execute()){
@@ -147,6 +152,7 @@ class RequestHandler{
         Request request = new Request.Builder()
                 .url(url)
                 .addHeader("Content-Type", "application/json")
+                .addHeader("User-Agent", userAgent)
                 .post(body)
                 .build();
         

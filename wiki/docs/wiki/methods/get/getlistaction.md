@@ -30,7 +30,7 @@ The GetListAction allows to perform GET requests towards the `/api/lists` and `/
 If you want to disable caching, will you need to add a boolean to the `GetListAction` constructor like this:  
 ```java
 // "true" disables the internal caching.
-GetListAction getListAction = new GetListAction(true);
+GetListAction getListAction = new GetListAction(true, "BotId");
 ```
 
 ## Methods

@@ -37,27 +37,105 @@ import java.util.List;
  */
 public class GetBotAction{
     
-    private final RequestHandler REQUEST_HANDLER = new RequestHandler();
+    private final RequestHandler REQUEST_HANDLER;
+    
     private final boolean disableCache;
     
     /**
      * Constructor to get the instance of GetBotAction.
+     * 
+     * @deprecated This Constructor can no longer be used and will throw an {@link java.lang.IllegalStateException IllegalStateException}
+     *             when used.
      */
+    @Deprecated
+    @DeprecatedSince(version = "5.2.0", replacements = {"GetBotAction(String)", "GetBotAction(boolean, String)", "GetBotAction(boolean, String, String)"})
     public GetBotAction(){
-        this.disableCache = false;
+        throw new IllegalStateException("This constructor may no longer be used.");
     }
     
     /**
-     * Constructor to get the instance of GetBotAction.
+     * Constructor to get an instance of GetBotAction.
      * <br>Use this if you want to disable the caching of the GET requests.
      * <br><b>We do not recommend this without own caching/ratelimiting.</b>
      *
      * @param disableCache
      *        Whether or not caching should be disabled.
      *        <br>{@code true} means caching is <b>disabled</b>!
+     *
+     * @deprecated This Constructor can no longer be used and will throw an {@link java.lang.IllegalStateException IllegalStateException}
+     *             when used.
      */
+    @Deprecated
+    @DeprecatedSince(version = "5.2.0", replacements = {"GetBotAction(String)", "GetBotAction(boolean, String)", "GetBotAction(boolean, String, String)"})
     public GetBotAction(boolean disableCache){
+        throw new IllegalStateException("This constructor may no longer be used.");
+    }
+    
+    /**
+     * Constructor to get an instance of GetBotAction.
+     *
+     * <p>Using this constructor will set the following default values:
+     * <br><ul>
+     *     <li>Cache: {@code Enabled}</li>
+     *     <li>User-Agent: {@code "JavaBotBlockAPI-0000/API_VERSION (Unknown; +https://jbba.dev) DBots/{id}"}</li>
+     * </ul>
+     *
+     * @param id
+     *        The id of the bot. This is required for the internal User-Agent.
+     * 
+     * @throws java.lang.NullPointerException
+     *         When the provided id is empty.
+     */
+    public GetBotAction(@NotNull String id){
+        this(false, id);
+    }
+    
+    /**
+     * Constructor to get an instance of GetBotAction.
+     * <br>This constructor allows you to disable the internal caching, by providing {@code true} as the first argument.
+     *
+     * <p>Using this constructor will set the following default values:
+     * <br><ul>
+     *     <li>User-Agent: {@code "JavaBotBlockAPI-0000/API_VERSION (Unknown; +https://jbba.dev) DBots/{id}"}</li>
+     * </ul>
+     *
+     * @param disableCache
+     *        If the cache should be disabled.
+     *        <br>{@code true} means the cache is <b>disabled</b>.
+     * @param id
+     *        The id of the bot. This is required for the internal User-Agent.
+     *
+     * @throws java.lang.NullPointerException
+     *         When the provided id is empty.
+     */
+    public GetBotAction(boolean disableCache, @NotNull String id){
+        this(disableCache, "JavaBotBlockAPI-0000/API_VERSION (Unknown; +https://jbba.dev) DBots/{id}", id);
+    }
+    
+    /**
+     * Constructor to get the instance of GetBotAction.
+     * <br>This constructor allows you to disable the internal caching, by providing {@code true} as the first argument
+     * and also set a own User-Agent for the requests by providing any String as the second argument.
+     *
+     * <p>Note that you can provide {@code {id}} inside the userAgent to get it replaced with the provided id.
+     *
+     * @param disableCache
+     *        If the cache should be disabled.
+     *        <br>{@code true} means the cache is <b>disabled</b>.
+     * @param userAgent
+     *        The Name that should be used as User-Agent.
+     * @param id
+     *        The id of the bot. This is required for the internal User-Agent.
+     *
+     * @throws java.lang.NullPointerException
+     *         When the provided userAgent or id is empty.
+     */
+    public GetBotAction(boolean disableCache, @NotNull String userAgent, @NotNull String id){
+        CheckUtil.notEmpty(userAgent, "UserAgent");
+        CheckUtil.notEmpty(id, "ID");
+        
         this.disableCache = disableCache;
+        this.REQUEST_HANDLER = new RequestHandler(userAgent.replace("{id}", id));
     }
     
     /**
