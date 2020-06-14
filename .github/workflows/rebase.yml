@@ -16,6 +16,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   always-run:
+    needs: [rebase]
     name: Always run
     runs-on: [ubuntu-latest]
     steps:
