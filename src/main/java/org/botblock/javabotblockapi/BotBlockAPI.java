@@ -18,6 +18,7 @@
 package org.botblock.javabotblockapi;
 
 import org.botblock.javabotblockapi.annotations.DeprecatedSince;
+import org.botblock.javabotblockapi.requests.CheckUtil;
 import org.botblock.javabotblockapi.requests.PostAction;
 import org.jetbrains.annotations.NotNull;
 
@@ -104,8 +105,7 @@ public class BotBlockAPI{
          * @since 2.1.0
          */
         public Builder addAuthToken(@NotNull Site site, @NotNull String token){
-            if(token.isEmpty())
-                throw new NullPointerException("Token may not be null.");
+            CheckUtil.notEmpty(token, "Token");
 
             tokens.put(site.getSite(), token);
 
@@ -129,9 +129,9 @@ public class BotBlockAPI{
          * @return The Builder after the site and token were set. Useful for chaining.
          */
         public Builder addAuthToken(@NotNull String site, @NotNull String token){
-            if(site.isEmpty() || token.isEmpty())
-                throw new NullPointerException("Site and/or token may not be null.");
-
+            CheckUtil.notEmpty(site, "Site");
+            CheckUtil.notEmpty(token, "Token");
+            
             tokens.put(site, token);
 
             return this;
@@ -150,8 +150,7 @@ public class BotBlockAPI{
          * @return The Builder after the Map was set. Useful for chaining.
          */
         public Builder setAuthTokens(@NotNull Map<String, String> tokens){
-            if(tokens.isEmpty())
-                throw new NullPointerException("Tokens may not be empty.");
+            CheckUtil.notEmpty(tokens, "Tokens");
 
             this.tokens = tokens;
 
@@ -165,14 +164,13 @@ public class BotBlockAPI{
          * @param  updateDelay
          *         The update interval in minutes that should be used. This can't be less than 2.
          *
-         * @throws java.lang.IllegalArgumentException
+         * @throws java.lang.IllegalStateException
          *         When the updateInterval is less than 2.
          *
          * @return The Builder after the updateInterval was set. Useful for chaining.
          */
         public Builder setUpdateDelay(@NotNull Integer updateDelay){
-            if(updateDelay < 2)
-                throw new IllegalArgumentException("Update interval may not be less than 2.");
+            CheckUtil.condition(updateDelay < 2, "UpdateDelay may not be less than 2.");
 
             this.updateDelay = updateDelay;
 
@@ -181,10 +179,15 @@ public class BotBlockAPI{
 
         /**
          * Builds the instance of {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI}.
+         * 
+         * @throws java.lang.NullPointerException
+         *         When the Tokens Map is empty.
          *
          * @return The built, usable {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI}.
          */
         public BotBlockAPI build(){
+            CheckUtil.notEmpty(tokens, "Tokens");
+            
             return new BotBlockAPI(tokens, updateDelay);
         }
     }

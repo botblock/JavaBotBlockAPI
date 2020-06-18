@@ -29,8 +29,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 class RequestHandler{
@@ -136,8 +134,7 @@ class RequestHandler{
     }
     
     void performPOST(@NotNull JSONObject json, int sites) throws IOException{
-        if(sites < 1)
-            throw new IllegalStateException("POST action requires at least one site!");
+        CheckUtil.condition(sites < 1, "The POST action requires at least 1 site!");
         
         String url = BASE_URL + "count";
         final long timeout = sites * 10;
@@ -179,27 +176,30 @@ class RequestHandler{
             JSONObject responseJson = new JSONObject(responseBody);
             if(responseJson.has("failure")){
                 JSONObject failure = responseJson.getJSONObject("failure");
-                List<String> failedSites = new ArrayList<>();
+                JSONArray failures = new JSONArray();
                 
                 for(String key : failure.keySet()){
                     try{
                         JSONArray array = failure.getJSONArray(key);
-                        failedSites.add(String.format(
-                                "%s{code=%d, message=%s}",
-                                key,
-                                array.getInt(0),
-                                array.getString(1)
-                        ));
+                        failures.put(getJson(key, array));
                     }catch(JSONException ex){
-                        failedSites.add("unknown{}");
+                        failures.put(getJson(key, null));
                     }
                 }
                 
                 throw new IOException(String.format(
-                        "One or multiple post requests failed! Response(s): failed{[%s]}",
-                        String.join(", ", failedSites)
+                        "One or multiple post requests failed! Response(s): failed{%s}",
+                        failures.toString()
                 ));
             }
         }
+    }
+    
+    private JSONObject getJson(String key, JSONArray array){
+        JSONObject json = new JSONObject()
+                .put("code", array == null ? "?" : array.get(0))
+                .put("message", array == null ? "?" : array.get(1));
+        
+        return new JSONObject().put(key, json);
     }
 }

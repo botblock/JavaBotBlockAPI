@@ -11,6 +11,16 @@ This page lists all versions of JavaBotBlockAPI and the changes being made.
 Split up the different `GET` actions into bot and list related actions.  
 Many new `GET` actions added for list related stuff.
 
+### 5.2.1
+- Site updated:
+    - Added [`DISCORDLISTOLOGY_COM`](https://discordlistology.com)
+    - Added [`VULTREX_IO`](https://vultrex.io)
+- Dependencies updated:
+    - JDA: `4.1.1_156` to `4.1.1_165`
+- Improved Javadoc
+- Removed deprecated `getInvite` methods from `GetBotAction`
+- Make the RequestHandler return proper JSON on (partially) failed POST
+
 ### 5.2.0
 
 !!! warning "Important"

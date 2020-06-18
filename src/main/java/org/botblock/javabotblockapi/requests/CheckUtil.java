@@ -18,11 +18,23 @@
 
 package org.botblock.javabotblockapi.requests;
 
-class CheckUtil{
+import java.util.Map;
+
+public class CheckUtil{
     
     public static void notEmpty(String value, String name){
         if(value.isEmpty())
             throw new NullPointerException(name + " may not be empty.");
+    }
+    
+    public static void notEmpty(Map<?, ?> value, String name){
+        if(value.isEmpty())
+            throw new NullPointerException(name + " may not be empty.");
+    }
+    
+    public static void condition(boolean check, String message){
+        if(check)
+            throw new IllegalStateException(message);
     }
     
 }

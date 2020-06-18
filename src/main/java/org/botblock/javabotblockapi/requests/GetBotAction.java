@@ -399,44 +399,6 @@ public class GetBotAction{
     }
     
     /**
-     * Gets the OAuth invite of the bot.
-     * <br>The invite is based on the most common appearance of it.
-     *
-     * @param  id
-     *         The id of the bot to get the OAuth link from.
-     *
-     * @return Possibly-empty String containing the OAuth invite for the bot.
-     * 
-     * @deprecated Replaced with {@link #getOAuthInvite(Long) getOAuthInvite(Long)} to be more clear.
-     */
-    @Deprecated
-    @DeprecatedSince(version = "5.2.0", replacements = {"#getOAuthInvite(Long)"})
-    public String getInvite(@NotNull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
-        
-        return json.getString("invite");
-    }
-    
-    /**
-     * Gets the OAuth invite of the bot.
-     * <br>The invite is based on the most common appearance of it.
-     *
-     * @param  id
-     *         The id of the bot to get the OAuth link from.
-     *
-     * @return Possibly-empty String containing the OAuth invite for the bot.
-     * 
-     * @deprecated Replaced with {@link #getOAuthInvite(String) getOAuthInvite(String)} to be more clear.
-     */
-    @Deprecated
-    @DeprecatedSince(version = "5.2.0", replacements = {"#getOAuthInvite(String)"})
-    public String getInvite(@NotNull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
-        
-        return json.getString("invite");
-    }
-    
-    /**
      * Gets the currently used library of the bot.
      * <br>The library is based on the most common appearance of it.
      *
@@ -513,7 +475,7 @@ public class GetBotAction{
      *         
      * @return Possibly-empty String containing the OAuth link for the bot.
      * 
-     * @since  5.2.0
+     * @since  5.1.13
      */
     public String getOAuthInvite(@NotNull Long id){
         JSONObject json = REQUEST_HANDLER.performGetBot(String.valueOf(id), disableCache);
@@ -530,7 +492,7 @@ public class GetBotAction{
      *
      * @return Possibly-empty String containing the OAuth link for the bot.
      * 
-     * @since  5.2.0
+     * @since  5.1.13
      */
     public String getOAuthInvite(@NotNull String id){
         JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);

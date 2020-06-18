@@ -20,15 +20,15 @@ package org.botblock.javabotblockapi.exceptions;
 import org.json.JSONObject;
 
 /**
- * Class used to indicate when the bot gets Ratelimited by the BotBlock API.
- * <br>You can use {@link #getDelay() getDelay()} to find out how long you have to wait before you can access
- * {@link #getRoute() the route} again.
+ * Indicates that the Wrapper got rate limited by the BotBlock API.
+ * <br>Use {@link #getDelay() getDelay()} to find out how long you have to wait until you can perform another request
+ * towards {@link #getRoute() the targeted route}.
  */
 public class RatelimitedException extends RuntimeException{
-    private int delay;
-    private String botId;
-    private String ip;
-    private String route;
+    private final int delay;
+    private final String botId;
+    private final String ip;
+    private final String route;
 
     public RatelimitedException(String response){
         JSONObject json = new JSONObject(response);
@@ -49,27 +49,27 @@ public class RatelimitedException extends RuntimeException{
     }
     
     /**
-     * Returns the bot id that was ratelimited.
+     * Returns the bot id that was rate limited.
      * 
-     * @return The id of the bot that was ratelimited
+     * @return The id of the bot that was rate limited
      */
     public String getBotId(){
         return botId;
     }
     
     /**
-     * Returns the ip that was ratelimited.
+     * Returns the ip that was rate limited.
      * 
-     * @return The ip that was ratelimited
+     * @return The ip that was rate limited
      */
     public String getIp(){
         return ip;
     }
     
     /**
-     * Returns the route on which the bot was ratelimited.
+     * Returns the route on which the bot was rate limited.
      * 
-     * @return The route on which the bot was ratelimited
+     * @return The route on which the bot was rate limited
      */
     public String getRoute(){
         return route;
@@ -82,18 +82,19 @@ public class RatelimitedException extends RuntimeException{
      */
     @Override
     public String toString(){
-        return "RatelimitedException{delay=" + delay
-                + ", botId=" + botId
-                + ", ip=" + ip
-                + ", route=" + route
+        return "RatelimitedException{"
+                + "delay=" + delay + ", "
+                + "botId=" + botId + ", "
+                + "ip="    + ip    + ", "
+                + "route=" + route + ", "
                 + "}";
     }
     
     /**
      * Returns a formatted message displaying the various information returned in this exception.
-     * <br>This essentially calls {@link #toString() toString()} in this class.
+     * <br>This essentially returns the same value as {@link #toString() toString()} does.
      *
-     * @return Same output as {@link #toString() toString()}
+     * @return Formatted String containing the provided information from the response. Same format as {@link #toString() toString()}.
      */
     @Override
     public String getMessage(){

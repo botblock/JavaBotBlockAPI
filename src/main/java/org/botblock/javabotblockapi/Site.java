@@ -99,6 +99,13 @@ public enum Site {
     DISCORDLIST_CO("discordlist.co"),
     
     /**
+     * <a href="https://discordlistology.com" target="_blank">discordlistology.com</a>
+     * 
+     * @since 5.2.1
+     */
+    DISCORDLISTOLOGY_COM("discordlistology.com"),
+    
+    /**
      * <a href="https://glennbotlist.xyz" target="_blank">glennbotlist.xyz</a>
      */
     GLENNBOTLIST_XYZ("glennbotlist.xyz"),
@@ -112,6 +119,13 @@ public enum Site {
      * <a href="https://space-bot-list.org" target="_blank">space-bot-list.org</a>
      */
     SPACE_BOT_LIST_ORG("space-bot-list.org"),
+    
+    /**
+     * <a href="https://vultrex.io" target="_blank">vultrex.io</a>
+     * 
+     * @since 5.2.1
+     */
+    VULTREX_IO("vultrex.io"),
     
     /**
      * <a href="https://wonderbotlist.com" target="_blank">wonderbotlist.com</a>
