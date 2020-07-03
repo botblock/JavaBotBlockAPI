@@ -23,7 +23,6 @@
 [JDA]: https://github.com/DV8FromTheWorld/JDA
 [OkHttp]: https://github.com/square/okhttp/
 [JSON]: https://github.com/stleary/JSON-java
-[JetBrains annotations]: https://github.com/JetBrains/java-annotations
 [Caffeine]: https://github.com/ben-manes/caffeine
 
 <!-- GitHub links -->
@@ -74,7 +73,6 @@ We have a list of those libraries listed here.
 - [JDA] - Java library used for creating bots.
 - [OkHttp] - Library for creating and managing http requests.
 - [JSON] - Used for JSON management.
-- [JetBrains annotations] - Used for annotations like `@NotNull` or `@Nullable`.
 - [Caffeine] - Library used for caching.
 
 
