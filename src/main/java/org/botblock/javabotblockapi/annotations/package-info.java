@@ -17,6 +17,6 @@
  */
 
 /**
- * Contains annotations used within the project for various things.
+ * The different annotations used to mark various Objects with it.
  */
 package org.botblock.javabotblockapi.annotations;

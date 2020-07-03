@@ -11,6 +11,12 @@ This page lists all versions of JavaBotBlockAPI and the changes being made.
 Split up the different `GET` actions into bot and list related actions.  
 Many new `GET` actions added for list related stuff.
 
+### 5.2.2
+- Added `@PlannedRemoval` annotation to mark objects marked for removal.
+- Replaced Jetbrain's `@NotNull` and `@Nullable` annotations with Javax's `@Nonnull` and `@Nullable`
+- Dependencies updated:
+    - JDA: `4.1.1_165` to `4.2.0_172`
+
 ### 5.2.1
 - Site updated:
     - Added [`DISCORDLISTOLOGY_COM`](https://discordlistology.com)

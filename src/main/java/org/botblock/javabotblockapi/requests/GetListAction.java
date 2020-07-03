@@ -20,10 +20,12 @@ package org.botblock.javabotblockapi.requests;
 
 import org.botblock.javabotblockapi.Site;
 import org.botblock.javabotblockapi.annotations.DeprecatedSince;
-import org.jetbrains.annotations.NotNull;
+import org.botblock.javabotblockapi.annotations.PlannedRemoval;
 import org.jetbrains.annotations.Nullable;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import javax.annotation.Nonnull;
 
 /**
  * Class used to perform GET actions on the <a href="https://botblock.org/api/docs#lists" target="_blank">{@code /api/lists}</a>
@@ -46,6 +48,7 @@ public class GetListAction{
      */
     @Deprecated
     @DeprecatedSince(version = "5.2.0")
+    @PlannedRemoval(version = "5.2.3")
     public GetListAction(){
         throw new IllegalStateException("This constructor may no longer be used.");
     }
@@ -63,6 +66,7 @@ public class GetListAction{
      */
     @Deprecated
     @DeprecatedSince(version = "5.2.0", replacements = {"GetListAction(String)", "GetListAction(boolean, String)", "GetListAction(boolean, String, String)"})
+    @PlannedRemoval(version = "5.2.3")
     public GetListAction(boolean disableCache){
         throw new IllegalStateException("This constructor may no longer be used.");
     }
@@ -82,7 +86,7 @@ public class GetListAction{
      * @throws java.lang.NullPointerException
      *         When the provided id is empty.
      */
-    public GetListAction(@NotNull String id){
+    public GetListAction(@Nonnull String id){
         this(false, id);
     }
     
@@ -104,7 +108,7 @@ public class GetListAction{
      * @throws java.lang.NullPointerException
      *         When the provided id is empty.
      */
-    public GetListAction(boolean disableCache, @NotNull String id){
+    public GetListAction(boolean disableCache, @Nonnull String id){
         this(disableCache, "JavaBotBlockAPI-0000/API_VERSION (Unknown; +https://jbba.dev) DBots/{id}", id);
     }
     
@@ -126,7 +130,7 @@ public class GetListAction{
      * @throws java.lang.NullPointerException
      *         When the provided userAgent or id is empty.
      */
-    public GetListAction(boolean disableCache, @NotNull String userAgent, @NotNull String id){
+    public GetListAction(boolean disableCache, @Nonnull String userAgent, @Nonnull String id){
         CheckUtil.notEmpty(userAgent, "UserAgent");
         CheckUtil.notEmpty(id, "ID");
         
@@ -147,7 +151,7 @@ public class GetListAction{
      * @return Possibly-null String containing either a URL or API field name.
      */
     @Nullable
-    public String getApiField(@NotNull String id, @NotNull Site site, @NotNull ApiField field){
+    public String getApiField(@Nonnull String id, @Nonnull Site site, @Nonnull ApiField field){
         CheckUtil.notEmpty(id, "id");
         JSONObject json = getList(id, site);
         
@@ -167,7 +171,7 @@ public class GetListAction{
      * @return Possibly-null String containing either a URL or API field name.
      */
     @Nullable
-    public String getApiField(@NotNull String id, @NotNull String site, @NotNull ApiField field){
+    public String getApiField(@Nonnull String id, @Nonnull String site, @Nonnull ApiField field){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
         JSONObject json = getList(id, site);
@@ -186,7 +190,7 @@ public class GetListAction{
      * @return Possibly-null String containing the URL used to display a widget.
      */
     @Nullable
-    public String getBotWidgetUrl(@NotNull String id, @NotNull Site site){
+    public String getBotWidgetUrl(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
         JSONObject json = getList(id, site);
         
@@ -204,7 +208,7 @@ public class GetListAction{
      * @return Possibly-null String containing the URL used to display a widget.
      */
     @Nullable
-    public String getBotWidgetUrl(@NotNull String id, @NotNull String site){
+    public String getBotWidgetUrl(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
         JSONObject json = getList(id, site);
@@ -223,7 +227,7 @@ public class GetListAction{
      * @return Possibly-null String containing the description/tag line of the bot list.
      */
     @Nullable
-    public String getDescription(@NotNull String id, @NotNull Site site){
+    public String getDescription(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
         JSONObject json = getList(id, site);
         
@@ -241,7 +245,7 @@ public class GetListAction{
      * @return Possibly-null String containing the description/tag line of the bot list.
      */
     @Nullable
-    public String getDescription(@NotNull String id, @NotNull String site){
+    public String getDescription(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
         JSONObject json = getList(id, site);
@@ -260,7 +264,7 @@ public class GetListAction{
      * @return Possibly-null String containing the invite to the Discord of the bot list.
      */
     @Nullable
-    public String getDiscordInvite(@NotNull String id, @NotNull Site site){
+    public String getDiscordInvite(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
         JSONObject json = getList(id, site);
         
@@ -278,7 +282,7 @@ public class GetListAction{
      * @return Possibly-null String containing the invite to the Discord of the bot list.
      */
     @Nullable
-    public String getDiscordInvite(@NotNull String id, @NotNull String site){
+    public String getDiscordInvite(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
         JSONObject json = getList(id, site);
@@ -297,7 +301,7 @@ public class GetListAction{
      *
      * @return Possibly-empty {@link org.json.JSONArray JSONArray} containing the features of the bot list.
      */
-    public JSONArray getFeatures(@NotNull String id, @NotNull Site site){
+    public JSONArray getFeatures(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
         JSONObject json = getList(id, site);
         
@@ -315,7 +319,7 @@ public class GetListAction{
      *
      * @return Possibly-empty {@link org.json.JSONArray JSONArray} containing the features of the bot list.
      */
-    public JSONArray getFeatures(@NotNull String id, @NotNull String site){
+    public JSONArray getFeatures(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
         JSONObject json = getList(id, site);
@@ -332,7 +336,7 @@ public class GetListAction{
      *
      * @return {@link org.json.JSONObject JSONObject} containing the filtered information of the bot lists.
      */
-    public JSONObject getFilteredLists(@NotNull String id){
+    public JSONObject getFilteredLists(@Nonnull String id){
         CheckUtil.notEmpty(id, "id");
         
         return REQUEST_HANDLER.performGetList(id, disableCache, true);
@@ -349,7 +353,7 @@ public class GetListAction{
      * @return Possibly-null String containing the Icon-URL of the bot list.
      */
     @Nullable
-    public String getIcon(@NotNull String id, @NotNull Site site){
+    public String getIcon(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
         JSONObject json = getList(id, site);
     
@@ -367,7 +371,7 @@ public class GetListAction{
      * @return Possibly-null String containing the Icon-URL of the bot list.
      */
     @Nullable
-    public String getIcon(@NotNull String id, @NotNull String site){
+    public String getIcon(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
         JSONObject json = getList(id, site);
@@ -386,7 +390,7 @@ public class GetListAction{
      *
      * @return String containing the id of the bot list.
      */
-    public String getId(@NotNull String id, @NotNull Site site){
+    public String getId(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
         JSONObject json = getList(id, site);
         
@@ -404,7 +408,7 @@ public class GetListAction{
      * 
      * @return String containing the id of the bot list.
      */
-    public String getId(@NotNull String id, @NotNull String site){
+    public String getId(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
         JSONObject json = getList(id, site);
@@ -422,7 +426,7 @@ public class GetListAction{
      *
      * @return String containing the primarily used language of the bot list.
      */
-    public String getLanguage(@NotNull String id, @NotNull Site site){
+    public String getLanguage(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
         JSONObject json = getList(id, site);
         
@@ -439,7 +443,7 @@ public class GetListAction{
      *
      * @return String containing the primarily used language of the bot list.
      */
-    public String getLanguage(@NotNull String id, @NotNull String site){
+    public String getLanguage(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
         JSONObject json = getList(id, site);
@@ -457,7 +461,7 @@ public class GetListAction{
      *
      * @return {@link org.json.JSONObject JSONObject} containing information about the specified bot list.
      */
-    public JSONObject getList(@NotNull String id, @NotNull Site site){
+    public JSONObject getList(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
         
         return REQUEST_HANDLER.performGetList(id, site.getSite(), disableCache);
@@ -473,7 +477,7 @@ public class GetListAction{
      *
      * @return {@link org.json.JSONObject JSONObject} containing information about the specified bot list.
      */
-    public JSONObject getList(@NotNull String id, @NotNull String site){
+    public JSONObject getList(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
         
@@ -488,7 +492,7 @@ public class GetListAction{
      *
      * @return {@link org.json.JSONObject JSONObject} containing information about all the different bot lists.
      */
-    public JSONObject getLists(@NotNull String id){
+    public JSONObject getLists(@Nonnull String id){
         CheckUtil.notEmpty(id, "id");
         
         return REQUEST_HANDLER.performGetList(id, disableCache, false);
@@ -504,7 +508,7 @@ public class GetListAction{
      *
      * @return String containing the name of the bot list.
      */
-    public String getName(@NotNull String id, @NotNull Site site){
+    public String getName(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
         JSONObject json = getList(id, site);
         
@@ -521,7 +525,7 @@ public class GetListAction{
      *
      * @return String containing the name of the bot list.
      */
-    public String getName(@NotNull String id, @NotNull String site){
+    public String getName(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
         JSONObject json = getList(id, site);
@@ -541,7 +545,7 @@ public class GetListAction{
      * @return Possibly-null String containing the owners of the bot list.
      */
     @Nullable
-    public String getOwners(@NotNull String id, @NotNull Site site){
+    public String getOwners(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
         JSONObject json = getList(id, site);
         
@@ -560,7 +564,7 @@ public class GetListAction{
      * @return Possibly-null String containing the owners of the bot list,
      */
     @Nullable
-    public String getOwners(@NotNull String id, @NotNull String site){
+    public String getOwners(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
         JSONObject json = getList(id, site);
@@ -578,7 +582,7 @@ public class GetListAction{
      *
      * @return Integer displaying the UNIX time at which the bot list was added to BotBlock.
      */
-    public Integer getTimeAdded(@NotNull String id, @NotNull Site site){
+    public Integer getTimeAdded(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
         JSONObject json = getList(id, site);
         
@@ -595,7 +599,7 @@ public class GetListAction{
      *
      * @return Integer displaying the UNIX time at which the bot list was added to BotBlock.
      */
-    public Integer getTimeAdded(@NotNull String id, @NotNull String site){
+    public Integer getTimeAdded(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
         JSONObject json = getList(id, site);
@@ -613,7 +617,7 @@ public class GetListAction{
      *
      * @return String containing the URL to the bot list website.
      */
-    public String getUrl(@NotNull String id, @NotNull Site site){
+    public String getUrl(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
         JSONObject json = getList(id, site);
         
@@ -630,7 +634,7 @@ public class GetListAction{
      *
      * @return String containing the URL to the bot list website.
      */
-    public String getUrl(@NotNull String id, @NotNull String site){
+    public String getUrl(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
         JSONObject json = getList(id, site);
@@ -649,7 +653,7 @@ public class GetListAction{
      *
      * @return {@code true} if the bot list is defunct, {@code false} otherwise.
      */
-    public boolean isDefunct(@NotNull String id, @NotNull Site site){
+    public boolean isDefunct(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
         JSONObject json = getList(id, site);
         
@@ -667,7 +671,7 @@ public class GetListAction{
      *
      * @return {@code true} if the bot list is defunct, {@code false} otherwise.
      */
-    public boolean isDefunct(@NotNull String id, @NotNull String site){
+    public boolean isDefunct(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
         JSONObject json = getList(id, site);
@@ -685,7 +689,7 @@ public class GetListAction{
      *
      * @return {@code true} if the list is only for Discord bots, {@code false} otherwise.
      */
-    public boolean isDiscordOnly(@NotNull String id, @NotNull Site site){
+    public boolean isDiscordOnly(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "name");
         JSONObject json = getList(id, site);
         
@@ -702,7 +706,7 @@ public class GetListAction{
      *
      * @return {@code true} if the list is only for Discord bots, {@code false} otherwise.
      */
-    public boolean isDiscordOnly(@NotNull String id, @NotNull String site){
+    public boolean isDiscordOnly(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
         JSONObject json = getList(id, site);
@@ -727,6 +731,7 @@ public class GetListAction{
          */
         @Deprecated
         @DeprecatedSince(version = "5.2.0", replacements = {"#URL_ALL"})
+        @PlannedRemoval(version = "5.2.3")
         API_ALL,
         
         /**
@@ -737,6 +742,7 @@ public class GetListAction{
          */
         @Deprecated
         @DeprecatedSince(version = "5.2.0", replacements = {"#URL_DOCS"})
+        @PlannedRemoval(version = "5.2.3")
         API_DOCS,
         
         /**
@@ -747,6 +753,7 @@ public class GetListAction{
          */
         @Deprecated
         @DeprecatedSince(version = "5.2.0", replacements = {"#URL_GET"})
+        @PlannedRemoval(version = "5.2.3")
         API_GET,
         
         /**
@@ -757,6 +764,7 @@ public class GetListAction{
          */
         @Deprecated
         @DeprecatedSince(version = "5.2.0", replacements = {"#URL_POST"})
+        @PlannedRemoval(version = "5.2.3")
         API_POST,
         
         // Fields returning a String
@@ -769,6 +777,7 @@ public class GetListAction{
          */
         @Deprecated
         @DeprecatedSince(version = "5.2.0", replacements = {"#STRING_SERVER_COUNT"})
+        @PlannedRemoval(version = "5.2.3")
         API_FIELD,
         
         /**
@@ -779,6 +788,7 @@ public class GetListAction{
          */
         @Deprecated
         @DeprecatedSince(version = "5.2.0", replacements = {"#STRING_SHARD_ID"})
+        @PlannedRemoval(version = "5.2.3")
         API_SHARD_ID,
     
         /**
@@ -789,6 +799,7 @@ public class GetListAction{
          */
         @Deprecated
         @DeprecatedSince(version = "5.2.0", replacements = {"#STRING_SHARD_COUNT"})
+        @PlannedRemoval(version = "5.2.3")
         API_SHARD_COUNT,
     
         /**
@@ -799,6 +810,7 @@ public class GetListAction{
          */
         @Deprecated
         @DeprecatedSince(version = "5.2.0", replacements = {"#STRING_SHARDS"})
+        @PlannedRemoval(version = "5.2.3")
         API_SHARDS,
         
         // String API field

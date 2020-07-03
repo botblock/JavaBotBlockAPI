@@ -22,12 +22,12 @@ import org.botblock.javabotblockapi.exceptions.RatelimitedException;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import okhttp3.*;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -48,7 +48,7 @@ class RequestHandler{
         this.userAgent = userAgent;
     }
     
-    JSONObject performGetBot(@NotNull String id, boolean disableCache){
+    JSONObject performGetBot(@Nonnull String id, boolean disableCache){
         String url = BASE_URL + "bots/" + id;
         
         if(!disableCache)
@@ -69,15 +69,15 @@ class RequestHandler{
         }
     }
     
-    JSONObject performGetList(@NotNull String id, boolean disableCache, boolean filtered){
+    JSONObject performGetList(@Nonnull String id, boolean disableCache, boolean filtered){
         return performGetList(id, null, disableCache, filtered);
     }
     
-    JSONObject performGetList(@NotNull String id, @Nullable String site, boolean disableCache){
+    JSONObject performGetList(@Nonnull String id, @Nullable String site, boolean disableCache){
         return performGetList(id, site, disableCache, false);
     }
     
-    JSONObject performGetList(@NotNull String id, @Nullable String site, boolean disableCache, boolean filtered){
+    JSONObject performGetList(@Nonnull String id, @Nullable String site, boolean disableCache, boolean filtered){
         String url = BASE_URL + (site == null ? "lists" : "lists/" + site);
         if(filtered)
             url += "?filter=true";
@@ -103,7 +103,7 @@ class RequestHandler{
         
     }
     
-    private JSONObject performGET(@NotNull String url, String header) throws IOException{
+    private JSONObject performGET(@Nonnull String url, String header) throws IOException{
         Request request = new Request.Builder()
                 .url(url)
                 .addHeader("User-Agent", header)
@@ -133,7 +133,7 @@ class RequestHandler{
         }
     }
     
-    void performPOST(@NotNull JSONObject json, int sites) throws IOException{
+    void performPOST(@Nonnull JSONObject json, int sites) throws IOException{
         CheckUtil.condition(sites < 1, "The POST action requires at least 1 site!");
         
         String url = BASE_URL + "count";

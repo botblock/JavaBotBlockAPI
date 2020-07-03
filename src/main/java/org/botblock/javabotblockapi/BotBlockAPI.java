@@ -18,10 +18,11 @@
 package org.botblock.javabotblockapi;
 
 import org.botblock.javabotblockapi.annotations.DeprecatedSince;
+import org.botblock.javabotblockapi.annotations.PlannedRemoval;
 import org.botblock.javabotblockapi.requests.CheckUtil;
 import org.botblock.javabotblockapi.requests.PostAction;
-import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,11 +53,12 @@ public class BotBlockAPI{
      */
     @Deprecated
     @DeprecatedSince(version = "5.2.0")
-    public BotBlockAPI(@NotNull Map<String, String> tokens){
+    @PlannedRemoval(version = "5.2.3")
+    public BotBlockAPI(@Nonnull Map<String, String> tokens){
         this(tokens, DEFAULT_DELAY);
     }
     
-    private BotBlockAPI(@NotNull Map<String, String> tokens, int updateDelay){
+    private BotBlockAPI(@Nonnull Map<String, String> tokens, int updateDelay){
         if(tokens.isEmpty())
             throw new NullPointerException("Tokens may not be empty.");
         
@@ -104,7 +106,7 @@ public class BotBlockAPI{
          *
          * @since 2.1.0
          */
-        public Builder addAuthToken(@NotNull Site site, @NotNull String token){
+        public Builder addAuthToken(@Nonnull Site site, @Nonnull String token){
             CheckUtil.notEmpty(token, "Token");
 
             tokens.put(site.getSite(), token);
@@ -128,7 +130,7 @@ public class BotBlockAPI{
          *
          * @return The Builder after the site and token were set. Useful for chaining.
          */
-        public Builder addAuthToken(@NotNull String site, @NotNull String token){
+        public Builder addAuthToken(@Nonnull String site, @Nonnull String token){
             CheckUtil.notEmpty(site, "Site");
             CheckUtil.notEmpty(token, "Token");
             
@@ -149,7 +151,7 @@ public class BotBlockAPI{
          *
          * @return The Builder after the Map was set. Useful for chaining.
          */
-        public Builder setAuthTokens(@NotNull Map<String, String> tokens){
+        public Builder setAuthTokens(@Nonnull Map<String, String> tokens){
             CheckUtil.notEmpty(tokens, "Tokens");
 
             this.tokens = tokens;
@@ -169,7 +171,7 @@ public class BotBlockAPI{
          *
          * @return The Builder after the updateInterval was set. Useful for chaining.
          */
-        public Builder setUpdateDelay(@NotNull Integer updateDelay){
+        public Builder setUpdateDelay(@Nonnull Integer updateDelay){
             CheckUtil.condition(updateDelay < 2, "UpdateDelay may not be less than 2.");
 
             this.updateDelay = updateDelay;

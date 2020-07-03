@@ -20,11 +20,12 @@ package org.botblock.javabotblockapi.requests;
 
 import org.botblock.javabotblockapi.Site;
 import org.botblock.javabotblockapi.annotations.DeprecatedSince;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.botblock.javabotblockapi.annotations.PlannedRemoval;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +50,7 @@ public class GetBotAction{
      */
     @Deprecated
     @DeprecatedSince(version = "5.2.0", replacements = {"GetBotAction(String)", "GetBotAction(boolean, String)", "GetBotAction(boolean, String, String)"})
+    @PlannedRemoval(version = "5.2.3")
     public GetBotAction(){
         throw new IllegalStateException("This constructor may no longer be used.");
     }
@@ -67,6 +69,7 @@ public class GetBotAction{
      */
     @Deprecated
     @DeprecatedSince(version = "5.2.0", replacements = {"GetBotAction(String)", "GetBotAction(boolean, String)", "GetBotAction(boolean, String, String)"})
+    @PlannedRemoval(version = "5.2.3")
     public GetBotAction(boolean disableCache){
         throw new IllegalStateException("This constructor may no longer be used.");
     }
@@ -86,7 +89,7 @@ public class GetBotAction{
      * @throws java.lang.NullPointerException
      *         When the provided id is empty.
      */
-    public GetBotAction(@NotNull String id){
+    public GetBotAction(@Nonnull String id){
         this(false, id);
     }
     
@@ -108,7 +111,7 @@ public class GetBotAction{
      * @throws java.lang.NullPointerException
      *         When the provided id is empty.
      */
-    public GetBotAction(boolean disableCache, @NotNull String id){
+    public GetBotAction(boolean disableCache, @Nonnull String id){
         this(disableCache, "JavaBotBlockAPI-0000/API_VERSION (Unknown; +https://jbba.dev) DBots/{id}", id);
     }
     
@@ -130,7 +133,7 @@ public class GetBotAction{
      * @throws java.lang.NullPointerException
      *         When the provided userAgent or id is empty.
      */
-    public GetBotAction(boolean disableCache, @NotNull String userAgent, @NotNull String id){
+    public GetBotAction(boolean disableCache, @Nonnull String userAgent, @Nonnull String id){
         CheckUtil.notEmpty(userAgent, "UserAgent");
         CheckUtil.notEmpty(id, "ID");
         
@@ -178,7 +181,7 @@ public class GetBotAction{
      * @return {@link org.json.JSONObject JSONObject} containing the full information of the bot.
      */
     @Nullable
-    public JSONObject getBotInfo(@NotNull Long id){
+    public JSONObject getBotInfo(@Nonnull Long id){
         return REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
     }
     
@@ -222,7 +225,7 @@ public class GetBotAction{
      * @return {@link org.json.JSONObject JSONObject} containing the full information of the bot.
      */
     @Nullable
-    public JSONObject getBotInfo(@NotNull String id){
+    public JSONObject getBotInfo(@Nonnull String id){
         return REQUEST_HANDLER.performGetBot(id, disableCache);
     }
     
@@ -236,7 +239,7 @@ public class GetBotAction{
      * @return {@link org.json.JSONObject JSONObject} containing information from the different bot list.
      */
     @Nullable
-    public JSONObject getBotListInfo(@NotNull Long id){
+    public JSONObject getBotListInfo(@Nonnull Long id){
         JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
         
         return json.getJSONObject("list_data");
@@ -252,7 +255,7 @@ public class GetBotAction{
      * @return {@link org.json.JSONObject JSONObject} containing information from the different bot list.
      */
     @Nullable
-    public JSONObject getBotListInfo(@NotNull String id){
+    public JSONObject getBotListInfo(@Nonnull String id){
         JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
         
         return json.getJSONObject("list_data");
@@ -270,7 +273,7 @@ public class GetBotAction{
      * @return {@link org.json.JSONArray JSONArray} containing the information of the provided bot list.
      */
     @Nullable
-    public JSONArray getBotListInfo(@NotNull Long id, @NotNull Site site){
+    public JSONArray getBotListInfo(@Nonnull Long id, @Nonnull Site site){
         JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache).getJSONObject("list_data");
         
         return json.getJSONArray(site.getSite());
@@ -288,7 +291,7 @@ public class GetBotAction{
      * @return {@link org.json.JSONArray JSONArray} containing the information of the provided bot list.
      */
     @Nullable
-    public JSONArray getBotListInfo(@NotNull Long id, @NotNull String site){
+    public JSONArray getBotListInfo(@Nonnull Long id, @Nonnull String site){
         JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache).getJSONObject("list_data");
         
         return json.getJSONArray(site);
@@ -306,7 +309,7 @@ public class GetBotAction{
      * @return {@link org.json.JSONArray JSONArray} containing the information of the provided bot list.
      */
     @Nullable
-    public JSONArray getBotListInfo(@NotNull String id, @NotNull Site site){
+    public JSONArray getBotListInfo(@Nonnull String id, @Nonnull Site site){
         JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache).getJSONObject("list_data");
         
         return json.getJSONArray(site.getSite());
@@ -324,7 +327,7 @@ public class GetBotAction{
      * @return {@link org.json.JSONArray JSONArray} containing the information of the provided bot list.
      */
     @Nullable
-    public JSONArray getBotListInfo(@NotNull String id, @NotNull String site){
+    public JSONArray getBotListInfo(@Nonnull String id, @Nonnull String site){
         JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache).getJSONObject("list_data");
         
         return json.getJSONArray(site);
@@ -341,7 +344,7 @@ public class GetBotAction{
      *
      * @since  4.2.0
      */
-    public String getDiscriminator(@NotNull Long id){
+    public String getDiscriminator(@Nonnull Long id){
         JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
         
         return json.getString("discriminator");
@@ -358,7 +361,7 @@ public class GetBotAction{
      *
      * @since  4.2.0
      */
-    public String getDiscriminator(@NotNull String id){
+    public String getDiscriminator(@Nonnull String id){
         JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
         
         return json.getString("discriminator");
@@ -375,7 +378,7 @@ public class GetBotAction{
      *
      * @since  4.2.0
      */
-    public String getGitHub(@NotNull Long id){
+    public String getGitHub(@Nonnull Long id){
         JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
         
         return json.getString("github");
@@ -392,7 +395,7 @@ public class GetBotAction{
      *
      * @since  4.2.0
      */
-    public String getGitHub(@NotNull String id){
+    public String getGitHub(@Nonnull String id){
         JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
         
         return json.getString("github");
@@ -409,7 +412,7 @@ public class GetBotAction{
      *
      * @since  4.2.0
      */
-    public String getLibrary(@NotNull Long id){
+    public String getLibrary(@Nonnull Long id){
         JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
         
         return json.getString("library");
@@ -426,7 +429,7 @@ public class GetBotAction{
      *
      * @since  4.2.0
      */
-    public String getLibrary(@NotNull String id){
+    public String getLibrary(@Nonnull String id){
         JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
         
         return json.getString("library");
@@ -443,7 +446,7 @@ public class GetBotAction{
      *
      * @since  4.2.0
      */
-    public String getName(@NotNull Long id){
+    public String getName(@Nonnull Long id){
         JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
         
         return json.getString("username");
@@ -460,7 +463,7 @@ public class GetBotAction{
      *
      * @since  4.2.0
      */
-    public String getName(@NotNull String id){
+    public String getName(@Nonnull String id){
         JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
         
         return json.getString("username");
@@ -477,7 +480,7 @@ public class GetBotAction{
      * 
      * @since  5.1.13
      */
-    public String getOAuthInvite(@NotNull Long id){
+    public String getOAuthInvite(@Nonnull Long id){
         JSONObject json = REQUEST_HANDLER.performGetBot(String.valueOf(id), disableCache);
         
         return json.getString("invite");
@@ -494,7 +497,7 @@ public class GetBotAction{
      * 
      * @since  5.1.13
      */
-    public String getOAuthInvite(@NotNull String id){
+    public String getOAuthInvite(@Nonnull String id){
         JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
         
         return json.getString("invite");
@@ -509,7 +512,7 @@ public class GetBotAction{
      *
      * @return Possibly-empty ArrayList containing the owners of the bot.
      */
-    public List<String> getOwners(@NotNull Long id){
+    public List<String> getOwners(@Nonnull Long id){
         JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
         
         List<String> owners = new ArrayList<>();
@@ -528,7 +531,7 @@ public class GetBotAction{
      *
      * @return Possibly-empty ArrayList containing the owners of the bot.
      */
-    public List<String> getOwners(@NotNull String id){
+    public List<String> getOwners(@Nonnull String id){
         JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
         
         List<String> owners = new ArrayList<>();
@@ -549,7 +552,7 @@ public class GetBotAction{
      *
      * @since  4.2.0
      */
-    public String getPrefix(@NotNull Long id){
+    public String getPrefix(@Nonnull Long id){
         JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
         
         return json.getString("prefix");
@@ -566,7 +569,7 @@ public class GetBotAction{
      *
      * @since  v4.2.0
      */
-    public String getPrefix(@NotNull String id){
+    public String getPrefix(@Nonnull String id){
         JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
         
         return json.getString("prefix");
@@ -582,7 +585,7 @@ public class GetBotAction{
      * @return Possibly-null Integer containing the server count for the bot.
      */
     @Nullable
-    public Integer getServerCount(@NotNull Long id){
+    public Integer getServerCount(@Nonnull Long id){
         JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
         
         return json.getInt("server_count");
@@ -598,7 +601,7 @@ public class GetBotAction{
      * @return Possibly-null Integer containing the server count for the bot.
      */
     @Nullable
-    public Integer getServerCount(@NotNull String id){
+    public Integer getServerCount(@Nonnull String id){
         JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
         
         return json.getInt("server_count");
@@ -613,7 +616,7 @@ public class GetBotAction{
      *
      * @return Possibly-empty String containing the support link.
      */
-    public String getSupportLink(@NotNull Long id){
+    public String getSupportLink(@Nonnull Long id){
         JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
         
         return json.getString("support");
@@ -628,7 +631,7 @@ public class GetBotAction{
      *
      * @return Possibly-empty String containing the support link.
      */
-    public String getSupportLink(@NotNull String id){
+    public String getSupportLink(@Nonnull String id){
         JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
         
         return json.getString("support");
@@ -645,7 +648,7 @@ public class GetBotAction{
      *
      * @since  v4.2.0
      */
-    public String getWebsite(@NotNull Long id){
+    public String getWebsite(@Nonnull Long id){
         JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
         
         return json.getString("website");
@@ -662,7 +665,7 @@ public class GetBotAction{
      *
      * @since  v4.2.0
      */
-    public String getWebsite(@NotNull String id){
+    public String getWebsite(@Nonnull String id){
         JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
         
         return json.getString("website");

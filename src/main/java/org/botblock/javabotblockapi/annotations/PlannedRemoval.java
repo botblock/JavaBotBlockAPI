@@ -21,31 +21,23 @@ package org.botblock.javabotblockapi.annotations;
 import java.lang.annotation.*;
 
 /**
- * Annotation used to indicate since when an Object is deprecated.
- * <br>This is always paired with the {@link java.lang.Deprecated @Deprecated} annotation.
+ * Annotation to mark an Object to be planned for removal.
+ * <br>This is often paired with the {@link java.lang.Deprecated Deprecated} and {@link org.botblock.javabotblockapi.annotations.DeprecatedSince DeprecatedSince}
+ * annotations.
  * 
- * <p>A replacement may be mentioned with the {@link #replacements() replacements String array} but is not guaranteed.
- * <br>Anything annotated with this should be avoided as it may be removed in a future release.
+ * <p>This annotation will always contain {@link #version() the version} in which the annotated Object will be removed.
  * 
- * @since 3.2.0
+ * @since 5.2.2
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.TYPE, ElementType.CONSTRUCTOR})
-public @interface DeprecatedSince{
+public @interface PlannedRemoval{
     
     /**
-     * Since what version this method or field is deprecated.
-     * <br>This is field is required!
+     * The version for when the annotated object will be removed.
      * 
-     * @return The version since when this object is deprecated.
+     * @return The version for when this Object will be removed.
      */
     String version();
-    
-    /**
-     * Optional String indicating a possible replacement method or field to use.
-     * 
-     * @return The method/field to use instead of the deprecated one.
-     */
-    String[] replacements() default {""};
 }

@@ -20,13 +20,14 @@ package org.botblock.javabotblockapi.requests;
 
 import org.botblock.javabotblockapi.BotBlockAPI;
 import org.botblock.javabotblockapi.annotations.DeprecatedSince;
+import org.botblock.javabotblockapi.annotations.PlannedRemoval;
 import org.botblock.javabotblockapi.exceptions.RatelimitedException;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.sharding.ShardManager;
-import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import javax.annotation.Nonnull;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,6 +53,7 @@ public class PostAction{
      */
     @Deprecated
     @DeprecatedSince(version = "5.2.0", replacements = {"PostAction(String)", "PostAction(String, String)"})
+    @PlannedRemoval(version = "5.2.3")
     public PostAction(){
         throw new IllegalStateException("This constructor may no longer be used.");
     }
@@ -70,7 +72,7 @@ public class PostAction{
      * @throws java.lang.NullPointerException
      *         When the provided id is empty.
      */
-    public PostAction(@NotNull String id){
+    public PostAction(@Nonnull String id){
         this("JavaBotBlockAPI-0000/API_VERSION (Unknown; +https://jbba.dev) DBots/{id}", id);
     }
     
@@ -88,7 +90,7 @@ public class PostAction{
      * @throws java.lang.NullPointerException
      *         When the provided userAgent or id is empty.
      */
-    public PostAction(@NotNull String userAgent, @NotNull String id){
+    public PostAction(@Nonnull String userAgent, @Nonnull String id){
         CheckUtil.notEmpty(userAgent, "UserAgent");
         CheckUtil.notEmpty(id, "ID");
         
@@ -113,7 +115,7 @@ public class PostAction{
      * @param botBlockAPI
      *        The {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI instance} to use.
      */
-    public void enableAutoPost(@NotNull JDA jda, @NotNull BotBlockAPI botBlockAPI){
+    public void enableAutoPost(@Nonnull JDA jda, @Nonnull BotBlockAPI botBlockAPI){
         scheduler.scheduleAtFixedRate(() -> {
             try{
                 postGuilds(jda, botBlockAPI);
@@ -136,7 +138,7 @@ public class PostAction{
      * @param botBlockAPI
      *        The {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI instance} to use.
      */
-    public void enableAutoPost(@NotNull Long botId, int guilds, @NotNull BotBlockAPI botBlockAPI){
+    public void enableAutoPost(@Nonnull Long botId, int guilds, @Nonnull BotBlockAPI botBlockAPI){
         scheduler.scheduleAtFixedRate(() -> {
             try{
                 postGuilds(botId, guilds, botBlockAPI);
@@ -157,7 +159,7 @@ public class PostAction{
      * @param botBlockAPI
      *        The {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI instance} to use.
      */
-    public void enableAutoPost(@NotNull ShardManager shardManager, @NotNull BotBlockAPI botBlockAPI){
+    public void enableAutoPost(@Nonnull ShardManager shardManager, @Nonnull BotBlockAPI botBlockAPI){
         scheduler.scheduleAtFixedRate(() -> {
             try{
                 postGuilds(shardManager, botBlockAPI);
@@ -180,7 +182,7 @@ public class PostAction{
      * @param botBlockAPI
      *        The {@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI instance} to use.
      */
-    public void enableAutoPost(@NotNull String botId, int guilds, @NotNull BotBlockAPI botBlockAPI){
+    public void enableAutoPost(@Nonnull String botId, int guilds, @Nonnull BotBlockAPI botBlockAPI){
         scheduler.scheduleAtFixedRate(() -> {
                 try{
                     postGuilds(botId, guilds, botBlockAPI); 
@@ -207,7 +209,7 @@ public class PostAction{
      * @throws org.botblock.javabotblockapi.exceptions.RatelimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
-    public void postGuilds(@NotNull JDA jda, @NotNull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
+    public void postGuilds(@Nonnull JDA jda, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
         JSONObject json = new JSONObject()
                 .put("server_count", jda.getGuilds().size())
                 .put("bot_id", jda.getSelfUser().getId());
@@ -236,7 +238,7 @@ public class PostAction{
      * @throws org.botblock.javabotblockapi.exceptions.RatelimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
-    public void postGuilds(@NotNull Long botId, @NotNull Integer guilds, @NotNull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
+    public void postGuilds(@Nonnull Long botId, @Nonnull Integer guilds, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
         postGuilds(Long.toString(botId), guilds, botBlockAPI);
     }
     
@@ -254,7 +256,7 @@ public class PostAction{
      * @throws org.botblock.javabotblockapi.exceptions.RatelimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
-    public void postGuilds(@NotNull ShardManager shardManager, @NotNull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
+    public void postGuilds(@Nonnull ShardManager shardManager, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
         JDA jda = shardManager.getShardById(0);
         if(jda == null)
             throw new NullPointerException("Received shard was null!");
@@ -289,7 +291,7 @@ public class PostAction{
      * @throws org.botblock.javabotblockapi.exceptions.RatelimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
-    public void postGuilds(@NotNull String botId, @NotNull Integer guilds, @NotNull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
+    public void postGuilds(@Nonnull String botId, @Nonnull Integer guilds, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
         JSONObject json = new JSONObject()
                 .put("server_count", guilds)
                 .put("bot_id", botId);
