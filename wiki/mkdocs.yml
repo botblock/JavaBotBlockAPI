@@ -40,7 +40,7 @@ theme:
   features:
   - tabs
   icon:
-    repo: 'octicons/repo'
+    repo: 'octicons/repo-24'
 
 extra:
   social:
