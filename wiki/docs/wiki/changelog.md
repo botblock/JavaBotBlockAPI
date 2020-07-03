@@ -11,6 +11,27 @@ This page lists all versions of JavaBotBlockAPI and the changes being made.
 Split up the different `GET` actions into bot and list related actions.  
 Many new `GET` actions added for list related stuff.
 
+### 5.2.3
+- Site updated:
+    - Deprecated `VULTREX_IO` (Planned removal: 5.2.5)
+    - Added [`DISCORDBOTS_CO`](https://vultrex.io) (Replacement of vultrex.io)
+- Removed deprecated Methods:
+    - `GetBotAction()`
+    - `GetBotAction(boolean)`
+    - `GetListAction()`
+    - `GetListAction(boolean)`
+    - `GetListAction.ApiField#API_ALL`
+    - `GetListAction.ApiField#API_DOCS`
+    - `GetListAction.ApiField#API_GET`
+    - `GetListAction.ApiField#API_POST`
+    - `GetListAction.ApiField#API_FIELD`
+    - `GetListAction.ApiField#API_SHARD_ID`
+    - `GetListAction.ApiField#API_SHARD_COUNT`
+    - `GetListAction.ApiField#API_SHARDS`
+    - `PostAction()`
+    - `BotBlockAPI(Map<String, String>)`
+- Fixed issue with new ApiField having wrong names.
+
 ### 5.2.2
 - Added `@PlannedRemoval` annotation to mark objects marked for removal.
 - Replaced Jetbrain's `@NotNull` and `@Nullable` annotations with Javax's `@Nonnull` and `@Nullable`

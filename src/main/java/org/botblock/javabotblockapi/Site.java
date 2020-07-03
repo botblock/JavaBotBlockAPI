@@ -17,6 +17,9 @@
  */
 package org.botblock.javabotblockapi;
 
+import org.botblock.javabotblockapi.annotations.DeprecatedSince;
+import org.botblock.javabotblockapi.annotations.PlannedRemoval;
+
 /**
  * Enum class containing all sites currently supported by BotBlock.org.
  * 
@@ -77,6 +80,13 @@ public enum Site {
     DISCORDBOTLIST_COM("discordbotlist.com"),
     
     /**
+     * <a href="https://discordbots.co" target="_blank">discordbots.co</a>
+     * 
+     * @since 5.2.3
+     */
+    DISCORDBOTS_CO("discordbots.co"),
+    
+    /**
      * <a href="https://discord.bots.gg" target="_blank">discord.bots.gg</a>
      */
     DISCORD_BOTS_GG("discord.bots.gg"),
@@ -124,7 +134,13 @@ public enum Site {
      * <a href="https://vultrex.io" target="_blank">vultrex.io</a>
      * 
      * @since 5.2.1
+     * 
+     * @deprecated Renamed to {@link #DISCORDBOTS_CO DISCORDBOTS_CO}
+     *             <br>Planned removal in v5.2.5
      */
+    @Deprecated
+    @DeprecatedSince(version = "5.2.3", replacements = {"#DISCORDBOTS_CO"})
+    @PlannedRemoval(version = "5.2.5")
     VULTREX_IO("vultrex.io"),
     
     /**

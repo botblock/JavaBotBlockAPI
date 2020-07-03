@@ -19,8 +19,6 @@
 package org.botblock.javabotblockapi.requests;
 
 import org.botblock.javabotblockapi.BotBlockAPI;
-import org.botblock.javabotblockapi.annotations.DeprecatedSince;
-import org.botblock.javabotblockapi.annotations.PlannedRemoval;
 import org.botblock.javabotblockapi.exceptions.RatelimitedException;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.sharding.ShardManager;
@@ -47,16 +45,6 @@ public class PostAction{
     
     private final RequestHandler REQUEST_HANDLER;
     private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
-    
-    /**
-     * Empty constructor to create the PostAction instance.
-     */
-    @Deprecated
-    @DeprecatedSince(version = "5.2.0", replacements = {"PostAction(String)", "PostAction(String, String)"})
-    @PlannedRemoval(version = "5.2.3")
-    public PostAction(){
-        throw new IllegalStateException("This constructor may no longer be used.");
-    }
     
     /**
      * Constructor to get an instance of PostAction.

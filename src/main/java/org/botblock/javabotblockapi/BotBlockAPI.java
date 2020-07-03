@@ -17,8 +17,6 @@
  */
 package org.botblock.javabotblockapi;
 
-import org.botblock.javabotblockapi.annotations.DeprecatedSince;
-import org.botblock.javabotblockapi.annotations.PlannedRemoval;
 import org.botblock.javabotblockapi.requests.CheckUtil;
 import org.botblock.javabotblockapi.requests.PostAction;
 
@@ -37,26 +35,6 @@ public class BotBlockAPI{
 
     private final Map<String, String> tokens;
     private final int updateDelay;
-
-    /**
-     * Constructor to set the Map with the sites and tokens.
-     *
-     * @param  tokens
-     *         A not null Map of sites and their tokens.
-     *         <br>You may receive the API-token from your bot list.
-     * 
-     * @throws java.lang.NullPointerException
-     *         When the provided Map is empty.
-     * 
-     * @deprecated This constructor will no longer be accessible in future versions.
-     *             <br>Use the {@link org.botblock.javabotblockapi.BotBlockAPI.Builder Builder} instead!
-     */
-    @Deprecated
-    @DeprecatedSince(version = "5.2.0")
-    @PlannedRemoval(version = "5.2.3")
-    public BotBlockAPI(@Nonnull Map<String, String> tokens){
-        this(tokens, DEFAULT_DELAY);
-    }
     
     private BotBlockAPI(@Nonnull Map<String, String> tokens, int updateDelay){
         if(tokens.isEmpty())

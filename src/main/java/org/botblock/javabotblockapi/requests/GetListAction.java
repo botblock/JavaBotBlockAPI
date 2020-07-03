@@ -19,8 +19,6 @@
 package org.botblock.javabotblockapi.requests;
 
 import org.botblock.javabotblockapi.Site;
-import org.botblock.javabotblockapi.annotations.DeprecatedSince;
-import org.botblock.javabotblockapi.annotations.PlannedRemoval;
 import org.jetbrains.annotations.Nullable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -31,7 +29,8 @@ import javax.annotation.Nonnull;
  * Class used to perform GET actions on the <a href="https://botblock.org/api/docs#lists" target="_blank">{@code /api/lists}</a>
  * and <a href="https://botblock.org/api/docs#list" target="_blank">{@code /api/lists/:id}</a> endpoints.
  * 
- * <p>GET requests are cached for 2 minutes unless disabled through {@link #GetListAction(boolean) GetListAction(true)}.
+ * <p>GET requests are cached for 2 minutes unless disabled through {@link #GetListAction(boolean, String) GetListAction(true, String)}
+ * or {@link #GetListAction(boolean, String, String) GetListAction(true, String, String)}.
  * 
  * @since 5.0.0
  */
@@ -39,37 +38,6 @@ public class GetListAction{
     
     private final RequestHandler REQUEST_HANDLER;
     private final boolean disableCache;
-    
-    /**
-     * Constructor to get an instance of GetListAction.
-     * 
-     * @deprecated This Constructor can no longer be used and will throw an {@link java.lang.IllegalStateException IllegalStateException}
-     *             when used.
-     */
-    @Deprecated
-    @DeprecatedSince(version = "5.2.0")
-    @PlannedRemoval(version = "5.2.3")
-    public GetListAction(){
-        throw new IllegalStateException("This constructor may no longer be used.");
-    }
-    
-    /**
-     * Constructor to get an instance of GetListAction.
-     * <br>Use this if you want to disable the caching of the GET requests.
-     * <br><b>We do not recommend this without own caching/ratelimiting.</b>
-     *
-     * @param disableCache
-     *        Whether or not to disable caching. {@code true} means caching gets <b>disabled</b>!
-     * 
-     * @deprecated This Constructor can no longer be used and will throw an {@link java.lang.IllegalStateException IllegalStateException}
-     *             when used.
-     */
-    @Deprecated
-    @DeprecatedSince(version = "5.2.0", replacements = {"GetListAction(String)", "GetListAction(boolean, String)", "GetListAction(boolean, String, String)"})
-    @PlannedRemoval(version = "5.2.3")
-    public GetListAction(boolean disableCache){
-        throw new IllegalStateException("This constructor may no longer be used.");
-    }
     
     /**
      * Constructor to get an instance of GetListAction.
@@ -155,7 +123,7 @@ public class GetListAction{
         CheckUtil.notEmpty(id, "id");
         JSONObject json = getList(id, site);
         
-        return json.getString(field.name().toLowerCase());
+        return json.getString(field.getApiField());
     }
     
     /**
@@ -176,7 +144,7 @@ public class GetListAction{
         CheckUtil.notEmpty(site, "site");
         JSONObject json = getList(id, site);
         
-        return json.getString(field.name().toLowerCase());
+        return json.getString(field.getApiField());
     }
     
     /**
@@ -721,98 +689,6 @@ public class GetListAction{
      * @since 5.0.0
      */
     public enum ApiField{
-        // URL fields
-    
-        /**
-         * API field to return the URL to list all bots of a bot list.
-         * 
-         * @deprecated Since: 5.2.0
-         *             <br>Replacement: {@link #URL_ALL URL_ALL}
-         */
-        @Deprecated
-        @DeprecatedSince(version = "5.2.0", replacements = {"#URL_ALL"})
-        @PlannedRemoval(version = "5.2.3")
-        API_ALL,
-        
-        /**
-         * API field to return the URL to the API documentation of the bot list.
-         *
-         * @deprecated Since: 5.2.0
-         *             <br>Replacement: {@link #URL_DOCS URL_DOCS}
-         */
-        @Deprecated
-        @DeprecatedSince(version = "5.2.0", replacements = {"#URL_DOCS"})
-        @PlannedRemoval(version = "5.2.3")
-        API_DOCS,
-        
-        /**
-         * API field to return the URL used to GET information about a bot.
-         *
-         * @deprecated Since: 5.2.0
-         *             <br>Replacement: {@link #URL_GET URL_GET}
-         */
-        @Deprecated
-        @DeprecatedSince(version = "5.2.0", replacements = {"#URL_GET"})
-        @PlannedRemoval(version = "5.2.3")
-        API_GET,
-        
-        /**
-         * API field to return the URL used to POST information from a bot.
-         *
-         * @deprecated Since: 5.2.0
-         *             <br>Replacement: {@link #URL_POST URL_POST}
-         */
-        @Deprecated
-        @DeprecatedSince(version = "5.2.0", replacements = {"#URL_POST"})
-        @PlannedRemoval(version = "5.2.3")
-        API_POST,
-        
-        // Fields returning a String
-    
-        /**
-         * Name of the field for posting the server count (i.e. {@code server_count})
-         *
-         * @deprecated Since: 5.2.0
-         *             <br>Replacement: {@link #STRING_SERVER_COUNT STRING_SERVER_COUNT}
-         */
-        @Deprecated
-        @DeprecatedSince(version = "5.2.0", replacements = {"#STRING_SERVER_COUNT"})
-        @PlannedRemoval(version = "5.2.3")
-        API_FIELD,
-        
-        /**
-         * Name of the field for posting the shard id (i.e. {@code shard_id})
-         *
-         * @deprecated Since: 5.2.0
-         *             <br>Replacement: {@link #STRING_SHARD_ID STRING_SHARD_ID}
-         */
-        @Deprecated
-        @DeprecatedSince(version = "5.2.0", replacements = {"#STRING_SHARD_ID"})
-        @PlannedRemoval(version = "5.2.3")
-        API_SHARD_ID,
-    
-        /**
-         * Name of the field for posting the shard count (i.e. {@code shard_count})
-         *
-         * @deprecated Since: 5.2.0
-         *             <br>Replacement: {@link #STRING_SHARD_COUNT STRING_SHARD_COUNT}
-         */
-        @Deprecated
-        @DeprecatedSince(version = "5.2.0", replacements = {"#STRING_SHARD_COUNT"})
-        @PlannedRemoval(version = "5.2.3")
-        API_SHARD_COUNT,
-    
-        /**
-         * Name of the field for posting the different shard info (i.e. {@code shards})
-         *
-         * @deprecated Since: 5.2.0
-         *             <br>Replacement: {@link #STRING_SHARDS STRING_SHARDS}
-         */
-        @Deprecated
-        @DeprecatedSince(version = "5.2.0", replacements = {"#STRING_SHARDS"})
-        @PlannedRemoval(version = "5.2.3")
-        API_SHARDS,
-        
         // String API field
         
         /**
@@ -820,28 +696,28 @@ public class GetListAction{
          * 
          * @since 5.2.0
          */
-        STRING_SERVER_COUNT,
+        STRING_SERVER_COUNT("api_field"),
     
         /**
          * Name of the field for the shard id. Example: {@code shard_id}
          *
          * @since 5.2.0
          */
-        STRING_SHARD_ID,
+        STRING_SHARD_ID("api_shard_id"),
     
         /**
          * Name of the field for the shard count. Example: {@code shard_count}
          *
          * @since 5.2.0
          */
-        STRING_SHARD_COUNT,
+        STRING_SHARD_COUNT("api_shard_count"),
     
         /**
          * Name of the field for the shards. Example: {@code shards}
          *
          * @since 5.2.0
          */
-        STRING_SHARDS,
+        STRING_SHARDS("api_shards"),
         
         // URL API field
         
@@ -850,27 +726,43 @@ public class GetListAction{
          *
          * @since 5.2.0
          */
-        URL_ALL,
+        URL_ALL("api_all"),
     
         /**
          * URL to view the API documentation of the bot list
          *
          * @since 5.2.0
          */
-        URL_DOCS,
+        URL_DOCS("api_docs"),
     
         /**
          * URL to GET information about a single bot listed on the bot list.
          *
          * @since 5.2.0
          */
-        URL_GET,
+        URL_GET("api_get"),
     
         /**
          * URL to POST the server count to a bot list.
          *
          * @since 5.2.0
          */
-        URL_POST
+        URL_POST("api_post");
+        
+        private final String apiField;
+        
+        ApiField(String apiField){
+            this.apiField = apiField;
+        }
+        
+        public String getApiField(){
+            return apiField;
+        }
+    
+    
+        @Override
+        public String toString(){
+            return apiField;
+        }
     }
 }

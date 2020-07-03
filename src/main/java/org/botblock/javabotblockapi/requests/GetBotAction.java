@@ -19,8 +19,6 @@
 package org.botblock.javabotblockapi.requests;
 
 import org.botblock.javabotblockapi.Site;
-import org.botblock.javabotblockapi.annotations.DeprecatedSince;
-import org.botblock.javabotblockapi.annotations.PlannedRemoval;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -32,7 +30,8 @@ import java.util.List;
 /**
  * Class used to perform GET actions on the <a href="https://botblock.org/api/docs#bots" target="_blank">{@code /api/bots/:id}</a> endpoint.
  *
- * <p>GET requests are cached for 2 minutes unless disabled through {@link #GetBotAction(boolean) GetBotAction(true)}
+ * <p>GET requests are cached for 2 minutes unless disabled through either {@link #GetBotAction(boolean, String) GetBotAction(true, String)}
+ * or {@link #GetBotAction(boolean, String, String) GetBotAction(true, String, String)}.
  *
  * @since 5.0.0
  */
@@ -41,38 +40,6 @@ public class GetBotAction{
     private final RequestHandler REQUEST_HANDLER;
     
     private final boolean disableCache;
-    
-    /**
-     * Constructor to get the instance of GetBotAction.
-     * 
-     * @deprecated This Constructor can no longer be used and will throw an {@link java.lang.IllegalStateException IllegalStateException}
-     *             when used.
-     */
-    @Deprecated
-    @DeprecatedSince(version = "5.2.0", replacements = {"GetBotAction(String)", "GetBotAction(boolean, String)", "GetBotAction(boolean, String, String)"})
-    @PlannedRemoval(version = "5.2.3")
-    public GetBotAction(){
-        throw new IllegalStateException("This constructor may no longer be used.");
-    }
-    
-    /**
-     * Constructor to get an instance of GetBotAction.
-     * <br>Use this if you want to disable the caching of the GET requests.
-     * <br><b>We do not recommend this without own caching/ratelimiting.</b>
-     *
-     * @param disableCache
-     *        Whether or not caching should be disabled.
-     *        <br>{@code true} means caching is <b>disabled</b>!
-     *
-     * @deprecated This Constructor can no longer be used and will throw an {@link java.lang.IllegalStateException IllegalStateException}
-     *             when used.
-     */
-    @Deprecated
-    @DeprecatedSince(version = "5.2.0", replacements = {"GetBotAction(String)", "GetBotAction(boolean, String)", "GetBotAction(boolean, String, String)"})
-    @PlannedRemoval(version = "5.2.3")
-    public GetBotAction(boolean disableCache){
-        throw new IllegalStateException("This constructor may no longer be used.");
-    }
     
     /**
      * Constructor to get an instance of GetBotAction.

@@ -20,7 +20,7 @@
  * Contains classes used for various GET and POST requests.
  * 
  * <p>Use {@link org.botblock.javabotblockapi.requests.GetBotAction GetBotAction} for retrieving bot information,
- * {@link org.botblock.javabotblockapi.requests.GetListAction GetListAction} for List related actions and
+ * {@link org.botblock.javabotblockapi.requests.GetListAction GetListAction} for retrieving List information and
  * {@link org.botblock.javabotblockapi.requests.PostAction PostAction} for POST requests.
  */
 package org.botblock.javabotblockapi.requests;
