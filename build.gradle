@@ -28,7 +28,7 @@ jar{
 }
 
 dependencies{
-    api group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.7.2'
+    api group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.8.0'
     api group: 'org.json', name: 'json', version: '20200518'
     api(group: 'net.dv8tion', name: 'JDA', version: '4.2.0_175'){
         exclude(module: 'opus-java')
