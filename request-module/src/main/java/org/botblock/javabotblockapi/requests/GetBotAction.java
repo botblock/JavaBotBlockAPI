@@ -46,7 +46,7 @@ public class GetBotAction{
     /**
      * Constructor to get an instance of GetBotAction.
      *
-     * <p>Using this constructor will set the following default values:
+     * <p>Using this constructor will set the following default values ({@code {id}} will be replaced with the provided ID):
      * <br><ul>
      *     <li>Cache: {@code Enabled}</li>
      *     <li>User-Agent: {@code "JavaBotBlockAPI-0000/API_VERSION (Unknown; +https://jbba.dev) DBots/{id}"}</li>
@@ -66,7 +66,7 @@ public class GetBotAction{
      * Constructor to get an instance of GetBotAction.
      * <br>This constructor allows you to disable the internal caching, by providing {@code true} as the first argument.
      *
-     * <p>Using this constructor will set the following default values:
+     * <p>Using this constructor will set the following default values ({@code {id}} will be replaced with the provided ID):
      * <br><ul>
      *     <li>User-Agent: {@code "JavaBotBlockAPI-0000/API_VERSION (Unknown; +https://jbba.dev) DBots/{id}"}</li>
      * </ul>
@@ -144,10 +144,16 @@ public class GetBotAction{
      * <br>With exception of id and list_data are all returned values based on how often one appears.
      * <br>Each entry in list data is unique to what the respective bot list returns.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
      * @param  id
      *         The id of the bot to get the information from.
      *
-     * @return {@link org.json.JSONObject JSONObject} containing the full information of the bot.
+     * @return Possibly-null {@link org.json.JSONObject JSONObject} containing the full information of the bot.
      */
     @Nullable
     public JSONObject getBotInfo(@Nonnull Long id){
@@ -188,10 +194,16 @@ public class GetBotAction{
      * <br>With exception of id and list_data are all returned values based on how often one appears.
      * <br>Each entry in list data is unique to what the respective bot list returns.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
      * @param  id
      *         The id of the bot to get the information from.
      *
-     * @return {@link org.json.JSONObject JSONObject} containing the full information of the bot.
+     * @return Possibly-null {@link org.json.JSONObject JSONObject} containing the full information of the bot.
      */
     @Nullable
     public JSONObject getBotInfo(@Nonnull String id){
@@ -202,14 +214,24 @@ public class GetBotAction{
      * Gets the information from the various bot lists.
      * <br>The returned data is entirely dependant on the bot list itself and is therefore unique.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     * 
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The bots id to use.
      *
-     * @return {@link org.json.JSONObject JSONObject} containing information from the different bot list.
+     * @return Possibly-null {@link org.json.JSONObject JSONObject} containing information from the different bot list.
      */
     @Nullable
     public JSONObject getBotListInfo(@Nonnull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getJSONObject("list_data");
     }
@@ -218,86 +240,136 @@ public class GetBotAction{
      * Gets the information from the various bot lists.
      * <br>The returned data is entirely dependant on the bot list itself and is therefore unique.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the bot list info from.
      *
-     * @return {@link org.json.JSONObject JSONObject} containing information from the different bot list.
+     * @return Possibly-null {@link org.json.JSONObject JSONObject} containing information from the different bot list.
      */
     @Nullable
     public JSONObject getBotListInfo(@Nonnull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getJSONObject("list_data");
     }
     
     /**
      * Gets the information from the specified bot list.
-     * <br>The returned data is entirely dependant on the bot list itself and is therefore unique
+     * <br>The returned data is entirely dependant on the bot list itself and is therefore unique.
+     *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
      *
      * @param  id
      *         The id of the bot to get the bot list info from.
      * @param  site
      *         The {@link org.botblock.javabotblockapi.core.Site site} to get info from.
      *
-     * @return {@link org.json.JSONArray JSONArray} containing the information of the provided bot list.
+     * @return Possibly-null {@link org.json.JSONArray JSONArray} containing the information of the provided bot list.
      */
     @Nullable
     public JSONArray getBotListInfo(@Nonnull Long id, @Nonnull Site site){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache).getJSONObject("list_data");
+        JSONObject json = getBotListInfo(id);
+        if(json == null)
+            return null;
         
         return json.getJSONArray(site.getSite());
     }
     
     /**
      * Gets the information from the specified bot list.
-     * <br>The returned data is entirely dependant on the bot list itself and is therefore unique
+     * <br>The returned data is entirely dependant on the bot list itself and is therefore unique.
+     *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
      *
      * @param  id
      *         The id of the bot to get the bot list info from.
      * @param  site
      *         The {@link org.botblock.javabotblockapi.core.Site site} to get info from.
      *
-     * @return {@link org.json.JSONArray JSONArray} containing the information of the provided bot list.
+     * @return Possibly-null {@link org.json.JSONArray JSONArray} containing the information of the provided bot list.
      */
     @Nullable
     public JSONArray getBotListInfo(@Nonnull Long id, @Nonnull String site){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache).getJSONObject("list_data");
+        JSONObject json = getBotListInfo(id);
+        if(json == null)
+            return null;
         
         return json.getJSONArray(site);
     }
     
     /**
      * Gets the information from the specified bot list.
-     * <br>The returned data is entirely dependant on the bot list itself and is therefore unique
+     * <br>The returned data is entirely dependant on the bot list itself and is therefore unique.
+     *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
      *
      * @param  id
      *         The id of the bot to get the bot list info from.
      * @param  site
      *         The {@link org.botblock.javabotblockapi.core.Site site} to get info from.
      *
-     * @return {@link org.json.JSONArray JSONArray} containing the information of the provided bot list.
+     * @return Possibly-null {@link org.json.JSONArray JSONArray} containing the information of the provided bot list.
      */
     @Nullable
     public JSONArray getBotListInfo(@Nonnull String id, @Nonnull Site site){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache).getJSONObject("list_data");
+        JSONObject json = getBotListInfo(id);
+        if(json == null)
+            return null;
         
         return json.getJSONArray(site.getSite());
     }
     
     /**
      * Gets the information from the specified bot list.
-     * <br>The returned data is entirely dependant on the bot list itself and is therefore unique
+     * <br>The returned data is entirely dependant on the bot list itself and is therefore unique.
+     *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
      *
      * @param  id
      *         The id of the bot to get the bot list info from.
      * @param  site
      *         The {@link org.botblock.javabotblockapi.core.Site site} to get info from.
      *
-     * @return {@link org.json.JSONArray JSONArray} containing the information of the provided bot list.
+     * @return Possibly-null {@link org.json.JSONArray JSONArray} containing the information of the provided bot list.
      */
     @Nullable
     public JSONArray getBotListInfo(@Nonnull String id, @Nonnull String site){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache).getJSONObject("list_data");
+        JSONObject json = getBotListInfo(id);
+        if(json == null)
+            return null;
         
         return json.getJSONArray(site);
     }
@@ -306,15 +378,26 @@ public class GetBotAction{
      * Gets the discriminator (The 4 numbers after the # in the username) of the bot.
      * <br>The discriminator is based on the most common appearance of it across the bot lists.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the discriminator from.
      *
-     * @return The discriminator of the bot or {@code 0000} if the provided id is invalid.
+     * @return Possibly-null String containing the discriminator of the bot or {@code 0000} if the provided id is invalid.
      *
      * @since  4.2.0
      */
+    @Nullable
     public String getDiscriminator(@Nonnull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getString("discriminator");
     }
@@ -323,15 +406,26 @@ public class GetBotAction{
      * Gets the discriminator (The 4 numbers after the # in the username) of the bot.
      * <br>The discriminator is based on the most common appearance of it.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the discriminator from.
      *
-     * @return The discriminator of the bot or {@code 0000} if the provided id is invalid.
+     * @return Possibly-null String containing the discriminator of the bot or {@code 0000} if the provided id is invalid.
      *
      * @since  4.2.0
      */
+    @Nullable
     public String getDiscriminator(@Nonnull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getString("discriminator");
     }
@@ -340,15 +434,26 @@ public class GetBotAction{
      * Gets the GitHub link of the bot.
      * <br>The GitHub link is based on the most common appearance of it.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the GitHub link from.
      *
-     * @return Possibly-empty String containing the GitHub link of the bot.
+     * @return Possibly-null or possibly-empty String containing the GitHub link of the bot.
      *
      * @since  4.2.0
      */
+    @Nullable
     public String getGitHub(@Nonnull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getString("github");
     }
@@ -357,15 +462,26 @@ public class GetBotAction{
      * Gets the GitHub link of the bot.
      * <br>The GitHub link is based on the most common appearance of it.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the GitHub link from.
      *
-     * @return Possibly-empty String containing the GitHub link of the bot.
+     * @return Possibly-null or possibly-empty String containing the GitHub link of the bot.
      *
      * @since  4.2.0
      */
+    @Nullable
     public String getGitHub(@Nonnull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getString("github");
     }
@@ -374,15 +490,26 @@ public class GetBotAction{
      * Gets the currently used library of the bot.
      * <br>The library is based on the most common appearance of it.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the library from.
      *
-     * @return Possibly-empty String containing the library of the bot.
+     * @return Possibly-null or possibly-empty String containing the library of the bot.
      *
      * @since  4.2.0
      */
+    @Nullable
     public String getLibrary(@Nonnull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getString("library");
     }
@@ -391,15 +518,26 @@ public class GetBotAction{
      * Gets the currently used library of the bot.
      * <br>The library is based on the most common appearance of it.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the library from.
      *
-     * @return Possibly-empty String containing the library of the bot.
+     * @return Possibly-null or possibly-empty String containing the library of the bot.
      *
      * @since  4.2.0
      */
+    @Nullable
     public String getLibrary(@Nonnull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getString("library");
     }
@@ -408,15 +546,26 @@ public class GetBotAction{
      * Gets the name of the bot.
      * <br>The name is based on the most common appearance of it.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the name from.
      *
-     * @return The name of the bot or {@code Unknown} if the provided id is invalid.
+     * @return Possibly-null String containing the name of the bot or {@code Unknown} if the provided id is invalid.
      *
      * @since  4.2.0
      */
+    @Nullable
     public String getName(@Nonnull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getString("username");
     }
@@ -425,15 +574,26 @@ public class GetBotAction{
      * Gets the name of the bot.
      * <br>The name is based on the most common appearance of it.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the name from.
      *
-     * @return The name of the bot or {@code Unknown} if the provided id is invalid.
+     * @return Possibly-null String containing the name of the bot or {@code Unknown} if the provided id is invalid.
      *
      * @since  4.2.0
      */
+    @Nullable
     public String getName(@Nonnull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getString("username");
     }
@@ -442,15 +602,26 @@ public class GetBotAction{
      * Gets the OAuth invite link of a bot.
      * <br>The OAuth invite is used to add a bot to a Discord server.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the OAuth link from.
      *
-     * @return Possibly-empty String containing the OAuth link for the bot.
+     * @return Possibly-null or possibly-empty String containing the OAuth link for the bot.
      *
      * @since  5.1.13
      */
+    @Nullable
     public String getOAuthInvite(@Nonnull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(String.valueOf(id), disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getString("invite");
     }
@@ -459,15 +630,26 @@ public class GetBotAction{
      * Gets the OAuth invite link of a bot.
      * <br>The OAuth invite is used to add a bot to a Discord server.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the OAuth link from.
      *
-     * @return Possibly-empty String containing the OAuth link for the bot.
+     * @return Possibly-null or possibly-empty String containing the OAuth link for the bot.
      *
      * @since  5.1.13
      */
+    @Nullable
     public String getOAuthInvite(@Nonnull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getString("invite");
     }
@@ -476,13 +658,24 @@ public class GetBotAction{
      * Gets an ArrayList with the owner ids of the bot.
      * <br>The IDs listed are based on how often they appear on the different bot lists.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the Owners from.
      *
      * @return Possibly-empty ArrayList containing the owners of the bot.
      */
+    @Nullable
     public List<String> getOwners(@Nonnull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return new ArrayList<>();
         
         List<String> owners = new ArrayList<>();
         for(int i = 0; i < json.getJSONArray("owners").length(); i++)
@@ -495,13 +688,24 @@ public class GetBotAction{
      * Gets an ArrayList with the owner ids of the bot.
      * <br>The IDs listed are based on how often they appear on the different bot lists.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the Owners from.
      *
      * @return Possibly-empty ArrayList containing the owners of the bot.
      */
+    @Nullable
     public List<String> getOwners(@Nonnull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return new ArrayList<>();
         
         List<String> owners = new ArrayList<>();
         for(int i = 0; i < json.getJSONArray("owners").length(); i++)
@@ -514,15 +718,26 @@ public class GetBotAction{
      * Gets the prefix of the bot.
      * <br>The prefix is based on the most common appearance of it.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the prefix from.
      *
-     * @return Possibly-empty String containing the prefix of the bot.
+     * @return Possibly-null or possibly-empty String containing the prefix of the bot.
      *
      * @since  4.2.0
      */
+    @Nullable
     public String getPrefix(@Nonnull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getString("prefix");
     }
@@ -531,15 +746,26 @@ public class GetBotAction{
      * Gets the prefix of the bot.
      * <br>The prefix is based on the most common appearance of it.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the prefix from.
      *
-     * @return Possibly-empty String containing the prefix of the bot.
+     * @return Possibly-null or possibly-empty String containing the prefix of the bot.
      *
      * @since  v4.2.0
      */
+    @Nullable
     public String getPrefix(@Nonnull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getString("prefix");
     }
@@ -548,6 +774,14 @@ public class GetBotAction{
      * Gets the server count of the bot.
      * <br>The server count is based on the most common appearance of it.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the server count from.
      *
@@ -555,7 +789,9 @@ public class GetBotAction{
      */
     @Nullable
     public Integer getServerCount(@Nonnull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getInt("server_count");
     }
@@ -564,6 +800,14 @@ public class GetBotAction{
      * Gets the server count of the bot.
      * <br>The server count is based on the most common appearance of it.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the server count from.
      *
@@ -571,7 +815,9 @@ public class GetBotAction{
      */
     @Nullable
     public Integer getServerCount(@Nonnull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getInt("server_count");
     }
@@ -580,13 +826,24 @@ public class GetBotAction{
      * Gets the support link (i.e. Discord invite) from the bot.
      * <br>The link is based on the most common appearance of it.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the support link from.
      *
-     * @return Possibly-empty String containing the support link.
+     * @return Possibly-null or possibly-empty String containing the support link.
      */
+    @Nullable
     public String getSupportLink(@Nonnull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getString("support");
     }
@@ -595,13 +852,24 @@ public class GetBotAction{
      * Gets the support link (i.e. Discord invite) from the bot.
      * <br>The link is based on the most common appearance of it.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the support link from.
      *
-     * @return Possibly-empty String containing the support link.
+     * @return Possibly-null or possibly-empty String containing the support link.
      */
+    @Nullable
     public String getSupportLink(@Nonnull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getString("support");
     }
@@ -610,15 +878,26 @@ public class GetBotAction{
      * Gets the website of the bot.
      * <br>The website is based on the most common appearance of it.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the website from.
      *
-     * @return Possibly-Empty String containing the bot's website.
+     * @return Possibly-null or possibly-empty String containing the bot's website.
      *
      * @since  v4.2.0
      */
+    @Nullable
     public String getWebsite(@Nonnull Long id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getString("website");
     }
@@ -627,15 +906,26 @@ public class GetBotAction{
      * Gets the website of the bot.
      * <br>The website is based on the most common appearance of it.
      *
+     * <p>Possible Exceptions being thrown:
+     * <br><ul>
+     *     <li>{@link java.io.IOException IOException} - When the request wasn't successful.</li>
+     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the wrapper hits the rate limit.</li>
+     * </ul>
+     *
+     * <p>This method may also return {@code null} if the request wasn't successful.
+     *
      * @param  id
      *         The id of the bot to get the website from.
      *
-     * @return Possibly-Empty String containing the bot's website.
+     * @return Possibly-null or possibly-empty String containing the bot's website.
      *
      * @since  v4.2.0
      */
+    @Nullable
     public String getWebsite(@Nonnull String id){
-        JSONObject json = REQUEST_HANDLER.performGetBot(id, disableCache);
+        JSONObject json = getBotInfo(id);
+        if(json == null)
+            return null;
         
         return json.getString("website");
     }

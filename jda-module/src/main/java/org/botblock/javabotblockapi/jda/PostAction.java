@@ -28,6 +28,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -78,12 +79,71 @@ public class PostAction{
     
     /**
      * Disables the automatic posting of Stats.
-     * <br>This essentially just performs a {@link java.util.concurrent.ScheduledExecutorService#shutdown() ScheduledExecutorService.shutdown()}.
-     * 
-     * @see java.util.concurrent.ScheduledExecutorService#shutdown() 
+     * <br>This essentially just performs a {@link java.util.concurrent.ScheduledExecutorService#shutdown() ScheduledExecutorService.shutdown()}
+     * by calling the {@link #disableAutoPost(BotBlockAPI) disableAutoPost(null)} method.
+     *
+     * <p>Note that using this method will NOT make the scheduler wait for previously scheduled tasks to complete.
+     * <br>If you want to wait for the tasks to complete use {@link #disableAutoPost(BotBlockAPI) disableAutoPost(BotBlockAPI)} or
+     * {@link #disableAutoPost(long, TimeUnit) disableAutoPost(long, TimeUnit)} instead.
+     *
+     * @see java.util.concurrent.ScheduledExecutorService#shutdown()
      */
     public void disableAutoPost(){
+        disableAutoPost(null);
+    }
+    
+    /**
+     * Disables the automatic posting of Stats.
+     * <br>Unlike {@link #disableAutoPost() disableAutoPost()} can you make the scheduler wait for all scheduled tasks to 
+     * finish, or to time out after n minutes by providing the {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlock instance}.
+     *
+     * <p>Passing null as argument will just perform a {@link java.util.concurrent.ScheduledExecutorService#shutdown() ScheduledExecutorService.shutdown()}
+     * similar to what the disableAutoPost() method does.
+     *
+     * <p>If you want to use a different delay than what you've set in the BotBlockAPI instance, can you use 
+     * {@link #disableAutoPost(long, TimeUnit) disableAutoPost(long, TimeUnit)} instead.
+     *
+     * <p>This method may throw a {@link java.lang.InterruptedException InterruptedException} in the terminal.
+     *
+     * @param botBlockAPI
+     *        The {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlockAPI instance} or null to just perform a shutdown.
+     *
+     * @since 6.0.0
+     * 
+     * @see java.util.concurrent.ScheduledExecutorService#shutdown()
+     * @see java.util.concurrent.ScheduledExecutorService#awaitTermination(long, TimeUnit)
+     */
+    public void disableAutoPost(@Nullable BotBlockAPI botBlockAPI){
+        if(botBlockAPI != null){
+            disableAutoPost(botBlockAPI.getUpdateDelay(), TimeUnit.MINUTES);
+            return;
+        }
+        
         scheduler.shutdown();
+    }
+    
+    /**
+     * Disables the automatic posting of Stats.
+     * <br>Unlike {@link #disableAutoPost() disableAutoPost()} can you make the scheduler wait for all scheduled tasks to 
+     * finish, or to time out after a specified time frame.
+     *
+     * <p>This method may throw a {@link java.lang.InterruptedException InterruptedException} in the terminal.
+     *
+     * @param time
+     *        The amount of time to wait for scheduled executions to finish before the Scheduler would time out.
+     * @param timeUnit
+     *        The {@link java.util.concurrent.TimeUnit TimeUnit} to use.
+     *
+     * @since 6.0.0
+     *
+     * @see java.util.concurrent.ScheduledExecutorService#awaitTermination(long, TimeUnit)
+     */
+    public void disableAutoPost(long time, @Nonnull TimeUnit timeUnit){
+        try{
+            scheduler.awaitTermination(time, timeUnit);
+        }catch(InterruptedException ex){
+            ex.printStackTrace();
+        }
     }
     
     /**
