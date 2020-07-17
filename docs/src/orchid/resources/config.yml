@@ -1,0 +1,69 @@
+site:
+  theme: BsDoc
+  baseUrl: 'https://docs.botblock.org/JavaBotBlockAPI/'
+
+theme:
+  primaryColor: '#2C2F33'
+  menu:
+    - type: 'sourcedocModules'
+      moduleType: 'javadoc'
+      asSubmenu: true
+      submenuTitle: 'API Docs'
+
+javadoc:
+  modules:
+  - name: 'Core'
+    slug: 'javabotblockapi-core'
+    sourceDirs: ['../../../../core/src/main/java']
+  - name: 'Request'
+    slug: 'javabotblockapi-request'
+    sourceDirs: ['../../../../request-module/src/main/java']
+  - name: 'JDA'
+    slug: 'javabotblockapi-jda'
+    sourceDirs: ['../../../../jda-module/src/main/java']
+    relatedModules: ['Core', 'Request']
+  pages:
+    menu:
+      - type: 'sourcedocPageLinks'
+        moduleType: 'kotlindoc'
+        itemTitleType: 'SIGNATURE'
+        includeItems: true
+
+      - type: 'sourcedocPages'
+        moduleType: 'javadoc'
+        moduleName: 'Core'
+        node: 'classes'
+        asSubmenu: true
+        submenuTitle: 'Core Classes'
+      - type: 'sourcedocPages'
+        moduleType: 'javadoc'
+        moduleName: 'Core'
+        node: 'packages'
+        asSubmenu: true
+        submenuTitle: 'Core Packages'
+
+      - type: 'sourcedocPages'
+        moduleType: 'javadoc'
+        moduleName: 'Request'
+        node: 'classes'
+        asSubmenu: true
+        submenuTitle: 'Request Classes'
+      - type: 'sourcedocPages'
+        moduleType: 'javadoc'
+        moduleName: 'Request'
+        node: 'packages'
+        asSubmenu: true
+        submenuTitle: 'Request Packages'
+
+      - type: 'sourcedocPages'
+        moduleType: 'javadoc'
+        moduleName: 'JDA'
+        node: 'classes'
+        asSubmenu: true
+        submenuTitle: 'JDA Classes'
+      - type: 'sourcedocPages'
+        moduleType: 'javadoc'
+        moduleName: 'JDA'
+        node: 'packages'
+        asSubmenu: true
+        submenuTitle: 'JDA Packages'
