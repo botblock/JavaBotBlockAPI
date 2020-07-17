@@ -124,19 +124,6 @@ public enum Site {
     SPACE_BOT_LIST_ORG("space-bot-list.org"),
     
     /**
-     * <a href="https://vultrex.io" target="_blank">vultrex.io</a>
-     *
-     * @since 5.2.1
-     *
-     * @deprecated Renamed to {@link #DISCORDBOTS_CO DISCORDBOTS_CO}
-     *             <br>Planned removal in v5.2.5
-     */
-    @Deprecated
-    @DeprecatedSince(version = "5.2.3", replacements = {"#DISCORDBOTS_CO"})
-    @PlannedRemoval(version = "5.2.5")
-    VULTREX_IO("vultrex.io"),
-    
-    /**
      * <a href="https://wonderbotlist.com" target="_blank">wonderbotlist.com</a>
      */
     WONDERBOTLIST_COM("wonderbotlist.com"),

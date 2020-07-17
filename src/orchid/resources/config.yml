@@ -1,0 +1,18 @@
+site:
+  theme: BsDoc
+
+theme:
+  primaryColor: '#2C2F33'
+
+javadoc:
+  modules:
+  - name: 'JavaBotBlockAPI (Core)'
+    slug: 'javabotblockapi-core'
+    sourceDirs: ['../../../core/src/main/java']
+  - name: 'JavaBotBlockAPI (JDA-Module)'
+    slug: 'javabotblockapi-jda'
+    sourceDirs: ['../../../jda-module/src/main/java']
+    relatedModules: ['javabotblockapi-core', 'javabotblockapi-request']
+  - name: 'JavaBotBlockAPI (Request-Module)'
+    slug: 'javabotblockapi-request'
+    sourceDirs: ['../../../request-module/src/main/java']
