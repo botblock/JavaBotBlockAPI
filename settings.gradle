@@ -1,4 +1,5 @@
 rootProject.name = 'JavaBotBlockAPI'
+include 'docs'
 include 'core'
 include 'jda-module'
 include 'request-module'
