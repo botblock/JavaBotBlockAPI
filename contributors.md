@@ -1,5 +1,5 @@
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[contributorsBadge]: https://img.shields.io/badge/Contributors_✨-8-green.svg?style=plastic
+[contributorsBadge]: https://img.shields.io/badge/Contributors_✨-9-green.svg?style=plastic
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 # Contributors
@@ -43,6 +43,7 @@ Below can you find a list of all currently aknowledged Contributors to our proje
   </tr>
   <tr>
     <td align="center"><a href="http://www.johnjleary.com"><img src="https://avatars3.githubusercontent.com/u/5107558?v=4" width="100px;" alt=""/><br /><sub><b>Sean Leary</b></sub></a><br /><a href="#plugin-stleary" title="Plugin/utility libraries">🔌</a></td>
+    <td align="center"><a href="https://www.caseyjbrooks.com/"><img src="https://avatars2.githubusercontent.com/u/6157866?v=4" width="100px;" alt=""/><br /><sub><b>Casey Brooks</b></sub></a><br /><a href="https://github.com/botblock/JavaBotBlockAPI/commits?author=cjbrooks12" title="Code">💻</a> <a href="https://github.com/botblock/JavaBotBlockAPI/commits?author=cjbrooks12" title="Documentation">📖</a></td>
   </tr>
 </table>
 
