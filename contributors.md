@@ -17,7 +17,7 @@ Below can you see a list of all currently listed emojis, their category and mean
 A full list of all available categories can be found [here](https://allcontributors.org/docs/en/emoji-key).
 
 - 🤔 (Ideas)  
-Suggesting new featires, improvements or giving general feedback.
+Suggesting new features, improvements or giving general feedback.
 - 🔌 (Plugin)  
 Developes a library used by this project.
 - 🚇 (Infra)  
