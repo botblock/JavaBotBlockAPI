@@ -10,10 +10,10 @@
 
 <!-- CI link (Thanks to CodeMC.io) -->
 [CodeMC]: https://ci.codemc.io/job/botblock/job/JavaBotBlockAPI/
-[CodeMCBadge]: https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fci.codemc.io%2Fjob%2Fbotblock%2Fjob%2FJavaBotBlockAPI%2F&label=Dev%20Builds&style=plastic
+[CodeMCBadge]: https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fci.codemc.io%2Fjob%2Fbotblock%2Fjob%2FJavaBotBlockAPI%2F&label=Dev%20Builds&style=plastic&logo=Jenkins&logoColor=white
 
 <!-- Bintray links -->
-[BadgeDownload]: https://img.shields.io/bintray/v/andre601/maven/JavaBotBlockAPI?label=Bintray&style=plastic
+[BadgeDownload]: https://img.shields.io/bintray/v/andre601/maven/JavaBotBlockAPI?label=Bintray&style=plastic&logo=JFrog-Bintray&logoColor=white
 [Download]: https://bintray.com/andre601/maven/JavaBotBlockAPI/_latestVersion
 
 <!-- JavaBotBlockAPI image -->
