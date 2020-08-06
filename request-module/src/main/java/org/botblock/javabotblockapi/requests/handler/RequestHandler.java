@@ -22,7 +22,7 @@ import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import okhttp3.*;
 import org.botblock.javabotblockapi.core.exceptions.RatelimitedException;
-import org.botblock.javabotblockapi.core.requests.CheckUtil;
+import org.botblock.javabotblockapi.core.CheckUtil;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

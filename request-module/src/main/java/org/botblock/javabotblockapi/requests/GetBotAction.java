@@ -19,7 +19,7 @@
 package org.botblock.javabotblockapi.requests;
 
 import org.botblock.javabotblockapi.core.Site;
-import org.botblock.javabotblockapi.core.requests.CheckUtil;
+import org.botblock.javabotblockapi.core.CheckUtil;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -157,7 +157,7 @@ public class GetBotAction{
      */
     @Nullable
     public JSONObject getBotInfo(@Nonnull Long id){
-        return REQUEST_HANDLER.performGetBot(Long.toString(id), disableCache);
+        return getBotInfo(String.valueOf(id));
     }
     
     /**
@@ -229,11 +229,7 @@ public class GetBotAction{
      */
     @Nullable
     public JSONObject getBotListInfo(@Nonnull Long id){
-        JSONObject json = getBotInfo(id);
-        if(json == null)
-            return null;
-        
-        return json.getJSONObject("list_data");
+        return getBotListInfo(String.valueOf(id));
     }
     
     /**
@@ -283,11 +279,7 @@ public class GetBotAction{
      */
     @Nullable
     public JSONArray getBotListInfo(@Nonnull Long id, @Nonnull Site site){
-        JSONObject json = getBotListInfo(id);
-        if(json == null)
-            return null;
-        
-        return json.getJSONArray(site.getSite());
+        return getBotListInfo(String.valueOf(id), site);
     }
     
     /**
@@ -311,11 +303,7 @@ public class GetBotAction{
      */
     @Nullable
     public JSONArray getBotListInfo(@Nonnull Long id, @Nonnull String site){
-        JSONObject json = getBotListInfo(id);
-        if(json == null)
-            return null;
-        
-        return json.getJSONArray(site);
+        return getBotListInfo(String.valueOf(id), site);
     }
     
     /**
@@ -395,11 +383,7 @@ public class GetBotAction{
      */
     @Nullable
     public String getDiscriminator(@Nonnull Long id){
-        JSONObject json = getBotInfo(id);
-        if(json == null)
-            return null;
-        
-        return json.getString("discriminator");
+        return getDiscriminator(String.valueOf(id));
     }
     
     /**
@@ -451,11 +435,7 @@ public class GetBotAction{
      */
     @Nullable
     public String getGitHub(@Nonnull Long id){
-        JSONObject json = getBotInfo(id);
-        if(json == null)
-            return null;
-        
-        return json.getString("github");
+        return getGitHub(String.valueOf(id));
     }
     
     /**
@@ -507,11 +487,7 @@ public class GetBotAction{
      */
     @Nullable
     public String getLibrary(@Nonnull Long id){
-        JSONObject json = getBotInfo(id);
-        if(json == null)
-            return null;
-        
-        return json.getString("library");
+        return getLibrary(String.valueOf(id));
     }
     
     /**
@@ -563,11 +539,7 @@ public class GetBotAction{
      */
     @Nullable
     public String getName(@Nonnull Long id){
-        JSONObject json = getBotInfo(id);
-        if(json == null)
-            return null;
-        
-        return json.getString("username");
+        return getName(String.valueOf(id));
     }
     
     /**
@@ -619,11 +591,7 @@ public class GetBotAction{
      */
     @Nullable
     public String getOAuthInvite(@Nonnull Long id){
-        JSONObject json = getBotInfo(id);
-        if(json == null)
-            return null;
-        
-        return json.getString("invite");
+        return getOAuthInvite(String.valueOf(id));
     }
     
     /**
@@ -673,15 +641,7 @@ public class GetBotAction{
      */
     @Nullable
     public List<String> getOwners(@Nonnull Long id){
-        JSONObject json = getBotInfo(id);
-        if(json == null)
-            return new ArrayList<>();
-        
-        List<String> owners = new ArrayList<>();
-        for(int i = 0; i < json.getJSONArray("owners").length(); i++)
-            owners.add(json.getJSONArray("owners").getString(i));
-        
-        return owners;
+        return getOwners(String.valueOf(id));
     }
     
     /**
@@ -735,11 +695,7 @@ public class GetBotAction{
      */
     @Nullable
     public String getPrefix(@Nonnull Long id){
-        JSONObject json = getBotInfo(id);
-        if(json == null)
-            return null;
-        
-        return json.getString("prefix");
+        return getPrefix(String.valueOf(id));
     }
     
     /**
@@ -789,11 +745,7 @@ public class GetBotAction{
      */
     @Nullable
     public Integer getServerCount(@Nonnull Long id){
-        JSONObject json = getBotInfo(id);
-        if(json == null)
-            return null;
-        
-        return json.getInt("server_count");
+        return getServerCount(String.valueOf(id));
     }
     
     /**
@@ -841,11 +793,7 @@ public class GetBotAction{
      */
     @Nullable
     public String getSupportLink(@Nonnull Long id){
-        JSONObject json = getBotInfo(id);
-        if(json == null)
-            return null;
-        
-        return json.getString("support");
+        return getSupportLink(String.valueOf(id));
     }
     
     /**
@@ -895,11 +843,7 @@ public class GetBotAction{
      */
     @Nullable
     public String getWebsite(@Nonnull Long id){
-        JSONObject json = getBotInfo(id);
-        if(json == null)
-            return null;
-        
-        return json.getString("website");
+        return getWebsite(String.valueOf(id));
     }
     
     /**

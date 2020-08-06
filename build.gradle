@@ -9,151 +9,238 @@ plugins{
     id 'net.kyori.blossom' version '1.1.0'
 }
 
-def ver = new Version(major: 5, minor: 2, revision: 3)
+def ver = new Version(major: 6, minor: 0, revision: 0)
 
 allprojects {
     apply plugin: 'com.jfrog.bintray'
     apply plugin: 'maven-publish'
     apply plugin: 'java-library'
     apply plugin: 'com.github.johnrengelman.shadow'
-
+    
     group = "org.botblock"
     version = "$ver"
     
+    ext {
+
+        dependencies {
+            api group: 'org.json', name: 'json', version: '20200518'
+            api group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: '2.8.0'
+            api group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
+            
+            artifactId = (rootProject == project ? "JavaBotBlockAPI" : "JavaBotBlockAPI-$project.name").toLowerCase()
+            jarName = (rootProject == project ? "JavaBotBlockAPI" : "JavaBotBlockAPI-$project.name")
+            moduleName = "${group}.javabotblockapi${rootProject == project ? "" : ".${project.name.toLowerCase()}"}"
+        }
+
+        configureJar = { Object jarConfig, String classifier = '' ->
+            jarConfig.baseName = "$project.jarName"
+            jarConfig.version = "$project.version"
+            jarConfig.classifier = classifier
+            jarConfig.extension = 'jar'
+            
+            jarConfig.manifest {
+                it.attributes(
+                        'Implementation-Title': project.artifactId,
+                        'Implementation-Version': project.version,
+                        'Automatic-Module-Name': "${project.moduleName}"
+                )
+            }
+        }
+        
+        configureJavadoc = { Object jDocConfig ->
+            jDocConfig.options {
+                it.author()
+                it.encoding = 'UTF-8'
+                it.memberLevel = JavadocMemberLevel.PROTECTED
+
+                if (it instanceof StandardJavadocDocletOptions) {
+                    def opt = it as StandardJavadocDocletOptions
+
+                    opt.links(
+                            "https://stleary.github.io/JSON-java/",
+                            "https://ci.dv8tion.net/job/JDA/javadoc/",
+                            "https://docs.oracle.com/javase/8/docs/api/"
+                    )
+
+                    if (JavaVersion.current().isJava9Compatible()) {
+                        opt.addBooleanOption("html5", true)
+                        opt.addStringOption("-release", "8")
+                    }
+
+                    if (JavaVersion.current().isJava11Compatible()) {
+                        opt.addBooleanOption("-no-module-directories", true)
+                    }
+                }
+            }
+        }
+    }
+
     repositories {
         mavenCentral()
         jcenter()
     }
     
-    dependencies {
-        api group: 'org.json', name: 'json', version: '20200518'
-        api group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: '2.8.0'
-        api group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
+    build {
+        dependsOn { jar }
+        dependsOn { javadocJar }
+        dependsOn { sourcesJar }
+        dependsOn { shadowJar }
     }
-}
-
-group = "org.botblock"
-version = "$ver"
-
-java {
-    sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
-}
     
-repositories{
-    mavenCentral()
-    jcenter()
-}
-
-jar{
-    getArchiveFileName().set("JavaBotBlockAPI.jar")
-}
-
-dependencies{
-    api group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.7.2'
-    api group: 'org.json', name: 'json', version: '20200518'
-    api(group: 'net.dv8tion', name: 'JDA', version: '4.2.0_172'){
-        exclude(module: 'opus-java')
+    bintray {
+        user = System.getenv("BintrayUser")
+        key = System.getenv("BintrayApiKey")
+        publications = ['BintrayRelease']
+        publish = true
+        pkg {
+            repo = 'maven'
+            name = 'JavaBotBlockAPI'
+            licenses = ['MIT']
+            vcsUrl = 'https://github.com/botblock/JavaBotBlockAPI'
+            version {
+                name = project.version
+                released = new Date()
+                vcsTag = System.getenv("VcsTag")
+            }
+        }
     }
-    api group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: '2.8.0'
+    
+    bintrayUpload {
+        dependsOn { rootProject.getTasksByName('build', true) }
+    }
+    
+    publishing {
+        publications {
+            BintrayRelease(MavenPublication) {
+                it.groupId = project.group
+                it.artifactId = project.artifactId
+                it.version = project.version
+            }
+        }
+    }
+    
 }
 
-task sourcesJar(type: Jar, dependsOn: classes){
-    getArchiveClassifier().set("sources")
-    from sourceSets.main.allSource
+subprojects {
+    apply plugin: 'java'
+    
+    ext {
+        includeInParent = true
+    }
+    
+    compileJava {
+        source = sourceSets.main.allJava
+        classpath = sourceSets.main.compileClasspath
+    }
+    
+    javadoc {
+        destinationDir = file("$rootDir/docs/")
+        
+        configureJavadoc(it)
+    }
+    
+    jar {
+        destinationDirectory = file("$rootDir/build/libs/")
+        configureJar(it)
+    }
+    
+    shadowJar {
+        destinationDirectory = file("$rootDir/build/libs/")
+        configureJar(it, 'all')
+    }
+    
+    task javadocJar(type: Jar) {
+        group = 'build'
+        dependsOn javadoc
+        from javadoc.destinationDir
+        configureJar(it, 'javadoc')
+        destinationDirectory = file("$rootDir/build/libs/")
+    }
+    
+    task sourceJar(type: Jar) {
+        group = 'build'
+        dependsOn classes
+        from sourceSets.main.allSource
+        configureJar(it, 'sources')
+        destinationDirectory = file("$rootDir/build/libs/")
+    }
+    
+    publishing {
+        publications {
+            BintrayRelease(MavenPublication) {
+                from components.java
+                artifact javadocJar
+                artifact sourceJar
+            }
+        }
+    }
+    
+    afterEvaluate {
+        if(project.includeInParent) {
+            rootProject.dependencies.compile project
+        }
+    }
+    
+    blossom{
+        replaceToken("API_VERSION", version)
+    }
+}
+
+configurations {
+    compile {
+        description = 'compile'
+        transitive = true
+    }
+}
+
+shadowJar{
+    configureJar(it, 'all')
+    
+    from { subprojects*.jar }
+    destinationDirectory = file("$rootDir/build/libs/")
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc){
-    getArchiveClassifier().set("javadoc")
-    from(javadoc.destinationDir)
-}
-
-artifacts{
-    archives jar
-    archives sourcesJar
-    archives javadocJar
-    archives shadowJar
-}
-
-javadoc{
-    source = sourceSets.main.allJava
-    destinationDir = file("$projectDir/docs/javadoc/")
-    options.encoding = 'UTF-8'
-    options.memberLevel = JavadocMemberLevel.PROTECTED
+    configureJar(it, 'javadoc')
     
-    if(options instanceof StandardJavadocDocletOptions){
-        def opt = options as StandardJavadocDocletOptions
-        
-        opt.links(
-                "https://stleary.github.io/JSON-java/",
-                "https://ci.dv8tion.net/job/JDA/javadoc/",
-                "https://docs.oracle.com/javase/8/docs/api/"
-        )
-        if(JavaVersion.current().isJava9Compatible()){
-            opt.addBooleanOption("html5", true)
-            opt.addStringOption("-release", "8")
-        }
-        if(JavaVersion.current().isJava11Compatible()){
-            opt.addBooleanOption("-no-module-directories", true)
-        }
-    }
+    from { javadoc.destinationDir }
+    destinationDirectory = file("$rootDir/build/libs/")
 }
 
-blossom{
-    replaceToken("API_VERSION", version)
+
+task sourcesJar(type: Jar, dependsOn: classes){
+    group = 'build'
+    dependsOn { rootProject.getTasksByName('classes', true) }
+    
+    configureJar(it, 'sources')
+    
+    from { subprojects*.sourceSets.main.allSource }
+    destinationDirectory = file("$rootDir/build/libs/")
 }
 
-build{
-    dependsOn(jar)
-    dependsOn(javadocJar)
-    dependsOn(sourcesJar)
-    dependsOn(shadowJar)
-}
-
-bintray{
-    user = System.getenv("BintrayUser")
-    key = System.getenv("BintrayApiKey")
-    publications = ['BintrayRelease']
-    pkg{
-        repo = 'maven'
-        name = 'JavaBotBlockAPI'
-        licenses = ['MIT']
-        vcsUrl = 'https://github.com/botblock/JavaBotBlockAPI'
-        version{
-            name = project.version
-            released = new Date()
-            vcsTag = System.getenv("VcsTag")
-        }
-    }
-}
-
-publishing{
-    publications{
-        BintrayRelease(MavenPublication){
-            from(components.java)
-            groupId group
-            artifactId archivesBaseName
-            version version
-            artifact(javadocJar)
-            artifact(sourcesJar)
-        }
-    }
-    /*
-    repositories{
-        maven{
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/botblock/JavaBotBlockAPI")
-            credentials{
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
-            }
-        }
-        publications{
-            gpr(MavenPublication){
-                from(components.java)
+publishing {
+    publications {
+        BintrayRelease(MavenPublication) {
+            pom.withXml {
+                def reposNode = asNode().appendNode('repositories')
+                def repoNode = reposNode.appendNode('repository')
+                
+                repoNode.appendNode('name', 'bintray')
+                repoNode.appendNode('id', 'bintray-andre601-maven')
+                repoNode.appendNode('url', 'https://dl.bintray.com/andre601/maven')
+                
+                def dependenciesNode = asNode().appendNode('dependencies')
+                configurations.compile.allDependencies.each {
+                    def dependencyNode = dependenciesNode.appendNode('dependency')
+                    
+                    dependencyNode.appendNode('groupId', it.group)
+                    dependencyNode.appendNode('artifactId', it instanceof ProjectDependency ? it.dependencyProject.artifactId : it.name)
+                    dependencyNode.appendNode('version', it.version)
+                    dependencyNode.appendNode('scope', 'compile')
+                }
             }
         }
     }
-    */
 }
 
 class Version{

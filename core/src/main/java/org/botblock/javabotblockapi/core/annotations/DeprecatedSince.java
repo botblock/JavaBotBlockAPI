@@ -22,10 +22,13 @@ import java.lang.annotation.*;
 
 /**
  * Annotation used to indicate since when an Object is deprecated.
- * <br>This is always paired with the {@link Deprecated @Deprecated} annotation.
+ * <br>This is always paired with the {@link java.lang.Deprecated @Deprecated} annotation.
  * 
  * <p>A replacement may be mentioned with the {@link #replacements() replacements String array} but is not guaranteed.
  * <br>Anything annotated with this should be avoided as it may be removed in a future release.
+ * 
+ * <p>When a removal is planned will a {@link org.botblock.javabotblockapi.core.annotations.PlannedRemoval PlannedRemoval}
+ * annotation be added to indicate the version of the Object's removal.
  * 
  * @since 3.2.0
  */
@@ -35,7 +38,7 @@ import java.lang.annotation.*;
 public @interface DeprecatedSince{
     
     /**
-     * Since what version this method or field is deprecated.
+     * Since what version this Object is deprecated.
      * <br>This is field is required!
      * 
      * @return The version since when this object is deprecated.
@@ -43,9 +46,9 @@ public @interface DeprecatedSince{
     String version();
     
     /**
-     * Optional String indicating a possible replacement method or field to use.
+     * Optional String array indicating one or multiple possible replacement Objects to use.
      * 
-     * @return The method/field to use instead of the deprecated one.
+     * @return The Object(s) to use instead of the deprecated one.
      */
     String[] replacements() default {""};
 }

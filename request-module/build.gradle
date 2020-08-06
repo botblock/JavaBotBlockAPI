@@ -1,8 +1,8 @@
-plugins {
-    id 'java'
-}
-
 dependencies {
     implementation project(":core")
     api group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.7.2'
+}
+
+javadoc {
+    exclude 'org/botblock/javabotblockapi/requests/handler'
 }

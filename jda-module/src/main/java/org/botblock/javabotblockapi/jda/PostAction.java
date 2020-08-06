@@ -22,7 +22,7 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.sharding.ShardManager;
 import org.botblock.javabotblockapi.core.BotBlockAPI;
 import org.botblock.javabotblockapi.core.exceptions.RatelimitedException;
-import org.botblock.javabotblockapi.core.requests.CheckUtil;
+import org.botblock.javabotblockapi.core.CheckUtil;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -39,10 +39,15 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * This class is used to perform POST requests towards the BotBlock API using the Java Discord Library (JDA).
- * <br>It allows you to just provide either an {@link net.dv8tion.jda.api.JDA JDA} or a 
- * {@link net.dv8tion.jda.api.sharding.ShardManager ShardManager} instance and all other stuff such as providing
- * the amount of shards, the Guild count, etc. are handled automatically.
+ * Class used to perform POST requests towards the <a href="https://botblock.org/api/docs#count" target="_blank">/api/count</a> 
+ * endpoint of BotBlock.
+ *
+ * <p>The class offers options to post either {@link #postGuilds(JDA, BotBlockAPI) manually} or
+ * {@link #enableAutoPost(JDA, BotBlockAPI) automatically}.
+ * <br>It also allows you to choose, if you want to use a {@link net.dv8tion.jda.api.JDA JDA instance} or a
+ * {@link net.dv8tion.jda.api.sharding.ShardManager ShardManager instance}.
+ * 
+ * <p>If you want to post without using either instance, use the {@link org.botblock.javabotblockapi.requests.PostAction normal PostAction}.
  */
 public class PostAction{
     private final RequestHandler requestHandler;
@@ -140,6 +145,7 @@ public class PostAction{
      */
     public void disableAutoPost(long time, @Nonnull TimeUnit timeUnit){
         try{
+            scheduler.shutdown();
             scheduler.awaitTermination(time, timeUnit);
         }catch(InterruptedException ex){
             ex.printStackTrace();

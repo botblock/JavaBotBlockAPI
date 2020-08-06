@@ -18,8 +18,6 @@
 
 package org.botblock.javabotblockapi.core;
 
-import org.botblock.javabotblockapi.core.requests.CheckUtil;
-
 import javax.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,6 +28,9 @@ import java.util.Map;
  * <p>Use the {@link org.botblock.javabotblockapi.core.BotBlockAPI.Builder BotBlockAPI.Builder} class for easy creation.
  */
 public class BotBlockAPI{
+    /**
+     * Default delay. Used for when no own delay was defined with {@link org.botblock.javabotblockapi.core.BotBlockAPI.Builder#setUpdateDelay(Integer) BotBlock.Builder.setUpdateDelay(Integer)}
+     */
     public static final int DEFAULT_DELAY = 30;
     
     private final Map<String, String> tokens;

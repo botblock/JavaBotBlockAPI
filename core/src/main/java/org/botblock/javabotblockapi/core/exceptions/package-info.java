@@ -17,6 +17,6 @@
  */
 
 /**
- * Contsins custom exceptions this API may throw.
+ * Contains custom exceptions this API may throw.
  */
 package org.botblock.javabotblockapi.core.exceptions;

@@ -20,7 +20,7 @@ package org.botblock.javabotblockapi.requests;
 
 import org.botblock.javabotblockapi.core.BotBlockAPI;
 import org.botblock.javabotblockapi.core.exceptions.RatelimitedException;
-import org.botblock.javabotblockapi.core.requests.CheckUtil;
+import org.botblock.javabotblockapi.core.CheckUtil;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
 import org.json.JSONObject;
 
@@ -31,6 +31,13 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Class used to perform POST requests towards the <a href="https://botblock.org/api/docs#count" target="_blank">/api/count</a> 
+ * endpoint of BotBlock.
+ * 
+ * <p>The class offers options to post either {@link #postGuilds(Long, Integer, BotBlockAPI) manually} or
+ * {@link #enableAutoPost(Long, int, BotBlockAPI) automatically}.
+ */
 public class PostAction{
     
     private final RequestHandler REQUEST_HANDLER;
@@ -133,6 +140,7 @@ public class PostAction{
      */
     public void disableAutoPost(long time, @Nonnull TimeUnit timeUnit){
         try{
+            scheduler.shutdown();
             scheduler.awaitTermination(time, timeUnit);
         }catch(InterruptedException ex){
             ex.printStackTrace();
