@@ -32,6 +32,7 @@ allprojects {
             moduleName = "${group}.javabotblockapi${rootProject == project ? "" : ".${project.name.toLowerCase()}"}"
         }
 
+
         configureJar = { Object jarConfig, String classifier = '' ->
             jarConfig.baseName = "$project.jarName"
             jarConfig.version = "$project.version"
