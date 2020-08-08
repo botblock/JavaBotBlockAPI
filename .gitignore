@@ -91,5 +91,7 @@ fabric.properties
 .idea/**/markdown-navigator/
 
 # End of https://www.gitignore.io/api/intellij
-/build/
+build/
 /.idea/
+
+.gradle/

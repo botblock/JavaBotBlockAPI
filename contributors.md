@@ -19,7 +19,7 @@ A full list of all available categories can be found [here](https://allcontribut
 - 🤔 (Ideas)  
 Suggesting new features, improvements or giving general feedback.
 - 🔌 (Plugin)  
-Developes a library used by this project.
+Developed a library used by this project.
 - 🚇 (Infra)  
 Provides a site, service or similar that is used by the project (e.g. CI-Server).
 - 🚧 (Maintenance)  

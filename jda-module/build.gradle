@@ -1,0 +1,7 @@
+dependencies {
+    api(group: 'net.dv8tion', name: 'JDA', version: '4.2.0_172'){
+        exclude(module: 'opus-java')
+    }
+    implementation project(":core")
+    implementation project(":request-module")
+}
