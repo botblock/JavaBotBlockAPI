@@ -27,14 +27,13 @@ allprojects {
             api group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: '2.8.0'
             api group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
             
-            artifactId = (rootProject == project ? "JavaBotBlockAPI" : "JavaBotBlockAPI-$project.name").toLowerCase()
-            jarName = (rootProject == project ? "JavaBotBlockAPI" : "JavaBotBlockAPI-$project.name")
-            moduleName = "${group}.javabotblockapi${rootProject == project ? "" : ".${project.name.toLowerCase()}"}"
+            artifactId = (rootProject == project? project.name : "$rootProject.name-$project.name").toLowerCase()
+            moduleName = "${group}.javabotblockapi${rootProject == project? "" : ".${project.name.toLowerCase()}"}"
         }
 
 
         configureJar = { Object jarConfig, String classifier = '' ->
-            jarConfig.baseName = "$project.jarName"
+            jarConfig.baseName = "$project.artifactId"
             jarConfig.version = "$project.version"
             jarConfig.classifier = classifier
             jarConfig.extension = 'jar'
