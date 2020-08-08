@@ -11,6 +11,7 @@ Those are also the only versions that may receive bug fixes and patches.
 
 | Version | Supported          |
 | ------- | ------------------ |
+| 6.x     | :white_check_mark: |
 | 5.x     | :white_check_mark: |
 | 4.x     | :x:                |
 | 3.x     | :x:                |
@@ -22,6 +23,7 @@ Those are also the only versions that may receive bug fixes and patches.
 
 | Version | Supported          |
 | ------- | ------------------ |
+| 6.x     | :white_check_mark: |
 | 5.x     | :white_check_mark: |
 | 4.x     | :x:                |
 | 3.x     | :x:                |
@@ -33,6 +35,7 @@ Those are also the only versions that may receive bug fixes and patches.
 
 | Version | Supported          |
 | ------- | ------------------ |
+| 6.x     | :white_check_mark: |
 | 5.x     | :white_check_mark: |
 | 4.x     | :x:                |
 | 3.x     | :x:                |
