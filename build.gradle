@@ -59,7 +59,10 @@ allprojects {
                     opt.links(
                             "https://stleary.github.io/JSON-java/",
                             "https://ci.dv8tion.net/job/JDA/javadoc/",
-                            "https://docs.oracle.com/javase/8/docs/api/"
+                            "https://docs.oracle.com/javase/8/docs/api/"//,
+                            //"https://docs.botblock.org/JavaBotBlockAPI/core/",
+                            //"https://docs.botblock.org/JavaBotBlockAPI/jda-module/",
+                            //"https://docs.botblock.org/JavaBotBlockAPI/request-module/"
                     )
 
                     if (JavaVersion.current().isJava9Compatible()) {
@@ -134,7 +137,7 @@ subprojects {
     }
     
     javadoc {
-        destinationDir = file("$rootDir/docs/")
+        destinationDir = file("$rootDir/docs/$project.name/")
         
         configureJavadoc(it)
     }
