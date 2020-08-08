@@ -21,12 +21,13 @@
  * <br>When using either of the other modules is this one here required to be installed too.
  *
  * <h1>Installation</h1>
+ * Please replace {@code API_VERSION} with the latest release on Bintray.
  * 
  * <h2>Gradle (recommended)</h2>
  *
  * <pre><code>
  * repositories{
- *     jcenter()
+ *     maven{ url = 'https://dl.bintray.com/andre601/maven' }
  * }
  *
  * dependencies{
@@ -41,7 +42,7 @@
  *     <repository>
  *         <id>jcenter</id>
  *         <name>jcenter-bintray</name>
- *         <url>https://jcenter.binrtray.com</url>
+ *         <url>https://dl.bintray.com/andre601/maven</url>
  *     </repository>
  * </repositories>
  *

@@ -61,8 +61,8 @@ allprojects {
                             "https://ci.dv8tion.net/job/JDA/javadoc/",
                             "https://docs.oracle.com/javase/8/docs/api/",
                             "https://docs.botblock.org/JavaBotBlockAPI/core/",
-                            "https://docs.botblock.org/JavaBotBlockAPI/jda-module/",
-                            "https://docs.botblock.org/JavaBotBlockAPI/request-module/"
+                            "https://docs.botblock.org/JavaBotBlockAPI/jda/",
+                            "https://docs.botblock.org/JavaBotBlockAPI/request/"
                     )
 
                     if (JavaVersion.current().isJava9Compatible()) {

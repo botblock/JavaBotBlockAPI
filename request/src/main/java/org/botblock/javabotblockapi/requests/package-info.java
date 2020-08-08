@@ -21,17 +21,18 @@
  * <br>When posting the Guild count is this module a requirement! It depends on the core module.
  *
  * <h1>Installation</h1>
+ * Please replace {@code API_VERSION} with the latest release on Bintray.
  *
  * <h2>Gradle (recommended)</h2>
  *
  * <pre><code>
  * repositories{
- *     jcenter()
+ *     maven{ url = 'https://dl.bintray.com/andre601/maven' }
  * }
  *
  * dependencies{
  *     compile 'org.botblock:JavaBotBlockAPI-core:API_VERSION'
- *     compile 'org.botblock:JavaBotBlockAPI-request-module:API_VERSION
+ *     compile 'org.botblock:JavaBotBlockAPI-request:API_VERSION
  * }
  * </code></pre>
  *
@@ -42,7 +43,7 @@
  *     <repository>
  *         <id>jcenter</id>
  *         <name>jcenter-bintray</name>
- *         <url>https://jcenter.binrtray.com</url>
+ *         <url>https://dl.bintray.com/andre601/maven</url>
  *     </repository>
  * </repositories>
  *
@@ -54,7 +55,7 @@
  *     </dependency>
  *     <dependency>
  *         <groupId>org.botblock</groupId>
- *         <artifactId>JavaBotBlockAPI-request-module</artifactId>
+ *         <artifactId>JavaBotBlockAPI-request</artifactId>
  *         <version>API_VERSION</version>
  *     </dependency>
  * </dependencies>
