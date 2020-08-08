@@ -17,6 +17,9 @@
  */
 package org.botblock.javabotblockapi.core;
 
+import org.botblock.javabotblockapi.core.annotations.DeprecatedSince;
+import org.botblock.javabotblockapi.core.annotations.PlannedRemoval;
+
 /**
  * Enum class containing all sites currently supported by BotBlock.org.
  *
@@ -117,8 +120,18 @@ public enum Site {
     
     /**
      * <a href="https://space-bot-list.org" target="_blank">space-bot-list.org</a>
+     * 
+     * @deprecated Replaced by {@link #SPACE_BOT_LIST_XYZ SPACE_BOT_LIST_XYZ}; Will be removed in Version 6.0.2
      */
+    @Deprecated
+    @DeprecatedSince(version = "6.0.0", replacements = "#SPACE_BOT_LIST_XYZ")
+    @PlannedRemoval(version = "6.0.2")
     SPACE_BOT_LIST_ORG("space-bot-list.org"),
+    
+    /**
+     * <a href="https://space-bot-list.xyz" target="_blank">space-bot-list.xyz</a>
+     */
+    SPACE_BOT_LIST_XYZ("space-bot-list.xyz"),
     
     /**
      * <a href="https://wonderbotlist.com" target="_blank">wonderbotlist.com</a>
