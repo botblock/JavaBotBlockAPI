@@ -43,9 +43,9 @@ public enum Site {
     BOTSDATABASE_COM("botsdatabase.com"),
     
     /**
-     * <a href="https://bots.discordbotlabs.org" target="_blank">bots.discordbotlabs.org</a>
+     * <a href="https://bots.discordlabs.org" target="_blank">bots.discordlabs.org</a>
      */
-    BOTS_DISCORDBOTLABS_ORG("bots.discordbotlabs.org"),
+    BOTS_DISCORDLABS_ORG("bots.discordlabs.org"),
     
     /**
      * <a href="https://botsfordiscord.com" target="_blank">botsfordiscord.com</a>
