@@ -43,6 +43,11 @@ public enum Site {
     BOTSDATABASE_COM("botsdatabase.com"),
     
     /**
+     * <a href="https://bots.discordbotlabs.org" target="_blank">bots.discordbotlabs.org</a>
+     */
+    BOTS_DISCORDBOTLABS_ORG("bots.discordbotlabs.org"),
+    
+    /**
      * <a href="https://botsfordiscord.com" target="_blank">botsfordiscord.com</a>
      */
     BOTSFORDISCORD_COM("botsfordiscord.com"),
@@ -132,6 +137,11 @@ public enum Site {
      * <a href="https://space-bot-list.xyz" target="_blank">space-bot-list.xyz</a>
      */
     SPACE_BOT_LIST_XYZ("space-bot-list.xyz"),
+    
+    /**
+     * <a href="https://topcord.xyz" target="_blank">topcord.xyz</a>
+     */
+    TOPCORD_XYZ("topcord.xyz"),
     
     /**
      * <a href="https://wonderbotlist.com" target="_blank">wonderbotlist.com</a>
