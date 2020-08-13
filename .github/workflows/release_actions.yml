@@ -25,7 +25,7 @@ jobs:
         
         git add docs
         git commit -m "Update Javadoc (${GITHUB_SHA:0:7})"
-        git push
+        git push origin master
   publish:
     needs: [generateJavadoc]
     if: success()
