@@ -18,6 +18,14 @@ jobs:
         java-version: 1.11
     - name: Generate Javadoc
       run: ./gradlew javadoc
+    - name: Push changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "actions@github.com"
+        
+        git add docs
+        git commit -m "Update Javadoc (${GITHUB_SHA:0:7})"
+        git push
   publish:
     needs: [generateJavadoc]
     if: success()
