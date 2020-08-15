@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"org.botblock.javabotblockapi.core"},{"l":"org.botblock.javabotblockapi.core.annotations"},{"l":"org.botblock.javabotblockapi.core.exceptions"}]
