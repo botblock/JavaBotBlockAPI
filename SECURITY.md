@@ -9,38 +9,38 @@ Those are also the only versions that may receive bug fixes and patches.
 
 ### Core
 
-| Version | Supported          | Notes:                                      |
-| ------- | ------------------ | ------------------------------------------- |
-| 6.x     | :white_check_mark: |                                             |
-| 5.x     | :white_check_mark: | Will see end of support on August 31st 2020 |
-| 4.x     | :x:                |                                             |
-| 3.x     | :x:                |                                             |
-| 2.x     | :x:                |                                             |
-| 1.x     | :x:                |                                             |
+| Version | Supported          | Notes: |
+| ------- | ------------------ | ------ |
+| 6.x     | :white_check_mark: |        |
+| 5.x     | :x:                |        |
+| 4.x     | :x:                |        |
+| 3.x     | :x:                |        |
+| 2.x     | :x:                |        |
+| 1.x     | :x:                |        |
 
 ----
 ### JDA-Module
 
-| Version | Supported          | Notes:                                      |
-| ------- | ------------------ | ------------------------------------------- |
-| 6.x     | :white_check_mark: |                                             |
-| 5.x     | :white_check_mark: | Will see end of support on August 31st 2020 |
-| 4.x     | :x:                |                                             |
-| 3.x     | :x:                |                                             |
-| 2.x     | :x:                |                                             |
-| 1.x     | :x:                |                                             |
+| Version | Supported          | Notes: |
+| ------- | ------------------ | ------ |
+| 6.x     | :white_check_mark: |        |
+| 5.x     | :x:                |        |
+| 4.x     | :x:                |        |
+| 3.x     | :x:                |        |
+| 2.x     | :x:                |        |
+| 1.x     | :x:                |        |
 
 ----
 ### Request-Module
 
-| Version | Supported          | Notes:                                      |
-| ------- | ------------------ | ------------------------------------------- |
-| 6.x     | :white_check_mark: |                                             |
-| 5.x     | :white_check_mark: | Will see end of support on August 31st 2020 |
-| 4.x     | :x:                |                                             |
-| 3.x     | :x:                |                                             |
-| 2.x     | :x:                |                                             |
-| 1.x     | :x:                |                                             |
+| Version | Supported          | Notes: |
+| ------- | ------------------ | ------ |
+| 6.x     | :white_check_mark: |        |
+| 5.x     | :x:                |        |
+| 4.x     | :x:                |        |
+| 3.x     | :x:                |        |
+| 2.x     | :x:                |        |
+| 1.x     | :x:                |        |
 
 ---
 ## Reporting a Vulnerability
