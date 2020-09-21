@@ -22,7 +22,6 @@ import org.botblock.javabotblockapi.core.BotBlockAPI;
 import org.botblock.javabotblockapi.core.exceptions.RatelimitedException;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
 import org.javacord.api.DiscordApi;
-import org.javacord.api.Javacord;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -31,6 +30,7 @@ import javax.annotation.Nullable;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -140,15 +140,15 @@ public class PostAction{
      * time set in {@link org.botblock.javabotblockapi.core.BotBlockAPI.Builder#setUpdateDelay(Integer) BotBlockAPI.Builder.setUpdateDelay(Integer)}
      * (default is 30 minutes).
      * 
-     * @param api
-     *        The {@link org.javacord.api.DiscordApi DiscordApi instance} to post stats from.
+     * @param apis
+     *        The {@link org.javacord.api.DiscordApi DiscordApi instances} to post stats from.
      * @param botBlockAPI
      *        The {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlockAPI instance} to use.
      */
-    public void enableAutoPost(@Nonnull DiscordApi api, @Nonnull BotBlockAPI botBlockAPI){
+    public void enableAutoPost(@Nonnull BotBlockAPI botBlockAPI, @Nonnull DiscordApi... apis){
         scheduler.scheduleAtFixedRate(() -> {
             try{
-                postGuilds(api, botBlockAPI);
+                postGuilds(botBlockAPI, apis);
             }catch(IOException | RatelimitedException ex){
                 ex.printStackTrace();
             }
@@ -162,8 +162,8 @@ public class PostAction{
      * <p>If the provided DiscordApi instance is a sharded Bot (Amount of shards is larger than 1) will the request
      * contain the {@code shards} array alongside a {@code shard_count} field.
      * 
-     * @param api
-     *        The {@link org.javacord.api.DiscordApi DiscordApi instance} to post stats from.
+     * @param apis
+     *        The {@link org.javacord.api.DiscordApi DiscordApi instances} to post stats from.
      * @param botBlockAPI
      *        The {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlockAPI instance} to use.
      *        
@@ -172,16 +172,24 @@ public class PostAction{
      * @throws org.botblock.javabotblockapi.core.exceptions.RatelimitedException
      *         When we get rate limited by the BotBlock API (returns error code 429).
      */
-    public void postGuilds(@Nonnull DiscordApi api, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
+    public void postGuilds(@Nonnull BotBlockAPI botBlockAPI, @Nonnull DiscordApi... apis) throws IOException, RatelimitedException{
         JSONObject json = new JSONObject()
-                .put("server_count", api.getServers().size())
-                .put("bot_id", api.getYourself().getId());
-    
-        List<Long> shards = new ArrayList<>();
-        for(int i = 0; i < (api.getTotalShards() -1); i++)
-            shards.add(1L);
+                .put("bot_id", apis[0].getYourself().getId());
         
-        json.put("shards", new JSONArray(Arrays.deepToString(shards.toArray())));
+        if(apis.length > 1){
+            int guilds = Arrays.stream(apis).map(DiscordApi::getServers).mapToInt(Collection::size).sum();
+            json.put("server_count", guilds)
+                .put("shard_count", apis.length);
+            
+            List<Integer> shards = new ArrayList<>();
+            for(DiscordApi api : apis)
+                shards.add(api.getServers().size());
+            
+            json.put("shards", new JSONArray(Arrays.deepToString(shards.toArray())));
+        }else{
+            json.put("server_count", apis[0].getServers().size());
+        }
+        
         botBlockAPI.getTokens().forEach(json::put);
         
         requestHandler.performPOST(json, botBlockAPI.getTokens().size());
