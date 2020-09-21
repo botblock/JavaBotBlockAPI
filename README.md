@@ -12,6 +12,8 @@
 [Download]: https://bintray.com/andre601/maven/JavaBotBlockAPI/_latestVersion
 
 [JDA]: https://github.com/DV8FromTheWorld/JDA  
+[Javacord]: https://github.com/javacord/Javacord
+
 [OkHttp]: https://github.com/square/okhttp/  
 [JSON]: https://github.com/stleary/JSON-java  
 [Caffeine]: https://github.com/ben-manes/caffeine  
@@ -59,6 +61,9 @@ dependencies{
 
     // JDA Module. Depends on Core and Request
     compile group: 'org.botblock', name: 'javabotblockapi-jda', version: '{version}'
+    
+    // Javacord Module. Depends on Core and Request
+    compile group: 'org.botblock', name: 'javabotblockapi-javacord', version: '{version}'
 }
 ```
 
@@ -111,6 +116,13 @@ if you want to only download specific modules can you just use `javabotblockapi-
     <artifactId>javabotblockapi-jda</artifactId>
     <version>{version}</version>
   </dependency>
+
+  <!-- Javacord Module. Depends on Core on Request -->
+  <dependency>
+    <groupId>org.botblock</groupId>
+    <artifactId>javabotblockapi-javacord</artifactId>
+    <version>{version}</version>
+  </dependency>
 </dependencies>
 ```
 
@@ -120,10 +132,15 @@ Please visit the [Javadoc] for all available POST and GET methods, as the amount
 # Libraries/Dependencies
 JavaBotBlockAPI utilizes different APIs to provide the functionality it offers right now.  
 We have a list of those libraries listed here.
-- [JDA] - Java library used for creating bots.
-- [OkHttp] - Library for creating and managing http requests.
-- [JSON] - Used for JSON management.
-- [Caffeine] - Library used for caching.
+
+- **Javacord Module**
+  - [Javacord] - Java Wrapper for making Discord Bots.
+- **JDA Module**
+  - [JDA] - Java library used for creating bots.
+- **Request Module**
+  - [OkHttp] - Library for creating and managing http requests.
+  - [JSON] - Used for JSON management.
+  - [Caffeine] - Library used for caching.
 
 
 # Links

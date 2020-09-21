@@ -88,7 +88,6 @@ public class BotBlockAPI{
             CheckUtil.notEmpty(token, "Token");
             
             tokens.put(site.getSite(), token);
-            
             return this;
         }
         
@@ -113,7 +112,6 @@ public class BotBlockAPI{
             CheckUtil.notEmpty(token, "Token");
             
             tokens.put(site, token);
-            
             return this;
         }
         
@@ -133,7 +131,6 @@ public class BotBlockAPI{
             CheckUtil.notEmpty(tokens, "Tokens");
             
             this.tokens = tokens;
-            
             return this;
         }
         
@@ -153,7 +150,6 @@ public class BotBlockAPI{
             CheckUtil.condition(updateDelay < 2, "UpdateDelay may not be less than 2.");
             
             this.updateDelay = updateDelay;
-            
             return this;
         }
         
