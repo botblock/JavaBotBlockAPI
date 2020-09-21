@@ -1,0 +1,5 @@
+dependencies {
+    api group: 'org.javacord', name: 'javacord', version: '3.0.7'
+    implementation project(":core")
+    implementation project(":request")
+}

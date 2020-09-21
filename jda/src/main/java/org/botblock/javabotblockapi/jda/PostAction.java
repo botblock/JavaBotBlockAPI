@@ -34,7 +34,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
@@ -51,7 +50,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class PostAction{
     private final RequestHandler requestHandler;
-    private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+    private final ScheduledExecutorService scheduler;
     
     /**
      * Creates a new instance of this class.
@@ -74,12 +73,13 @@ public class PostAction{
      *        The {@link net.dv8tion.jda.api.JDA JDA instance} used to set the UserAgent.
      */
     public PostAction(@Nonnull JDA jda){
-        requestHandler = new RequestHandler(String.format(
+        this.requestHandler = new RequestHandler(String.format(
                 "%s-%s/API_VERSION (JDA) DBots/%s",
                 jda.getSelfUser().getName(),
                 jda.getSelfUser().getDiscriminator(),
                 jda.getSelfUser().getId()
         ));
+        this.scheduler = requestHandler.getScheduler();
     }
     
     /**
@@ -185,7 +185,7 @@ public class PostAction{
      * task, which will post the statistics of the provided {@link net.dv8tion.jda.api.sharding.ShardManager ShardManager instance} every n minutes.
      *
      * <p>If the post can't be performed - either by getting a {@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException}
-     * or by getting an {@link java.io.IOException IOException} - will the exception be catched and the stacktrace printed.
+     * or by getting an {@link java.io.IOException IOException} - will the exception be caught and a Stacktrace printed.
      *
      * <p>The scheduler will wait an initial delay of 1 minute and then performs a task every n minutes, where n is the
      * time set in {@link org.botblock.javabotblockapi.core.BotBlockAPI.Builder#setUpdateDelay(Integer) BotBlockAPI.Builder.setUpdateDelay(Integer)}
@@ -219,7 +219,7 @@ public class PostAction{
      *         The {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlockAPI instance} to use.
      *         
      * @throws java.io.IOException
-     *         When the POST request wasn't successfull.
+     *         When the POST request wasn't successful.
      * @throws org.botblock.javabotblockapi.core.exceptions.RatelimitedException
      *         When we get rate limited by the BotBlock API (returns error code 429).
      */
@@ -239,10 +239,7 @@ public class PostAction{
     
     /**
      * Performs a POST request towards the BotBlock API using the information from the provided
-     * {@link net.dv8tion.jda.api.JDA JDA} and {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlockAPI} instances.
-     *
-     * <p>If the provided JDA instance also is part of a sharded Bot (Amount of shards is larger than 1) will the request
-     * also include {@code shard_id} and {@code shard_count}
+     * {@link net.dv8tion.jda.api.sharding.ShardManager ShardManager} and {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlockAPI} instances.
      *
      * @param  shardManager
      *         The {@link net.dv8tion.jda.api.sharding.ShardManager ShardManager instance} to post stats from.
@@ -252,7 +249,7 @@ public class PostAction{
      * @throws java.lang.IllegalStateException
      *         When the first shard (id 0) of the provided ShardManager is null.
      * @throws java.io.IOException
-     *         When the POST request wasn't successfull.
+     *         When the POST request wasn't successful.
      * @throws org.botblock.javabotblockapi.core.exceptions.RatelimitedException
      *         When we get rate limited by the BotBlock API (returns error code 429).
      */
