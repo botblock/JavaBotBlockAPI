@@ -57,11 +57,19 @@ allprojects {
                     def opt = it as StandardJavadocDocletOptions
 
                     opt.links(
+                            // JSON Lib
                             "https://stleary.github.io/JSON-java/",
+                            
+                            // Discord Libs
                             "https://ci.dv8tion.net/job/JDA/javadoc/",
+                            
+                            // Java 8
                             "https://docs.oracle.com/javase/8/docs/api/",
+                            
+                            // BotBlock Docs
                             "https://docs.botblock.org/JavaBotBlockAPI/core/",
                             "https://docs.botblock.org/JavaBotBlockAPI/jda/",
+                            //"https://docs.botblock.org/JavaBotBlockAPI/javacord/",
                             "https://docs.botblock.org/JavaBotBlockAPI/request/"
                     )
 

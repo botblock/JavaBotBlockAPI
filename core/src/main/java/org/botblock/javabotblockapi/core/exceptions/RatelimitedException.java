@@ -91,13 +91,13 @@ public class RatelimitedException extends RuntimeException{
     }
     
     /**
-     * Returns a formatted message displaying the various information returned in this exception.
-     * <br>This essentially returns the same value as {@link #toString() toString()} does.
+     * Returns a message informing us about {@link #getRoute() where} we got rate limited, {@link #getDelay() for how long} and
+     * on what {@link #getBotId() bot id} and {@link #getIp() ip}.
      *
-     * @return Formatted String containing the provided information from the response. Same format as {@link #toString() toString()}.
+     * @return String containing a message with route, delay, bot id and IP.
      */
     @Override
     public String getMessage(){
-        return toString();
+        return "Got rate limited on route" + route + " for " + delay + "ms with bot id " + botId + " (ip: " + ip + ")";
     }
 }
