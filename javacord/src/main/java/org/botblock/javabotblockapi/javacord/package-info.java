@@ -16,9 +16,8 @@
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-
 /**
- * This is the JDA module which is used to provide support for the Java Discord API (JDA) Library.
+ * This is the Javacord module which is used to provide support for the Javacord Library.
  * <br>Make sure to install both the request library and the core library for this one to work!
  *
  * <h1>Installation</h1>
@@ -34,9 +33,9 @@
  * dependencies{
  *     // Those two are required
  *     compile 'org.botblock:JavaBotBlockAPI-core:API_VERSION'
- *     compile 'org.botblock.JavaBotBlockAPI-request:API_VERSION'
- *     
- *     compile 'org.botblock:JavaBotBlockAPI-jda:API_VERSION'
+ *     compile 'org.botblock:JavaBotBlockAPI-request:API_VERSION'
+ *
+ *     compile 'org.botblock:JavaBotBlockAPI-javacord:API_VERSION'
  * }
  * </code></pre>
  *
@@ -66,7 +65,7 @@
  *     
  *     <dependency>
  *         <groupId>org.botblock</groupId>
- *         <artifactId>JavaBotBlockAPI-jda</artifactId>
+ *         <artifactId>JavaBotBlockAPI-javacord</artifactId>
  *         <version>API_VERSION</version>
  *     </dependency>
  * </dependencies>
@@ -82,4 +81,4 @@
  *
  * <p>Note that you will not receive any support when using this method.
  */
-package org.botblock.javabotblockapi.jda;
+package org.botblock.javabotblockapi.javacord;

@@ -16,69 +16,50 @@
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package org.botblock.javabotblockapi.requests;
+package org.botblock.javabotblockapi.javacord;
 
 import org.botblock.javabotblockapi.core.BotBlockAPI;
 import org.botblock.javabotblockapi.core.exceptions.RatelimitedException;
-import org.botblock.javabotblockapi.core.CheckUtil;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
+import org.javacord.api.DiscordApi;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Class used to perform POST requests towards the <a href="https://botblock.org/api/docs#count" target="_blank">/api/count</a> 
+ * Class used to perform POST requests towards the <a href="https://botblock.org/api/docs#count" target="_blank">/api/count</a>
  * endpoint of BotBlock.
  * 
- * <p>The class offers options to post either {@link #postGuilds(Long, Integer, BotBlockAPI) manually} or
- * {@link #enableAutoPost(Long, int, BotBlockAPI) automatically}.
+ * <p>The class offers options to post either 
  */
 public class PostAction{
-    
     private final RequestHandler requestHandler;
     private final ScheduledExecutorService scheduler;
     
     /**
-     * Constructor to get an instance of PostAction.
-     *
-     * <p>Using this constructor will set the following default values:
-     * <br><ul>
-     *     <li>User-Agent: {@code "JavaBotBlockAPI-0000/API_VERSION (Unknown; +https://jbba.dev) DBots/{id}"}</li>
-     * </ul>
-     *
-     * @param id
-     *        The id of the bot. This is required for the internal User-Agent.
-     *
-     * @throws NullPointerException
-     *         When the provided id is empty.
+     * Creates a new instance of this class.
+     * <br>This will set the UserAgent used for POST request to {@code <botname>-<discriminator>/<api-version> (Javacord) DBots/<id>}
+     * using the provided {@link org.javacord.api.DiscordApi DiscordApi instance}.
+     * 
+     * @param api
+     *        The {@link org.javacord.api.DiscordApi DiscordApi instance} used to set the UserAgent.
      */
-    public PostAction(@Nonnull String id){
-        this("JavaBotBlockAPI-0000/API_VERSION (Unknown; +https://jbba.dev) DBots/{id}", id);
-    }
-    
-    /**
-     * Constructor to get an instance of PostAction.
-     * <br>This constructor allows you to set a own User-Agent by providing any String as the first argument.
-     *
-     * <p>Note that you can provide {@code {id}} inside the userAgent to get it replaced with the provided id.
-     *
-     * @param userAgent
-     *        The Name to use as User-Agent.
-     * @param id
-     *        The id of the bot. This is required for the internal User-Agent.
-     *
-     * @throws NullPointerException
-     *         When the provided userAgent or id is empty.
-     */
-    public PostAction(@Nonnull String userAgent, @Nonnull String id){
-        CheckUtil.notEmpty(userAgent, "UserAgent");
-        CheckUtil.notEmpty(id, "ID");
-        
-        this.requestHandler = new RequestHandler(userAgent.replace("{id}", id));
+    public PostAction(DiscordApi api){
+        this.requestHandler = new RequestHandler(String.format(
+                "%s-%s/API_VERSION (Javacord) DBots/%s",
+                api.getYourself().getName(),
+                api.getYourself().getDiscriminator(),
+                api.getYourself().getId()
+        ));
         this.scheduler = requestHandler.getScheduler();
     }
     
@@ -86,7 +67,7 @@ public class PostAction{
      * Disables the automatic posting of Stats.
      * <br>This essentially just performs a {@link java.util.concurrent.ScheduledExecutorService#shutdown() ScheduledExecutorService.shutdown()}
      * by calling the {@link #disableAutoPost(BotBlockAPI) disableAutoPost(null)} method.
-     *
+     * 
      * <p>Note that using this method will NOT make the scheduler wait for previously scheduled tasks to complete.
      * <br>If you want to wait for the tasks to complete use {@link #disableAutoPost(BotBlockAPI) disableAutoPost(BotBlockAPI)} or
      * {@link #disableAutoPost(long, TimeUnit) disableAutoPost(long, TimeUnit)} instead.
@@ -101,19 +82,20 @@ public class PostAction{
      * Disables the automatic posting of Stats.
      * <br>Unlike {@link #disableAutoPost() disableAutoPost()} can you make the scheduler wait for all scheduled tasks to 
      * finish, or to time out after n minutes by providing the {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlock instance}.
-     * 
+     *
      * <p>Passing null as argument will just perform a {@link java.util.concurrent.ScheduledExecutorService#shutdown() ScheduledExecutorService.shutdown()}
      * similar to what the disableAutoPost() method does.
-     * 
+     *
      * <p>If you want to use a different delay than what you've set in the BotBlockAPI instance, can you use 
      * {@link #disableAutoPost(long, TimeUnit) disableAutoPost(long, TimeUnit)} instead.
-     * 
+     *
      * <p>This method may throw a {@link java.lang.InterruptedException InterruptedException} in the terminal.
-     * 
+     *
      * @param botBlockAPI
      *        The {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlockAPI instance} or null to just perform a shutdown.
      * 
-     * @since 6.0.0
+     * @see java.util.concurrent.ScheduledExecutorService#shutdown()
+     * @see java.util.concurrent.ScheduledExecutorService#awaitTermination(long, TimeUnit)
      */
     public void disableAutoPost(@Nullable BotBlockAPI botBlockAPI){
         if(botBlockAPI != null){
@@ -136,7 +118,7 @@ public class PostAction{
      * @param timeUnit
      *        The {@link java.util.concurrent.TimeUnit TimeUnit} to use.
      * 
-     * @since 6.0.0
+     * @see java.util.concurrent.ScheduledExecutorService#awaitTermination(long, TimeUnit)
      */
     public void disableAutoPost(long time, @Nonnull TimeUnit timeUnit){
         try{
@@ -149,100 +131,64 @@ public class PostAction{
     
     /**
      * Starts a {@link java.util.concurrent.ScheduledExecutorService#scheduleAtFixedRate(Runnable, long, long, TimeUnit) scheduleAtFixedRate}
-     * task, which will post the provided guild count to the provided bot lists every n minutes.
-     *
-     * <p>If the post can't be performed - either by getting a {@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException}
-     * or by getting an {@link java.io.IOException IOException} - will the exception be catched and the stacktrace printed.
-     * <br>The scheduler may be canceled by this.
-     *
+     * task, which will post the statistics of the provided {@link org.javacord.api.DiscordApi DiscordApi instance} every n minutes.
+     * 
+     * <p>If the post can't be performed - either by getting a {@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RateLimitedException}
+     * or by getting an {@link java.io.IOException IOException} - will the exception be caught and a Stacktrace printed.
+     * 
      * <p>The scheduler will wait an initial delay of 1 minute and then performs a task every n minutes, where n is the
      * time set in {@link org.botblock.javabotblockapi.core.BotBlockAPI.Builder#setUpdateDelay(Integer) BotBlockAPI.Builder.setUpdateDelay(Integer)}
      * (default is 30 minutes).
-     *
-     * @param botId
-     *        The ID of the bot as Long.
-     * @param guilds
-     *        The guild count.
+     * 
+     * @param apis
+     *        The {@link org.javacord.api.DiscordApi DiscordApi instances} to post stats from.
      * @param botBlockAPI
      *        The {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlockAPI instance} to use.
      */
-    public void enableAutoPost(@Nonnull Long botId, int guilds, @Nonnull BotBlockAPI botBlockAPI){
+    public void enableAutoPost(@Nonnull BotBlockAPI botBlockAPI, @Nonnull DiscordApi... apis){
         scheduler.scheduleAtFixedRate(() -> {
             try{
-                postGuilds(botId, guilds, botBlockAPI);
+                postGuilds(botBlockAPI, apis);
             }catch(IOException | RatelimitedException ex){
                 ex.printStackTrace();
             }
-        }, botBlockAPI.getUpdateDelay(), botBlockAPI.getUpdateDelay(), TimeUnit.MINUTES);
+        }, 1, botBlockAPI.getUpdateDelay(), TimeUnit.MINUTES);
     }
     
     /**
-     * Starts a {@link java.util.concurrent.ScheduledExecutorService#scheduleAtFixedRate(Runnable, long, long, TimeUnit) scheduleAtFixedRate}
-     * task, which will post the provided guild count to the provided bot lists every n minutes.
-     *
-     * <p>If the post can't be performed - either by getting a {@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException}
-     * or by getting an {@link java.io.IOException IOException} - will the exception be catched and the stacktrace printed.
-     * <br>The scheduler may be canceled by this.
-     *
-     * <p>The scheduler will wait an initial delay of 1 minute and then performs a task every n minutes, where n is the
-     * time set in {@link org.botblock.javabotblockapi.core.BotBlockAPI.Builder#setUpdateDelay(Integer) BotBlockAPI.Builder.setUpdateDelay(Integer)}
-     * (default is 30 minutes).
-     *
-     * @param botId
-     *        The ID of the bot as String.
-     * @param guilds
-     *        The guild count.
+     * Performs a POST request towards the BotBlock API using the information from the provided
+     * {@link org.javacord.api.DiscordApi DiscordApi} and {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlock} instances.
+     * 
+     * <p>If the provided DiscordApi instance is a sharded Bot (Amount of shards is larger than 1) will the request
+     * contain the {@code shards} array alongside a {@code shard_count} field.
+     * 
+     * @param apis
+     *        The {@link org.javacord.api.DiscordApi DiscordApi instances} to post stats from.
      * @param botBlockAPI
      *        The {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlockAPI instance} to use.
-     */
-    public void enableAutoPost(@Nonnull String botId, int guilds, @Nonnull BotBlockAPI botBlockAPI){
-        scheduler.scheduleAtFixedRate(() -> {
-            try{
-                postGuilds(botId, guilds, botBlockAPI);
-            }catch(IOException | RatelimitedException ex){
-                ex.printStackTrace();
-            }
-        }, botBlockAPI.getUpdateDelay(), botBlockAPI.getUpdateDelay(), TimeUnit.MINUTES);
-    }
-    
-    /**
-     * Posts the guild count with the provided bot id.
-     *
-     * @param  botId
-     *         The ID of the bot.
-     * @param  guilds
-     *         The guild count.
-     * @param  botBlockAPI
-     *         The {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlockAPI instance}.
-     *
+     *        
      * @throws java.io.IOException
-     *         When the post request couldn't be performed.
+     *         When the POST request wasn't successful.
      * @throws org.botblock.javabotblockapi.core.exceptions.RatelimitedException
-     *         When we exceed the rate-limit of the BotBlock API.
+     *         When we get rate limited by the BotBlock API (returns error code 429).
      */
-    public void postGuilds(@Nonnull Long botId, @Nonnull Integer guilds, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
-        postGuilds(Long.toString(botId), guilds, botBlockAPI);
-    }
-    
-    /**
-     * Posts the guild count with the provided bot id.
-     *
-     * @param  botId
-     *         The ID of the bot.
-     * @param  guilds
-     *         The guild count.
-     * @param  botBlockAPI
-     *         The {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlockAPI instance}.
-     *
-     * @throws java.io.IOException
-     *         When the post request couldn't be performed.
-     * @throws org.botblock.javabotblockapi.core.exceptions.RatelimitedException
-     *         When we exceed the rate-limit of the BotBlock API.
-     */
-    public void postGuilds(@Nonnull String botId, @Nonnull Integer guilds, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
+    public void postGuilds(@Nonnull BotBlockAPI botBlockAPI, @Nonnull DiscordApi... apis) throws IOException, RatelimitedException{
         JSONObject json = new JSONObject()
-                .put("server_count", guilds)
-                .put("bot_id", botId);
+                .put("bot_id", apis[0].getYourself().getId());
+        
+        if(apis.length > 1){
+            int guilds = Arrays.stream(apis).map(DiscordApi::getServers).mapToInt(Collection::size).sum();
+            json.put("server_count", guilds)
+                .put("shard_count", apis.length);
+            
+            List<Integer> shards = new ArrayList<>();
+            for(DiscordApi api : apis)
+                shards.add(api.getServers().size());
+            
+            json.put("shards", new JSONArray(Arrays.deepToString(shards.toArray())));
+        }else{
+            json.put("server_count", apis[0].getServers().size());
+        }
         
         botBlockAPI.getTokens().forEach(json::put);
         

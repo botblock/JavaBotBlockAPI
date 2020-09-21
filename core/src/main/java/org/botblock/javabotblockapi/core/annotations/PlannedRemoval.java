@@ -22,7 +22,7 @@ import java.lang.annotation.*;
 
 /**
  * Annotation to mark an Object to be planned for removal.
- * <br>This is often paired with the {@link java.lang.Deprecated Deprecated} and
+ * <br>This is paired with the {@link java.lang.Deprecated Deprecated} and
  * {@link org.botblock.javabotblockapi.core.annotations.DeprecatedSince DeprecatedSince} annotations.
  * 
  * <p>This annotation will always contain {@link #version() the version} in which the annotated Object will be removed.

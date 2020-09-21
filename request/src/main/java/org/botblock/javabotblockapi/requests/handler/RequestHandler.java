@@ -30,12 +30,16 @@ import org.json.JSONObject;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.io.IOException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class RequestHandler{
     
-    private final String BASE_URL = "https://botblock.org/api/";
     private final OkHttpClient CLIENT = new OkHttpClient();
+    private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+    
+    private final String BASE_URL = "https://botblock.org/api/";
     private final String userAgent;
     
     private final Cache<String, JSONObject> botCache = Caffeine.newBuilder()
@@ -104,36 +108,6 @@ public class RequestHandler{
         
     }
     
-    private JSONObject performGET(@Nonnull String url, String header) throws IOException{
-        Request request = new Request.Builder()
-                .url(url)
-                .addHeader("User-Agent", header)
-                .build();
-        
-        try(Response response = CLIENT.newCall(request).execute()){
-            ResponseBody body = response.body();
-            if(body == null)
-                throw new NullPointerException("Received empty response body.");
-            
-            String bodyString = body.string();
-            if(bodyString.isEmpty())
-                throw new NullPointerException("Received empty response body.");
-            
-            if(!response.isSuccessful()){
-                if(response.code() == 429)
-                    throw new RatelimitedException(bodyString);
-                
-                throw new IOException(String.format(
-                        "Could not retrieve information. The server responded with error code %d (%s).",
-                        response.code(),
-                        response.message()
-                ));
-            }
-            
-            return new JSONObject(bodyString);
-        }
-    }
-    
     public void performPOST(@Nonnull JSONObject json, int sites) throws IOException{
         CheckUtil.condition(sites < 1, "The POST action requires at least 1 site!");
         
@@ -193,6 +167,40 @@ public class RequestHandler{
                         failures.toString()
                 ));
             }
+        }
+    }
+    
+    public ScheduledExecutorService getScheduler(){
+        return scheduler;
+    }
+    
+    private JSONObject performGET(@Nonnull String url, String header) throws IOException{
+        Request request = new Request.Builder()
+                .url(url)
+                .addHeader("User-Agent", header)
+                .build();
+        
+        try(Response response = CLIENT.newCall(request).execute()){
+            ResponseBody body = response.body();
+            if(body == null)
+                throw new NullPointerException("Received empty response body.");
+            
+            String bodyString = body.string();
+            if(bodyString.isEmpty())
+                throw new NullPointerException("Received empty response body.");
+            
+            if(!response.isSuccessful()){
+                if(response.code() == 429)
+                    throw new RatelimitedException(bodyString);
+                
+                throw new IOException(String.format(
+                        "Could not retrieve information. The server responded with error code %d (%s).",
+                        response.code(),
+                        response.message()
+                ));
+            }
+            
+            return new JSONObject(bodyString);
         }
     }
     
