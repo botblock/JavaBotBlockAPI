@@ -62,7 +62,6 @@ allprojects {
                             
                             // Discord Libs
                             "https://ci.dv8tion.net/job/JDA/javadoc/",
-                            "https://docs.javacord.org/api/v/3.0.7/overview-summary.html",
                             
                             // Java 8
                             "https://docs.oracle.com/javase/8/docs/api/",
