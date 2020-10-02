@@ -34,7 +34,7 @@ import java.util.concurrent.TimeUnit;
  * Class used to perform POST requests towards the <a href="https://botblock.org/api/docs#count" target="_blank">/api/count</a> 
  * endpoint of BotBlock.
  * 
- * <p>The class offers options to post either {@link #postGuilds(Long, Integer, BotBlockAPI) manually} or
+ * <p>The class offers options to post either {@link #postGuilds(Long, int, BotBlockAPI) manually} or
  * {@link #enableAutoPost(Long, int, BotBlockAPI) automatically}.
  */
 public class PostAction{
