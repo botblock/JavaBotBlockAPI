@@ -19,6 +19,7 @@
 package org.botblock.javabotblockapi.javacord;
 
 import org.botblock.javabotblockapi.core.BotBlockAPI;
+import org.botblock.javabotblockapi.core.CheckUtil;
 import org.botblock.javabotblockapi.core.exceptions.RatelimitedException;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
 import org.javacord.api.DiscordApi;
@@ -112,6 +113,11 @@ public class PostAction{
      * finish, or to time out after a specified time frame.
      *
      * <p>This method may throw a {@link java.lang.InterruptedException InterruptedException} in the terminal.
+     * 
+     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <ul>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided time param is 0 or lower.</li>
+     * </ul>
      *
      * @param time
      *        The amount of time to wait for scheduled executions to finish before the Scheduler would time out.
@@ -121,6 +127,8 @@ public class PostAction{
      * @see java.util.concurrent.ScheduledExecutorService#awaitTermination(long, TimeUnit)
      */
     public void disableAutoPost(long time, @Nonnull TimeUnit timeUnit){
+        CheckUtil.condition(time <= 0, "time may not be less or equal to 0!");
+        
         try{
             scheduler.shutdown();
             scheduler.awaitTermination(time, timeUnit);
@@ -139,16 +147,23 @@ public class PostAction{
      * <p>The scheduler will wait an initial delay of 1 minute and then performs a task every n minutes, where n is the
      * time set in {@link org.botblock.javabotblockapi.core.BotBlockAPI.Builder#setUpdateDelay(Integer) BotBlockAPI.Builder.setUpdateDelay(Integer)}
      * (default is 30 minutes).
+     *
+     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <ul>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided DiscordApis are 0 or less.</li>
+     * </ul>
      * 
-     * @param apis
+     * @param discordApis
      *        The {@link org.javacord.api.DiscordApi DiscordApi instances} to post stats from.
      * @param botBlockAPI
      *        The {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlockAPI instance} to use.
      */
-    public void enableAutoPost(@Nonnull BotBlockAPI botBlockAPI, @Nonnull DiscordApi... apis){
+    public void enableAutoPost(@Nonnull BotBlockAPI botBlockAPI, @Nonnull DiscordApi... discordApis){
+        CheckUtil.condition(discordApis.length <= 0, "At least one DiscordApi instance needs to be provided!");
+        
         scheduler.scheduleAtFixedRate(() -> {
             try{
-                postGuilds(botBlockAPI, apis);
+                postGuilds(botBlockAPI, discordApis);
             }catch(IOException | RatelimitedException ex){
                 ex.printStackTrace();
             }
@@ -161,8 +176,13 @@ public class PostAction{
      * 
      * <p>If the provided DiscordApi instance is a sharded Bot (Amount of shards is larger than 1) will the request
      * contain the {@code shards} array alongside a {@code shard_count} field.
+     *
+     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <ul>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided DiscordApis are 0 or less.</li>
+     * </ul>
      * 
-     * @param apis
+     * @param discordApis
      *        The {@link org.javacord.api.DiscordApi DiscordApi instances} to post stats from.
      * @param botBlockAPI
      *        The {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlockAPI instance} to use.
@@ -172,22 +192,24 @@ public class PostAction{
      * @throws org.botblock.javabotblockapi.core.exceptions.RatelimitedException
      *         When we get rate limited by the BotBlock API (returns error code 429).
      */
-    public void postGuilds(@Nonnull BotBlockAPI botBlockAPI, @Nonnull DiscordApi... apis) throws IOException, RatelimitedException{
-        JSONObject json = new JSONObject()
-                .put("bot_id", apis[0].getYourself().getId());
+    public void postGuilds(@Nonnull BotBlockAPI botBlockAPI, @Nonnull DiscordApi... discordApis) throws IOException, RatelimitedException{
+        CheckUtil.condition(discordApis.length <= 0, "At least one DiscordApi instance needs to be provided!");
         
-        if(apis.length > 1){
-            int guilds = Arrays.stream(apis).map(DiscordApi::getServers).mapToInt(Collection::size).sum();
+        JSONObject json = new JSONObject()
+                .put("bot_id", discordApis[0].getYourself().getId());
+        
+        if(discordApis.length > 1){
+            int guilds = Arrays.stream(discordApis).map(DiscordApi::getServers).mapToInt(Collection::size).sum();
             json.put("server_count", guilds)
-                .put("shard_count", apis.length);
+                .put("shard_count", discordApis.length);
             
             List<Integer> shards = new ArrayList<>();
-            for(DiscordApi api : apis)
+            for(DiscordApi api : discordApis)
                 shards.add(api.getServers().size());
             
             json.put("shards", new JSONArray(Arrays.deepToString(shards.toArray())));
         }else{
-            json.put("server_count", apis[0].getServers().size());
+            json.put("server_count", discordApis[0].getServers().size());
         }
         
         botBlockAPI.getTokens().forEach(json::put);

@@ -131,6 +131,11 @@ public class PostAction{
      *
      * <p>This method may throw a {@link java.lang.InterruptedException InterruptedException} in the terminal.
      *
+     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <ul>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided time param is 0 or lower.</li>
+     * </ul>
+     *
      * @param time
      *        The amount of time to wait for scheduled executions to finish before the Scheduler would time out.
      * @param timeUnit
@@ -139,6 +144,8 @@ public class PostAction{
      * @since 6.0.0
      */
     public void disableAutoPost(long time, @Nonnull TimeUnit timeUnit){
+        CheckUtil.condition(time <= 0, "time may not be less or equal to 0!");
+        
         try{
             scheduler.shutdown();
             scheduler.awaitTermination(time, timeUnit);
@@ -220,13 +227,18 @@ public class PostAction{
      * @throws org.botblock.javabotblockapi.core.exceptions.RatelimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
-    public void postGuilds(@Nonnull Long botId, @Nonnull Integer guilds, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
+    public void postGuilds(@Nonnull Long botId, int guilds, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
         postGuilds(Long.toString(botId), guilds, botBlockAPI);
     }
     
     /**
      * Posts the guild count with the provided bot id.
      *
+     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <ul>
+     *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
+     * </ul>
+     * 
      * @param  botId
      *         The ID of the bot.
      * @param  guilds
@@ -239,7 +251,9 @@ public class PostAction{
      * @throws org.botblock.javabotblockapi.core.exceptions.RatelimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
-    public void postGuilds(@Nonnull String botId, @Nonnull Integer guilds, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
+    public void postGuilds(@Nonnull String botId, int guilds, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
+        CheckUtil.notEmpty(botId, "botId");
+        
         JSONObject json = new JSONObject()
                 .put("server_count", guilds)
                 .put("bot_id", botId);

@@ -25,7 +25,10 @@ import java.lang.annotation.*;
  * <br>This is paired with the {@link java.lang.Deprecated Deprecated} and
  * {@link org.botblock.javabotblockapi.core.annotations.DeprecatedSince DeprecatedSince} annotations.
  * 
- * <p>This annotation will always contain {@link #version() the version} in which the annotated Object will be removed.
+ * <p>This annotation will always contain the {@link #major() major}, {@link #minor()} and {@link #patch() patch} version
+ * in which the annotated Object will be removed.
+ * <br>For example will {@code @PlannedRemoval(major = 6, minor = 5, patch = 0)} indocate an Object for removal on version
+ * 6.5.0.
  * 
  * @since 5.2.2
  */
@@ -35,9 +38,23 @@ import java.lang.annotation.*;
 public @interface PlannedRemoval{
     
     /**
-     * The version for when the annotated Object will be removed.
+     * The major version for when the annotated Object will be removed.
      * 
-     * @return The version for when this Object will be removed.
+     * @return The major version for when this Object will be removed.
      */
-    String version();
+    int major();
+    
+    /**
+     * The minor version for when the annotated Object will be removed.
+     * 
+     * @return The minor version for when this Object will be removed.
+     */
+    int minor();
+    
+    /**
+     * The patch version for when the annotated Object will be removed.
+     *
+     * @return The path version for when this Object will be removed.
+     */
+    int patch();
 }
