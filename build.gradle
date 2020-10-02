@@ -9,7 +9,7 @@ plugins{
     id 'net.kyori.blossom' version '1.1.0'
 }
 
-def ver = new Version(major: 6, minor: 1, revision: 0)
+def ver = new Version(major: 6, minor: 2, patch: 0)
 
 allprojects {
     apply plugin: 'com.jfrog.bintray'
@@ -256,7 +256,7 @@ publishing {
 }
 
 class Version{
-    String major, minor, revision
+    String major, minor, patch
     
     static String getBuild(){
         System.getenv("BUILD_NUMBER") ? "_" + System.getenv("BUILD_NUMBER") : 
@@ -264,6 +264,6 @@ class Version{
     }
     
     String toString(){
-        "$major.$minor.${revision}$build"
+        "$major.$minor.${patch}$build"
     }
 }
