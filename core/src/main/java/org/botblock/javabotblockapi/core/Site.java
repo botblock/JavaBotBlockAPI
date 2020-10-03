@@ -121,6 +121,11 @@ public enum Site {
     GLENNBOTLIST_XYZ("glennbotlist.xyz"),
     
     /**
+     * <a href="https://hydrogenbots.club" target="_blank">hydrogenbots.club</a>
+     */
+    HYDROGENBOTS_CLUB("hydrogenbots.club"),
+    
+    /**
      * <a href="https://mythicalbots.xyz" target="_blank">mythicalbots.xyz</a>
      */
     MYTHICALBOTS_XYZ("mythicalbots.xyz"),
