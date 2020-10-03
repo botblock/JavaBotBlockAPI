@@ -116,12 +116,21 @@ public enum Site {
     DISCORDLISTOLOGY_COM("discordlistology.com"),
     
     /**
+     * <a href="https://disforge.com/bots" target="_blank">disforge.com</a>
+     * 
+     * @since 6.2.2
+     */
+    DISFORGE_COM("disforge.com"),
+    
+    /**
      * <a href="https://glennbotlist.xyz" target="_blank">glennbotlist.xyz</a>
      */
     GLENNBOTLIST_XYZ("glennbotlist.xyz"),
     
     /**
      * <a href="https://hydrogenbots.club" target="_blank">hydrogenbots.club</a>
+     * 
+     * @since 6.2.1
      */
     HYDROGENBOTS_CLUB("hydrogenbots.club"),
     
