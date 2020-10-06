@@ -17,6 +17,9 @@
  */
 package org.botblock.javabotblockapi.core;
 
+import org.botblock.javabotblockapi.core.annotations.Get;
+import org.botblock.javabotblockapi.core.annotations.Post;
+
 /**
  * Enum class containing all sites currently supported by BotBlock.org.
  *
@@ -27,56 +30,75 @@ public enum Site {
     /**
      * <a href="https://arcane-center.xyz" target="_blank">arcane-center.xyz</a>
      */
+    @Post
     ARCANE_CENTER_XYZ("arcane-center.xyz"),
     
     /**
      * <a href="https://blist.xyz" target="_blank">blist.xyz</a>
      */
+    @Post
     BLIST_XYZ("blist.xyz"),
     
     /**
      * <a href="https://botlist.space" target="_blank">botlist.space</a>
      */
+    @Post
     BOTLIST_SPACE("botlist.space"),
     
     /**
      * <a href="https://botsdatabase.com" target="_blank">botsdatabase.com</a>
      */
+    @Post
     BOTSDATABASE_COM("botsdatabase.com"),
     
     /**
      * <a href="https://bots.discordlabs.org" target="_blank">bots.discordlabs.org</a>
      */
+    @Post
     BOTS_DISCORDLABS_ORG("bots.discordlabs.org"),
     
     /**
      * <a href="https://botsfordiscord.com" target="_blank">botsfordiscord.com</a>
      */
+    @Post
     BOTSFORDISCORD_COM("botsfordiscord.com"),
     
     /**
      * <a href="https://bots.ondiscord.xyz" target="_blank">bots.ondiscord.xyz</a>
      */
+    @Post
     BOTS_ONDISCORD_XYZ("bots.ondiscord.xyz"),
     
     /**
      * <a href="https://dblista.pl" target="_blank">dblista.pl</a>
      */
+    @Post
     DBLISTA_PL("dblista.pl"),
     
     /**
      * <a href="https://discordapps.dev" target="_blank">discordapps.dev</a>
      */
+    @Post
     DISCORDAPPS_DEV("discordapps.dev"),
     
     /**
      * <a href="https://discord.boats" target="_blank">discord.boats</a>
      */
+    @Post
     DISCORD_BOATS("discord.boats"),
+    
+    /**
+     * <a href="https://discordbotdirectory.net" target="_blank">discordbotdirectory.net</a>
+     * 
+     * @since 6.3.0
+     */
+    @Get
+    DISCORDBOTDIRECTORY_NET("discordbotdirectory.net"),
     
     /**
      * <a href="https://discordbotlist.com" target="_blank">discordbotlist.com</a>
      */
+    @Post
     DISCORDBOTLIST_COM("discordbotlist.com"),
     
     /**
@@ -84,16 +106,19 @@ public enum Site {
      *
      * @since 5.2.3
      */
+    @Post
     DISCORDBOTS_CO("discordbots.co"),
     
     /**
      * <a href="https://discord.bots.gg" target="_blank">discord.bots.gg</a>
      */
+    @Post
     DISCORD_BOTS_GG("discord.bots.gg"),
     
     /**
      * <a href="https://discordbots.fun" target="_blank">discordbots.fun</a>
      */
+    @Post
     DISCORDBOTS_FUN("discordbots.fun"),
     
     /**
@@ -101,11 +126,13 @@ public enum Site {
      *
      * @since 2.3.3
      */
+    @Post
     DISCORDEXTREMELIST_XYZ("discordextremelist.xyz"),
     
     /**
      * <a href="https://discordlist.co" target="_blank">discordlist.co</a>
      */
+    @Post
     DISCORDLIST_CO("discordlist.co"),
     
     /**
@@ -113,6 +140,7 @@ public enum Site {
      *
      * @since 5.2.1
      */
+    @Post
     DISCORDLISTOLOGY_COM("discordlistology.com"),
     
     /**
@@ -120,11 +148,13 @@ public enum Site {
      * 
      * @since 6.2.2
      */
+    @Post
     DISFORGE_COM("disforge.com"),
     
     /**
      * <a href="https://glennbotlist.xyz" target="_blank">glennbotlist.xyz</a>
      */
+    @Post
     GLENNBOTLIST_XYZ("glennbotlist.xyz"),
     
     /**
@@ -132,26 +162,39 @@ public enum Site {
      * 
      * @since 6.2.1
      */
+    @Post
     HYDROGENBOTS_CLUB("hydrogenbots.club"),
     
     /**
      * <a href="https://mythicalbots.xyz" target="_blank">mythicalbots.xyz</a>
      */
+    @Post
     MYTHICALBOTS_XYZ("mythicalbots.xyz"),
     
     /**
      * <a href="https://space-bot-list.xyz" target="_blank">space-bot-list.xyz</a>
      */
+    @Post
     SPACE_BOT_LIST_XYZ("space-bot-list.xyz"),
     
     /**
      * <a href="https://topcord.xyz" target="_blank">topcord.xyz</a>
      */
+    @Post
     TOPCORD_XYZ("topcord.xyz"),
+    
+    /**
+     * <a href="https://voidbots.net" target="_blank">voidbots.net</a>
+     * 
+     * @since 6.3.0
+     */
+    @Post
+    VOIDBOTS_NET("voidbots.net"),
     
     /**
      * <a href="https://wonderbotlist.com" target="_blank">wonderbotlist.com</a>
      */
+    @Post
     WONDERBOTLIST_COM("wonderbotlist.com"),
     
     /**
@@ -159,6 +202,7 @@ public enum Site {
      *
      * @since 2.1.1
      */
+    @Post
     YABL_XYZ("yabl.xyz");
     
     private final String site;

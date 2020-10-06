@@ -18,7 +18,10 @@
 
 package org.botblock.javabotblockapi.core;
 
+import org.botblock.javabotblockapi.core.annotations.Post;
+
 import javax.annotation.Nonnull;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -77,8 +80,10 @@ public class BotBlockAPI{
          *         The API token from the corresponding bot list. May not be null or empty.
          *         <br>You may receive the API token from the bot list.
          *
-         * @throws java.lang.NullPointerException
-         *         When the provided token is empty ({@code ""}).
+         * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+         * <ul>
+         *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided Token is empty.</li>
+         * </ul>
          *
          * @return The Builder after the site and token were set. Useful for chaining.
          *
@@ -86,6 +91,16 @@ public class BotBlockAPI{
          */
         public Builder addAuthToken(@Nonnull Site site, @Nonnull String token){
             CheckUtil.notEmpty(token, "Token");
+            
+            Field field;
+            try{
+                field = site.getClass().getField(site.name());
+            }catch(NoSuchFieldException ex){
+                field = null;
+            }
+            
+            if(field == null || !field.isAnnotationPresent(Post.class))
+                throw new IllegalStateException("The provided Site instance is not allowed for POST Actions!");
             
             tokens.put(site.getSite(), token);
             return this;
