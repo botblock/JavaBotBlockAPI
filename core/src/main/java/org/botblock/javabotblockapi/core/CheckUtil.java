@@ -18,10 +18,6 @@
 
 package org.botblock.javabotblockapi.core;
 
-import org.botblock.javabotblockapi.core.annotations.Get;
-import org.botblock.javabotblockapi.core.annotations.Post;
-
-import java.lang.reflect.Field;
 import java.util.Map;
 
 /**
@@ -66,41 +62,5 @@ public class CheckUtil{
     public static void condition(boolean expression, String message){
         if(expression)
             throw new IllegalStateException(message);
-    }
-    
-    /**
-     * Will throw a {@link java.lang.IllegalStateException IllegalStateException} when the provided
-     * {@link org.botblock.javabotblockapi.core.Site Site instance} does not have the
-     * {@link org.botblock.javabotblockapi.core.annotations.Post @Post annotation}.
-     * 
-     * @param site
-     *        The Site instance to check.
-     */
-    public static void supportsPost(Site site){
-        Field field = getField(site);
-        
-        condition(field == null || !field.isAnnotationPresent(Post.class), site.getSite() + " does not support POST!");
-    }
-    
-    /**
-     * Will throw a {@link java.lang.IllegalStateException IllegalStateException} when the provided
-     * {@link org.botblock.javabotblockapi.core.Site Site instance} does not have the
-     * {@link org.botblock.javabotblockapi.core.annotations.Get @Post annotation}.
-     *
-     * @param site
-     *        The Site instance to check.
-     */
-    public static void supportsGet(Site site){
-        Field field = getField(site);
-    
-        condition(field == null || !field.isAnnotationPresent(Get.class), site.getSite() + " does not support GET!");
-    }
-    
-    private static Field getField(Site site){
-        try{
-            return site.getClass().getField(site.name());
-        }catch(NoSuchFieldException ex){
-            return null;
-        }
     }
 }
