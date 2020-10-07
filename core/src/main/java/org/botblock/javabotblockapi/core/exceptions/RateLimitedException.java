@@ -19,30 +19,43 @@ package org.botblock.javabotblockapi.core.exceptions;
 
 import org.json.JSONObject;
 
+import javax.annotation.Nullable;
+
 /**
  * Indicates that the Wrapper got rate limited by the BotBlock API.
  * <br>Use {@link #getDelay() getDelay()} to find out how long you have to wait until you can perform another request
  * towards {@link #getRoute() the targeted route}.
+ * 
+ * <p>Note that this Wrapper will do <b>no attempt</b> at delaying any further requests! I is your own responsability to
+ * handle rate limits properly in those cases and delay any future requests accordingly.
+ * <br>Any automated POSTing method of this Wrapper should not get rate limited due to keeping a minimal delay between each
+ * request that is more than enough.
  */
-public class RatelimitedException extends RuntimeException{
+public class RateLimitedException extends RuntimeException{
     private final int delay;
     private final String botId;
     private final String ip;
     private final String route;
 
-    public RatelimitedException(String response){
-        JSONObject json = new JSONObject(response);
-
-        this.delay = json.getInt("retry_after");
-        this.botId = json.getString("ratelimit_bot_id");
-        this.ip = json.getString("ratelimit_ip");
-        this.route = json.getString("ratelimit_route");
+    public RateLimitedException(JSONObject json){
+        this(json.optInt("retry_after", -1), json.optString("ratelimit_bot_id", null),
+             json.optString("ratelimit_ip", null), json.optString("ratelimit_route", null));
+    }
+    
+    private RateLimitedException(int delay, String botId, String ip, String route){
+        super("Got rate limited on route " + route + " with bot id " + botId + " (ip: " + ip + "). Retry after: " + delay);
+        
+        this.delay = delay;
+        this.botId = botId;
+        this.ip = ip;
+        this.route = route;
     }
     
     /**
      * Returns the delay - in milliseconds - you have to wait to perform a request again.
+     * <br>When no delay could be extracted from the received JSON (The JSON was malformed) then {@code -1} will be returned.
      * 
-     * @return The delay you have to wait in milliseconds
+     * @return The delay you have to wait in milliseconds or {@code -1}.
      */
     public int getDelay(){
         return delay;
@@ -50,17 +63,20 @@ public class RatelimitedException extends RuntimeException{
     
     /**
      * Returns the bot id that was rate limited.
+     * <br>When no botId could be extracted from the received JSON (The JSON was malformed) then {@code null} will be returned.
      * 
-     * @return The id of the bot that was rate limited
+     * @return Possibly-null String representing the id of the rate limited bot.
      */
+    @Nullable
     public String getBotId(){
         return botId;
     }
     
     /**
      * Returns the ip that was rate limited.
+     * <br>When no ip could be extracted from the received JSON (The JSON was malformed) then {@code null} will be returned.
      * 
-     * @return The ip that was rate limited
+     * @return Possibly-null String representing the ip of the rate limited bot.
      */
     public String getIp(){
         return ip;
@@ -68,8 +84,9 @@ public class RatelimitedException extends RuntimeException{
     
     /**
      * Returns the route on which the bot was rate limited.
+     * <br>When no route could be extracted from the received JSON (The JSON was malformed) then {@code null} will be returned.
      * 
-     * @return The route on which the bot was rate limited
+     * @return Possibly-null String representing the route on which the bot got rate limited.
      */
     public String getRoute(){
         return route;
@@ -98,6 +115,6 @@ public class RatelimitedException extends RuntimeException{
      */
     @Override
     public String getMessage(){
-        return "Got rate limited on route" + route + " for " + delay + "ms with bot id " + botId + " (ip: " + ip + ")";
+        return "Got rate limited on route " + route + " with bot id " + botId + " (ip: " + ip + "). Retry after: " + delay;
     }
 }

@@ -20,6 +20,7 @@ package org.botblock.javabotblockapi.requests;
 
 import org.botblock.javabotblockapi.core.Site;
 import org.botblock.javabotblockapi.core.CheckUtil;
+import org.botblock.javabotblockapi.core.exceptions.RateLimitedException;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -119,12 +120,13 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site doesn't support GET requests.</li>
      * </ul>
      *
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -139,6 +141,8 @@ public class GetListAction{
     @Nullable
     public String getApiField(@Nonnull String id, @Nonnull Site site, @Nonnull ApiField field){
         CheckUtil.notEmpty(id, "id");
+        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        
         JSONObject json = getList(id, site);
         
         return json.getString(field.getApiField());
@@ -155,7 +159,7 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -171,6 +175,7 @@ public class GetListAction{
     public String getApiField(@Nonnull String id, @Nonnull String site, @Nonnull ApiField field){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
+        
         JSONObject json = getList(id, site);
         
         return json.getString(field.getApiField());
@@ -182,12 +187,13 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site doesn't support GET requests.</li>
      * </ul>
      *
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -200,6 +206,8 @@ public class GetListAction{
     @Nullable
     public String getBotWidgetUrl(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
+        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        
         JSONObject json = getList(id, site);
         
         return json.getString("bot_widget");
@@ -216,7 +224,7 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -230,6 +238,7 @@ public class GetListAction{
     public String getBotWidgetUrl(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
+        
         JSONObject json = getList(id, site);
         
         return json.getString("bot_widget");
@@ -241,12 +250,13 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site doesn't support GET requests.</li>
      * </ul>
      *
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -259,6 +269,8 @@ public class GetListAction{
     @Nullable
     public String getDescription(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
+        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        
         JSONObject json = getList(id, site);
         
         return json.getString("description");
@@ -275,7 +287,7 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -289,6 +301,7 @@ public class GetListAction{
     public String getDescription(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
+        
         JSONObject json = getList(id, site);
         
         return json.getString("description");
@@ -300,12 +313,13 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site doesn't support GET requests.</li>
      * </ul>
      *
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -318,6 +332,8 @@ public class GetListAction{
     @Nullable
     public String getDiscordInvite(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
+        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        
         JSONObject json = getList(id, site);
         
         return json.getString("discord");
@@ -334,7 +350,7 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -348,6 +364,7 @@ public class GetListAction{
     public String getDiscordInvite(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
+        
         JSONObject json = getList(id, site);
         
         return json.getString("discord");
@@ -360,12 +377,13 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site doesn't support GET requests.</li>
      * </ul>
      *
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -377,6 +395,8 @@ public class GetListAction{
      */
     public JSONArray getFeatures(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
+        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        
         JSONObject json = getList(id, site);
         
         return json.getJSONArray("features");
@@ -394,7 +414,7 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -407,6 +427,7 @@ public class GetListAction{
     public JSONArray getFeatures(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
+        
         JSONObject json = getList(id, site);
         
         return json.getJSONArray("features");
@@ -424,7 +445,7 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -444,12 +465,13 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site doesn't support GET requests.</li>
      * </ul>
      *
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -462,6 +484,8 @@ public class GetListAction{
     @Nullable
     public String getIcon(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
+        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        
         JSONObject json = getList(id, site);
         
         return json.getString("icon");
@@ -478,7 +502,7 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -492,6 +516,7 @@ public class GetListAction{
     public String getIcon(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
+        
         JSONObject json = getList(id, site);
         
         return json.getString("icon");
@@ -504,12 +529,13 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site doesn't support GET requests.</li>
      * </ul>
      *
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -521,6 +547,8 @@ public class GetListAction{
      */
     public String getId(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
+        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        
         JSONObject json = getList(id, site);
         
         return json.getString("id");
@@ -538,7 +566,7 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -551,6 +579,7 @@ public class GetListAction{
     public String getId(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
+        
         JSONObject json = getList(id, site);
         
         return json.getString("id");
@@ -562,12 +591,13 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site doesn't support GET requests.</li>
      * </ul>
      *
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -579,6 +609,8 @@ public class GetListAction{
      */
     public String getLanguage(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
+        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        
         JSONObject json = getList(id, site);
         
         return json.getString("language");
@@ -595,7 +627,7 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -608,6 +640,7 @@ public class GetListAction{
     public String getLanguage(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
+        
         JSONObject json = getList(id, site);
         
         return json.getString("language");
@@ -619,12 +652,13 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site doesn't support GET requests.</li>
      * </ul>
      *
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -636,6 +670,7 @@ public class GetListAction{
      */
     public JSONObject getList(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
+        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
         
         return REQUEST_HANDLER.performGetList(id, site.getSite(), disableCache);
     }
@@ -651,7 +686,7 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -679,7 +714,7 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -699,12 +734,13 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site doesn't support GET requests.</li>
      * </ul>
      *
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -716,6 +752,8 @@ public class GetListAction{
      */
     public String getName(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
+        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        
         JSONObject json = getList(id, site);
         
         return json.getString("name");
@@ -732,7 +770,7 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -745,6 +783,7 @@ public class GetListAction{
     public String getName(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
+        
         JSONObject json = getList(id, site);
         
         return json.getString("name");
@@ -757,12 +796,13 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site doesn't support GET requests.</li>
      * </ul>
      *
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -775,6 +815,8 @@ public class GetListAction{
     @Nullable
     public String getOwners(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
+        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        
         JSONObject json = getList(id, site);
         
         return json.getString("owners");
@@ -792,7 +834,7 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -806,6 +848,7 @@ public class GetListAction{
     public String getOwners(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
+        
         JSONObject json = getList(id, site);
         
         return json.getString("owners");
@@ -817,12 +860,13 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site doesn't support GET requests.</li>
      * </ul>
      *
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -834,6 +878,8 @@ public class GetListAction{
      */
     public Integer getTimeAdded(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
+        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        
         JSONObject json = getList(id, site);
         
         return json.getInt("added");
@@ -850,7 +896,7 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -863,6 +909,7 @@ public class GetListAction{
     public Integer getTimeAdded(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
+        
         JSONObject json = getList(id, site);
         
         return json.getInt("added");
@@ -874,12 +921,13 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site doesn't support GET requests.</li>
      * </ul>
      *
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -891,6 +939,8 @@ public class GetListAction{
      */
     public String getUrl(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
+        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        
         JSONObject json = getList(id, site);
         
         return json.getString("url");
@@ -907,7 +957,7 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -920,6 +970,7 @@ public class GetListAction{
     public String getUrl(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
+        
         JSONObject json = getList(id, site);
         
         return json.getString("url");
@@ -932,12 +983,13 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site doesn't support GET requests.</li>
      * </ul>
      *
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -949,6 +1001,8 @@ public class GetListAction{
      */
     public boolean isDefunct(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
+        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        
         JSONObject json = getList(id, site);
         
         return json.getInt("defunct") == 1;
@@ -966,7 +1020,7 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -979,6 +1033,7 @@ public class GetListAction{
     public boolean isDefunct(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
+        
         JSONObject json = getList(id, site);
         
         return json.getInt("defunct") == 1;
@@ -990,12 +1045,13 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site doesn't support GET requests.</li>
      * </ul>
      *
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -1007,6 +1063,8 @@ public class GetListAction{
      */
     public boolean isDiscordOnly(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "name");
+        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        
         JSONObject json = getList(id, site);
         
         return json.getInt("discord_only") == 1;
@@ -1023,7 +1081,7 @@ public class GetListAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -1036,6 +1094,7 @@ public class GetListAction{
     public boolean isDiscordOnly(@Nonnull String id, @Nonnull String site){
         CheckUtil.notEmpty(id, "id");
         CheckUtil.notEmpty(site, "site");
+        
         JSONObject json = getList(id, site);
         
         return json.getInt("discord_only") == 1;

@@ -19,7 +19,7 @@
 package org.botblock.javabotblockapi.requests;
 
 import org.botblock.javabotblockapi.core.BotBlockAPI;
-import org.botblock.javabotblockapi.core.exceptions.RatelimitedException;
+import org.botblock.javabotblockapi.core.exceptions.RateLimitedException;
 import org.botblock.javabotblockapi.core.CheckUtil;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
 import org.json.JSONObject;
@@ -158,7 +158,7 @@ public class PostAction{
      * Starts a {@link java.util.concurrent.ScheduledExecutorService#scheduleAtFixedRate(Runnable, long, long, TimeUnit) scheduleAtFixedRate}
      * task, which will post the provided guild count to the provided bot lists every n minutes.
      *
-     * <p>If the post can't be performed - either by getting a {@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException}
+     * <p>If the post can't be performed - either by getting a {@link RateLimitedException RatelimitedException}
      * or by getting an {@link java.io.IOException IOException} - will the exception be catched and the stacktrace printed.
      * <br>The scheduler may be canceled by this.
      *
@@ -177,7 +177,7 @@ public class PostAction{
         scheduler.scheduleAtFixedRate(() -> {
             try{
                 postGuilds(botId, guilds, botBlockAPI);
-            }catch(IOException | RatelimitedException ex){
+            }catch(IOException | RateLimitedException ex){
                 ex.printStackTrace();
             }
         }, botBlockAPI.getUpdateDelay(), botBlockAPI.getUpdateDelay(), TimeUnit.MINUTES);
@@ -187,7 +187,7 @@ public class PostAction{
      * Starts a {@link java.util.concurrent.ScheduledExecutorService#scheduleAtFixedRate(Runnable, long, long, TimeUnit) scheduleAtFixedRate}
      * task, which will post the provided guild count to the provided bot lists every n minutes.
      *
-     * <p>If the post can't be performed - either by getting a {@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException}
+     * <p>If the post can't be performed - either by getting a {@link RateLimitedException RatelimitedException}
      * or by getting an {@link java.io.IOException IOException} - will the exception be catched and the stacktrace printed.
      * <br>The scheduler may be canceled by this.
      *
@@ -206,7 +206,7 @@ public class PostAction{
         scheduler.scheduleAtFixedRate(() -> {
             try{
                 postGuilds(botId, guilds, botBlockAPI);
-            }catch(IOException | RatelimitedException ex){
+            }catch(IOException | RateLimitedException ex){
                 ex.printStackTrace();
             }
         }, botBlockAPI.getUpdateDelay(), botBlockAPI.getUpdateDelay(), TimeUnit.MINUTES);
@@ -224,10 +224,10 @@ public class PostAction{
      *
      * @throws java.io.IOException
      *         When the post request couldn't be performed.
-     * @throws org.botblock.javabotblockapi.core.exceptions.RatelimitedException
+     * @throws RateLimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
-    public void postGuilds(@Nonnull Long botId, int guilds, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
+    public void postGuilds(@Nonnull Long botId, int guilds, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RateLimitedException{
         postGuilds(Long.toString(botId), guilds, botBlockAPI);
     }
     
@@ -248,10 +248,10 @@ public class PostAction{
      *
      * @throws java.io.IOException
      *         When the post request couldn't be performed.
-     * @throws org.botblock.javabotblockapi.core.exceptions.RatelimitedException
+     * @throws RateLimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
-    public void postGuilds(@Nonnull String botId, int guilds, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
+    public void postGuilds(@Nonnull String botId, int guilds, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RateLimitedException{
         CheckUtil.notEmpty(botId, "botId");
         
         JSONObject json = new JSONObject()

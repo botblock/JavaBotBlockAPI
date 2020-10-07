@@ -20,6 +20,7 @@ package org.botblock.javabotblockapi.requests;
 
 import org.botblock.javabotblockapi.core.Site;
 import org.botblock.javabotblockapi.core.CheckUtil;
+import org.botblock.javabotblockapi.core.exceptions.RateLimitedException;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -152,7 +153,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * @param  id
@@ -207,7 +208,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      * 
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -231,7 +232,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      * 
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -253,10 +254,10 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
-     * A {@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} may be thrown
+     * A {@link RateLimitedException RatelimitedException} may be thrown
      * from the RequestHandler, if the HTTP request was rate limited.
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -281,10 +282,15 @@ public class GetBotAction{
      * Gets the information from the specified bot list.
      * <br>The returned data is entirely dependant on the bot list itself and is therefore unique.
      *
+     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <ul>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site does not support GET requests.</li>
+     * </ul>
+     * 
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -298,6 +304,8 @@ public class GetBotAction{
      */
     @Nullable
     public JSONArray getBotListInfo(@Nonnull Long id, @Nonnull Site site){
+        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        
         return getBotListInfo(String.valueOf(id), site);
     }
     
@@ -313,7 +321,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -339,12 +347,13 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site does not support GET requests.</li>
      * </ul>
      *
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -359,6 +368,7 @@ public class GetBotAction{
     @Nullable
     public JSONArray getBotListInfo(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
+        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
         
         JSONObject json = getBotListInfo(id);
         if(json == null)
@@ -379,7 +389,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -410,7 +420,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -439,7 +449,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -469,7 +479,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -498,7 +508,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -528,7 +538,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -557,7 +567,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -587,7 +597,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -616,7 +626,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -646,7 +656,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -675,7 +685,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -705,7 +715,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -732,7 +742,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -764,7 +774,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -793,7 +803,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -823,7 +833,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -850,7 +860,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -878,7 +888,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -905,7 +915,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -933,7 +943,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.
@@ -962,7 +972,7 @@ public class GetBotAction{
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
      *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
-     *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException} - When the request got rate limited.</li>
+     *     <li>{@link RateLimitedException RatelimitedException} - When the request got rate limited.</li>
      * </ul>
      *
      * <p>This method may also return {@code null} if the request wasn't successful.

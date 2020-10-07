@@ -80,10 +80,8 @@ public class BotBlockAPI{
          * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
          * <ul>
          *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided Token is empty.</li>
+         *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site doesn't support POST requests.</li>
          * </ul>
-         * 
-         * @throws java.lang.IllegalStateException
-         *         When the provided site does not support POST requests.
          *
          * @return The Builder after the site and token were set. Useful for chaining.
          *
@@ -91,8 +89,7 @@ public class BotBlockAPI{
          */
         public Builder addAuthToken(@Nonnull Site site, @Nonnull String token){
             CheckUtil.notEmpty(token, "Token");
-            if(!site.supportsPost())
-                throw new IllegalArgumentException(site.getSite() + " does not support POST requests!");
+            CheckUtil.condition(!site.supportsPost(), site.getSite() + " does not support POST requests!");
             
             tokens.put(site.getSite(), token);
             return this;

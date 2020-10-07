@@ -21,11 +21,13 @@ package org.botblock.javabotblockapi.requests.handler;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import okhttp3.*;
-import org.botblock.javabotblockapi.core.exceptions.RatelimitedException;
+import org.botblock.javabotblockapi.core.exceptions.RateLimitedException;
 import org.botblock.javabotblockapi.core.CheckUtil;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -36,6 +38,7 @@ import java.util.concurrent.TimeUnit;
 
 public class RequestHandler{
     
+    private final Logger LOG = LoggerFactory.getLogger("JavaBotBlockAPI - RequestHandler");
     private final OkHttpClient CLIENT = new OkHttpClient();
     private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
     
@@ -60,8 +63,8 @@ public class RequestHandler{
             return botCache.get(id, k -> {
                 try{
                     return performGET(url, userAgent);
-                }catch(IOException | RatelimitedException ex){
-                    ex.printStackTrace();
+                }catch(IOException | RateLimitedException ex){
+                    LOG.error("Exception while performing a GET request. Type: Get Bot, Cache: Enabled", ex);
                     return null;
                 }
             });
@@ -69,7 +72,7 @@ public class RequestHandler{
         try{
             return performGET(url, userAgent);
         }catch(IOException ex){
-            ex.printStackTrace();
+            LOG.error("Exception while performing a GET request. Type: Get Bot, Cache: Disabled", ex);
             return null;
         }
     }
@@ -83,7 +86,7 @@ public class RequestHandler{
     }
     
     public JSONObject performGetList(@Nonnull String id, @Nullable String site, boolean disableCache, boolean filtered){
-        String url = BASE_URL + (site == null ? "lists" : "lists/" + site);
+        String url = BASE_URL + "lists" + (site == null ? "" : "/" + site);
         if(filtered)
             url += "?filter=true";
         
@@ -93,7 +96,7 @@ public class RequestHandler{
                 try{
                     return performGET(finalUrl, userAgent);
                 }catch(IOException ex){
-                    ex.printStackTrace();
+                    LOG.error("IOException while performing a GET request. Type: Get list, Cache: Enabled", ex);
                     return null;
                 }
             });
@@ -102,7 +105,7 @@ public class RequestHandler{
         try{
             return performGET(url, userAgent);
         }catch(IOException ex){
-            ex.printStackTrace();
+            LOG.error("IOException while performing a GET request. Type: Get list, Cache: Disabled", ex);
             return null;
         }
         
@@ -130,16 +133,22 @@ public class RequestHandler{
         
         try(Response response = postClient.newCall(request).execute()){
             ResponseBody responseBody = response.body();
-            if(responseBody == null)
-                throw new NullPointerException("Received empty response body.");
+            if(responseBody == null){
+                LOG.error("Received empty Response from BotBlock API!");
+                return;
+            }
             
             String bodyString = responseBody.string();
-            if(bodyString.isEmpty())
-                throw new NullPointerException("Received empty response body.");
+            if(bodyString.isEmpty()){
+                LOG.error("Received empty Response from BotBlock API!");
+                return;
+            }
             
             if(!response.isSuccessful()){
-                if(response.code() == 429)
-                    throw new RatelimitedException(bodyString);
+                if(response.code() == 429){
+                    JSONObject errorJson = new JSONObject(bodyString);
+                    throw new RateLimitedException(errorJson);
+                }
                 
                 throw new IOException(String.format(
                         "Could not post Guild count. The server responded with error code %d (%s)",
@@ -148,7 +157,7 @@ public class RequestHandler{
                 ));
             }
             
-            JSONObject responseJson = new JSONObject(responseBody);
+            JSONObject responseJson = new JSONObject(bodyString);
             if(responseJson.has("failure")){
                 JSONObject failure = responseJson.getJSONObject("failure");
                 JSONArray failures = new JSONArray();
@@ -162,10 +171,8 @@ public class RequestHandler{
                     }
                 }
                 
-                throw new IOException(String.format(
-                        "One or multiple post requests failed! Response(s): failed{%s}",
-                        failures.toString()
-                ));
+                LOG.warn("One or more post requests returned a non-successful response. JSON with failed sites below.");
+                LOG.warn(failures.toString());
             }
         }
     }
@@ -190,8 +197,10 @@ public class RequestHandler{
                 throw new NullPointerException("Received empty response body.");
             
             if(!response.isSuccessful()){
-                if(response.code() == 429)
-                    throw new RatelimitedException(bodyString);
+                if(response.code() == 429){
+                    JSONObject errorJson = new JSONObject(bodyString);
+                    throw new RateLimitedException(errorJson);
+                }
                 
                 throw new IOException(String.format(
                         "Could not retrieve information. The server responded with error code %d (%s).",
