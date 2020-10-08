@@ -38,12 +38,42 @@ import java.lang.annotation.*;
 public @interface DeprecatedSince{
     
     /**
+     * The Major version since when the annotated object is deprecated.
+     * 
+     * @return int representing the major version.
+     * 
+     * @since 6.3.0
+     */
+    int major();
+    
+    /**
+     * The Minor version since when the annotated object is deprecated.
+     *
+     * @return int representing the minor version.
+     *
+     * @since 6.3.0
+     */
+    int minor();
+    
+    /**
+     * The Patch version since when the annotated object is deprecated.
+     *
+     * @return int representing the patch version.
+     *
+     * @since 6.3.0
+     */
+    int patch();
+    
+    /**
      * Since what version this Object is deprecated.
      * <br>This is field is required!
      * 
      * @return The version since when this object is deprecated.
+     * 
+     * @deprecated Was replaced with {@link #major() major}, {@link #minor() minor} and {@link #patch() patch}.
      */
-    String version();
+    @Deprecated
+    String version() default "";
     
     /**
      * Optional String array indicating one or multiple possible replacement Objects to use.
