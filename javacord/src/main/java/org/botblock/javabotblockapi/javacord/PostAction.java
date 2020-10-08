@@ -147,8 +147,8 @@ public class PostAction{
     /**
      * Starts a {@link java.util.concurrent.ScheduledExecutorService#scheduleAtFixedRate(Runnable, long, long, TimeUnit) scheduleAtFixedRate}
      * task, which will post the statistics of the provided {@link org.javacord.api.DiscordApi DiscordApi instance} every n minutes.
-     * 
-     * <p>If the post can't be performed - either by getting a {@link RateLimitedException RateLimitedException}
+     *
+     * <p>If the post can't be performed - either by getting a {@link org.botblock.javabotblockapi.core.exceptions.RateLimitedException RatelimitedException}
      * or by getting an {@link java.io.IOException IOException} - will the exception be caught and a Stacktrace printed.
      * 
      * <p>The scheduler will wait an initial delay of 1 minute and then performs a task every n minutes, where n is the
@@ -196,7 +196,7 @@ public class PostAction{
      *        
      * @throws java.io.IOException
      *         When the POST request wasn't successful.
-     * @throws RateLimitedException
+     * @throws org.botblock.javabotblockapi.core.exceptions.RateLimitedException
      *         When we get rate limited by the BotBlock API (returns error code 429).
      */
     public void postGuilds(@Nonnull BotBlockAPI botBlockAPI, @Nonnull DiscordApi... discordApis) throws IOException, RateLimitedException{
