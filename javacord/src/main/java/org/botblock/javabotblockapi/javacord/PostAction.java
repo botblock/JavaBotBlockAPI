@@ -25,6 +25,8 @@ import org.botblock.javabotblockapi.requests.handler.RequestHandler;
 import org.javacord.api.DiscordApi;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -38,11 +40,16 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Class used to perform POST requests towards the <a href="https://botblock.org/api/docs#count" target="_blank">/api/count</a>
- * endpoint of BotBlock.
+ * endpoint of BotBlock using the Javacord Library.
  * 
- * <p>The class offers options to post either 
+ * <p>The class offers options to post either {@link #postGuilds(BotBlockAPI, DiscordApi...) manually} or
+ * {@link #enableAutoPost(BotBlockAPI, DiscordApi...) automatically}.
+ *
+ * <p>If you want to post without using Javacord, use the {@link org.botblock.javabotblockapi.requests.PostAction normal PostAction}.
  */
 public class PostAction{
+    private final Logger LOG = LoggerFactory.getLogger("JavaBotBlockAPI - PostAction (Javacord)");
+    
     private final RequestHandler requestHandler;
     private final ScheduledExecutorService scheduler;
     
@@ -133,7 +140,7 @@ public class PostAction{
             scheduler.shutdown();
             scheduler.awaitTermination(time, timeUnit);
         }catch(InterruptedException ex){
-            ex.printStackTrace();
+            LOG.warn("Got interrupted while shutting down the Scheduler!", ex);
         }
     }
     
@@ -165,7 +172,7 @@ public class PostAction{
             try{
                 postGuilds(botBlockAPI, discordApis);
             }catch(IOException | RateLimitedException ex){
-                ex.printStackTrace();
+                LOG.warn("Got an exception while performing a auto-post task!", ex);
             }
         }, 1, botBlockAPI.getUpdateDelay(), TimeUnit.MINUTES);
     }

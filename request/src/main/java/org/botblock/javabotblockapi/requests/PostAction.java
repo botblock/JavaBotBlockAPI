@@ -23,6 +23,8 @@ import org.botblock.javabotblockapi.core.exceptions.RateLimitedException;
 import org.botblock.javabotblockapi.core.CheckUtil;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -38,6 +40,8 @@ import java.util.concurrent.TimeUnit;
  * {@link #enableAutoPost(Long, int, BotBlockAPI) automatically}.
  */
 public class PostAction{
+    
+    private final Logger LOG = LoggerFactory.getLogger("JavaBotBlockAPI - PostAction");
     
     private final RequestHandler requestHandler;
     private final ScheduledExecutorService scheduler;
@@ -150,7 +154,7 @@ public class PostAction{
             scheduler.shutdown();
             scheduler.awaitTermination(time, timeUnit);
         }catch(InterruptedException ex){
-            ex.printStackTrace();
+            LOG.warn("Got interrupted while shutting down the Scheduler!", ex);
         }
     }
     
@@ -178,7 +182,7 @@ public class PostAction{
             try{
                 postGuilds(botId, guilds, botBlockAPI);
             }catch(IOException | RateLimitedException ex){
-                ex.printStackTrace();
+                LOG.warn("Got an exception while performing a auto-post task!", ex);
             }
         }, botBlockAPI.getUpdateDelay(), botBlockAPI.getUpdateDelay(), TimeUnit.MINUTES);
     }
@@ -207,7 +211,7 @@ public class PostAction{
             try{
                 postGuilds(botId, guilds, botBlockAPI);
             }catch(IOException | RateLimitedException ex){
-                ex.printStackTrace();
+                LOG.warn("Got an exception while performing a auto-post task!", ex);
             }
         }, botBlockAPI.getUpdateDelay(), botBlockAPI.getUpdateDelay(), TimeUnit.MINUTES);
     }
