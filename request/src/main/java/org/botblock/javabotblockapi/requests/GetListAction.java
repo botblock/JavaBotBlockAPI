@@ -20,7 +20,6 @@ package org.botblock.javabotblockapi.requests;
 
 import org.botblock.javabotblockapi.core.Site;
 import org.botblock.javabotblockapi.core.CheckUtil;
-import org.botblock.javabotblockapi.core.exceptions.RateLimitedException;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -141,7 +140,7 @@ public class GetListAction{
     @Nullable
     public String getApiField(@Nonnull String id, @Nonnull Site site, @Nonnull ApiField field){
         CheckUtil.notEmpty(id, "id");
-        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        CheckUtil.condition(!site.supportsGet(), site.getName() + " does not support GET requests!");
         
         JSONObject json = getList(id, site);
         
@@ -206,7 +205,7 @@ public class GetListAction{
     @Nullable
     public String getBotWidgetUrl(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
-        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        CheckUtil.condition(!site.supportsGet(), site.getName() + " does not support GET requests!");
         
         JSONObject json = getList(id, site);
         
@@ -269,7 +268,7 @@ public class GetListAction{
     @Nullable
     public String getDescription(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
-        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        CheckUtil.condition(!site.supportsGet(), site.getName() + " does not support GET requests!");
         
         JSONObject json = getList(id, site);
         
@@ -332,7 +331,7 @@ public class GetListAction{
     @Nullable
     public String getDiscordInvite(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
-        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        CheckUtil.condition(!site.supportsGet(), site.getName() + " does not support GET requests!");
         
         JSONObject json = getList(id, site);
         
@@ -395,7 +394,7 @@ public class GetListAction{
      */
     public JSONArray getFeatures(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
-        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        CheckUtil.condition(!site.supportsGet(), site.getName() + " does not support GET requests!");
         
         JSONObject json = getList(id, site);
         
@@ -484,7 +483,7 @@ public class GetListAction{
     @Nullable
     public String getIcon(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
-        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        CheckUtil.condition(!site.supportsGet(), site.getName() + " does not support GET requests!");
         
         JSONObject json = getList(id, site);
         
@@ -547,7 +546,7 @@ public class GetListAction{
      */
     public String getId(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
-        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        CheckUtil.condition(!site.supportsGet(), site.getName() + " does not support GET requests!");
         
         JSONObject json = getList(id, site);
         
@@ -609,7 +608,7 @@ public class GetListAction{
      */
     public String getLanguage(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
-        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        CheckUtil.condition(!site.supportsGet(), site.getName() + " does not support GET requests!");
         
         JSONObject json = getList(id, site);
         
@@ -670,9 +669,9 @@ public class GetListAction{
      */
     public JSONObject getList(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
-        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        CheckUtil.condition(!site.supportsGet(), site.getName() + " does not support GET requests!");
         
-        return REQUEST_HANDLER.performGetList(id, site.getSite(), disableCache);
+        return REQUEST_HANDLER.performGetList(id, site.getName(), disableCache);
     }
     
     /**
@@ -752,7 +751,7 @@ public class GetListAction{
      */
     public String getName(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
-        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        CheckUtil.condition(!site.supportsGet(), site.getName() + " does not support GET requests!");
         
         JSONObject json = getList(id, site);
         
@@ -815,7 +814,7 @@ public class GetListAction{
     @Nullable
     public String getOwners(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
-        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        CheckUtil.condition(!site.supportsGet(), site.getName() + " does not support GET requests!");
         
         JSONObject json = getList(id, site);
         
@@ -878,7 +877,7 @@ public class GetListAction{
      */
     public Integer getTimeAdded(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
-        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        CheckUtil.condition(!site.supportsGet(), site.getName() + " does not support GET requests!");
         
         JSONObject json = getList(id, site);
         
@@ -939,7 +938,7 @@ public class GetListAction{
      */
     public String getUrl(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
-        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        CheckUtil.condition(!site.supportsGet(), site.getName() + " does not support GET requests!");
         
         JSONObject json = getList(id, site);
         
@@ -1001,7 +1000,7 @@ public class GetListAction{
      */
     public boolean isDefunct(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
-        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        CheckUtil.condition(!site.supportsGet(), site.getName() + " does not support GET requests!");
         
         JSONObject json = getList(id, site);
         
@@ -1063,7 +1062,7 @@ public class GetListAction{
      */
     public boolean isDiscordOnly(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "name");
-        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        CheckUtil.condition(!site.supportsGet(), site.getName() + " does not support GET requests!");
         
         JSONObject json = getList(id, site);
         

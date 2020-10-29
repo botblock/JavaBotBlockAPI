@@ -304,7 +304,7 @@ public class GetBotAction{
      */
     @Nullable
     public JSONArray getBotListInfo(@Nonnull Long id, @Nonnull Site site){
-        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        CheckUtil.condition(!site.supportsGet(), site.getName() + " does not support GET requests!");
         
         return getBotListInfo(String.valueOf(id), site);
     }
@@ -368,13 +368,13 @@ public class GetBotAction{
     @Nullable
     public JSONArray getBotListInfo(@Nonnull String id, @Nonnull Site site){
         CheckUtil.notEmpty(id, "id");
-        CheckUtil.condition(!site.supportsGet(), site.getSite() + " does not support GET requests!");
+        CheckUtil.condition(!site.supportsGet(), site.getName() + " does not support GET requests!");
         
         JSONObject json = getBotListInfo(id);
         if(json == null)
             return null;
         
-        return json.getJSONArray(site.getSite());
+        return json.getJSONArray(site.getName());
     }
     
     /**

@@ -21,7 +21,7 @@ package org.botblock.javabotblockapi.core;
 import java.util.Map;
 
 /**
- * Util class to perform basic checks.
+ * Utility class to perform basic checks.
  */
 public class CheckUtil{
     

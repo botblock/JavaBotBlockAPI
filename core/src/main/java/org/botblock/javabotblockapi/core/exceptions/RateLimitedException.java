@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * <br>Use {@link #getDelay() getDelay()} to find out how long you have to wait until you can perform another request
  * towards {@link #getRoute() the targeted route}.
  * 
- * <p>Note that this Wrapper will do <b>no attempt</b> at delaying any further requests! It is your own responsability to
+ * <p>Note that this Wrapper will do <b>no attempt</b> at delaying any further requests! It is your own responsibility to
  * handle rate limits properly in those cases and delay any future requests accordingly.
  * <br>Any automated POSTing method of this Wrapper should not get rate limited due to keeping a minimal delay between each
  * request that is more than enough.
