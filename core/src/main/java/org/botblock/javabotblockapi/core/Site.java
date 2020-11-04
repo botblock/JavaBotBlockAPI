@@ -168,6 +168,11 @@ public class Site{
     public static final Site HYDROGENBOTS_CLUB = new Site("hydrogenbots.club", HttpMethod.GET, HttpMethod.POST);
     
     /**
+     * <a href="https://infinitybotlist.com" target="_blank">infinitybotlist.com</a>
+     */
+    public static final Site INFINITYBOTLIST_COM = new Site("infinitybotlist.com", HttpMethod.GET, HttpMethod.POST);
+    
+    /**
      * <a href="https://mythicalbots.xyz" target="_blank">mythicalbots.xyz</a>
      */
     public static final Site MYTHICALBOTS_XYZ = new Site("mythicalbots.xyz", HttpMethod.GET, HttpMethod.POST);
@@ -222,7 +227,7 @@ public class Site{
         return !methods.isEmpty() && methods.contains(HttpMethod.POST);
     }
     
-    public static enum HttpMethod{
+    public enum HttpMethod{
         /**
          * Bot list supports GET requests.
          */
