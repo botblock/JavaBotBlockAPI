@@ -65,7 +65,7 @@ public class BotBlockAPI{
         public Builder(){}
         
         /**
-         * Adds the provided {@link SiteOld Site name} and token to the Map.
+         * Adds the provided {@link org.botblock.javabotblockapi.core.Site Site name} and token to the Map.
          * <br>Entries with the same key will be overwritten.
          *
          * @param  site
