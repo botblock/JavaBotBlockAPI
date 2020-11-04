@@ -19,10 +19,12 @@
 package org.botblock.javabotblockapi.requests;
 
 import org.botblock.javabotblockapi.core.BotBlockAPI;
-import org.botblock.javabotblockapi.core.exceptions.RatelimitedException;
+import org.botblock.javabotblockapi.core.exceptions.RateLimitedException;
 import org.botblock.javabotblockapi.core.CheckUtil;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -38,6 +40,8 @@ import java.util.concurrent.TimeUnit;
  * {@link #enableAutoPost(Long, int, BotBlockAPI) automatically}.
  */
 public class PostAction{
+    
+    private final Logger LOG = LoggerFactory.getLogger("JavaBotBlockAPI - PostAction");
     
     private final RequestHandler requestHandler;
     private final ScheduledExecutorService scheduler;
@@ -150,7 +154,7 @@ public class PostAction{
             scheduler.shutdown();
             scheduler.awaitTermination(time, timeUnit);
         }catch(InterruptedException ex){
-            ex.printStackTrace();
+            LOG.warn("Got interrupted while shutting down the Scheduler!", ex);
         }
     }
     
@@ -158,7 +162,7 @@ public class PostAction{
      * Starts a {@link java.util.concurrent.ScheduledExecutorService#scheduleAtFixedRate(Runnable, long, long, TimeUnit) scheduleAtFixedRate}
      * task, which will post the provided guild count to the provided bot lists every n minutes.
      *
-     * <p>If the post can't be performed - either by getting a {@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException}
+     * <p>If the post can't be performed - either by getting a {@link org.botblock.javabotblockapi.core.exceptions.RateLimitedException RatelimitedException}
      * or by getting an {@link java.io.IOException IOException} - will the exception be catched and the stacktrace printed.
      * <br>The scheduler may be canceled by this.
      *
@@ -177,8 +181,8 @@ public class PostAction{
         scheduler.scheduleAtFixedRate(() -> {
             try{
                 postGuilds(botId, guilds, botBlockAPI);
-            }catch(IOException | RatelimitedException ex){
-                ex.printStackTrace();
+            }catch(IOException | RateLimitedException ex){
+                LOG.warn("Got an exception while performing a auto-post task!", ex);
             }
         }, botBlockAPI.getUpdateDelay(), botBlockAPI.getUpdateDelay(), TimeUnit.MINUTES);
     }
@@ -187,7 +191,7 @@ public class PostAction{
      * Starts a {@link java.util.concurrent.ScheduledExecutorService#scheduleAtFixedRate(Runnable, long, long, TimeUnit) scheduleAtFixedRate}
      * task, which will post the provided guild count to the provided bot lists every n minutes.
      *
-     * <p>If the post can't be performed - either by getting a {@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException}
+     * <p>If the post can't be performed - either by getting a {@link org.botblock.javabotblockapi.core.exceptions.RateLimitedException RatelimitedException}
      * or by getting an {@link java.io.IOException IOException} - will the exception be catched and the stacktrace printed.
      * <br>The scheduler may be canceled by this.
      *
@@ -206,8 +210,8 @@ public class PostAction{
         scheduler.scheduleAtFixedRate(() -> {
             try{
                 postGuilds(botId, guilds, botBlockAPI);
-            }catch(IOException | RatelimitedException ex){
-                ex.printStackTrace();
+            }catch(IOException | RateLimitedException ex){
+                LOG.warn("Got an exception while performing a auto-post task!", ex);
             }
         }, botBlockAPI.getUpdateDelay(), botBlockAPI.getUpdateDelay(), TimeUnit.MINUTES);
     }
@@ -224,10 +228,10 @@ public class PostAction{
      *
      * @throws java.io.IOException
      *         When the post request couldn't be performed.
-     * @throws org.botblock.javabotblockapi.core.exceptions.RatelimitedException
+     * @throws org.botblock.javabotblockapi.core.exceptions.RateLimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
-    public void postGuilds(@Nonnull Long botId, int guilds, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
+    public void postGuilds(@Nonnull Long botId, int guilds, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RateLimitedException{
         postGuilds(Long.toString(botId), guilds, botBlockAPI);
     }
     
@@ -248,10 +252,10 @@ public class PostAction{
      *
      * @throws java.io.IOException
      *         When the post request couldn't be performed.
-     * @throws org.botblock.javabotblockapi.core.exceptions.RatelimitedException
+     * @throws org.botblock.javabotblockapi.core.exceptions.RateLimitedException
      *         When we exceed the rate-limit of the BotBlock API.
      */
-    public void postGuilds(@Nonnull String botId, int guilds, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
+    public void postGuilds(@Nonnull String botId, int guilds, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RateLimitedException{
         CheckUtil.notEmpty(botId, "botId");
         
         JSONObject json = new JSONObject()

@@ -91,41 +91,63 @@ In most cases will you only update `{build}` and nothing else. If you're unsure 
 Please **do not change already existing since annotations**. This also includes adding ones to already existing methods/classes.
 
 ### Deprecated methods
+> Please also see the [Deprecation Policy](#deprecation-policy) about how to handle deprecations
+
 If you're deprecating a method will you need to add the `@Deprecated` annotation and also include a `@deprecated` tag in the comment explain why it was deprecated and mention possible replacements.
 
-You also need to add the `@DeprecatedSince` annotation to indicate since when a method is deprecated. This annotation has a required version field and an optional replacements field.  
-You may also add the `@PlannedRemoval` annotation if the object is planned to be removed in a future release. This annotation has a required version field, which indicate in what version the object will be removed.  
-The specified version has to be at least 2 versions away from the one that the object got deprecated in (i.e. deprecating a method in `5.2.0` will require you to set the version to at least `5.2.2` in the `PlannedRemoval` annotation).
+You also need to add the `@DeprecatedSince` annotation to indicate since when a method is deprecated. This annotation has the fields `major`, `minor`, `patch` and `replacement` from which the last one is optional.  
+You may also add the `@PlannedRemoval` annotation if the object is planned to be removed in a future release. This annotation has a `major`, `minor` and `patch` field to mark the version for when the object is removed.
+
+### CheckUtil
+JavaBotBlockAPI has a CheckUtil with some static void methods for checking various things such as if a String is empty.
+
+When using any methods of the CheckUtil should you add the following text to the Javadoc comment as its own Paragraph:  
+```java
+/**
+ * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+ * <ul>
+ *     <li>{@link java.lang.NullPointerException NullPointerException} - Mention the cause here.</li>
+ *     <li>{@link java.lang.IllegalStateException IllegalStateException} - Mention the cause here.</li>
+ * </ul>
+ */
+```
+
+The CheckUtil has the following methods which can have the mentioned Excpetions:
+
+- `ChekUtil#notEmpty(String value, String name)` - Checks the String "value" is empty and throws a NullPointerException with the message `name + " may not be empty."` in such a case.
+- `CheckUtil#notEmpty(Map<?, ?> value, String name)` - Checks if the Map "value" is empty and throws a NullPointerException with the message `name + " may not be empty."` in such a case.
+- `CheckUtil#condition(boolean expression, String message)` - Checks if the boolean "expression" returns true and throws a IllegalStateException with the message `message`.
 
 ### Other Styling
 Please make sure that all text is on the same vertical line (block).  
 This means that when f.e. a `@return` is used, that you have to use two spaces after `@param` instead of one.
 
 ### Order of the parts
-Here is an example of the different parts being used:  
+Here is an example of using the different parts together:  
 ```java
 /**
  * Adds "Bar" to the provided text.
  * <br>Will throw an error when not providing text.
+ *
+ * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+ * <ul>
+ *     <li>{@link java.lang.NullPointerException NullPointerException} - When foo is empty.</li>
+ * </ul>
  * 
  * @param  foo
  *         The text that should get "Bar" added to it.
  *
  * @return The provided String with "Bar" added to it.
  *
- * @throws IllegalArgumentException
- *         When the provided String is empty/null.
- *
- * @since v1.0.0
+ * @since  1.0.0
  *
  * @deprecated Use {@link #getFooBar() getFooBar()} instead.
  */
 @Deprecated
-@DeprecatedSince(version = "1.0.0", replacements = {"#getFooBar"}) // If you deprecate a method, add this one too.
-@PlannedRemoval(version = "1.0.2") // When the objects gets removed in the future, add this annotation.
-public String getFooBar(String foo) throws IllegalArgumentException{
-    if(foo.isEmpty())
-        throw new IllegalArgumentException("foo may not be empty");
+@DeprecatedSince(major = 1, minor = 0, patch = 0, replacements = {"#getFooBar"}) // If you deprecate a method, add this one too.
+@PlannedRemoval(major = 1, minor = 0, patch = 2)
+public String getFooBar(@Nonnull String foo){
+    CheckUtil.notEmpty(foo, "Foo");
         
     return foo + "Bar";
 }
@@ -135,14 +157,23 @@ public String getFooBar(String foo) throws IllegalArgumentException{
  *
  * @return {@code "foobar"}
  *
- * @since v1.0.1
+ * @since  1.0.1
  */
 public String getFooBar(){
     return "foobar";
 }
 ```
 
+## Deprecation Policy
+To not fully break the Wrapper on each release do we follow a general deprecation policy, to give people time to move to any replacement method, if available.
+
+If possible should always a replacement method, field or other object be provided when deprecating an object.  
+Any deprecated method is also planned for removal which is indicated by the `@PlannedRemoval` annotation. The version you define there has to be at least two patch-versions from the one the object became deprecated.  
+This means that deprecating a method in `6.2.0` results in the major, minor and patch version of the annotation to display `6`, `2` and `2` respectively.
+
+At **no point** should an object just be removed. We always mark it as deprecated first and give the aforementioned minimal delay for people to update, before removing it completely.
+
 ## [Code of Conduct]
 We want to give everyone a chance to contribute to the project.  
-So please keep your comments and messages nice. Every message that is considered rasist, insulting or similar will be removed.  
+So please keep your comments and messages nice. Every message that is considered racist, insulting or similar will be removed.  
 If you continue to send those messages will we permanently remove you from this repository.

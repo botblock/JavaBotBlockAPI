@@ -21,11 +21,13 @@ package org.botblock.javabotblockapi.jda;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.sharding.ShardManager;
 import org.botblock.javabotblockapi.core.BotBlockAPI;
-import org.botblock.javabotblockapi.core.exceptions.RatelimitedException;
+import org.botblock.javabotblockapi.core.exceptions.RateLimitedException;
 import org.botblock.javabotblockapi.core.CheckUtil;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -39,7 +41,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Class used to perform POST requests towards the <a href="https://botblock.org/api/docs#count" target="_blank">/api/count</a> 
- * endpoint of BotBlock.
+ * endpoint of BotBlock using the JDA Library.
  *
  * <p>The class offers options to post either {@link #postGuilds(JDA, BotBlockAPI) manually} or
  * {@link #enableAutoPost(JDA, BotBlockAPI) automatically}.
@@ -49,6 +51,8 @@ import java.util.concurrent.TimeUnit;
  * <p>If you want to post without using either instance, use the {@link org.botblock.javabotblockapi.requests.PostAction normal PostAction}.
  */
 public class PostAction{
+    private final Logger LOG = LoggerFactory.getLogger("JavaBotBlockAPI - PostAction (JDA)");
+    
     private final RequestHandler requestHandler;
     private final ScheduledExecutorService scheduler;
     
@@ -155,7 +159,7 @@ public class PostAction{
             scheduler.shutdown();
             scheduler.awaitTermination(time, timeUnit);
         }catch(InterruptedException ex){
-            ex.printStackTrace();
+            LOG.warn("Got interrupted while shutting down the Scheduler!", ex);
         }
     }
     
@@ -163,7 +167,7 @@ public class PostAction{
      * Starts a {@link java.util.concurrent.ScheduledExecutorService#scheduleAtFixedRate(Runnable, long, long, TimeUnit) scheduleAtFixedRate}
      * task, which will post the statistics of the provided {@link net.dv8tion.jda.api.JDA JDA instance} every n minutes.
      * 
-     * <p>If the post can't be performed - either by getting a {@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException}
+     * <p>If the post can't be performed - either by getting a {@link org.botblock.javabotblockapi.core.exceptions.RateLimitedException RatelimitedException}
      * or by getting an {@link java.io.IOException IOException} - will the exception be catched and the stacktrace printed.
      * 
      * <p>The scheduler will wait an initial delay of 1 minute and then performs a task every n minutes, where n is the
@@ -181,8 +185,8 @@ public class PostAction{
         scheduler.scheduleAtFixedRate(() -> {
             try{
                 postGuilds(jda, botBlockAPI);
-            }catch(IOException | RatelimitedException ex){
-                ex.printStackTrace();
+            }catch(IOException | RateLimitedException ex){
+                LOG.warn("Got an exception while performing a auto-post task!", ex);
             }
         }, 1, botBlockAPI.getUpdateDelay(), TimeUnit.MINUTES);
     }
@@ -191,7 +195,7 @@ public class PostAction{
      * Starts a {@link java.util.concurrent.ScheduledExecutorService#scheduleAtFixedRate(Runnable, long, long, TimeUnit) scheduleAtFixedRate}
      * task, which will post the statistics of the provided {@link net.dv8tion.jda.api.sharding.ShardManager ShardManager instance} every n minutes.
      *
-     * <p>If the post can't be performed - either by getting a {@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RatelimitedException}
+     * <p>If the post can't be performed - either by getting a {@link org.botblock.javabotblockapi.core.exceptions.RateLimitedException RatelimitedException}
      * or by getting an {@link java.io.IOException IOException} - will the exception be caught and a Stacktrace printed.
      *
      * <p>The scheduler will wait an initial delay of 1 minute and then performs a task every n minutes, where n is the
@@ -207,8 +211,8 @@ public class PostAction{
         scheduler.scheduleAtFixedRate(() -> {
             try{
                 postGuilds(shardManager, botBlockAPI);
-            }catch(IOException | RatelimitedException ex){
-                ex.printStackTrace();
+            }catch(IOException | RateLimitedException ex){
+                LOG.warn("Got an exception while performing a auto-post task!", ex);
             }
         }, botBlockAPI.getUpdateDelay(), botBlockAPI.getUpdateDelay(), TimeUnit.MINUTES);
     }
@@ -227,10 +231,10 @@ public class PostAction{
      *         
      * @throws java.io.IOException
      *         When the POST request wasn't successful.
-     * @throws org.botblock.javabotblockapi.core.exceptions.RatelimitedException
+     * @throws org.botblock.javabotblockapi.core.exceptions.RateLimitedException
      *         When we get rate limited by the BotBlock API (returns error code 429).
      */
-    public void postGuilds(@Nonnull JDA jda, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
+    public void postGuilds(@Nonnull JDA jda, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RateLimitedException{
         JSONObject json = new JSONObject()
                 .put("server_count", jda.getGuildCache().size())
                 .put("bot_id", jda.getSelfUser().getId());
@@ -248,19 +252,22 @@ public class PostAction{
      * Performs a POST request towards the BotBlock API using the information from the provided
      * {@link net.dv8tion.jda.api.sharding.ShardManager ShardManager} and {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlockAPI} instances.
      *
+     * <p>The following Exceptions may be thrown by the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <ul>
+     *     <li>{@link java.lang.IllegalStateException IllegalStateException} - if the first shard of the provided ShardManager is null.</li>
+     * </ul>
+     * 
      * @param  shardManager
      *         The {@link net.dv8tion.jda.api.sharding.ShardManager ShardManager instance} to post stats from.
      * @param  botBlockAPI
      *         The {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlockAPI instance} to use.
      *
-     * @throws java.lang.IllegalStateException
-     *         When the first shard (id 0) of the provided ShardManager is null.
      * @throws java.io.IOException
      *         When the POST request wasn't successful.
-     * @throws org.botblock.javabotblockapi.core.exceptions.RatelimitedException
+     * @throws org.botblock.javabotblockapi.core.exceptions.RateLimitedException
      *         When we get rate limited by the BotBlock API (returns error code 429).
      */
-    public void postGuilds(@Nonnull ShardManager shardManager, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RatelimitedException{
+    public void postGuilds(@Nonnull ShardManager shardManager, @Nonnull BotBlockAPI botBlockAPI) throws IOException, RateLimitedException{
         JDA shard = shardManager.getShardById(0);
         CheckUtil.condition(shard == null, "Shard 0 of ShardManager was invalid (null).");
         

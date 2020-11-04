@@ -15,164 +15,227 @@
  * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+
 package org.botblock.javabotblockapi.core;
 
+import org.botblock.javabotblockapi.core.annotations.DeprecatedSince;
+import org.botblock.javabotblockapi.core.annotations.PlannedRemoval;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
- * Enum class containing all sites currently supported by BotBlock.org.
- *
- * @since 2.1.0
+ * Class containing all (known) Bot lists.
+ * <br>The static instances of this class allow the easy use within various methods of the JavaBotBlockAPI.
+ * 
+ * <p>Keep in mind that not all Sites support eithere GET or POST requests. You may use {@link #supportsGet() supportsGet()}
+ * or {@link #supportsPost() supportsPost()} methods to check whether the instance supports GET and/or POST respectively.
+ * 
+ * @since 6.3.0
  */
-public enum Site {
+public class Site{
     
     /**
      * <a href="https://arcane-center.xyz" target="_blank">arcane-center.xyz</a>
      */
-    ARCANE_CENTER_XYZ("arcane-center.xyz"),
+    public static final Site ARCANE_CENTER_XYZ = new Site("arcane-center.xyz", HttpMethod.POST);
+    
+    /**
+     * <a href="https://bladebotlist.xyz" target="_blank">bladebotlist.xyz</a>
+     * 
+     * @since 6.3.0
+     */
+    public static final Site BLADEBOTLIST_XYZ = new Site("bladebotlist.xyz", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://blist.xyz" target="_blank">blist.xyz</a>
      */
-    BLIST_XYZ("blist.xyz"),
+    public static final Site BLIST_XYZ = new Site("blist.xyz", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://botlist.space" target="_blank">botlist.space</a>
      */
-    BOTLIST_SPACE("botlist.space"),
+    public static final Site BOTLIST_SPACE = new Site("botlist.space", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://botsdatabase.com" target="_blank">botsdatabase.com</a>
      */
-    BOTSDATABASE_COM("botsdatabase.com"),
+    public static final Site BOTSDATABASE_COM = new Site("botsdatabase.com", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://bots.discordlabs.org" target="_blank">bots.discordlabs.org</a>
      */
-    BOTS_DISCORDLABS_ORG("bots.discordlabs.org"),
+    public static final Site BOTS_DISCORDLABS_ORG = new Site("discordlabs.org", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://botsfordiscord.com" target="_blank">botsfordiscord.com</a>
      */
-    BOTSFORDISCORD_COM("botsfordiscord.com"),
+    public static final Site BOTSFORDISCORD_COM = new Site("botsfordiscord.com", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://bots.ondiscord.xyz" target="_blank">bots.ondiscord.xyz</a>
      */
-    BOTS_ONDISCORD_XYZ("bots.ondiscord.xyz"),
+    public static final Site BOTS_ONDISCORD_XYZ = new Site("bots.ondiscord.xyz", HttpMethod.POST);
     
     /**
      * <a href="https://dblista.pl" target="_blank">dblista.pl</a>
      */
-    DBLISTA_PL("dblista.pl"),
+    public static final Site DBLISTA_PL = new Site("dblista.pl", HttpMethod.GET);
     
     /**
      * <a href="https://discordapps.dev" target="_blank">discordapps.dev</a>
      */
-    DISCORDAPPS_DEV("discordapps.dev"),
+    public static final Site DISCORDAPPS_DEV = new Site("discordapps.dev", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://discord.boats" target="_blank">discord.boats</a>
      */
-    DISCORD_BOATS("discord.boats"),
+    public static final Site DISCORD_BOATS = new Site("discord.boats", HttpMethod.GET, HttpMethod.POST);
+    
+    /**
+     * <a href="https://discordbotdirectory.net" target="_blank">discordbotdirectory.net</a>
+     * 
+     * @since 6.3.0
+     */
+    public static final Site DISCORDBOTDIRECTORY_NET = new Site("discordbotdirectory.net", HttpMethod.GET);
     
     /**
      * <a href="https://discordbotlist.com" target="_blank">discordbotlist.com</a>
      */
-    DISCORDBOTLIST_COM("discordbotlist.com"),
+    public static final Site DISCORDBOTLIST_COM = new Site("discordbotlist.com", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://discordbots.co" target="_blank">discordbots.co</a>
-     *
+     * 
      * @since 5.2.3
      */
-    DISCORDBOTS_CO("discordbots.co"),
+    public static final Site DISCORDBOTS_CO = new Site("discordbots.co", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://discord.bots.gg" target="_blank">discord.bots.gg</a>
      */
-    DISCORD_BOTS_GG("discord.bots.gg"),
+    public static final Site DISCORD_BOTS_GG = new Site("discord.bots.gg", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://discordbots.fun" target="_blank">discordbots.fun</a>
+     *
+     * @deprecated Site no longer exists
      */
-    DISCORDBOTS_FUN("discordbots.fun"),
+    @Deprecated
+    @DeprecatedSince(major = 6, minor = 3, patch = 0)
+    @PlannedRemoval(major = 6, minor = 3, patch = 2)
+    public static final Site DISCORDBOTS_FUN = new Site("discordbots.fun");
     
     /**
      * <a href="https://discordextremelist.xyz" target="_blank">discordextremelist.xyz</a>
-     *
-     * @since 2.3.3
      */
-    DISCORDEXTREMELIST_XYZ("discordextremelist.xyz"),
+    public static final Site DISCORDEXTREMELIST_XYZ = new Site("discordextremelist.xyz", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://discordlist.co" target="_blank">discordlist.co</a>
+     *
+     * @deprecated Site no longer exists
      */
-    DISCORDLIST_CO("discordlist.co"),
+    @Deprecated
+    @DeprecatedSince(major = 6, minor = 3, patch = 0)
+    @PlannedRemoval(major = 6, minor = 3, patch = 0)
+    public static final Site DISCORDLIST_CO = new Site("discordlist.co");
     
     /**
      * <a href="https://discordlistology.com" target="_blank">discordlistology.com</a>
-     *
-     * @since 5.2.1
      */
-    DISCORDLISTOLOGY_COM("discordlistology.com"),
+    public static final Site DISCORDLISTOLOGY_COM = new Site("discordlistology.com", HttpMethod.GET, HttpMethod.POST);
     
     /**
-     * <a href="https://disforge.com/bots" target="_blank">disforge.com</a>
-     * 
-     * @since 6.2.2
+     * <a href="https://disforge.com" target="_blank">disforge.com</a>
      */
-    DISFORGE_COM("disforge.com"),
+    public static final Site DISFORGE_COM = new Site("disforge.com", HttpMethod.POST);
     
     /**
      * <a href="https://glennbotlist.xyz" target="_blank">glennbotlist.xyz</a>
+     * 
+     * @deprecated Site no longer exists
      */
-    GLENNBOTLIST_XYZ("glennbotlist.xyz"),
+    @Deprecated
+    @DeprecatedSince(major = 6, minor = 3, patch = 0)
+    @PlannedRemoval(major = 6, minor = 3, patch = 0)
+    public static final Site GLENNBOTLIST_XYZ = new Site("glennbotlist.xyz");
     
     /**
      * <a href="https://hydrogenbots.club" target="_blank">hydrogenbots.club</a>
-     * 
-     * @since 6.2.1
      */
-    HYDROGENBOTS_CLUB("hydrogenbots.club"),
+    public static final Site HYDROGENBOTS_CLUB = new Site("hydrogenbots.club", HttpMethod.GET, HttpMethod.POST);
+    
+    /**
+     * <a href="https://infinitybotlist.com" target="_blank">infinitybotlist.com</a>
+     */
+    public static final Site INFINITYBOTLIST_COM = new Site("infinitybotlist.com", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://mythicalbots.xyz" target="_blank">mythicalbots.xyz</a>
      */
-    MYTHICALBOTS_XYZ("mythicalbots.xyz"),
+    public static final Site MYTHICALBOTS_XYZ = new Site("mythicalbots.xyz", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://space-bot-list.xyz" target="_blank">space-bot-list.xyz</a>
      */
-    SPACE_BOT_LIST_XYZ("space-bot-list.xyz"),
+    public static final Site SPACE_BOT_LIST_XYZ = new Site("space-bot-list.xyz", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://topcord.xyz" target="_blank">topcord.xyz</a>
      */
-    TOPCORD_XYZ("topcord.xyz"),
+    public static final Site TOPCORD_XYZ = new Site("topcord.xyz", HttpMethod.GET, HttpMethod.POST);
+    
+    /**
+     * <a href="https://voidbots.net" target="_blank">voidbots.net</a>
+     */
+    public static final Site VOIDBOTS_NET = new Site("voidbots.net", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://wonderbotlist.com" target="_blank">wonderbotlist.com</a>
      */
-    WONDERBOTLIST_COM("wonderbotlist.com"),
+    public static final Site WONDERBOTLIST_COM = new Site("wonderbotlist.com", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://yabl.xyz" target="_blank">yabl.xyz</a>
-     *
-     * @since 2.1.1
      */
-    YABL_XYZ("yabl.xyz");
+    public static final Site YABL_XYZ = new Site("yabl.xyz", HttpMethod.GET, HttpMethod.POST);
     
-    private final String site;
+    private final String name;
+    private final List<HttpMethod> methods;
     
-    Site(String site){
-        this.site = site;
+    private Site(String name, HttpMethod... methods){
+        this.name = name;
+        this.methods = Arrays.asList(methods);
     }
     
-    /**
-     * Gives the ID of the selected site, which is used as ID in the BotBlock.org API.
-     *
-     * @return The selected site.
-     */
-    public String getSite(){
-        return this.site;
+    private Site(String name){
+        this.name = name;
+        this.methods = new ArrayList<>();
+    }
+    
+    public String getName(){
+        return name;
+    }
+    
+    public boolean supportsGet(){
+        return !methods.isEmpty() && methods.contains(HttpMethod.GET);
+    }
+    
+    public boolean supportsPost(){
+        return !methods.isEmpty() && methods.contains(HttpMethod.POST);
+    }
+    
+    public enum HttpMethod{
+        /**
+         * Bot list supports GET requests.
+         */
+        GET,
+        
+        /**
+         * Bot list supports POST requests.
+         */
+        POST
     }
 }

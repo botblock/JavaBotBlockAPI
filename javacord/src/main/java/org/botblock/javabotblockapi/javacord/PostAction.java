@@ -20,11 +20,13 @@ package org.botblock.javabotblockapi.javacord;
 
 import org.botblock.javabotblockapi.core.BotBlockAPI;
 import org.botblock.javabotblockapi.core.CheckUtil;
-import org.botblock.javabotblockapi.core.exceptions.RatelimitedException;
+import org.botblock.javabotblockapi.core.exceptions.RateLimitedException;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
 import org.javacord.api.DiscordApi;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -38,11 +40,16 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Class used to perform POST requests towards the <a href="https://botblock.org/api/docs#count" target="_blank">/api/count</a>
- * endpoint of BotBlock.
+ * endpoint of BotBlock using the Javacord Library.
  * 
- * <p>The class offers options to post either 
+ * <p>The class offers options to post either {@link #postGuilds(BotBlockAPI, DiscordApi...) manually} or
+ * {@link #enableAutoPost(BotBlockAPI, DiscordApi...) automatically}.
+ *
+ * <p>If you want to post without using Javacord, use the {@link org.botblock.javabotblockapi.requests.PostAction normal PostAction}.
  */
 public class PostAction{
+    private final Logger LOG = LoggerFactory.getLogger("JavaBotBlockAPI - PostAction (Javacord)");
+    
     private final RequestHandler requestHandler;
     private final ScheduledExecutorService scheduler;
     
@@ -133,15 +140,15 @@ public class PostAction{
             scheduler.shutdown();
             scheduler.awaitTermination(time, timeUnit);
         }catch(InterruptedException ex){
-            ex.printStackTrace();
+            LOG.warn("Got interrupted while shutting down the Scheduler!", ex);
         }
     }
     
     /**
      * Starts a {@link java.util.concurrent.ScheduledExecutorService#scheduleAtFixedRate(Runnable, long, long, TimeUnit) scheduleAtFixedRate}
      * task, which will post the statistics of the provided {@link org.javacord.api.DiscordApi DiscordApi instance} every n minutes.
-     * 
-     * <p>If the post can't be performed - either by getting a {@link org.botblock.javabotblockapi.core.exceptions.RatelimitedException RateLimitedException}
+     *
+     * <p>If the post can't be performed - either by getting a {@link org.botblock.javabotblockapi.core.exceptions.RateLimitedException RatelimitedException}
      * or by getting an {@link java.io.IOException IOException} - will the exception be caught and a Stacktrace printed.
      * 
      * <p>The scheduler will wait an initial delay of 1 minute and then performs a task every n minutes, where n is the
@@ -164,8 +171,8 @@ public class PostAction{
         scheduler.scheduleAtFixedRate(() -> {
             try{
                 postGuilds(botBlockAPI, discordApis);
-            }catch(IOException | RatelimitedException ex){
-                ex.printStackTrace();
+            }catch(IOException | RateLimitedException ex){
+                LOG.warn("Got an exception while performing a auto-post task!", ex);
             }
         }, 1, botBlockAPI.getUpdateDelay(), TimeUnit.MINUTES);
     }
@@ -189,10 +196,10 @@ public class PostAction{
      *        
      * @throws java.io.IOException
      *         When the POST request wasn't successful.
-     * @throws org.botblock.javabotblockapi.core.exceptions.RatelimitedException
+     * @throws org.botblock.javabotblockapi.core.exceptions.RateLimitedException
      *         When we get rate limited by the BotBlock API (returns error code 429).
      */
-    public void postGuilds(@Nonnull BotBlockAPI botBlockAPI, @Nonnull DiscordApi... discordApis) throws IOException, RatelimitedException{
+    public void postGuilds(@Nonnull BotBlockAPI botBlockAPI, @Nonnull DiscordApi... discordApis) throws IOException, RateLimitedException{
         CheckUtil.condition(discordApis.length <= 0, "At least one DiscordApi instance needs to be provided!");
         
         JSONObject json = new JSONObject()
