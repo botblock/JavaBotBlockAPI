@@ -164,8 +164,13 @@ public class Site{
     
     /**
      * <a href="https://hydrogenbots.club" target="_blank">hydrogenbots.club</a>
+     * 
+     * @deprecated Domain redirects to a weird foreign store.
      */
-    public static final Site HYDROGENBOTS_CLUB = new Site("hydrogenbots.club", HttpMethod.GET, HttpMethod.POST);
+    @Deprecated
+    @DeprecatedSince(major = 6, minor = 3, patch = 1)
+    @PlannedRemoval(major = 6, minor = 3, patch = 3)
+    public static final Site HYDROGENBOTS_CLUB = new Site("hydrogenbots.club");
     
     /**
      * <a href="https://infinitybotlist.com" target="_blank">infinitybotlist.com</a>
@@ -215,14 +220,30 @@ public class Site{
         this.methods = new ArrayList<>();
     }
     
+    /**
+     * The name used by the BotBlock API to identify the site.
+     * <br>The name usually is just the domain of the site without the http(s):// in front of it.
+     * 
+     * @return The name of the site used for the BotBlock API.
+     */
     public String getName(){
         return name;
     }
     
+    /**
+     * Whether the site supports GET requests towards itself or not.
+     * 
+     * @return True if the site supports GET request, otherwise false.
+     */
     public boolean supportsGet(){
         return !methods.isEmpty() && methods.contains(HttpMethod.GET);
     }
     
+    /**
+     * Whether the site supports POST requests towards itself or not.
+     *
+     * @return True if the site supports POST request, otherwise false.
+     */
     public boolean supportsPost(){
         return !methods.isEmpty() && methods.contains(HttpMethod.POST);
     }
