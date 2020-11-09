@@ -74,6 +74,11 @@ public class Site{
     public static final Site BOTSFORDISCORD_COM = new Site("botsfordiscord.com", HttpMethod.GET, HttpMethod.POST);
     
     /**
+     * <a href="https://bots.idledev.org" target="_blank">bots.idledev.org</a>
+     */
+    public static final Site BOTS_IDLEDEV_ORG = new Site("bots.idledev.org", HttpMethod.GET, HttpMethod.POST);
+    
+    /**
      * <a href="https://bots.ondiscord.xyz" target="_blank">bots.ondiscord.xyz</a>
      */
     public static final Site BOTS_ONDISCORD_XYZ = new Site("bots.ondiscord.xyz", HttpMethod.POST);
@@ -118,29 +123,9 @@ public class Site{
     public static final Site DISCORD_BOTS_GG = new Site("discord.bots.gg", HttpMethod.GET, HttpMethod.POST);
     
     /**
-     * <a href="https://discordbots.fun" target="_blank">discordbots.fun</a>
-     *
-     * @deprecated Site no longer exists
-     */
-    @Deprecated
-    @DeprecatedSince(major = 6, minor = 3, patch = 0)
-    @PlannedRemoval(major = 6, minor = 3, patch = 2)
-    public static final Site DISCORDBOTS_FUN = new Site("discordbots.fun");
-    
-    /**
      * <a href="https://discordextremelist.xyz" target="_blank">discordextremelist.xyz</a>
      */
     public static final Site DISCORDEXTREMELIST_XYZ = new Site("discordextremelist.xyz", HttpMethod.GET, HttpMethod.POST);
-    
-    /**
-     * <a href="https://discordlist.co" target="_blank">discordlist.co</a>
-     *
-     * @deprecated Site no longer exists
-     */
-    @Deprecated
-    @DeprecatedSince(major = 6, minor = 3, patch = 0)
-    @PlannedRemoval(major = 6, minor = 3, patch = 0)
-    public static final Site DISCORDLIST_CO = new Site("discordlist.co");
     
     /**
      * <a href="https://discordlistology.com" target="_blank">discordlistology.com</a>
@@ -151,16 +136,6 @@ public class Site{
      * <a href="https://disforge.com" target="_blank">disforge.com</a>
      */
     public static final Site DISFORGE_COM = new Site("disforge.com", HttpMethod.POST);
-    
-    /**
-     * <a href="https://glennbotlist.xyz" target="_blank">glennbotlist.xyz</a>
-     * 
-     * @deprecated Site no longer exists
-     */
-    @Deprecated
-    @DeprecatedSince(major = 6, minor = 3, patch = 0)
-    @PlannedRemoval(major = 6, minor = 3, patch = 0)
-    public static final Site GLENNBOTLIST_XYZ = new Site("glennbotlist.xyz");
     
     /**
      * <a href="https://hydrogenbots.club" target="_blank">hydrogenbots.club</a>
@@ -179,7 +154,12 @@ public class Site{
     
     /**
      * <a href="https://mythicalbots.xyz" target="_blank">mythicalbots.xyz</a>
+     * 
+     * @deprecated Renamed to {@link #BOTS_IDLEDEV_ORG bots.idledev.org}
      */
+    @Deprecated
+    @DeprecatedSince(major = 6, minor = 3, patch = 2)
+    @PlannedRemoval(major = 6, minor = 3, patch = 4)
     public static final Site MYTHICALBOTS_XYZ = new Site("mythicalbots.xyz", HttpMethod.GET, HttpMethod.POST);
     
     /**
