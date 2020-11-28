@@ -29,7 +29,7 @@ import java.util.List;
  * Class containing all (known) Bot lists.
  * <br>The static instances of this class allow the easy use within various methods of the JavaBotBlockAPI.
  * 
- * <p>Keep in mind that not all Sites support eithere GET or POST requests. You may use {@link #supportsGet() supportsGet()}
+ * <p>Keep in mind that not all Sites support either GET or POST requests. You may use {@link #supportsGet() supportsGet()}
  * or {@link #supportsPost() supportsPost()} methods to check whether the instance supports GET and/or POST respectively.
  * 
  * @since 6.3.0
@@ -138,16 +138,6 @@ public class Site{
     public static final Site DISFORGE_COM = new Site("disforge.com", HttpMethod.POST);
     
     /**
-     * <a href="https://hydrogenbots.club" target="_blank">hydrogenbots.club</a>
-     * 
-     * @deprecated Domain redirects to a weird foreign store.
-     */
-    @Deprecated
-    @DeprecatedSince(major = 6, minor = 3, patch = 1)
-    @PlannedRemoval(major = 6, minor = 3, patch = 3)
-    public static final Site HYDROGENBOTS_CLUB = new Site("hydrogenbots.club");
-    
-    /**
      * <a href="https://infinitybotlist.com" target="_blank">infinitybotlist.com</a>
      */
     public static final Site INFINITYBOTLIST_COM = new Site("infinitybotlist.com", HttpMethod.GET, HttpMethod.POST);
@@ -160,7 +150,7 @@ public class Site{
     @Deprecated
     @DeprecatedSince(major = 6, minor = 3, patch = 2)
     @PlannedRemoval(major = 6, minor = 3, patch = 4)
-    public static final Site MYTHICALBOTS_XYZ = new Site("mythicalbots.xyz", HttpMethod.GET, HttpMethod.POST);
+    public static final Site MYTHICALBOTS_XYZ = new Site("mythicalbots.xyz");
     
     /**
      * <a href="https://space-bot-list.xyz" target="_blank">space-bot-list.xyz</a>
