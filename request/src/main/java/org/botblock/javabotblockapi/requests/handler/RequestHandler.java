@@ -151,14 +151,14 @@ public class RequestHandler{
                 }
                 
                 throw new IOException(String.format(
-                        "Could not post Guild count. The server responded with error code %d (%s)",
+                        "Could not post Guild count. The API responded with error code %d (%s)",
                         response.code(),
                         response.message()
                 ));
             }
             
             JSONObject responseJson = new JSONObject(bodyString);
-            if(responseJson.has("failure")){
+            if(!responseJson.getJSONObject("failure").isEmpty()){
                 JSONObject failure = responseJson.getJSONObject("failure");
                 JSONArray failures = new JSONArray();
                 
@@ -203,7 +203,7 @@ public class RequestHandler{
                 }
                 
                 throw new IOException(String.format(
-                        "Could not retrieve information. The server responded with error code %d (%s).",
+                        "Could not retrieve information. The API responded with error code %d (%s).",
                         response.code(),
                         response.message()
                 ));
