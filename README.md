@@ -126,8 +126,133 @@ if you want to only download specific modules can you just use `javabotblockapi-
 </dependencies>
 ```
 
-# Usage
-Please visit the [Javadoc] for all available POST and GET methods, as the amount of GET methods alone is quite large.
+# Usage Examples
+Below can you find a few examples on how JavaBotBlockAPI can/should be used.  
+Please make sure to also take a look at the [Javadoc] for any additional information.
+
+## BotBlockAPI
+> **Required Modules**:  
+> - `core`
+
+If you want to POST guild counts to the various bot lists should you first create a BotBlockAPI instance.  
+The BotBlockAPI class contains a nested Builder class which allows a more streamlined creation of a BotBlockAPI instance.
+
+**Example**:  
+```java
+BotBlockAPI api = new BotBlockAPI.Builder()
+    .addAuthToken("discordextremelist.xyz", "my_s3cr3t_t0k3n")
+    .addAuthToken(Site.BOTLIST_SPACE, "my_53cret_tok3n")
+    .build();
+```
+
+As you can see can you provide either a String with the id you can find [here][list] or use one of the many static [Site] instances that are offered.
+
+Next would you need to choose, which type of PostAction you want to use. Depending on your selection will you need to have the right module(s) downloaded.
+
+## Default PostAction
+> **Required Modules**:  
+> - `request`
+>
+> *In the following examples will `botId` and `guilds` be used. Those are placeholders for your bot's ID and Guild count respectively.*
+
+```java
+// Create PostAction instance
+PostAction postAction = new PostAction("botId");
+
+// Post manually
+postAction.postGuilds("botId", guilds, api);
+
+// Post automatically
+postAction.enableAutoPost("botId", guilds, api);
+
+// Disable automatic posting
+postAction.disableAutoPost(); // Disable with no delay
+postAction.disableAutoPost(api); // Disable with BotBlockAPI#getUpdateDelay() delay
+postAction.disableAutoPost(1, TimeUnit.MINUTES); // Disable with 1 Minute delay.
+```
+
+## JDA PostAction
+> **Required Modules**:  
+> - `request`
+> - `jda`
+>
+> *In the following examples will `botId` and `guilds` be used. Those are placeholders for your bot's ID and Guild count respectively.*
+
+```java
+/*
+ * Get your JDA instance.
+ * This can also be a ShardManager instance
+ * for sharded Bots.
+ */
+JDA jda = getJDA();
+
+// Create PostAction instance
+PostAction postAction = new PostAction(jda);
+
+
+// Post manually
+postAction.postGuilds(jda, api);
+
+// Post automatically
+postAction.enableAutoPost(jda, api);
+
+// Disable automatic posting
+postAction.disableAutoPost(); // Disable with no delay
+postAction.disableAutoPost(api); // Disable with BotBlockAPI#getUpdateDelay() delay
+postAction.disableAutoPost(1, TimeUnit.MINUTES); // Disable with 1 Minute delay.
+```
+
+## Javacord PostAction
+> **Required Modules**:  
+> - `request`
+> - `javacord`
+>
+> *In the following examples will `botId` and `guilds` be used. Those are placeholders for your bot's ID and Guild count respectively.*
+
+```java
+/*
+ * Get your DiscordApi instances.
+ */
+DiscordApi[] discordApis = getDiscordApis();
+
+// Create PostAction instance
+PostAction postAction = new PostAction(discordApis[0]);
+
+// Post manually
+postAction.postGuilds(api, discordApis);
+
+// Post automatically
+postAction.enableAutoPost(api, discordApis);
+
+// Disable automatic posting
+postAction.disableAutoPost(); // Disable with no delay
+postAction.disableAutoPost(api); // Disable with BotBlockAPI#getUpdateDelay() delay
+postAction.disableAutoPost(1, TimeUnit.MINUTES); // Disable with 1 Minute delay.
+```
+
+----
+## Get Bot Information
+> **Required Modules**:  
+> - `core`
+> - `request`
+
+You can use the GetBotAction class to retrieve information about a bot on the different Bot lists.  
+The class offers options for either getting the full information as JSONObject, or to retrieve specific information such as the authors of the bot.
+
+Due to the huge amount of methods offered by this class are we not showing any examples here.  
+A look into the [Javadoc] is highly recommendet.
+
+----
+## Get List Information
+> **Required Modules**:  
+> - `core`
+> - `request`
+
+Similar to [Getting Bot Information](#get-bot-information) can you also retrieve information known by BotBlock about either all or specific bot lists.  
+The GetListAction allows the retrieval of all Bot Lists and their information as a JSONObject, or a specific info such as the URL used for seeing a Bot's list entry for a specific bot list.
+
+Due to the huge amount of methods offered by this class are we not showing any examples here.  
+A look into the [Javadoc] is highly recommendet.
 
 # Libraries/Dependencies
 JavaBotBlockAPI utilizes different APIs to provide the functionality it offers right now.  
