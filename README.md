@@ -176,8 +176,6 @@ postAction.disableAutoPost(1, TimeUnit.MINUTES); // Disable with 1 Minute delay.
 > **Required Modules**:  
 > - `request`
 > - `jda`
->
-> *In the following examples will `botId` and `guilds` be used. Those are placeholders for your bot's ID and Guild count respectively.*
 
 ```java
 /*
@@ -207,8 +205,6 @@ postAction.disableAutoPost(1, TimeUnit.MINUTES); // Disable with 1 Minute delay.
 > **Required Modules**:  
 > - `request`
 > - `javacord`
->
-> *In the following examples will `botId` and `guilds` be used. Those are placeholders for your bot's ID and Guild count respectively.*
 
 ```java
 /*
