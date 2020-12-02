@@ -1,7 +1,7 @@
 [BotBlock]: https://botblock.org  
 [API]: https://botblock.org/api/docs
 
-[BotBlock4J]: https://github.com/Nathan-webb/BotBlock4J
+[BotBlock4J]: https://github.com/spide-r/BotBlock4J
 
 [wiki]: https://jbba.dev/docs
 
@@ -145,7 +145,8 @@ BotBlockAPI api = new BotBlockAPI.Builder()
     .build();
 ```
 
-As you can see can you provide either a String with the id you can find [here][list] or use one of the many static [Site] instances that are offered.
+As you can see can you provide either a String with the id you can find [here][list] or use one of the many static [Site] instances that are offered.  
+The Builder has some extra methods that can be used to further customize specific behaviours. Take a look on the [Javadoc] for those.
 
 Next would you need to choose, which type of PostAction you want to use. Depending on your selection will you need to have the right module(s) downloaded.
 
