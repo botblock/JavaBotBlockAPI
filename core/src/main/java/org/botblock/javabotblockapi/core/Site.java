@@ -18,9 +18,6 @@
 
 package org.botblock.javabotblockapi.core;
 
-import org.botblock.javabotblockapi.core.annotations.DeprecatedSince;
-import org.botblock.javabotblockapi.core.annotations.PlannedRemoval;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -141,16 +138,6 @@ public class Site{
      * <a href="https://infinitybotlist.com" target="_blank">infinitybotlist.com</a>
      */
     public static final Site INFINITYBOTLIST_COM = new Site("infinitybotlist.com", HttpMethod.GET, HttpMethod.POST);
-    
-    /**
-     * <a href="https://mythicalbots.xyz" target="_blank">mythicalbots.xyz</a>
-     * 
-     * @deprecated Renamed to {@link #BOTS_IDLEDEV_ORG bots.idledev.org}
-     */
-    @Deprecated
-    @DeprecatedSince(major = 6, minor = 3, patch = 2)
-    @PlannedRemoval(major = 6, minor = 3, patch = 4)
-    public static final Site MYTHICALBOTS_XYZ = new Site("mythicalbots.xyz");
     
     /**
      * <a href="https://space-bot-list.xyz" target="_blank">space-bot-list.xyz</a>

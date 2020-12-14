@@ -115,7 +115,7 @@ public class RequestHandler{
         CheckUtil.condition(sites < 1, "The POST action requires at least 1 site!");
         
         String url = BASE_URL + "count";
-        final long timeout = sites * 10;
+        final long timeout = sites * 10L;
         
         OkHttpClient postClient = CLIENT.newBuilder()
                 .callTimeout(timeout, TimeUnit.SECONDS)
@@ -135,12 +135,26 @@ public class RequestHandler{
             ResponseBody responseBody = response.body();
             if(responseBody == null){
                 LOG.error("Received empty Response from BotBlock API!");
+                LOG.error(
+                        "Response{protocol={}, code={}, message={}, headers={}}",
+                        response.protocol(),
+                        response.code(),
+                        response.message(),
+                        response.headers().toString()
+                );
                 return;
             }
             
             String bodyString = responseBody.string();
             if(bodyString.isEmpty()){
                 LOG.error("Received empty Response from BotBlock API!");
+                LOG.error(
+                        "Response{protocol={}, code={}, message={}, headers={}}",
+                        response.protocol(),
+                        response.code(),
+                        response.message(),
+                        response.headers().toString()
+                );
                 return;
             }
             
@@ -171,7 +185,7 @@ public class RequestHandler{
                     }
                 }
                 
-                LOG.warn("One or more post requests returned a non-successful response. JSON with failed sites below.");
+                LOG.warn("One or more POST requests returned a non-successful response. JSON with failed sites below.");
                 LOG.warn(failures.toString());
             }
         }
@@ -189,12 +203,30 @@ public class RequestHandler{
         
         try(Response response = CLIENT.newCall(request).execute()){
             ResponseBody body = response.body();
-            if(body == null)
-                throw new NullPointerException("Received empty response body.");
+            if(body == null){
+                LOG.error("Received empty Response from BotBlock API!");
+                LOG.error(
+                        "Response{protocol={}, code={}, message={}, headers={}}",
+                        response.protocol(),
+                        response.code(),
+                        response.message(),
+                        response.headers().toString()
+                );
+                return null;
+            }
             
             String bodyString = body.string();
-            if(bodyString.isEmpty())
-                throw new NullPointerException("Received empty response body.");
+            if(bodyString.isEmpty()){
+                LOG.error("Received empty Response from BotBlock API!");
+                LOG.error(
+                        "Response{protocol={}, code={}, message={}, headers={}}",
+                        response.protocol(),
+                        response.code(),
+                        response.message(),
+                        response.headers().toString()
+                );
+                return null;
+            }
             
             if(!response.isSuccessful()){
                 if(response.code() == 429){
