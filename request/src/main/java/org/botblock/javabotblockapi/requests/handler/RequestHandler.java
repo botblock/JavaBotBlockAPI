@@ -136,7 +136,8 @@ public class RequestHandler{
             if(responseBody == null){
                 LOG.error("Received empty Response from BotBlock API!");
                 LOG.error(
-                        "Response{protocol={}, code={}, message={}, headers={}}",
+                        "Response{timestamp={}, protocol={}, code={}, message={}, headers={}}",
+                        System.currentTimeMillis(),
                         response.protocol(),
                         response.code(),
                         response.message(),
@@ -149,7 +150,8 @@ public class RequestHandler{
             if(bodyString.isEmpty()){
                 LOG.error("Received empty Response from BotBlock API!");
                 LOG.error(
-                        "Response{protocol={}, code={}, message={}, headers={}}",
+                        "Response{timestamp={}, protocol={}, code={}, message={}, headers={}}",
+                        System.currentTimeMillis(),
                         response.protocol(),
                         response.code(),
                         response.message(),
@@ -206,7 +208,8 @@ public class RequestHandler{
             if(body == null){
                 LOG.error("Received empty Response from BotBlock API!");
                 LOG.error(
-                        "Response{protocol={}, code={}, message={}, headers={}}",
+                        "Response{timestamp={}, protocol={}, code={}, message={}, headers={}}",
+                        System.currentTimeMillis(),
                         response.protocol(),
                         response.code(),
                         response.message(),
@@ -219,7 +222,8 @@ public class RequestHandler{
             if(bodyString.isEmpty()){
                 LOG.error("Received empty Response from BotBlock API!");
                 LOG.error(
-                        "Response{protocol={}, code={}, message={}, headers={}}",
+                        "Response{timestamp={}, protocol={}, code={}, message={}, headers={}}",
+                        System.currentTimeMillis(),
                         response.protocol(),
                         response.code(),
                         response.message(),
