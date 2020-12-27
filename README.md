@@ -1,5 +1,6 @@
 [BotBlock]: https://botblock.org  
 [API]: https://botblock.org/api/docs
+[list]: https://botblock.org/api/docs#count
 
 [BotBlock4J]: https://github.com/spide-r/BotBlock4J
 
@@ -22,6 +23,7 @@
 
 [Javadoc]: https://docs.botblock.org/JavaBotBlockAPI
 [image]: https://docs.botblock.org/JavaBotBlockAPI/assets/img/JavaBotBlockAPI.png
+[site]: https://docs.botblock.org/JavaBotBlockAPI/core/org/botblock/javabotblockapi/core/Site.html
 
 ![image]
 
