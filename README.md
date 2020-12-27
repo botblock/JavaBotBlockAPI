@@ -6,8 +6,8 @@
 
 [wiki]: https://jbba.dev/docs
 
-[CodeMC]: https://ci.codemc.io/job/botblock/job/JavaBotBlockAPI/  
-[CodeMCBadge]: https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fci.codemc.io%2Fjob%2Fbotblock%2Fjob%2FJavaBotBlockAPI%2F&label=Dev%20Builds&style=plastic
+[CodeMCBadge]: https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fci.codemc.io%2Fjob%2Fbotblock%2Fjob%2FJavaBotBlockAPI%2F&label=Dev%20Builds&style=plastic  
+[CodeMC]: https://ci.codemc.io/job/botblock/job/JavaBotBlockAPI/
 
 [BadgeDownload]: https://img.shields.io/bintray/v/andre601/maven/JavaBotBlockAPI?label=Bintray&style=plastic  
 [Download]: https://bintray.com/andre601/maven/JavaBotBlockAPI/_latestVersion
@@ -31,7 +31,8 @@ JavaBotBlockAPI is a continued and updated Java Wrapper for [BotBlock], a websit
 This wrapper is a fork of [BotBlock4J] and was updated and improved to make it as userfriendly as possible.
 
 # Installation
-[![BadgeDownload]](https://bintray.com/andre601/maven/JavaBotBlockAPI/_latestVersion) [![CodeMCBadge]](https://ci.codemc.io/job/botblock/job/JavaBotBlockAPI/)
+[![BadgeDownload]][Download]
+[![CodeMCBadge]][CodeMC]
 
 You can install JavaBotBlockAPI through the following methods.  
 Make sure to replace `{version}` with the above shown version.
