@@ -65,17 +65,6 @@ public @interface DeprecatedSince{
     int patch();
     
     /**
-     * Since what version this Object is deprecated.
-     * <br>This is field is required!
-     * 
-     * @return The version since when this object is deprecated.
-     * 
-     * @deprecated Was replaced with {@link #major() major}, {@link #minor() minor} and {@link #patch() patch}.
-     */
-    @Deprecated
-    String version() default "";
-    
-    /**
      * Optional String array indicating one or multiple possible replacement Objects to use.
      * 
      * @return The Object(s) to use instead of the deprecated one.
