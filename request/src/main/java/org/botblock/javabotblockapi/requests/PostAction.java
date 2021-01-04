@@ -19,6 +19,7 @@
 package org.botblock.javabotblockapi.requests;
 
 import org.botblock.javabotblockapi.core.BotBlockAPI;
+import org.botblock.javabotblockapi.core.JavaBotBlockAPIInfo;
 import org.botblock.javabotblockapi.core.exceptions.RateLimitedException;
 import org.botblock.javabotblockapi.core.CheckUtil;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
@@ -54,14 +55,16 @@ public class PostAction{
      *     <li>User-Agent: {@code "JavaBotBlockAPI-0000/API_VERSION (Unknown; +https://jbba.dev) DBots/{id}"}</li>
      * </ul>
      *
+     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <ul>
+     *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided ID is empty.</li>
+     * </ul>
+     *
      * @param id
      *        The id of the bot. This is required for the internal User-Agent.
-     *
-     * @throws NullPointerException
-     *         When the provided id is empty.
      */
     public PostAction(@Nonnull String id){
-        this("JavaBotBlockAPI-0000/API_VERSION (Unknown; +https://jbba.dev) DBots/{id}", id);
+        this(String.format("JavaBotBlockAPI-0000/%s (Unknown; +https://jbba.dev) DBots/{id}", JavaBotBlockAPIInfo.VERSION), id);
     }
     
     /**
@@ -70,13 +73,15 @@ public class PostAction{
      *
      * <p>Note that you can provide {@code {id}} inside the userAgent to get it replaced with the provided id.
      *
+     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <ul>
+     *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided ID or User Agent are empty.</li>
+     * </ul>
+     *
      * @param userAgent
      *        The Name to use as User-Agent.
      * @param id
      *        The id of the bot. This is required for the internal User-Agent.
-     *
-     * @throws NullPointerException
-     *         When the provided userAgent or id is empty.
      */
     public PostAction(@Nonnull String userAgent, @Nonnull String id){
         CheckUtil.notEmpty(userAgent, "UserAgent");
@@ -152,7 +157,8 @@ public class PostAction{
         
         try{
             scheduler.shutdown();
-            scheduler.awaitTermination(time, timeUnit);
+            if(!scheduler.awaitTermination(time, timeUnit))
+                LOG.warn("Scheduler couldn't properly wait for termination.");
         }catch(InterruptedException ex){
             LOG.warn("Got interrupted while shutting down the Scheduler!", ex);
         }

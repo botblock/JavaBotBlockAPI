@@ -6,10 +6,9 @@ plugins{
     id 'maven-publish'
     id 'maven'
     id 'com.github.johnrengelman.shadow' version '5.2.0'
-    id 'net.kyori.blossom' version '1.1.0'
 }
 
-def ver = new Version(major: 6, minor: 3, patch: 4)
+def ver = new Version(major: 6, minor: 4, patch: 0)
 
 allprojects {
     apply plugin: 'com.jfrog.bintray'
@@ -191,10 +190,6 @@ subprojects {
         if(project.includeInParent) {
             rootProject.dependencies.compile project
         }
-    }
-    
-    blossom{
-        replaceToken("API_VERSION", version)
     }
 }
 

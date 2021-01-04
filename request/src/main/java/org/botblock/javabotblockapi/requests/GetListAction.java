@@ -18,6 +18,7 @@
 
 package org.botblock.javabotblockapi.requests;
 
+import org.botblock.javabotblockapi.core.JavaBotBlockAPIInfo;
 import org.botblock.javabotblockapi.core.Site;
 import org.botblock.javabotblockapi.core.CheckUtil;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
@@ -69,17 +70,22 @@ public class GetListAction{
      *     <li>User-Agent: {@code "JavaBotBlockAPI-0000/API_VERSION (Unknown; +https://jbba.dev) DBots/{id}"}</li>
      * </ul>
      *
+     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <ul>
+     *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
+     * </ul>
+     *
      * @param disableCache
      *        If the cache should be disabled.
      *        <br>{@code true} means the cache is <b>disabled</b>.
      * @param id
      *        The id of the bot. This is required for the internal User-Agent.
-     *
-     * @throws java.lang.NullPointerException
-     *         When the provided id is empty.
      */
     public GetListAction(boolean disableCache, @Nonnull String id){
-        this(disableCache, "JavaBotBlockAPI-0000/API_VERSION (Unknown; +https://jbba.dev) DBots/{id}", id);
+        this(disableCache, String.format(
+                "JavaBotBlockAPI-0000/%s (Unknown; +https://jbba.dev) DBots/{id}",
+                JavaBotBlockAPIInfo.VERSION
+        ), id);
     }
     
     /**
@@ -101,9 +107,6 @@ public class GetListAction{
      *        The Name that should be used as User-Agent.
      * @param id
      *        The id of the bot. This is required for the internal User-Agent.
-     *
-     * @throws java.lang.NullPointerException
-     *         When the provided userAgent or id is empty.
      */
     public GetListAction(boolean disableCache, @Nonnull String userAgent, @Nonnull String id){
         CheckUtil.notEmpty(userAgent, "UserAgent");

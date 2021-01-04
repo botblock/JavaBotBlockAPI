@@ -20,6 +20,7 @@ package org.botblock.javabotblockapi.javacord;
 
 import org.botblock.javabotblockapi.core.BotBlockAPI;
 import org.botblock.javabotblockapi.core.CheckUtil;
+import org.botblock.javabotblockapi.core.JavaBotBlockAPIInfo;
 import org.botblock.javabotblockapi.core.exceptions.RateLimitedException;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
 import org.javacord.api.DiscordApi;
@@ -63,9 +64,10 @@ public class PostAction{
      */
     public PostAction(DiscordApi api){
         this.requestHandler = new RequestHandler(String.format(
-                "%s-%s/API_VERSION (Javacord) DBots/%s",
+                "%s-%s/%s (Javacord) DBots/%s",
                 api.getYourself().getName(),
                 api.getYourself().getDiscriminator(),
+                JavaBotBlockAPIInfo.VERSION,
                 api.getYourself().getId()
         ));
         this.scheduler = requestHandler.getScheduler();
@@ -138,7 +140,8 @@ public class PostAction{
         
         try{
             scheduler.shutdown();
-            scheduler.awaitTermination(time, timeUnit);
+            if(!scheduler.awaitTermination(time, timeUnit))
+                LOG.warn("Scheduler couldn't properly wait for termination.");
         }catch(InterruptedException ex){
             LOG.warn("Got interrupted while shutting down the Scheduler!", ex);
         }

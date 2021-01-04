@@ -21,6 +21,7 @@ package org.botblock.javabotblockapi.jda;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.sharding.ShardManager;
 import org.botblock.javabotblockapi.core.BotBlockAPI;
+import org.botblock.javabotblockapi.core.JavaBotBlockAPIInfo;
 import org.botblock.javabotblockapi.core.exceptions.RateLimitedException;
 import org.botblock.javabotblockapi.core.CheckUtil;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
@@ -78,9 +79,10 @@ public class PostAction{
      */
     public PostAction(@Nonnull JDA jda){
         this.requestHandler = new RequestHandler(String.format(
-                "%s-%s/API_VERSION (JDA) DBots/%s",
+                "%s-%s/%s (JDA) DBots/%s",
                 jda.getSelfUser().getName(),
                 jda.getSelfUser().getDiscriminator(),
+                JavaBotBlockAPIInfo.VERSION,
                 jda.getSelfUser().getId()
         ));
         this.scheduler = requestHandler.getScheduler();
@@ -157,7 +159,8 @@ public class PostAction{
         
         try{
             scheduler.shutdown();
-            scheduler.awaitTermination(time, timeUnit);
+            if(!scheduler.awaitTermination(time, timeUnit))
+                LOG.warn("Scheduler couldn't properly wait for termination.");
         }catch(InterruptedException ex){
             LOG.warn("Got interrupted while shutting down the Scheduler!", ex);
         }
