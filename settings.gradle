@@ -1,7 +1,0 @@
-rootProject.name = 'JavaBotBlockAPI'
-
-include 'core'
-include 'jda'
-include 'request'
-include 'javacord'
-
