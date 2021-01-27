@@ -4,5 +4,5 @@ dependencies {
 }
 
 javadoc {
-    exclude 'org/botblock/javabotblockapi/requests/handler'
+    exclude "org/botblock/javabotblockapi/requests/handler"
 }

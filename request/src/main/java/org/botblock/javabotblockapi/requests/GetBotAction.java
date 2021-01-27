@@ -54,7 +54,7 @@ public class GetBotAction{
      *     <li>User-Agent: {@code "JavaBotBlockAPI-0000/API_VERSION (Unknown; +https://jbba.dev) DBots/{id}"}</li>
      * </ul>
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
      * </ul>
@@ -75,7 +75,7 @@ public class GetBotAction{
      *     <li>User-Agent: {@code "JavaBotBlockAPI-0000/API_VERSION (Unknown; +https://jbba.dev) DBots/{id}"}</li>
      * </ul>
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
      * </ul>
@@ -100,7 +100,7 @@ public class GetBotAction{
      *
      * <p>Note that you can provide {@code {id}} inside the userAgent to get it replaced with the provided id.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided userAgent or id is empty.</li>
      * </ul>
@@ -205,7 +205,7 @@ public class GetBotAction{
      * <br>With exception of id and list_data are all returned values based on how often one appears.
      * <br>Each entry in list data is unique to what the respective bot list returns.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
      * </ul>
@@ -287,7 +287,7 @@ public class GetBotAction{
      * Gets the information from the specified bot list.
      * <br>The returned data is entirely dependant on the bot list itself and is therefore unique.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site does not support GET requests.</li>
      * </ul>
@@ -318,7 +318,7 @@ public class GetBotAction{
      * Gets the information from the specified bot list.
      * <br>The returned data is entirely dependant on the bot list itself and is therefore unique.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided site is empty.</li>
      * </ul>
@@ -349,7 +349,7 @@ public class GetBotAction{
      * Gets the information from the specified bot list.
      * <br>The returned data is entirely dependant on the bot list itself and is therefore unique.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
      *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site does not support GET requests.</li>
@@ -386,7 +386,7 @@ public class GetBotAction{
      * Gets the information from the specified bot list.
      * <br>The returned data is entirely dependant on the bot list itself and is therefore unique.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id or site is empty.</li>
      * </ul>
@@ -446,7 +446,7 @@ public class GetBotAction{
      * Gets the discriminator (The 4 numbers after the # in the username) of the bot.
      * <br>The discriminator is based on the most common appearance of it.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
      * </ul>
@@ -505,7 +505,7 @@ public class GetBotAction{
      * Gets the GitHub link of the bot.
      * <br>The GitHub link is based on the most common appearance of it.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
      * </ul>
@@ -564,7 +564,7 @@ public class GetBotAction{
      * Gets the currently used library of the bot.
      * <br>The library is based on the most common appearance of it.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
      * </ul>
@@ -623,7 +623,7 @@ public class GetBotAction{
      * Gets the name of the bot.
      * <br>The name is based on the most common appearance of it.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
      * </ul>
@@ -682,7 +682,7 @@ public class GetBotAction{
      * Gets the OAuth invite link of a bot.
      * <br>The OAuth invite is used to add a bot to a Discord server.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
      * </ul>
@@ -739,7 +739,7 @@ public class GetBotAction{
      * Gets an ArrayList with the owner ids of the bot.
      * <br>The IDs listed are based on how often they appear on the different bot lists.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
      * </ul>
@@ -800,7 +800,7 @@ public class GetBotAction{
      * Gets the prefix of the bot.
      * <br>The prefix is based on the most common appearance of it.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
      * </ul>
@@ -857,7 +857,7 @@ public class GetBotAction{
      * Gets the server count of the bot.
      * <br>The server count is based on the most common appearance of it.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
      * </ul>
@@ -912,7 +912,7 @@ public class GetBotAction{
      * Gets the support link (i.e. Discord invite) from the bot.
      * <br>The link is based on the most common appearance of it.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
      * </ul>
@@ -969,7 +969,7 @@ public class GetBotAction{
      * Gets the website of the bot.
      * <br>The website is based on the most common appearance of it.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
      * </ul>

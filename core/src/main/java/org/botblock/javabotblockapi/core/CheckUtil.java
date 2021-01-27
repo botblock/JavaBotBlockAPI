@@ -20,45 +20,18 @@ package org.botblock.javabotblockapi.core;
 
 import java.util.Map;
 
-/**
- * Utility class to perform basic checks.
- */
 public class CheckUtil{
     
-    /**
-     * Will throw a {@link java.lang.NullPointerException NullPointerException} when the provided String is empty.
-     * 
-     * @param value
-     *        The String to check.
-     * @param name
-     *        The name of the parameter checked.
-     */
     public static void notEmpty(String value, String name){
         if(value.isEmpty())
             throw new NullPointerException(name + " may not be empty.");
     }
     
-    /**
-     * Will throw a {@link java.lang.NullPointerException NullPointerException} when the provided Map is empty.
-     * 
-     * @param value
-     *        The Map to check.
-     * @param name
-     *        The name of the parameter checked.
-     */
     public static void notEmpty(Map<?, ?> value, String name){
         if(value.isEmpty())
             throw new NullPointerException(name + " may not be empty.");
     }
     
-    /**
-     * Will throw a {@link java.lang.IllegalStateException IllegalStateException} when the provided expression returns true.
-     * 
-     * @param expression
-     *        The expression to check against.
-     * @param message
-     *        The message to print in the Exception when thrown.
-     */
     public static void condition(boolean expression, String message){
         if(expression)
             throw new IllegalStateException(message);

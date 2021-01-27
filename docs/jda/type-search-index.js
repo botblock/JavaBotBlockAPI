@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"org.botblock.javabotblockapi.jda","l":"PostAction"}]

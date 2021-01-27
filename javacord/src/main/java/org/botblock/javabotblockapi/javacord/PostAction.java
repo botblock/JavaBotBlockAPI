@@ -123,7 +123,7 @@ public class PostAction{
      *
      * <p>This method may throw a {@link java.lang.InterruptedException InterruptedException} in the terminal.
      * 
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided time param is 0 or lower.</li>
      * </ul>
@@ -158,7 +158,7 @@ public class PostAction{
      * time set in {@link org.botblock.javabotblockapi.core.BotBlockAPI.Builder#setUpdateDelay(Integer) BotBlockAPI.Builder.setUpdateDelay(Integer)}
      * (default is 30 minutes).
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided DiscordApis are 0 or less.</li>
      * </ul>
@@ -187,7 +187,7 @@ public class PostAction{
      * <p>If the provided DiscordApi instance is a sharded Bot (Amount of shards is larger than 1) will the request
      * contain the {@code shards} array alongside a {@code shard_count} field.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided DiscordApis are 0 or less.</li>
      * </ul>

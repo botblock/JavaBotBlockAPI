@@ -22,6 +22,8 @@ package org.botblock.javabotblockapi.core;
  * Class containing static info used in other modules.
  * <br>Feel free to use the info shared here inside your bot if you, for example, want to share what Lib your bot
  * uses to post Guild count or similar.
+ * 
+ * @since 6.4.0
  */
 public class JavaBotBlockAPIInfo{
     
@@ -36,7 +38,7 @@ public class JavaBotBlockAPIInfo{
     /**
      * Patch version of the Wrapper.
      */
-    public static final String PATCH = "0";
+    public static final String PATCH = "1";
     
     /**
      * Full version in the format {@code major.minor.patch}.

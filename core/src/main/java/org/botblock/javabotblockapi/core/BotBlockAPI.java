@@ -69,12 +69,12 @@ public class BotBlockAPI{
          * <br>Entries with the same key will be overwritten.
          *
          * @param  site
-         *         The {@link Site Site} to get the name from.
+         *         The {@link org.botblock.javabotblockapi.core.Site Site} to get the name from.
          * @param  token
          *         The API token from the corresponding bot list. May not be null or empty.
          *         <br>You may receive the API token from the bot list.
          *
-         * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+         * <p>Following Exceptions can be thrown from the CheckUtil:
          * <ul>
          *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided Token is empty.</li>
          *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided Site doesn't support POST requests.</li>
@@ -103,7 +103,7 @@ public class BotBlockAPI{
          *         The API token from the corresponding bot list. May not be null or empty.
          *         <br>You may receive the API token from the bot list.
          *
-         * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+         * <p>Following Exceptions can be thrown from the CheckUtil:
          * <ul>
          *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided Site or Token is empty.</li>
          * </ul>
@@ -125,7 +125,7 @@ public class BotBlockAPI{
          * @param  tokens
          *         The Map that should be used. May not be null.
          *
-         * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+         * <p>Following Exceptions can be thrown from the CheckUtil:
          * <ul>
          *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided Token is empty.</li>
          * </ul>
@@ -146,7 +146,7 @@ public class BotBlockAPI{
          * @param  updateDelay
          *         The update interval in minutes that should be used. This can't be less than 2.
          *
-         * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+         * <p>Following Exceptions can be thrown from the CheckUtil:
          * <ul>
          *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided interval is less than 2.</li>
          * </ul>
@@ -163,7 +163,7 @@ public class BotBlockAPI{
         /**
          * Builds the instance of {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlockAPI}.
          *
-         * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+         * <p>Following Exceptions can be thrown from the CheckUtil:
          * <ul>
          *     <li>{@link java.lang.NullPointerException NullPointerException} - When the Tokens Map is empty.</li>
          * </ul>

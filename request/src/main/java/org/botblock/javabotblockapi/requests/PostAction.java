@@ -55,7 +55,7 @@ public class PostAction{
      *     <li>User-Agent: {@code "JavaBotBlockAPI-0000/API_VERSION (Unknown; +https://jbba.dev) DBots/{id}"}</li>
      * </ul>
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided ID is empty.</li>
      * </ul>
@@ -73,7 +73,7 @@ public class PostAction{
      *
      * <p>Note that you can provide {@code {id}} inside the userAgent to get it replaced with the provided id.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided ID or User Agent are empty.</li>
      * </ul>
@@ -140,7 +140,7 @@ public class PostAction{
      *
      * <p>This method may throw a {@link java.lang.InterruptedException InterruptedException} in the terminal.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.IllegalStateException IllegalStateException} - When the provided time param is 0 or lower.</li>
      * </ul>
@@ -244,7 +244,7 @@ public class PostAction{
     /**
      * Posts the guild count with the provided bot id.
      *
-     * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+     * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
      *     <li>{@link java.lang.NullPointerException NullPointerException} - When the provided id is empty.</li>
      * </ul>

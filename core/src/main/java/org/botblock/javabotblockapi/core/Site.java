@@ -35,11 +35,22 @@ public class Site{
     
     /**
      * <a href="https://arcane-center.xyz" target="_blank">arcane-center.xyz</a>
+     * 
+     * <p>Supported methods:
+     * <ul>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site ARCANE_CENTER_XYZ = new Site("arcane-center.xyz", HttpMethod.POST);
     
     /**
      * <a href="https://bladebotlist.xyz" target="_blank">bladebotlist.xyz</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      * 
      * @since 6.3.0
      */
@@ -47,56 +58,131 @@ public class Site{
     
     /**
      * <a href="https://blist.xyz" target="_blank">blist.xyz</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site BLIST_XYZ = new Site("blist.xyz", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://botlist.space" target="_blank">botlist.space</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site BOTLIST_SPACE = new Site("botlist.space", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://botsdatabase.com" target="_blank">botsdatabase.com</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site BOTSDATABASE_COM = new Site("botsdatabase.com", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://bots.discordlabs.org" target="_blank">bots.discordlabs.org</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site BOTS_DISCORDLABS_ORG = new Site("discordlabs.org", HttpMethod.GET, HttpMethod.POST);
     
     /**
+     * <a href="https://bots.distop.xyz" target="_blank">bots.distop.xyz</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     * </ul>
+     * 
+     * @since 6.4.1
+     */
+    public static final Site BOTS_DISTOP_XYZ = new Site("bots.distop.xyz", HttpMethod.POST);
+    
+    /**
      * <a href="https://botsfordiscord.com" target="_blank">botsfordiscord.com</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site BOTSFORDISCORD_COM = new Site("botsfordiscord.com", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://bots.idledev.org" target="_blank">bots.idledev.org</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site BOTS_IDLEDEV_ORG = new Site("bots.idledev.org", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://bots.ondiscord.xyz" target="_blank">bots.ondiscord.xyz</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site BOTS_ONDISCORD_XYZ = new Site("bots.ondiscord.xyz", HttpMethod.POST);
     
     /**
      * <a href="https://dblista.pl" target="_blank">dblista.pl</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     * </ul>
      */
     public static final Site DBLISTA_PL = new Site("dblista.pl", HttpMethod.GET);
     
     /**
      * <a href="https://discordapps.dev" target="_blank">discordapps.dev</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site DISCORDAPPS_DEV = new Site("discordapps.dev", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://discord.boats" target="_blank">discord.boats</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site DISCORD_BOATS = new Site("discord.boats", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://discordbotdirectory.net" target="_blank">discordbotdirectory.net</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     * </ul>
      * 
      * @since 6.3.0
      */
@@ -104,11 +190,23 @@ public class Site{
     
     /**
      * <a href="https://discordbotlist.com" target="_blank">discordbotlist.com</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site DISCORDBOTLIST_COM = new Site("discordbotlist.com", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://discordbots.co" target="_blank">discordbots.co</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      * 
      * @since 5.2.3
      */
@@ -116,51 +214,110 @@ public class Site{
     
     /**
      * <a href="https://discord.bots.gg" target="_blank">discord.bots.gg</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site DISCORD_BOTS_GG = new Site("discord.bots.gg", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://discordextremelist.xyz" target="_blank">discordextremelist.xyz</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site DISCORDEXTREMELIST_XYZ = new Site("discordextremelist.xyz", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://discordlistology.com" target="_blank">discordlistology.com</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site DISCORDLISTOLOGY_COM = new Site("discordlistology.com", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://disforge.com" target="_blank">disforge.com</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site DISFORGE_COM = new Site("disforge.com", HttpMethod.POST);
     
     /**
      * <a href="https://infinitybotlist.com" target="_blank">infinitybotlist.com</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site INFINITYBOTLIST_COM = new Site("infinitybotlist.com", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://space-bot-list.xyz" target="_blank">space-bot-list.xyz</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site SPACE_BOT_LIST_XYZ = new Site("space-bot-list.xyz", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://topcord.xyz" target="_blank">topcord.xyz</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site TOPCORD_XYZ = new Site("topcord.xyz", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://voidbots.net" target="_blank">voidbots.net</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site VOIDBOTS_NET = new Site("voidbots.net", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://wonderbotlist.com" target="_blank">wonderbotlist.com</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site WONDERBOTLIST_COM = new Site("wonderbotlist.com", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://yabl.xyz" target="_blank">yabl.xyz</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
      */
     public static final Site YABL_XYZ = new Site("yabl.xyz", HttpMethod.GET, HttpMethod.POST);
     
