@@ -25,6 +25,7 @@ jobs:
       with: 
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs
+        commit_message: "Update Docs (${GITHUB_SHA:0:7})"
   publish:
     needs: [generateJavadoc]
     if: success()
