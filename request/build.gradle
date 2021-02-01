@@ -1,6 +1,6 @@
 dependencies {
     implementation project(":core")
-    api group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.9.0'
+    api group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.9.1'
 }
 
 javadoc {
