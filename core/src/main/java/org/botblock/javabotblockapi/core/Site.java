@@ -267,6 +267,19 @@ public class Site{
     public static final Site INFINITYBOTLIST_COM = new Site("infinitybotlist.com", HttpMethod.GET, HttpMethod.POST);
     
     /**
+     * <a href ="https://paradisebots.net" target="_blank">paradisebots.net</a>
+     * 
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
+     * 
+     * @since 6.4.2
+     */
+    public static final Site PARADISEBOTS_NET = new Site("paradisebots.net", HttpMethod.GET, HttpMethod.POST);
+    
+    /**
      * <a href="https://space-bot-list.xyz" target="_blank">space-bot-list.xyz</a>
      *
      * <p>Supported methods:

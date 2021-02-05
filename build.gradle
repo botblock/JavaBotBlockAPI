@@ -8,7 +8,7 @@ plugins{
     id 'com.github.johnrengelman.shadow' version '5.2.0'
 }
 
-def ver = new Version(major: 6, minor: 4, patch: 1)
+def ver = new Version(major: 6, minor: 4, patch: 2)
 
 allprojects {
     apply plugin: 'com.jfrog.bintray'
@@ -20,7 +20,7 @@ allprojects {
     version = "$ver"
     
     ext {
-
+        
         dependencies {
             api group: 'org.json', name: 'json', version: '20201115'
             api group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: '2.8.0'

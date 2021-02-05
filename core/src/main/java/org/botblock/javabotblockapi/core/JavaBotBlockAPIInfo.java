@@ -38,7 +38,7 @@ public class JavaBotBlockAPIInfo{
     /**
      * Patch version of the Wrapper.
      */
-    public static final String PATCH = "1";
+    public static final String PATCH = "2";
     
     /**
      * Full version in the format {@code major.minor.patch}.
