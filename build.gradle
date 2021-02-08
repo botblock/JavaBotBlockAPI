@@ -11,7 +11,6 @@ plugins{
 def ver = new Version(major: 6, minor: 4, patch: 2)
 
 allprojects {
-    apply plugin: 'com.jfrog.bintray'
     apply plugin: 'maven-publish'
     apply plugin: 'java-library'
     apply plugin: 'com.github.johnrengelman.shadow'
