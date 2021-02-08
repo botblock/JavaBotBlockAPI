@@ -189,7 +189,7 @@ publishing {
             
             from components.java
             artifact javadocJar
-            artifact sourceJar
+            artifact sourcesJar
             
             pom.withXml {
                 def reposNode = asNode().appendNode('repositories')
