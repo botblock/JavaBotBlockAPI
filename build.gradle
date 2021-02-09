@@ -5,7 +5,6 @@ plugins{
     id 'maven-publish'
     id 'maven'
     id 'com.github.johnrengelman.shadow' version '5.2.0'
-    id 'signing'
 }
 
 def ver = new Version(major: 6, minor: 4, patch: 2)
@@ -185,7 +184,9 @@ task sourcesJar(type: Jar, dependsOn: classes){
 publishing {
     publications {
         mavenJava(MavenPublication) {
+            groupId = rootProject.group
             artifactId = "JavaBotBlockAPI"
+            version = rootProject.version
             
             from components.java
             artifact javadocJar
@@ -228,10 +229,6 @@ publishing {
             }
         }
     }
-}
-
-signing {
-    sign publishing.publications.mavenJava
 }
 
 class Version{
