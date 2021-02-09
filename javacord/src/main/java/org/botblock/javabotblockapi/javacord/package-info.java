@@ -27,15 +27,15 @@
  *
  * <pre><code>
  * repositories{
- *     maven{ url = 'https://dl.bintray.com/andre601/maven' }
+ *     maven{ url = 'https://repo.codemc.io/repository/maven-public' }
  * }
  *
  * dependencies{
  *     // Those two are required
- *     compile 'org.botblock:JavaBotBlockAPI-core:API_VERSION'
- *     compile 'org.botblock:JavaBotBlockAPI-request:API_VERSION'
+ *     compile group: 'org.botblock', name: 'javabotblockapi-core', version: 'API_VERSION'
+ *     compile group: 'org.botblock', name: 'javabotblockapi-request', version: 'API_VERSION'
  *
- *     compile 'org.botblock:JavaBotBlockAPI-javacord:API_VERSION'
+ *     compile group: 'org.botblock', name: 'javabotblockapi-javacord', version: 'API_VERSION'
  * }
  * </code></pre>
  *
@@ -44,9 +44,9 @@
  * <pre><code>{@literal
  * <repositories>
  *     <repository>
- *         <id>jcenter</id>
- *         <name>jcenter-bintray</name>
- *         <url>https://dl.bintray.com/andre601/maven</url>
+ *         <id>codemc</id>
+ *         <name>CodeMC-Nexus</name>
+ *         <url>https://repo.codemc.io/repository/maven-public</url>
  *     </repository>
  * </repositories>
  *
@@ -54,18 +54,18 @@
  *     <!-- Those two are required -->
  *     <dependency>
  *         <groupId>org.botblock</groupId>
- *         <artifactId>JavaBotBlockAPI-core</artifactId>
+ *         <artifactId>javabotblockapi-core</artifactId>
  *         <version>API_VERSION</version>
  *     </dependency>
  *     <dependency>
  *         <groupId>org.botblock</groupId>
- *         <artifactId>JavaBotBlockAPI-request</artifactId>
+ *         <artifactId>javabotblockapi-request</artifactId>
  *         <version>API_VERSION</version>
  *     </dependency>
  *     
  *     <dependency>
  *         <groupId>org.botblock</groupId>
- *         <artifactId>JavaBotBlockAPI-javacord</artifactId>
+ *         <artifactId>javabotblockapi-javacord</artifactId>
  *         <version>API_VERSION</version>
  *     </dependency>
  * </dependencies>
@@ -75,9 +75,8 @@
  * We do not recommend using jar files directly and instead use one of the above dependency management systems.
  *
  * <p>If you still want to do it manually, or can't use one of the other option, head over to the
- * <a target="_blank" href="https://github.com/botblock/JavaBotBlockAPI/releases/latest">GitHub releases page</a> or to
- * the <a target="_blank" href="https://bintray.com/beta/#/andre601/maven/JavaBotBlockAPI?tab=overview">Bintray release page</a>
- * and download the jar files from there.
+ * <a target="_blank" href="https://github.com/botblock/JavaBotBlockAPI/releases/latest">GitHub releases page</a> and
+ * download the jar files from there.
  *
  * <p>Note that you will not receive any support when using this method.
  */

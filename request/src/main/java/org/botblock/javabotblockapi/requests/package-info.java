@@ -27,12 +27,12 @@
  *
  * <pre><code>
  * repositories{
- *     maven{ url = 'https://dl.bintray.com/andre601/maven' }
+ *     maven{ url = 'https://repo.codemc.io/repository/maven-public' }
  * }
  *
  * dependencies{
- *     compile 'org.botblock:JavaBotBlockAPI-core:API_VERSION'
- *     compile 'org.botblock:JavaBotBlockAPI-request:API_VERSION
+ *     compile group: 'org.botblock', name: 'javabotblockapi-core', version: 'API_VERSION'
+ *     compile group: 'org.botblock', name: 'javabotblockapi-request', version: 'API_VERSION'
  * }
  * </code></pre>
  *
@@ -41,21 +41,21 @@
  * <pre><code>{@literal
  * <repositories>
  *     <repository>
- *         <id>jcenter</id>
- *         <name>jcenter-bintray</name>
- *         <url>https://dl.bintray.com/andre601/maven</url>
+ *         <id>codemc</id>
+ *         <name>CodeMC-Nexus</name>
+ *         <url>https://repo.codemc.io/repository/maven-public</url>
  *     </repository>
  * </repositories>
  *
  * <dependencies>
  *     <dependency>
  *         <groupId>org.botblock</groupId>
- *         <artifactId>JavaBotBlockAPI-core</artifactId>
+ *         <artifactId>javabotblockapi-core</artifactId>
  *         <version>API_VERSION</version>
  *     </dependency>
  *     <dependency>
  *         <groupId>org.botblock</groupId>
- *         <artifactId>JavaBotBlockAPI-request</artifactId>
+ *         <artifactId>javabotblockapi-request</artifactId>
  *         <version>API_VERSION</version>
  *     </dependency>
  * </dependencies>

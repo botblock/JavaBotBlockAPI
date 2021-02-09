@@ -9,7 +9,7 @@
 [CodeMCBadge]: https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fci.codemc.io%2Fjob%2Fbotblock%2Fjob%2FJavaBotBlockAPI%2F&label=Dev%20Builds&style=plastic  
 [CodeMC]: https://ci.codemc.io/job/botblock/job/JavaBotBlockAPI/
 
-[BadgeDownload]: https://img.shields.io/bintray/v/andre601/maven/JavaBotBlockAPI?label=Bintray&style=plastic  
+[DownloadBadge]: https://img.shields.io/nexus/maven-public/org.botblock/javabotblockapi-core?label=Release&server=https%3A%2F%2Frepo.codemc.io&style=plastic
 [Download]: https://bintray.com/andre601/maven/JavaBotBlockAPI/_latestVersion
 
 [JDA]: https://github.com/DV8FromTheWorld/JDA  
@@ -31,28 +31,17 @@ JavaBotBlockAPI is a continued and updated Java Wrapper for [BotBlock], a websit
 This wrapper is a fork of [BotBlock4J] and was updated and improved to make it as userfriendly as possible.
 
 # Installation
-[![BadgeDownload]][Download]
-[![CodeMCBadge]][CodeMC]
+[![DownloadBadge]][Download] [![CodeMCBadge]][CodeMC]
 
 You can install JavaBotBlockAPI through the following methods.  
 Make sure to replace `{version}` with the above shown version.
 
 ## Gradle
-Put this code into your `build.gradle` to download all modules:  
+To download the different modules will you need to add the following snippets to your `build.gradle`:
+
 ```groovy
 repositories{
-    maven{ url = 'https://dl.bintray.com/andre601/maven' }
-}
-
-dependencies{
-    compile group: 'org.botblock', name: 'javabotblockapi', version: '{version}'
-}
-```
-
-if you want to only download specific modules can you just use `javabotblockapi-<module>`:
-```groovy
-repositories{
-    maven{ url = 'https://dl.bintray.com/andre601/maven' }
+    maven{ url = 'https://repo.codemc.io/repository/maven-public' }
 }
 
 dependencies{
@@ -71,30 +60,13 @@ dependencies{
 ```
 
 ## Maven
-For maven use this code snippet to download all modules:
+To download the different modules will you need to add the following snippets to your `pom.xml`:
+
 ```xml
 <repositories>
   <repository>
-    <id>jcenter</id>
-    <url>https://dl.bintray.com/andre601/maven</url>
-  </repository>
-</repositories>
-
-<dependencies>
-  <dependency>
-    <groupId>org.botblock</groupId>
-    <artifactId>javabotblockapi</artifactId>
-    <version>{version}</version>
-  </dependency>
-</dependencies>
-```
-
-if you want to only download specific modules can you just use `javabotblockapi-<module>`:
-```xml
-<repositories>
-  <repository>
-    <id>jcenter</id>
-    <url>https://dl.bintray.com/andre601/maven</url>
+    <id>codemc</id>
+    <url>https://repo.codemc.io/repository/maven-public</url>
   </repository>
 </repositories>
 
@@ -130,7 +102,7 @@ if you want to only download specific modules can you just use `javabotblockapi-
 ```
 
 # Usage Examples
-Below can you find a few examples on how JavaBotBlockAPI can/should be used.  
+Below will you find a few examples on how JavaBotBlockAPI can/should be used.  
 Please make sure to also take a look at the [Javadoc] for any additional information.
 
 ## BotBlockAPI
