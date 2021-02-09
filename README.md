@@ -10,7 +10,7 @@
 [CodeMC]: https://ci.codemc.io/job/botblock/job/JavaBotBlockAPI/
 
 [DownloadBadge]: https://img.shields.io/nexus/maven-public/org.botblock/javabotblockapi-core?label=Release&server=https%3A%2F%2Frepo.codemc.io&style=plastic
-[Download]: https://bintray.com/andre601/maven/JavaBotBlockAPI/_latestVersion
+[Download]: https://ci.codemc.io/job/botblock/job/JavaBotBlockAPI/lastSuccessfulBuild
 
 [JDA]: https://github.com/DV8FromTheWorld/JDA  
 [Javacord]: https://github.com/javacord/Javacord
