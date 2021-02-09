@@ -147,6 +147,38 @@ subprojects {
             rootProject.dependencies.compile project
         }
     }
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                groupId = rootProject.group
+                artifactId = "javabotblockapi-"+project.name
+                version = rootProject.version
+
+                from components.java
+                artifact javadocJar
+                artifact sourceJar
+            }
+        }
+        repositories {
+            maven {
+                url = "https://repo.codemc.io/repository/maven-releases/"
+
+                def mavenUsername = System.getenv("ORG_GRADLE_PROJECT_mavenUsername") ? System.getenv("ORG_GRADLE_PROJECT_mavenUsername") :
+                        System.getProperty("ORG_GRADLE_PROJECT_mavenUsername") ? System.getProperty("ORG_GRADLE_PROJECT_mavenUsername") : null
+                def mavenPassword = System.getenv("ORG_GRADLE_PROJECT_mavenPassword") ? System.getenv("ORG_GRADLE_PROJECT_mavenPassword") :
+                        System.getProperty("ORG_GRADLE_PROJECT_mavenPassword") ? System.getProperty("ORG_GRADLE_PROJECT_mavenPassword") : null
+
+                if(mavenUsername != null && mavenPassword != null) {
+                    credentials {
+                        username = mavenUsername
+                        password = mavenPassword
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 configurations {
@@ -181,36 +213,6 @@ task sourcesJar(type: Jar, dependsOn: classes){
     destinationDirectory = file("$rootDir/build/libs/")
 }
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            groupId = rootProject.group
-            artifactId = "JavaBotBlockAPI"
-            version = rootProject.version
-            
-            from components.java
-            artifact javadocJar
-            artifact sourcesJar
-        }
-    }
-    repositories {
-        maven {
-            url = "https://repo.codemc.io/repository/maven-releases/"
-
-            def mavenUsername = System.getenv("ORG_GRADLE_PROJECT_mavenUsername") ? System.getenv("ORG_GRADLE_PROJECT_mavenUsername") :
-                    System.getProperty("ORG_GRADLE_PROJECT_mavenUsername") ? System.getProperty("ORG_GRADLE_PROJECT_mavenUsername") : null
-            def mavenPassword = System.getenv("ORG_GRADLE_PROJECT_mavenPassword") ? System.getenv("ORG_GRADLE_PROJECT_mavenPassword") :
-                    System.getProperty("ORG_GRADLE_PROJECT_mavenPassword") ? System.getProperty("ORG_GRADLE_PROJECT_mavenPassword") : null
-
-            if(mavenUsername != null && mavenPassword != null) {
-                credentials {
-                    username = mavenUsername
-                    password = mavenPassword
-                }
-            }
-        }
-    }
-}
 
 class Version{
     String major, minor, patch
