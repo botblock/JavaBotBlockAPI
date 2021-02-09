@@ -152,7 +152,7 @@ subprojects {
         publications {
             mavenJava(MavenPublication) {
                 groupId = rootProject.group
-                artifactId = moduleName
+                artifactId = project.name
                 version = rootProject.version
 
                 from components.java
