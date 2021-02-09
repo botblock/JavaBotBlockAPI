@@ -87,6 +87,15 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "Ghost-chu",
+      "name": "Ghost_chu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/30802565?v=4",
+      "profile": "http://blog.mcsunnyside.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
