@@ -27,7 +27,7 @@ jobs:
         publish_dir: ./docs
         commit_message: "Update Docs (${GITHUB_SHA:0:7})"
   sendMessage:
-    needs: [publish]
+    needs: [generateJavadoc]
     if: success()
     runs-on: ubuntu-latest
     steps:
