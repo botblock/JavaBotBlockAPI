@@ -256,6 +256,17 @@ public class Site{
     public static final Site DISFORGE_COM = new Site("disforge.com", HttpMethod.POST);
     
     /**
+     * <a href="https://fasteslist.xyz" target="_blank">fateslist.xyz</a>
+     * 
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
+     */
+    public static final Site FATESLIST_XYZ = new Site("fateslist.xyz", HttpMethod.GET, HttpMethod.POST);
+    
+    /**
      * <a href="https://infinitybotlist.com" target="_blank">infinitybotlist.com</a>
      *
      * <p>Supported methods:

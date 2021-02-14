@@ -34,11 +34,11 @@ public class JavaBotBlockAPIInfo{
     /**
      * Minor version of the Wrapper.
      */
-    public static final String MINOR = "4";
+    public static final String MINOR = "5";
     /**
      * Patch version of the Wrapper.
      */
-    public static final String PATCH = "2";
+    public static final String PATCH = "1";
     
     /**
      * Full version in the format {@code major.minor.patch}.
