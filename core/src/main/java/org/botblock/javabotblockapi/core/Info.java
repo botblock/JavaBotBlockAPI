@@ -18,43 +18,38 @@
 
 package org.botblock.javabotblockapi.core;
 
-import org.botblock.javabotblockapi.core.annotations.DeprecatedSince;
-import org.botblock.javabotblockapi.core.annotations.PlannedRemoval;
-
 /**
- * Class containing static info used in other modules.
- * <br>Feel free to use the info shared here inside your bot if you, for example, want to share what Lib your bot
- * uses to post Guild count or similar.
+ * Class containing general information about the project.
  * 
- * @deprecated Class was changed to {@link org.botblock.javabotblockapi.core.Info Info}.
+ * <p>The class can be used for things such as determining the {@link #VERSION used version} or to get some static info 
+ * like the {@link #GITHUB GitHub} or {@link #JENKINS Jenkins CI} URL.
  * 
- * @since 6.4.0
+ * @since 6.6.0
  */
-@Deprecated
-@DeprecatedSince(major = 6, minor = 6, patch = 0, replacements = {"Info.java"})
-@PlannedRemoval(major = 6, minor = 6, patch = 2)
-public class JavaBotBlockAPIInfo{
+public class Info{
     
     /**
      * Major version of the Wrapper.
      */
-    public static final String MAJOR = String.valueOf(Info.MAJOR);
+    public static final int MAJOR = 6;
     /**
      * Minor version of the Wrapper.
      */
-    public static final String MINOR = String.valueOf(Info.MINOR);
+    public static final int MINOR = 6;
     /**
      * Patch version of the Wrapper.
      */
-    public static final String PATCH = String.valueOf(Info.PATCH);
+    public static final int PATCH = 0;
     
     /**
      * Full version in the format {@code major.minor.patch}.
      */
-    public static final String VERSION = String.format("%s.%s.%s", MAJOR, MINOR, PATCH);
+    public static final String VERSION = String.format("%d.%d.%d", MAJOR, MINOR, PATCH);
     
     /**
      * URL to the GitHub repository.
      */
     public static final String GITHUB = "https://github.com/botblock/JavaBotBlockAPI";
+    
+    public static final String JENKINS = "https://ci.codemc.io/job/botblock/job/JavaBotBlockAPI";
 }
