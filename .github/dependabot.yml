@@ -1,13 +1,7 @@
 version: 2
 updates:
-- package-ecosystem: pip
-  directory: "/"
-  schedule:
-    interval: daily
-  open-pull-requests-limit: 10
-  labels:
-  - 'Type: Dependency update'
 - package-ecosystem: github-actions
+  target-branch: development
   directory: "/"
   schedule:
     interval: daily
@@ -15,6 +9,7 @@ updates:
   labels:
   - 'Type: Dependency update'
 - package-ecosystem: gradle
+  target-branch: development
   directory: "/"
   schedule:
     interval: daily

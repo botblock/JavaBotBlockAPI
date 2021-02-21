@@ -18,6 +18,9 @@
 
 package org.botblock.javabotblockapi.core;
 
+import org.botblock.javabotblockapi.core.annotations.DeprecatedSince;
+import org.botblock.javabotblockapi.core.annotations.PlannedRemoval;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -108,9 +111,14 @@ public class Site{
      *     <li>GET</li>
      * </ul>
      * 
+     * @deprecated Site no longer available.
+     * 
      * @since 6.4.1
      */
-    public static final Site BOTS_DISTOP_XYZ = new Site("bots.distop.xyz", HttpMethod.POST);
+    @Deprecated
+    @DeprecatedSince(major = 6, minor = 6, patch = 1)
+    @PlannedRemoval(major = 6, minor = 6, patch = 3)
+    public static final Site BOTS_DISTOP_XYZ = new Site("bots.distop.xyz");
     
     /**
      * <a href="https://botsfordiscord.com" target="_blank">botsfordiscord.com</a>
@@ -131,8 +139,13 @@ public class Site{
      *     <li>GET</li>
      *     <li>POST</li>
      * </ul>
+     * 
+     * @deprecated Site no longer available.
      */
-    public static final Site BOTS_IDLEDEV_ORG = new Site("bots.idledev.org", HttpMethod.GET, HttpMethod.POST);
+    @Deprecated
+    @DeprecatedSince(major = 6, minor = 6, patch = 1)
+    @PlannedRemoval(major = 6, minor = 6, patch = 3)
+    public static final Site BOTS_IDLEDEV_ORG = new Site("bots.idledev.org");
     
     /**
      * <a href="https://bots.ondiscord.xyz" target="_blank">bots.ondiscord.xyz</a>
@@ -254,6 +267,17 @@ public class Site{
      * </ul>
      */
     public static final Site DISFORGE_COM = new Site("disforge.com", HttpMethod.POST);
+    
+    /**
+     * <a href="https://fasteslist.xyz" target="_blank">fateslist.xyz</a>
+     * 
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
+     */
+    public static final Site FATESLIST_XYZ = new Site("fateslist.xyz", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://infinitybotlist.com" target="_blank">infinitybotlist.com</a>
