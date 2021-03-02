@@ -48,7 +48,7 @@ jobs:
         files: 'build/libs/JavaBotBlockAPI-${{ github.event.release.tag_name }}.zip;build/libs/*.jar'
         repo-token: ${{ secrets.GITHUB_TOKEN }}
   sendMessage:
-    needs: [generateJavadoc]
+    needs: [generateJars]
     if: success()
     runs-on: ubuntu-latest
     steps:
