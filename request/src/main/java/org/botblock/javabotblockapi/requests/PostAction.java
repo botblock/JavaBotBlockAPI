@@ -19,7 +19,7 @@
 package org.botblock.javabotblockapi.requests;
 
 import org.botblock.javabotblockapi.core.BotBlockAPI;
-import org.botblock.javabotblockapi.core.JavaBotBlockAPIInfo;
+import org.botblock.javabotblockapi.core.Info;
 import org.botblock.javabotblockapi.core.exceptions.RateLimitedException;
 import org.botblock.javabotblockapi.core.CheckUtil;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
@@ -64,7 +64,10 @@ public class PostAction{
      *        The id of the bot. This is required for the internal User-Agent.
      */
     public PostAction(@Nonnull String id){
-        this(String.format("JavaBotBlockAPI-0000/%s (Unknown; +https://jbba.dev) DBots/{id}", JavaBotBlockAPIInfo.VERSION), id);
+        this(String.format(
+                "JavaBotBlockAPI-0000/%s (Unknown; +https://jbba.dev) DBots/{id}",
+                Info.VERSION
+        ), id);
     }
     
     /**

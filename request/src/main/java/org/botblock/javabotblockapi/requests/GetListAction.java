@@ -18,7 +18,7 @@
 
 package org.botblock.javabotblockapi.requests;
 
-import org.botblock.javabotblockapi.core.JavaBotBlockAPIInfo;
+import org.botblock.javabotblockapi.core.Info;
 import org.botblock.javabotblockapi.core.Site;
 import org.botblock.javabotblockapi.core.CheckUtil;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
@@ -84,7 +84,7 @@ public class GetListAction{
     public GetListAction(boolean disableCache, @Nonnull String id){
         this(disableCache, String.format(
                 "JavaBotBlockAPI-0000/%s (Unknown; +https://jbba.dev) DBots/{id}",
-                JavaBotBlockAPIInfo.VERSION
+                Info.VERSION
         ), id);
     }
     

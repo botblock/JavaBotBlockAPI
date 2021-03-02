@@ -21,7 +21,7 @@ package org.botblock.javabotblockapi.jda;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.sharding.ShardManager;
 import org.botblock.javabotblockapi.core.BotBlockAPI;
-import org.botblock.javabotblockapi.core.JavaBotBlockAPIInfo;
+import org.botblock.javabotblockapi.core.Info;
 import org.botblock.javabotblockapi.core.exceptions.RateLimitedException;
 import org.botblock.javabotblockapi.core.CheckUtil;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
@@ -82,7 +82,7 @@ public class PostAction{
                 "%s-%s/%s (JDA) DBots/%s",
                 jda.getSelfUser().getName(),
                 jda.getSelfUser().getDiscriminator(),
-                JavaBotBlockAPIInfo.VERSION,
+                Info.VERSION,
                 jda.getSelfUser().getId()
         ));
         this.scheduler = requestHandler.getScheduler();

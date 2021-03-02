@@ -20,7 +20,7 @@ package org.botblock.javabotblockapi.javacord;
 
 import org.botblock.javabotblockapi.core.BotBlockAPI;
 import org.botblock.javabotblockapi.core.CheckUtil;
-import org.botblock.javabotblockapi.core.JavaBotBlockAPIInfo;
+import org.botblock.javabotblockapi.core.Info;
 import org.botblock.javabotblockapi.core.exceptions.RateLimitedException;
 import org.botblock.javabotblockapi.requests.handler.RequestHandler;
 import org.javacord.api.DiscordApi;
@@ -67,7 +67,7 @@ public class PostAction{
                 "%s-%s/%s (Javacord) DBots/%s",
                 api.getYourself().getName(),
                 api.getYourself().getDiscriminator(),
-                JavaBotBlockAPIInfo.VERSION,
+                Info.VERSION,
                 api.getYourself().getId()
         ));
         this.scheduler = requestHandler.getScheduler();
