@@ -175,8 +175,13 @@ public class Site{
      *     <li>GET</li>
      *     <li>POST</li>
      * </ul>
+     * 
+     * @deprecated No longer available.
      */
-    public static final Site DISCORDAPPS_DEV = new Site("discordapps.dev", HttpMethod.GET, HttpMethod.POST);
+    @Deprecated
+    @DeprecatedSince(major = 6, minor = 6, patch = 2)
+    @PlannedRemoval(major = 6, minor = 6, patch = 4)
+    public static final Site DISCORDAPPS_DEV = new Site("discordapps.dev");
     
     /**
      * <a href="https://discord.boats" target="_blank">discord.boats</a>
@@ -287,8 +292,26 @@ public class Site{
      *     <li>GET</li>
      *     <li>POST</li>
      * </ul>
+     * 
+     * @deprecated Domain changed. Use {@link #INFINITYBOTLIST_XYZ INFINITYBOTLIST_XYZ} instead
      */
+    @Deprecated
+    @DeprecatedSince(major = 6, minor = 5, patch = 2, replacements = {"INFINITYBOTLIST_XYZ"})
+    @PlannedRemoval(minor = 6, major = 5, patch = 4)
     public static final Site INFINITYBOTLIST_COM = new Site("infinitybotlist.com", HttpMethod.GET, HttpMethod.POST);
+    
+    /**
+     * <a href="https://infinitybotlist.xyz" target="_blank">infinitybotlist.xyz</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
+     * 
+     * @since 6.6.2
+     */
+    public static final Site INFINITYBOTLIST_XYZ = new Site("infinitybotlist.xyz", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href ="https://paradisebots.net" target="_blank">paradisebots.net</a>
