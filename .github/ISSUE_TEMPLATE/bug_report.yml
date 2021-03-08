@@ -1,0 +1,90 @@
+name: Bug Report
+description: Found a Bug about JavaBotBlockAPI? Use this template to report it!
+labels: "Type: Bug (Unconfirmed)"
+issue_body: false
+body:
+- type: markdown
+  attributes:
+    value: |-
+      **BEFORE YOU OPEN THIS BUG REPORT!**
+      
+      In order to help you as good as possible with your issue will we ask you to fill out all required fields (Marked with a `*`) and to provide as much information as possible.
+- type: checkboxes
+  attributes:
+    label: Confirmation
+    description: Please make sure to have followed these checks.
+    options:
+      - label: My issue isn't already found on the Issue tracker.
+        required: true
+      - label: My issue is about **JavaBotBlockAPI** and not any other library or BotBlock.org itself.
+        required: true
+      - label: I use the latest available version.
+        required: true
+- type: dropdown
+  attributes:
+    label: "Modules"
+    description: |-
+      What modules are you currently using?
+      
+      Currently available:
+      - `Core`
+      - `Javacord`
+      - `JDA`
+      - `Request`
+    multiple: true
+    options:
+      - "Core"
+      - "Javacord"
+      - "JDA"
+      - "Request"
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: "What happens?"
+    description: "What bug are you encountering? Try to explain it as detailed as possible."
+    placeholder: "JavaBotBlockAPI does this when I do that..."
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: "Expected Behaviour"
+    description: "What behaviour did you expect from JavaBotBlockAPI?"
+    placeholder: "JavaBotBlockAPI should actually do..."
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: "How to Reproduce"
+    description: |-
+      List the steps on how to reproduce this Bug.
+      Make sure to also show any code-examples in `Code` to reproduce this bug.
+    placeholder: |-
+      1. Do this
+      2. ...
+      3. Profit!
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: "Code"
+    description: |-
+      Put your code here.
+      This code needs to be able to reproduce the bug consistently!
+    placeholder: |-
+      ```java
+      public void error(){
+          throw new Exception("ERROR");
+      }
+      ```
+  validations:
+    required: true
+- type: input
+  attributes:
+    label: "Errors"
+    description: |-
+      Use a hastebin or pastebin site to share errors, stacktraces and similar.
+      We recommend to use https://paste.gg
+    placeholder: "https://paste.gg/p/anonymous/..."
+  validations:
+    required: true
