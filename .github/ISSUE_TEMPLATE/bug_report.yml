@@ -71,11 +71,9 @@ body:
     description: |-
       Put your code here.
       This code needs to be able to reproduce the bug consistently!
-    placeholder: |-
+    value: |
       ```java
-      public void error(){
-          throw new Exception("ERROR");
-      }
+      
       ```
   validations:
     required: true
