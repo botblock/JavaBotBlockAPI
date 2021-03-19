@@ -78,8 +78,13 @@ public class Site{
      *     <li>GET</li>
      *     <li>POST</li>
      * </ul>
+     * 
+     * @deprecated Domain changed to {@link #DISCORDLIST_SPACE discordlist.space}
      */
-    public static final Site BOTLIST_SPACE = new Site("botlist.space", HttpMethod.GET, HttpMethod.POST);
+    @Deprecated
+    @DeprecatedSince(major = 6, minor = 6, patch = 3, replacements = {"DISCORDLIST_SPACE"})
+    @PlannedRemoval(major = 6, minor = 6, patch = 5)
+    public static final Site BOTLIST_SPACE = new Site("botlist.space");
     
     /**
      * <a href="https://botsdatabase.com" target="_blank">botsdatabase.com</a>
@@ -104,23 +109,6 @@ public class Site{
     public static final Site BOTS_DISCORDLABS_ORG = new Site("discordlabs.org", HttpMethod.GET, HttpMethod.POST);
     
     /**
-     * <a href="https://bots.distop.xyz" target="_blank">bots.distop.xyz</a>
-     *
-     * <p>Supported methods:
-     * <ul>
-     *     <li>GET</li>
-     * </ul>
-     * 
-     * @deprecated Site no longer available.
-     * 
-     * @since 6.4.1
-     */
-    @Deprecated
-    @DeprecatedSince(major = 6, minor = 6, patch = 1)
-    @PlannedRemoval(major = 6, minor = 6, patch = 3)
-    public static final Site BOTS_DISTOP_XYZ = new Site("bots.distop.xyz");
-    
-    /**
      * <a href="https://botsfordiscord.com" target="_blank">botsfordiscord.com</a>
      *
      * <p>Supported methods:
@@ -130,22 +118,6 @@ public class Site{
      * </ul>
      */
     public static final Site BOTSFORDISCORD_COM = new Site("botsfordiscord.com", HttpMethod.GET, HttpMethod.POST);
-    
-    /**
-     * <a href="https://bots.idledev.org" target="_blank">bots.idledev.org</a>
-     *
-     * <p>Supported methods:
-     * <ul>
-     *     <li>GET</li>
-     *     <li>POST</li>
-     * </ul>
-     * 
-     * @deprecated Site no longer available.
-     */
-    @Deprecated
-    @DeprecatedSince(major = 6, minor = 6, patch = 1)
-    @PlannedRemoval(major = 6, minor = 6, patch = 3)
-    public static final Site BOTS_IDLEDEV_ORG = new Site("bots.idledev.org");
     
     /**
      * <a href="https://bots.ondiscord.xyz" target="_blank">bots.ondiscord.xyz</a>
@@ -262,6 +234,17 @@ public class Site{
      * </ul>
      */
     public static final Site DISCORDLISTOLOGY_COM = new Site("discordlistology.com", HttpMethod.GET, HttpMethod.POST);
+    
+    /**
+     * <a href="https://discordlist.space" target="_blank">discordlist.space</a> (Formerly botlist.space)
+     * 
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
+     */
+    public static final Site DISCORDLIST_SPACE = new Site("discordlist.space", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://disforge.com" target="_blank">disforge.com</a>
