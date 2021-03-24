@@ -26,6 +26,8 @@ Provides a site, service or similar that is used by the project (e.g. CI-Server)
 Helps maintaining this project, being it updating dependencies, or adding new features.
 - 📖 (Documentation)  
 Helped updating or improving the documentation of this project.
+- 💻(Code)  
+Contributed Code to improve the Project.
 
 # List of contributors
 Below can you find a list of all currently aknowledged Contributors to our project.

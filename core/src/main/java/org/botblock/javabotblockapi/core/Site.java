@@ -140,22 +140,6 @@ public class Site{
     public static final Site DBLISTA_PL = new Site("dblista.pl", HttpMethod.GET);
     
     /**
-     * <a href="https://discordapps.dev" target="_blank">discordapps.dev</a>
-     *
-     * <p>Supported methods:
-     * <ul>
-     *     <li>GET</li>
-     *     <li>POST</li>
-     * </ul>
-     * 
-     * @deprecated No longer available.
-     */
-    @Deprecated
-    @DeprecatedSince(major = 6, minor = 6, patch = 2)
-    @PlannedRemoval(major = 6, minor = 6, patch = 4)
-    public static final Site DISCORDAPPS_DEV = new Site("discordapps.dev");
-    
-    /**
      * <a href="https://discord.boats" target="_blank">discord.boats</a>
      *
      * <p>Supported methods:
@@ -174,9 +158,14 @@ public class Site{
      *     <li>GET</li>
      * </ul>
      * 
+     * @deprecated Site no longer exists.
+     * 
      * @since 6.3.0
      */
-    public static final Site DISCORDBOTDIRECTORY_NET = new Site("discordbotdirectory.net", HttpMethod.GET);
+    @Deprecated
+    @DeprecatedSince(major = 6, minor = 6, patch = 4)
+    @PlannedRemoval(major = 6, minor = 6, patch = 6)
+    public static final Site DISCORDBOTDIRECTORY_NET = new Site("discordbotdirectory.net");
     
     /**
      * <a href="https://discordbotlist.com" target="_blank">discordbotlist.com</a>
@@ -266,22 +255,6 @@ public class Site{
      * </ul>
      */
     public static final Site FATESLIST_XYZ = new Site("fateslist.xyz", HttpMethod.GET, HttpMethod.POST);
-    
-    /**
-     * <a href="https://infinitybotlist.com" target="_blank">infinitybotlist.com</a>
-     *
-     * <p>Supported methods:
-     * <ul>
-     *     <li>GET</li>
-     *     <li>POST</li>
-     * </ul>
-     * 
-     * @deprecated Domain changed. Use {@link #INFINITYBOTLIST_XYZ INFINITYBOTLIST_XYZ} instead
-     */
-    @Deprecated
-    @DeprecatedSince(major = 6, minor = 5, patch = 2, replacements = {"INFINITYBOTLIST_XYZ"})
-    @PlannedRemoval(minor = 6, major = 5, patch = 4)
-    public static final Site INFINITYBOTLIST_COM = new Site("infinitybotlist.com", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://infinitybotlist.xyz" target="_blank">infinitybotlist.xyz</a>

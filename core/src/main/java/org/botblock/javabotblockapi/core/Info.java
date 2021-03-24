@@ -39,7 +39,7 @@ public class Info{
     /**
      * Patch version of the Wrapper.
      */
-    public static final int PATCH = 3;
+    public static final int PATCH = 4;
     
     /**
      * Full version in the format {@code major.minor.patch}.
