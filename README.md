@@ -248,6 +248,6 @@ Here are some useful links:
 - [CodeMC] CI server for dev builds. Those jar files may differ from the ones on bintray.
 - [BotBlock4J] Original Wrapper from which this one originates.
 
-## Contributors
+# Contributors
 We appreciate any contribution from others towards this project.  
 All contributors are listed on the [contributors.md] file.
