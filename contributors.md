@@ -71,44 +71,44 @@ Here is a list of all the Contributors to our project and how they contributed t
 
 ### [Austin Keener][dv8fromtheworld]
 
-> Contributions: [🔌](#plugins "Plugin(s)") ([JDA])
+> Contributions: [🔌](#-plugins "Plugin(s)") ([JDA])
 
 ----
 ### [Ben Manes][benmanes]
 
-> Contribution: [🔌](#plugins "Plugin(s)") ([Caffeine])
+> Contribution: [🔌](#-plugins "Plugin(s)") ([Caffeine])
 
 ----
 ### [CodeMC][codemc]
 
-> Contributions: [🚇](#infrastructure "Infrastructure")
+> Contributions: [🚇](#-infrastructure "Infrastructure")
 
 ----
 ### [Dave][davidrockin]
 
-> Contributions: [🤔](#feedbackideas "Feedback/Ideas") ([#3 (Comment)][david_comment])
+> Contributions: [🤔](#-feedbackideas "Feedback/Ideas") ([#3 (Comment)][david_comment])
 
 ----
 ### [Dependabot]
 
-> Contributions: [🚧](#maintenance "Maintenance")
+> Contributions: [🚧](#-maintenance "Maintenance")
 
 ----
 ### [Ghost_chu][ghostchu]
 
-> Contributions: [💻](#code "Code") ([Commits][ghostchu_commits])
+> Contributions: [💻](#-code "Code") ([Commits][ghostchu_commits])
 
 ----
 ### [Javacord]
 
-> Contribution: [🔌](#plugins "Plugin(s)") ([Javacord][javacord-lib])
+> Contribution: [🔌](#-plugins "Plugin(s)") ([Javacord][javacord-lib])
 
 ----
 ### [Sean Leary][stleary]
 
-> Contribution: [🔌](#plugins "Plugin(s)") ([JSON-java][json-java])
+> Contribution: [🔌](#-plugins "Plugin(s)") ([JSON-java][json-java])
 
 ----
 ### [Square][square]
 
-> Contribution: [🔌](#plugins "Plugin(s)") ([OkHttp])
+> Contribution: [🔌](#-plugins "Plugin(s)") ([OkHttp])
