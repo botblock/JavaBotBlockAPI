@@ -35,6 +35,7 @@ body:
       ```java
       public boolean method(){ return true; }
       ```
+    render: "java"
 - type: textarea
   attributes:
     label: "Additional Information"
