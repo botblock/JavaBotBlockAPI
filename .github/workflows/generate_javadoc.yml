@@ -17,7 +17,7 @@ jobs:
     - name: Set up Java 11
       uses: actions/setup-java@v2
       with:
-        distribution: 'adobt'
+        distribution: 'adopt'
         java-version: 1.11
     - name: Generate Javadoc
       run: ./gradlew javadoc
@@ -37,7 +37,7 @@ jobs:
     - name: Set up Java 11
       uses: actions/setup-java@v2
       with: 
-        distribution: 'adobt'
+        distribution: 'adopt'
         java-version: 1.11
     - name: Generate Jars
       run: ./gradlew build
