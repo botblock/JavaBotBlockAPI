@@ -1,58 +1,114 @@
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[contributorsBadge]: https://img.shields.io/badge/Contributors_✨-10-green.svg?style=plastic
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+[all-contributors]: https://allcontributors.org
+[emojis]: https://allcontributors.org/docs/en/emoji-key
+
+<!-- Austin Keener -->
+[dv8fromtheworld]: https://github.com/DV8FromTheWorld
+[jda]: https://github.com/DV8FromTheWorld/JDA
+
+<!-- Ben Manes -->
+[benmanes]: https://github.com/ben-manes
+[caffeine]: https://github.com/ben-manes/Caffeine
+
+<!-- CodeMC -->
+[codemc]: https://github.com/codemc
+
+<!-- Dave -->
+[davidrockin]: https://github.com/DavidRockin
+[david_comment]: https://github.com/botblock/JavaBotBlockAPI/pull/3#issuecomment-522036554
+
+<!-- Dependabot -->
+[dependabot]: https://github.com/Dependabot
+
+<!-- Ghost_chu -->
+[ghostchu]: https://github.com/ghost-chu
+[ghostchu_commits]: https://github.com/botblock/JavaBotBlockAPI/commits?author=ghost-chu
+
+<!-- Javacord -->
+[javacord]: https://github.com/javacord
+[javacord-lib]: https://github.com/javacord/Javacord
+
+<!-- Sean Leary -->
+[stleary]: https://github.com/stleary
+[json-java]: https://github.com/stleary/JSON-java
+
+<!-- Square -->
+[square]: https://github.com/square
+[okhttp]: https://github.com/square/OkHttp
 
 # Contributors
-![contributorsBadge]
+We aknowledge all contributions made to the project, be it Pull requests or even something simple like feedback and/or suggestions.
 
-We appreciate any kind of contribution to the JavaBotBlockAPI, as it is our goal to improve over time.
+To thank every contributor did we adobt the [All Contributors][all-contributors] system and adjusted it slightly.  
+This page lists every user/organisation who contributed to the project in some way. Please see the [Categories](#categories) below for an explanation about the different Emojis and their meaning.
 
-Contributions aren't just limited to PRs or code examples.  
-Bug reports, suggestions or general feedback to upcoming features are always apreciated and welcome.
+## Categories
+This file follows a similar system like the All Contributors [Emoji Key System][emojis].  
+Each Category has their own emoji which is listed here.
 
-# Emoji keys
-We use different Emojis as "Keys" to summarize what kind of contributions are under this category.
+### 💻 Code
+Contributed code towards the project.  
+This can be through Pull requests or, if having the rights for, through direct commits.
 
-Below can you see a list of all currently listed emojis, their category and meaning.  
-A full list of all available categories can be found [here](https://allcontributors.org/docs/en/emoji-key).
+Will have a link to all commits made by this User/Bot/Organisation.
 
-- 🤔 (Ideas)  
-Suggesting new features, improvements or giving general feedback.
-- 🔌 (Plugin)  
-Developed a library used by this project.
-- 🚇 (Infra)  
-Provides a site, service or similar that is used by the project (e.g. CI-Server).
-- 🚧 (Maintenance)  
-Helps maintaining this project, being it updating dependencies, or adding new features.
-- 📖 (Documentation)  
-Helped updating or improving the documentation of this project.
-- 💻(Code)  
-Contributed Code to improve the Project.
+### 🤔 Feedback/Ideas
+Gave Ideas and or general feedback to improve the project.  
+Will have links to all issues, Pull requests, Discussions and general comments the User/Organisation made.
 
-# List of contributors
-Below can you find a list of all currently aknowledged Contributors to our project.
+### 🚇 Infrastructure
+Provides a place to host the project, jar files, documentation or similar.  
+A common example would be a CI (Jenkins) Server.
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://tkachuk.tech"><img src="https://avatars1.githubusercontent.com/u/1907079?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dave</b></sub></a><br /><a href="#ideas-DavidRockin" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="http://linkedin.dv8tion.net"><img src="https://avatars1.githubusercontent.com/u/1479909?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Austin Keener</b></sub></a><br /><a href="#plugin-DV8FromTheWorld" title="Plugin/utility libraries">🔌</a></td>
-    <td align="center"><a href="https://ci.codemc.io/"><img src="https://avatars2.githubusercontent.com/u/37156340?v=4?s=100" width="100px;" alt=""/><br /><sub><b>CodeMC</b></sub></a><br /><a href="#infra-CodeMC" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
-    <td align="center"><a href="https://dependabot.com"><img src="https://avatars1.githubusercontent.com/u/27347476?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dependabot</b></sub></a><br /><a href="#maintenance-dependabot" title="Maintenance">🚧</a></td>
-    <td align="center"><a href="https://www.linkedin.com/in/benmanes"><img src="https://avatars3.githubusercontent.com/u/378614?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ben Manes</b></sub></a><br /><a href="#plugin-ben-manes" title="Plugin/utility libraries">🔌</a></td>
-    <td align="center"><a href="https://square.github.io"><img src="https://avatars0.githubusercontent.com/u/82592?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Square</b></sub></a><br /><a href="#plugin-square" title="Plugin/utility libraries">🔌</a></td>
-    <td align="center"><a href="https://www.jetbrains.com"><img src="https://avatars2.githubusercontent.com/u/878437?v=4?s=100" width="100px;" alt=""/><br /><sub><b>JetBrains</b></sub></a><br /><a href="#plugin-JetBrains" title="Plugin/utility libraries">🔌</a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="http://www.johnjleary.com"><img src="https://avatars3.githubusercontent.com/u/5107558?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sean Leary</b></sub></a><br /><a href="#plugin-stleary" title="Plugin/utility libraries">🔌</a></td>
-    <td align="center"><a href="https://www.caseyjbrooks.com/"><img src="https://avatars2.githubusercontent.com/u/6157866?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Casey Brooks</b></sub></a><br /><a href="https://github.com/botblock/JavaBotBlockAPI/commits?author=cjbrooks12" title="Code">💻</a> <a href="https://github.com/botblock/JavaBotBlockAPI/commits?author=cjbrooks12" title="Documentation">📖</a></td>
-    <td align="center"><a href="http://blog.mcsunnyside.com"><img src="https://avatars.githubusercontent.com/u/30802565?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ghost_chu</b></sub></a><br /><a href="https://github.com/botblock/JavaBotBlockAPI/commits?author=Ghost-chu" title="Code">💻</a></td>
-  </tr>
-</table>
+### 🚧 Maintenance
+Helps keeping the project running through actions such as keeping dependencies up to date.
 
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
+### 🔌 Plugin(s)
+Provides one or multiple dependencies used by the project.  
+A link to the Project(s) will be provided.
 
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+## Contributors
+Here is a list of all the Contributors to our project and how they contributed to this project.
+
+### [Austin Keener][dv8fromtheworld]
+
+> Contributions: [🔌](#-plugins "Plugin(s)") ([JDA])
+
+----
+### [Ben Manes][benmanes]
+
+> Contribution: [🔌](#-plugins "Plugin(s)") ([Caffeine])
+
+----
+### [CodeMC][codemc]
+
+> Contributions: [🚇](#-infrastructure "Infrastructure")
+
+----
+### [Dave][davidrockin]
+
+> Contributions: [🤔](#-feedbackideas "Feedback/Ideas") ([#3 (Comment)][david_comment])
+
+----
+### [Dependabot]
+
+> Contributions: [🚧](#-maintenance "Maintenance")
+
+----
+### [Ghost_chu][ghostchu]
+
+> Contributions: [💻](#-code "Code") ([Commits][ghostchu_commits])
+
+----
+### [Javacord]
+
+> Contribution: [🔌](#-plugins "Plugin(s)") ([Javacord][javacord-lib])
+
+----
+### [Sean Leary][stleary]
+
+> Contribution: [🔌](#-plugins "Plugin(s)") ([JSON-java][json-java])
+
+----
+### [Square][square]
+
+> Contribution: [🔌](#-plugins "Plugin(s)") ([OkHttp])

@@ -26,11 +26,23 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Class containing all (known) Bot lists.
- * <br>The static instances of this class allow the easy use within various methods of the JavaBotBlockAPI.
+ * This class contains all known sites that are supported by BotBlock's APIs for getting Bot info, getting list info or
+ * posting Bot info to a list.
  * 
- * <p>Keep in mind that not all Sites support either GET or POST requests. You may use {@link #supportsGet() supportsGet()}
- * or {@link #supportsPost() supportsPost()} methods to check whether the instance supports GET and/or POST respectively.
+ * <p>The static instances of this class allow an easy and quick usage in various methods of JavaBotBlockAPI without the
+ * need to remember any bot list name.
+ * 
+ * <h2>Supported HTTP Methods</h2>
+ * The Javadoc comment of each instance lists what HTTP method is supported.
+ * <br>If a List supports GET can you use all methods from the GetListAction and GetBotAction classes of the Request module
+ * while Lists supporting POST also can be utilized within the {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlockAPI}
+ * to posts Bot information to that list.
+ * 
+ * <p>Trying to use a List for an action it doesn't support (i.e. using a List for POST while it only supports GET) will
+ * result in exceptions being thrown.
+ * <br><b>Instances marked as Deprecated won't support either method type. If a replacement is mentioned using the
+ * {@link org.botblock.javabotblockapi.core.annotations.DeprecatedSince DeprecatedSince's} replacement value should it
+ * be used in favour of the deprecated Instance.</b>
  * 
  * @since 6.3.0
  */
@@ -69,22 +81,6 @@ public class Site{
      * </ul>
      */
     public static final Site BLIST_XYZ = new Site("blist.xyz", HttpMethod.GET, HttpMethod.POST);
-    
-    /**
-     * <a href="https://botlist.space" target="_blank">botlist.space</a>
-     *
-     * <p>Supported methods:
-     * <ul>
-     *     <li>GET</li>
-     *     <li>POST</li>
-     * </ul>
-     * 
-     * @deprecated Domain changed to {@link #DISCORDLIST_SPACE discordlist.space}
-     */
-    @Deprecated
-    @DeprecatedSince(major = 6, minor = 6, patch = 3, replacements = {"DISCORDLIST_SPACE"})
-    @PlannedRemoval(major = 6, minor = 6, patch = 5)
-    public static final Site BOTLIST_SPACE = new Site("botlist.space");
     
     /**
      * <a href="https://botsdatabase.com" target="_blank">botsdatabase.com</a>
