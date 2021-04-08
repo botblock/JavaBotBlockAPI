@@ -1,179 +1,297 @@
+<!-- Other URLs -->
+[discord]: https://discord.gg/6dazXp6
+[codemc]: https://ci.codemc.io
+
+<!-- GitHub URLs -->
 [issues]: https://github.com/botblock/JavaBotBlockAPI/issues
-[Code of Conduct]: https://github.com/botblock/JavaBotBlockAPI/blob/master/CODE_OF_CONDUCT.md
-[BotBlock API]: https://botblock.org/api/docs
+[feature]: https://github.com/botblock/JavaBotBlockAPI/issues/new?labels=Type%3A+Enhancement&template=feature_request.yml
+[bug]: https://github.com/botblock/JavaBotBlockAPI/issues/new?labels=Type%3A+Bug+%28Unconfirmed%29&template=bug_report.yml
+[discussion]: https://github.com/botblock/JavaBotBlockAPI/discussions
+[checkutil]: https://github.com/botblock/JavaBotBlockAPI/blob/master/core/src/main/java/org/botblock/javabotblockapi/core/CheckUtil.java
 
 # Contributing Guidelines
-We welcome everyone to contribute to the JavaBotBlockAPI project.  
-But to keep a certain order and style over the project do you have to follow those guidelines here. But don't worry! They're fairly simple.
+We welcome any kind of contributions to JavaBotBlockAPI but also expect some level of quality to be followed.
 
-# Issues
-If you encounter problems with the API feel free to open an issue on the [issues] tab.  
-But before doing so make sure to check for the following things.
+Please read this guide carefully before either submitting an issue or Pull request to not risk getting them closed without warning.
 
-## Using latest version
-We do not support old versions of this API. We release new versions to fix issues, update dependencies or add new methods.  
-So if you encounter an issue or want a feature to be added, make sure to use the latest version as it might contain new functions and/or bugfixes.
+## Issues
+Issues should be reported either on our [Discord Server][discord] or through our [Issue tracker][issues] depending on the type of issue.
 
-## Make sure it is not an issue of external (3rd party) libraries
-JavaBotBlockAPI uses different 3rd party libraries such as JDA and also depends on the [BotBlock API].  
-This means that some errors you encounter could be the cause of said 3rd party libraries or sites not working as intended.  
-We can't fix issues related to those. If you encounter errors with those, go to the respective repository/site and report the issue.
+### Feature requests
+Feature requests should be made through the [Feature request template][feature] on our Issue tracker.  
+Alternatively can you also create a [discussion] to suggest a change in the "Suggestions" category.
 
-## Issue doesn't already exist
-Before creating an issue, make sure that you checked the issues page for any existing issue of the same type.  
-If one exists, comment on it and provide additional informations.  
-The best way for us to fix errors and issues is by gathering informations to find out why those issues happen. And having multiple issues complaining about the same issue won't help anyone here and only slows the process of fixing it down.
+### Security issues
+Issues regarding security should always be reported through our [Discord server][discord] since the Issue tracker isn't a save place to do this.  
+On the Server, head over to the `#javabotblockapi` channel and inform `Andre_601#0601` about ths issue.
 
-## Follow the templates
-We have templates in place to make sure we receive the required informations.  
-Please follow those templates or else your issue might get ignored and closed.
+### Bug reports
+Any other bug report should be made through the [Bug report template][bug] on our Issue tracker.
 
-----
-# Pull Requests
-We accept pull requests for fixing issues or adding new features, but you have to follow those rules.
+## Pull requests
+Pull requests to improve JavaBotBlockAPI are always welcome as long as you follow these basic rules.
 
-## Javadocs
-Please add javadocs comments to **all public methods the developer has access to and should use.**  
-Javadocs help developers to see what methods they can/should use and what those do.
+### Target Branch
+We have different branches on this repository that all serve a different purpose.
 
-When adding Javadoc comments, follow this Styling choises.
+#### master
+The `master` branch is the main branch for new releases.  
+Whenever enough changes have been accumulated on the [development branch](#development) will it be merged into master through a Pull request which then creates a new release on the Nexus Repository of [CodeMC].
 
-### Line breaks and paragraphs
-Start a new line with `<br>` (Don't close this tag).  
-Do the same for new paragraphs, but keep an empty line in between the text (And of course use `<p>` instead).
+Only Pull requests from the development branch are allowed to target the master branch and any other PR will be rejected.
 
-**Example**:
+#### development
+The `development` branch is the go-to branch for all changes towards JavaBotBlockAPI.  
+All changes, no matter if directly to project itself or to other parts such as the GitHub Action Workflow files are made on this branch any and Pull request should target it, no matter what.
+
+#### gh-pages
+The `gh-pages` branch is used to display the Javadoc at https://docs.botblock.org/JavaBotBlockAPI.  
+This branch is only updated through a GitHub Action and any Pull request targeting this branch will be rejected.
+
+### Javadoc formatting
+We have specific styling Guides when it comes to Javadocs.  
+A general rule is, that you have to document ANY method that is public and should be used by the end user in some way.
+
+#### Line breaks and Paragraphs
+New lines and paragraphs are made using the `<br>` and `<p>` tags.  
+Both tags don't need to be closed and are always placed at the start of a line.
+
+While the simple line break only needs to be on a new line will the paragraph have an empty line in-between.
+
+*Example*:  
 ```java
 /**
- * This is a small summary of some method.
- * <br>It uses line breaks like those.
- *
- * <p>But also new paragraphs are used.
+ * This is a description.
+ * <br>This is a new line.
+ * 
+ * <p>This is a new paragraph.
  */
 ```
 
-### Links
-Please always use the full path to a class/method when using `{@link}`
+#### Linking
+When linking to methods, Objects, Classes or similar should `{@link}` be used.
 
-Bad example: `{@link BotBlockAPI}`  
-Good example: `{@link org.botblock.javabotblockapi.BotBlockAPI BotBlockAPI}`
+Always use the full path to a class, method, etc.  
+Only exception is for methods within the same Class in which case you use `{@link #methodName() methodName()}`.
 
-We want to point out the alternative text used in the Good example, to display "BotBlockAPI" instead of the path.  
-When linking to a method that is in a separate class, set the alternative text to `Class.method(option(s))`.
+In all cases should you always add an alternative text to the link, even if it would be the exact same output as without it.
 
-If the method you link to is within the same class, use `{@link #methodName() methodName()}`.
+*Example*:  
+```java
+/**
+ * Bad
+ * {@link BotBlockAPI}
+ * 
+ * Also Bad (Missing Alternative Text)
+ * {@link org.botblock.javabotblockapi.core.BotBlockAPI}
+ * 
+ * Good
+ * {@link org.botblock.javabotblockapi.core.BotBlockAPI BotBlockAPI}
+ */
+```
 
-Linking to external Javadoc may be set with the same linking-rules.  
-New external javadocs may need to be added to the `javadoc` task in the `build.gradle`.
+`{@link}` is also used for linking to external dependencies such as Java, JDA or JSON-java.
 
-**Note**:  
-Use the `<a href="">` option to link external pages. When doing so also remember to include `target="_blank"`.  
-A link could look like this: `<a href="https://google.com" target="_blank">Google it!</a>` (You have to close the a tag.)
+When you want to link to external pages that aren't Javadocs should you use the `a` HTML-tag.  
+When doing so, always close the tag (`</a>`) and include `target="_blank"`.
 
-### param styling
-When the method has parameters, you have to set a description with the `@param` option.  
-Note that the description has to be on a new line.
+#### Parameters
+Methods with parameters need to have their parameters documented using `@param`.
 
-**Example**:
+The description of the parameter is always on a new line right below the parameter name.
+
+*Example*:  
 ```java
 /**
  * @param foo
- *        The param description.
+ *        Description goes here.
  */
 ```
 
-### Since
-Since annotations are used to mention since what version a method/class is available.  
-The syntax is `@since v{major}.{minor}.{build}` where `{major}` is only changed on huge changes (Entire recodes f.e.), `{minor}` is updated on bigger changes of classes and similar and `{build}` is changed on every other noteworthy change.
+#### Since
+We use `@since` to mention since when a specific method, field or class is available.  
+The mentioned version is always in the format `major.minor.patch`
 
-In most cases will you only update `{build}` and nothing else. If you're unsure if you can/should update the version, ask a maintainer of this repository for assistance.
+Always add `@since` to newly added methods, classes and/or fields but never alter existing ones or add them to already existing methods, classes or fields.
 
-Please **do not change already existing since annotations**. This also includes adding ones to already existing methods/classes.
+#### Deprecation
+Any deprecation follows a specific deprecation-policy we have.
 
-### Deprecated methods
-> Please also see the [Deprecation Policy](#deprecation-policy) about how to handle deprecations
+Whenever you deprecate a method, object, field or similar will you need to add the `@Deprecated` annotation from Java as-well as the `@DeprecatedSince` and `@PlannedRemoval` annotations from us.  
+The `@DeprecatedSince` annotation should have the major, minor and patch version mentioned since when the marked object is deprecated and, if available, also mention a replacement that should be used.  
+`@PlannedRemoval` is used to mark when the object will be removed. The mentioned major, minor and patch version should always be at least 2 patches after the version of the deprecation. This means that a method deprecated in 6.6.0 would have a planned removal of 6.6.2 or higher.
 
-If you're deprecating a method will you need to add the `@Deprecated` annotation and also include a `@deprecated` tag in the comment explain why it was deprecated and mention possible replacements.
+Whenever an object is marked as deprecated should the Javadoc comment contain the `@deprecated` tag alongside a description explaining why it was deprecated and any mention of alternatives to use.
 
-You also need to add the `@DeprecatedSince` annotation to indicate since when a method is deprecated. This annotation has the fields `major`, `minor`, `patch` and `replacement` from which the last one is optional.  
-You may also add the `@PlannedRemoval` annotation if the object is planned to be removed in a future release. This annotation has a `major`, `minor` and `patch` field to mark the version for when the object is removed.
+At no point should a object be removed without the aforementioned grace-period and setup.
 
-### CheckUtil
-JavaBotBlockAPI has a CheckUtil with some static void methods for checking various things such as if a String is empty.
-
-When using any methods of the CheckUtil should you add the following text to the Javadoc comment as its own Paragraph:  
+#### CheckUtil
+JavaBotBlockAPI utilizes a [CheckUtil] class to perform certain checks whenever a method is used.  
+If you use methods of the CheckUtil are you required to add the following part into the Javadoc comment of the method:  
 ```java
 /**
- * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+ * <p>Following Exceptions can be thrown from the CheckUtil:
  * <ul>
- *     <li>{@link java.lang.NullPointerException NullPointerException} - Mention the cause here.</li>
- *     <li>{@link java.lang.IllegalStateException IllegalStateException} - Mention the cause here.</li>
+ *     <li>{@link java.lang.NullPointerException NullPointerException} - Mention the cause here</li>
+ *     <li>{@link java.lang.IllegalStateException IllegalStateException} - Mention the cause here</li>
  * </ul>
  */
 ```
 
-The CheckUtil has the following methods which can have the mentioned Excpetions:
+When using `notEmpty(String, String)` or `notEmpty(Map<?, ?>, String)` will you need to mention the NullPointerException and when using `condition(boolean, String)` will you need to mention the IllegalStateException.
 
-- `ChekUtil#notEmpty(String value, String name)` - Checks the String "value" is empty and throws a NullPointerException with the message `name + " may not be empty."` in such a case.
-- `CheckUtil#notEmpty(Map<?, ?> value, String name)` - Checks if the Map "value" is empty and throws a NullPointerException with the message `name + " may not be empty."` in such a case.
-- `CheckUtil#condition(boolean expression, String message)` - Checks if the boolean "expression" returns true and throws a IllegalStateException with the message `message`.
+Unless the [RequestHandler notice](#requesthandler) is used should this paragraph be the last section of the description (right before the param section).
 
-### Other Styling
-Please make sure that all text is on the same vertical line (block).  
-This means that when f.e. a `@return` is used, that you have to use two spaces after `@param` instead of one.
-
-### Order of the parts
-Here is an example of using the different parts together:  
+#### RequestHandler
+JavaBotBlockAPI performs HTTP requests through a [RequestHandler] in the request module.  
+If you implement a method that uses methods from the RequestHandler will you need to add the following lines to the Javadoc of the method:  
 ```java
 /**
- * Adds "Bar" to the provided text.
- * <br>Will throw an error when not providing text.
- *
- * <p>Following Exceptions can be thrown from the {@link org.botblock.javabotblockapi.core.CheckUtil CheckUtil}:
+ * <p>Following Exceptions can be thrown from the HTTP request:
  * <ul>
- *     <li>{@link java.lang.NullPointerException NullPointerException} - When foo is empty.</li>
+ *     <li>{@link java.io.IOException IOException} - When the request was non-successful.</li>
+ *     <li>{@link org.botblock.javabotblockapi.core.exceptions.RateLimitedException RateLimitedException} - When the request got rate limited.</li>
  * </ul>
- * 
- * @param  foo
- *         The text that should get "Bar" added to it.
- *
- * @return The provided String with "Bar" added to it.
- *
- * @since  1.0.0
- *
- * @deprecated Use {@link #getFooBar() getFooBar()} instead.
  */
-@Deprecated
-@DeprecatedSince(major = 1, minor = 0, patch = 0, replacements = {"#getFooBar"}) // If you deprecate a method, add this one too.
-@PlannedRemoval(major = 1, minor = 0, patch = 2)
-public String getFooBar(@Nonnull String foo){
-    CheckUtil.notEmpty(foo, "Foo");
-        
-    return foo + "Bar";
-}
+```
 
+This paragraph should always be the last section of the description.
+
+#### Padding
+`@param` names and descriptions, `@since` text and `@return` text should always be on the same vertical line.
+
+If `@return` is used should `@param` and `@since` have 2 spaces instead of one.
+
+#### Order
+Here is a full example showing the order of all mentioned parts.
+
+```java
 /**
  * Returns "foobar".
- *
- * @return {@code "foobar"}
- *
- * @since  1.0.1
+ * 
+ * @return "foobar"
+ * 
+ * @deprecated Use {@link #getFooBar(String) getFooBar(String)} instead.
  */
+@Deprecated
+@DeprecatedSince(major = 6, minor = 0, patch = 0, replacements = {"#getFooBar(String)"})
+@PlannedRemoval(major = 6, minor = 0, patch = 2)
 public String getFooBar(){
     return "foobar";
 }
+
+/**
+ * Adds the provided String to "foo".
+ * 
+ * <p>Following Exceptions can be thrown from the CheckUtil:
+ * <ul>
+ *     <li>{@link java.lang.NullPointerException} - When the provided String is empty.</li>
+ * </ul>
+ * 
+ * @param  bar
+ *         The String to add to "foo".
+ * 
+ * @return "foo" with the provided String appended to it.
+ * 
+ * @since  6.0.0
+ */
+public String getFooBar(String bar){
+    return "foo" + bar;
+}
 ```
 
-## Deprecation Policy
-To not fully break the Wrapper on each release do we follow a general deprecation policy, to give people time to move to any replacement method, if available.
+### Code Styling
+The Code follows a basic styling Guide that you need to follow when making a Pull request.
 
-If possible should always a replacement method, field or other object be provided when deprecating an object.  
-Any deprecated method is also planned for removal which is indicated by the `@PlannedRemoval` annotation. The version you define there has to be at least two patch-versions from the one the object became deprecated.  
-This means that deprecating a method in `6.2.0` results in the major, minor and patch version of the annotation to display `6`, `2` and `2` respectively.
+#### spaces
+There are no spaces before parantheses and braces.
 
-At **no point** should an object just be removed. We always mark it as deprecated first and give the aforementioned minimal delay for people to update, before removing it completely.
+*Example*:  
+```java
+// Wrong
+public void doSomething (boolean yes) {
+    if (yes) {
+        System.out.println("Yes");
+        return;
+    }
+    
+    System.out.println("No");
+}
 
-## [Code of Conduct]
-We want to give everyone a chance to contribute to the project.  
-So please keep your comments and messages nice. Every message that is considered racist, insulting or similar will be removed.  
-If you continue to send those messages will we permanently remove you from this repository.
+// Right
+public void doSomething(boolean yes){
+    if(yes){
+        System.out.println("Yes");
+        return;
+    }
+    
+    System.out.println("No");
+}
+```
+
+#### Single-line If-Statement
+Whenever a true if statement would result in a single line being executed should the braces be left away.
+
+*Example*:
+```java
+// Wrong
+public void doSomething(boolean yes){
+    if(yes){
+        System.out.println("Yes");
+    }
+    
+    System.out.println("No");
+}
+
+// Right
+public void doSomething(boolean yes){
+    if(yes)
+        System.out.println("Yes");
+    
+    System.out.println("No");
+}
+```
+
+#### Parameter annotation
+Non-primitive Parameters should always be annotated with `@Nonnull` or `@Nullable` depending on whether they can be null or not.
+
+*Example*:
+```java
+// Wrong
+public void doSomething(String text){
+    if(text == null){
+        System.out.println("No text provided!");
+        return;
+    }
+    
+    System.out.println("Provided Text: " + text);
+}
+
+// Right
+public void doSomething(@Nullable String text){
+    if(text == null){
+        System.out.println("No text provided!");
+        return;
+    }
+    
+    System.out.println("Provided Text: " + text);
+}
+```
+
+#### Empty Check for Nonnull annotated Objects
+Whenever an Object is annotated as Nonnull (See [previous part](#parameter-annotation)) should you use the `notEmpty` methods from the [CheckUtil] to make sure the parameter is actually not null nor empty.
+
+*Example*:
+```java
+// Wrong
+public void doSomething(@Nonnull String text){
+    System.out.println("Provided Text: " + text);
+}
+
+// Right
+public void doSomething(@Nullable String text){
+    CheckUtil.notEmpty(text, "Text");
+    
+    System.out.println("Provided Text: " + text);
+}
+```
