@@ -200,6 +200,7 @@ public String getFooBar(String bar){
 }
 ```
 
+----
 ### Code Styling
 The Code follows a basic styling Guide that you need to follow when making a Pull request.
 
@@ -289,7 +290,7 @@ public void doSomething(@Nonnull String text){
 }
 
 // Right
-public void doSomething(@Nullable String text){
+public void doSomething(@Nonnull String text){
     CheckUtil.notEmpty(text, "Text");
     
     System.out.println("Provided Text: " + text);
