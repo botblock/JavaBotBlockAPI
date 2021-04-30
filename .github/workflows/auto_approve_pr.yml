@@ -1,0 +1,17 @@
+name: Automatically approve Pull requests
+
+on:
+  pull_request:
+    types:
+    - opened
+    branches:
+    - master
+
+jobs:
+  auto-approve:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'Andre601' }}
+    steps:
+    - uses: hmarr/auto-approve-action@v2
+      with:
+        github-token: "${{ secrets.GITHUB_TOKEN }}"
