@@ -141,7 +141,7 @@ public class RequestHandler{
                         response.protocol(),
                         response.code(),
                         response.message(),
-                        response.headers().toString()
+                        response.headers()
                 );
                 return;
             }
@@ -155,7 +155,7 @@ public class RequestHandler{
                         response.protocol(),
                         response.code(),
                         response.message(),
-                        response.headers().toString()
+                        response.headers()
                 );
                 return;
             }
@@ -213,7 +213,7 @@ public class RequestHandler{
                         response.protocol(),
                         response.code(),
                         response.message(),
-                        response.headers().toString()
+                        response.headers()
                 );
                 return null;
             }
@@ -227,7 +227,7 @@ public class RequestHandler{
                         response.protocol(),
                         response.code(),
                         response.message(),
-                        response.headers().toString()
+                        response.headers()
                 );
                 return null;
             }
