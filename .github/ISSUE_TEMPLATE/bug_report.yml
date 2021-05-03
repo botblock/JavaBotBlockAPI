@@ -1,7 +1,6 @@
 name: Bug Report
 description: Found a Bug about JavaBotBlockAPI? Use this template to report it!
 labels: "Type: Bug (Unconfirmed)"
-issue_body: false
 body:
 - type: markdown
   attributes:
@@ -71,11 +70,9 @@ body:
     description: |-
       Put your code here.
       This code needs to be able to reproduce the bug consistently!
-    placeholder: |-
+    value: |
       ```java
-      public void error(){
-          throw new Exception("ERROR");
-      }
+      
       ```
     render: "java"
   validations:

@@ -1,7 +1,6 @@
 name: Feature Request
 description: Suggest a new Feature for JavaBotBlockAPI
 labels: 'Type: Enhancement'
-issue_body: false
 body:
 - type: markdown
   attributes:

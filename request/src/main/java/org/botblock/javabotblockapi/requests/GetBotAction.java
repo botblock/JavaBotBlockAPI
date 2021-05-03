@@ -124,36 +124,8 @@ public class GetBotAction{
     /**
      * Gets the full information of a bot.
      *
-     * <p>The JSONObject may look like this:
-     * <br><pre><code>
-     * {
-     *     "id": "123456789012345678",
-     *     "username": "MyBot",
-     *     "discriminator": "1234",
-     *     "owners": [
-     *         "234567890123456789"
-     *     ],
-     *     "server_count": 100,
-     *     "invite":{@literal "https://discordapp.com/oauth2/authorize?client_id=123456789012345678&scope=bot"},
-     *     "prefix": "?",
-     *     "website": "",
-     *     "github": "",
-     *     "support": "",
-     *     "library": "JDA",
-     *     "list_data": {
-     *         "somebotlist.com": [
-     *             {"data": "Unique bot list data"},
-     *             200
-     *         ],
-     *         "otherlist.org": [
-     *             {"data": "Unique bot list data"},
-     *             404
-     *         ]
-     *     }
-     * }
-     * </code></pre>
-     * <br>With exception of id and list_data are all returned values based on how often one appears.
-     * <br>Each entry in list data is unique to what the respective bot list returns.
+     * An example of how the returned JSON may look like can be found here:<br>
+     * <a href="https://gist.github.com/Andre601/b18b1c4e88e9a405806ce7b6c29a0136" target="_blank">https://gist.github.com/Andre601/b18b1c4e88e9a405806ce7b6c29a0136</a>
      *
      * <p>Following Exceptions can be thrown from the HTTP request:
      * <ul>
@@ -167,43 +139,15 @@ public class GetBotAction{
      * @return Possibly-null {@link org.json.JSONObject JSONObject} containing the full information of the bot.
      */
     @Nullable
-    public JSONObject getBotInfo(@Nonnull Long id){
+    public JSONObject getBotInfo(long id){
         return getBotInfo(String.valueOf(id));
     }
     
     /**
      * Gets the full information of a bot.
      *
-     * <p>The JSONObject may look like this:
-     * <br><pre><code>
-     * {
-     *     "id": "123456789012345678",
-     *     "username": "MyBot",
-     *     "discriminator": "1234",
-     *     "owners": [
-     *         "234567890123456789"
-     *     ],
-     *     "server_count": 100,
-     *     "invite":{@literal "https://discordapp.com/oauth2/authorize?client_id=123456789012345678&scope=bot"},
-     *     "prefix": "?",
-     *     "website": "",
-     *     "github": "",
-     *     "support": "",
-     *     "library": "JDA",
-     *     "list_data": {
-     *         "somebotlist.com": [
-     *             {"data": "Unique bot list data"},
-     *             200
-     *         ],
-     *         "otherlist.org": [
-     *             {"data": "Unique bot list data"},
-     *             404
-     *         ]
-     *     }
-     * }
-     * </code></pre>
-     * <br>With exception of id and list_data are all returned values based on how often one appears.
-     * <br>Each entry in list data is unique to what the respective bot list returns.
+     * An example of how the returned JSON may look like can be found here:<br>
+     * <a href="https://gist.github.com/Andre601/b18b1c4e88e9a405806ce7b6c29a0136" target="_blank">https://gist.github.com/Andre601/b18b1c4e88e9a405806ce7b6c29a0136</a>
      *
      * <p>Following Exceptions can be thrown from the CheckUtil:
      * <ul>
@@ -248,7 +192,7 @@ public class GetBotAction{
      * @return Possibly-null {@link org.json.JSONObject JSONObject} containing information from the different bot list.
      */
     @Nullable
-    public JSONObject getBotListInfo(@Nonnull Long id){
+    public JSONObject getBotListInfo(long id){
         return getBotListInfo(String.valueOf(id));
     }
     

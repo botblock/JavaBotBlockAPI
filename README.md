@@ -116,7 +116,7 @@ The BotBlockAPI class contains a nested Builder class which allows a more stream
 ```java
 BotBlockAPI api = new BotBlockAPI.Builder()
     .addAuthToken("discordextremelist.xyz", "my_s3cr3t_t0k3n")
-    .addAuthToken(Site.BOTLIST_SPACE, "my_53cret_tok3n")
+    .addAuthToken(Site.DISCORDLIST_SPACE, "my_53cret_tok3n")
     .build();
 ```
 
