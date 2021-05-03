@@ -55,8 +55,13 @@ public class Site{
      * <ul>
      *     <li>POST</li>
      * </ul>
+     *
+     * @deprecated Website not responding.
      */
-    public static final Site ARCANE_CENTER_XYZ = new Site("arcane-center.xyz", HttpMethod.POST);
+    @Deprecated
+    @DeprecatedSince(major = 6, minor = 6, patch = 6)
+    @PlannedRemoval(major = 6, minor = 6, patch = 8)
+    public static final Site ARCANE_CENTER_XYZ = new Site("arcane-center.xyz");
     
     /**
      * <a href="https://bladebotlist.xyz" target="_blank">bladebotlist.xyz</a>
@@ -83,6 +88,17 @@ public class Site{
     public static final Site BLIST_XYZ = new Site("blist.xyz", HttpMethod.GET, HttpMethod.POST);
     
     /**
+     * <a href="https://boatspace.xyz" target="_blank">boatspace.xyz</a>
+     * 
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
+     */
+    public static final Site BOATSPACE_XYZ = new Site("boatspace.xyz", HttpMethod.GET, HttpMethod.POST);
+    
+    /**
      * <a href="https://botsdatabase.com" target="_blank">botsdatabase.com</a>
      *
      * <p>Supported methods:
@@ -90,8 +106,13 @@ public class Site{
      *     <li>GET</li>
      *     <li>POST</li>
      * </ul>
+     * 
+     * @deprecated Website not responding.
      */
-    public static final Site BOTSDATABASE_COM = new Site("botsdatabase.com", HttpMethod.GET, HttpMethod.POST);
+    @Deprecated
+    @DeprecatedSince(major = 6, minor = 6, patch = 6)
+    @PlannedRemoval(major = 6, minor = 6, patch = 8)
+    public static final Site BOTSDATABASE_COM = new Site("botsdatabase.com");
     
     /**
      * <a href="https://bots.discordlabs.org" target="_blank">bots.discordlabs.org</a>
@@ -145,23 +166,6 @@ public class Site{
      * </ul>
      */
     public static final Site DISCORD_BOATS = new Site("discord.boats", HttpMethod.GET, HttpMethod.POST);
-    
-    /**
-     * <a href="https://discordbotdirectory.net" target="_blank">discordbotdirectory.net</a>
-     *
-     * <p>Supported methods:
-     * <ul>
-     *     <li>GET</li>
-     * </ul>
-     * 
-     * @deprecated Site no longer exists.
-     * 
-     * @since 6.3.0
-     */
-    @Deprecated
-    @DeprecatedSince(major = 6, minor = 6, patch = 4)
-    @PlannedRemoval(major = 6, minor = 6, patch = 6)
-    public static final Site DISCORDBOTDIRECTORY_NET = new Site("discordbotdirectory.net");
     
     /**
      * <a href="https://discordbotlist.com" target="_blank">discordbotlist.com</a>
@@ -230,6 +234,16 @@ public class Site{
      * </ul>
      */
     public static final Site DISCORDLIST_SPACE = new Site("discordlist.space", HttpMethod.GET, HttpMethod.POST);
+    
+    /**
+     * <a href="https://discordservices.net" target="_blank">discordservices.net</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>POST</li>
+     * </ul>
+     */
+    public static final Site DISCORDSERVICES_NET = new Site("discordservices.net", HttpMethod.POST);
     
     /**
      * <a href="https://disforge.com" target="_blank">disforge.com</a>
