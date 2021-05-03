@@ -21,7 +21,7 @@ allprojects {
         
         dependencies {
             api group: 'org.json', name: 'json', version: '20210307'
-            api group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: '3.0.1'
+            api group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: '3.0.2'
             api group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
             api group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
             
