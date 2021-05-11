@@ -1,0 +1,32 @@
+name-template: "v$RESOLVED_VERSION: "
+tag-template: "$RESOLVED_VERSION"
+prerelease: false
+publish: false
+exclude-labels:
+- "Action: No Changelog"
+
+categories:
+- title: "🚀 Features"
+  labels:
+  - "Type: Enhancement"
+- title: "🐛 Bug fixes"
+  labels:
+  - "Type: Bug (Confirmed)"
+- title: "🔧 Dependencies"
+  labels:
+  - "Type: Dependency update"
+change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
+version-resolver:
+  major:
+    labels:
+    - "Action: Update Major"
+  minor:
+    labels:
+    - "Action: Update Minor"
+  patch:
+    labels:
+    - "Action: Update Patch"
+  default: patch
+template: |
+  ## Release Notes
+  $CHANGES
