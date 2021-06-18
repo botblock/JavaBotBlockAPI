@@ -6,11 +6,6 @@ on:
     - opened
     branches:
     - master
-  pull_request:
-    types:
-    - opened
-    branches:
-    - master
 
 jobs:
   auto-approve:
