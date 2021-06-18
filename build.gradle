@@ -7,7 +7,7 @@ plugins{
     id 'com.github.johnrengelman.shadow' version '5.2.0'
 }
 
-def ver = new Version(major: 6, minor: 6, patch: 6)
+def ver = new Version(major: 6, minor: 7, patch: 0)
 
 allprojects {
     apply plugin: 'maven-publish'
@@ -87,6 +87,7 @@ allprojects {
     repositories {
         mavenCentral()
         jcenter()
+        maven { url = 'https://m2.dv8tion.net/releases' }
     }
     
     build {

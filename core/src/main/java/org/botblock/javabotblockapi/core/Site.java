@@ -49,21 +49,6 @@ import java.util.List;
 public class Site{
     
     /**
-     * <a href="https://arcane-center.xyz" target="_blank">arcane-center.xyz</a>
-     * 
-     * <p>Supported methods:
-     * <ul>
-     *     <li>POST</li>
-     * </ul>
-     *
-     * @deprecated Website not responding.
-     */
-    @Deprecated
-    @DeprecatedSince(major = 6, minor = 6, patch = 6)
-    @PlannedRemoval(major = 6, minor = 6, patch = 8)
-    public static final Site ARCANE_CENTER_XYZ = new Site("arcane-center.xyz");
-    
-    /**
      * <a href="https://bladebotlist.xyz" target="_blank">bladebotlist.xyz</a>
      *
      * <p>Supported methods:
@@ -97,22 +82,6 @@ public class Site{
      * </ul>
      */
     public static final Site BOATSPACE_XYZ = new Site("boatspace.xyz", HttpMethod.GET, HttpMethod.POST);
-    
-    /**
-     * <a href="https://botsdatabase.com" target="_blank">botsdatabase.com</a>
-     *
-     * <p>Supported methods:
-     * <ul>
-     *     <li>GET</li>
-     *     <li>POST</li>
-     * </ul>
-     * 
-     * @deprecated Website not responding.
-     */
-    @Deprecated
-    @DeprecatedSince(major = 6, minor = 6, patch = 6)
-    @PlannedRemoval(major = 6, minor = 6, patch = 8)
-    public static final Site BOTSDATABASE_COM = new Site("botsdatabase.com");
     
     /**
      * <a href="https://bots.discordlabs.org" target="_blank">bots.discordlabs.org</a>
