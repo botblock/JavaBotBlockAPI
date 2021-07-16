@@ -18,9 +18,6 @@
 
 package org.botblock.javabotblockapi.core;
 
-import org.botblock.javabotblockapi.core.annotations.DeprecatedSince;
-import org.botblock.javabotblockapi.core.annotations.PlannedRemoval;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

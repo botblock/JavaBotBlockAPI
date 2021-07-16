@@ -35,11 +35,11 @@ public class Info{
     /**
      * Minor version of the Wrapper.
      */
-    public static final int MINOR = 6;
+    public static final int MINOR = 7;
     /**
      * Patch version of the Wrapper.
      */
-    public static final int PATCH = 6;
+    public static final int PATCH = 1;
     
     /**
      * Full version in the format {@code major.minor.patch}.

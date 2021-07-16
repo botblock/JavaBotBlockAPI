@@ -88,6 +88,10 @@ public class BotBlockAPI{
             CheckUtil.notEmpty(token, "Token");
             CheckUtil.condition(!site.supportsPost(), site.getName() + " does not support POST requests!");
             
+            // Discordlist.space requires the token to start with "Bot "
+            if(site.getName().equals("discordlist.space") && !token.startsWith("Bot "))
+                token = "Bot " + token;
+            
             tokens.put(site.getName(), token);
             return this;
         }
@@ -113,6 +117,10 @@ public class BotBlockAPI{
         public Builder addAuthToken(@Nonnull String site, @Nonnull String token){
             CheckUtil.notEmpty(site, "Site");
             CheckUtil.notEmpty(token, "Token");
+    
+            // Discordlist.space requires the token to start with "Bot "
+            if(site.equals("discordlist.space") && !token.startsWith("Bot "))
+                token = "Bot " + token;
             
             tokens.put(site, token);
             return this;
