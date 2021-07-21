@@ -81,6 +81,19 @@ public class Site{
     public static final Site BOATSPACE_XYZ = new Site("boatspace.xyz", HttpMethod.GET, HttpMethod.POST);
     
     /**
+     * <a href="https://botlist.me" target="_blank">botlist.me</a>
+     * 
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
+     * 
+     * @since 6.7.2
+     */
+    public static final Site BOTLIST_ME = new Site("botlist.me", HttpMethod.GET, HttpMethod.POST);
+    
+    /**
      * <a href="https://bots.discordlabs.org" target="_blank">bots.discordlabs.org</a>
      *
      * <p>Supported methods:
@@ -246,6 +259,19 @@ public class Site{
     public static final Site INFINITYBOTLIST_XYZ = new Site("infinitybotlist.xyz", HttpMethod.GET, HttpMethod.POST);
     
     /**
+     * <a href="https://motiondevelopment.top" target="_blank">motiondevelopment.top</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
+     *
+     * @since 6.7.2
+     */
+    public static final Site MOTIONDEVELOPMENT_TOP = new Site("motiondevelopment.top", HttpMethod.GET, HttpMethod.POST);
+    
+    /**
      * <a href ="https://paradisebots.net" target="_blank">paradisebots.net</a>
      * 
      * <p>Supported methods:
@@ -259,6 +285,19 @@ public class Site{
     public static final Site PARADISEBOTS_NET = new Site("paradisebots.net", HttpMethod.GET, HttpMethod.POST);
     
     /**
+     * <a href="https://radarbotdirectory.xyz" target="_blank">radarbotdirectory.xyz</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
+     *
+     * @since 6.7.2
+     */
+    public static final Site RADARBOTDIRECTORY_XYZ = new Site("radarbotdirectory.xyz", HttpMethod.GET, HttpMethod.POST);
+    
+    /**
      * <a href="https://space-bot-list.xyz" target="_blank">space-bot-list.xyz</a>
      *
      * <p>Supported methods:
@@ -270,6 +309,18 @@ public class Site{
     public static final Site SPACE_BOT_LIST_XYZ = new Site("space-bot-list.xyz", HttpMethod.GET, HttpMethod.POST);
     
     /**
+     * <a href="https://stellarbotlist.com" target="_blank">stellarbotlist.com</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     * </ul>
+     *
+     * @since 6.7.2
+     */
+    public static final Site STELLARBOTLIST_COM = new Site("stellarbotlist.com", HttpMethod.GET);
+    
+    /**
      * <a href="https://topcord.xyz" target="_blank">topcord.xyz</a>
      *
      * <p>Supported methods:
@@ -279,6 +330,19 @@ public class Site{
      * </ul>
      */
     public static final Site TOPCORD_XYZ = new Site("topcord.xyz", HttpMethod.GET, HttpMethod.POST);
+    
+    /**
+     * <a href="https://vcodes.xyz" target="_blank">vcodes.xyz</a>
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
+     *
+     * @since 6.7.2
+     */
+    public static final Site VCODES_XYZ = new Site("vcodes.xyz", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://voidbots.net" target="_blank">voidbots.net</a>
