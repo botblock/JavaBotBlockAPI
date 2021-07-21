@@ -5,6 +5,7 @@ publish: false
 exclude-labels:
 - "Action: No Changelog"
 
+category_template: "### $TITLE"
 categories:
 - title: "🚀 Features"
   labels:
@@ -15,7 +16,9 @@ categories:
 - title: "🔧 Dependencies"
   labels:
   - "Type: Dependency update"
-change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
+
+change-template: "- [$NUMBER]: **$TITLE**"
+
 version-resolver:
   major:
     labels:
