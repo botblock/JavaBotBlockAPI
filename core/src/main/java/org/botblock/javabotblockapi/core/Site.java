@@ -392,7 +392,7 @@ public class Site{
     
     /**
      * The name used by the BotBlock API to identify the site.
-     * <br>The name usually is just the domain of the site without the http(s):// in front of it.
+     * <br>The name usually represents the domain of the bot list without the https in front of it.
      * 
      * @return The name of the site used for the BotBlock API.
      */
@@ -418,6 +418,12 @@ public class Site{
         return !methods.isEmpty() && methods.contains(HttpMethod.POST);
     }
     
+    /**
+     * Nested enum for the Http-methods supported by the bot lists.
+     * 
+     * <p>Depending on what Http-Methods a bot list supports can its corresponding entry be used for the GET methods,
+     * POST methods or both.
+     */
     public enum HttpMethod{
         /**
          * Bot list supports GET requests.
