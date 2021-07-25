@@ -17,7 +17,7 @@ categories:
   labels:
   - "Type: Dependency update"
 
-change-template: "- [$NUMBER]: **$TITLE**"
+change-template: "- [#$NUMBER]: **$TITLE**"
 
 version-resolver:
   major:
