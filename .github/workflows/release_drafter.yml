@@ -2,8 +2,9 @@
 name: Release notes
 
 on:
-#  push:
-#    branches: [ main ]
+  push:
+    branches:
+    - master
   pull_request_target:
     branches:
     - master
