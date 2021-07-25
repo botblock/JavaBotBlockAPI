@@ -18,6 +18,9 @@
 
 package org.botblock.javabotblockapi.core;
 
+import org.botblock.javabotblockapi.core.annotations.DeprecatedSince;
+import org.botblock.javabotblockapi.core.annotations.PlannedRemoval;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -112,8 +115,13 @@ public class Site{
      *     <li>GET</li>
      *     <li>POST</li>
      * </ul>
+     * 
+     * @deprecated List was aquired by {@link #DISCORDS_COM discords.com}
      */
-    public static final Site BOTSFORDISCORD_COM = new Site("botsfordiscord.com", HttpMethod.GET, HttpMethod.POST);
+    @Deprecated
+    @DeprecatedSince(major = 6, minor = 7, patch = 4, replacements = "DISCORDS_COM")
+    @PlannedRemoval(major = 6, minor = 7, patch = 6)
+    public static final Site BOTSFORDISCORD_COM = new Site("botsfordiscord.com");
     
     /**
      * <a href="https://bots.ondiscord.xyz" target="_blank">bots.ondiscord.xyz</a>
@@ -213,6 +221,17 @@ public class Site{
      * </ul>
      */
     public static final Site DISCORDLIST_SPACE = new Site("discordlist.space", HttpMethod.GET, HttpMethod.POST);
+    
+    /**
+     * <a href="https://discords.com" target="_blank">discords.com</a> formerly botsfordiscord.com
+     *
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
+     */
+    public static final Site DISCORDS_COM = new Site("discords.com", HttpMethod.GET, HttpMethod.POST);
     
     /**
      * <a href="https://discordservices.net" target="_blank">discordservices.net</a>
