@@ -259,6 +259,17 @@ public class Site{
     public static final Site INFINITYBOTLIST_XYZ = new Site("infinitybotlist.xyz", HttpMethod.GET, HttpMethod.POST);
     
     /**
+     * <a href="https://listcord.gg" target="_blank">listcord.gg</a>
+     * 
+     * <p>Supported methods:
+     * <ul>
+     *     <li>GET</li>
+     *     <li>POST</li>
+     * </ul>
+     */
+    public static final Site LISTCORD_GG = new Site("listcord.gg", HttpMethod.GET, HttpMethod.POST);
+    
+    /**
      * <a href="https://motiondevelopment.top" target="_blank">motiondevelopment.top</a>
      *
      * <p>Supported methods:
