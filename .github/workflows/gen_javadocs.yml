@@ -1,4 +1,4 @@
-name: Publication task
+name: Build Javadocs
 
 on:
   workflow_dispatch:
